@@ -70,6 +70,10 @@ body {
   padding: 1em;
 }
 
+img {
+  margin-bottom: 1em;
+}
+
 .corner {
   position: absolute;
   top: 0;
@@ -93,6 +97,11 @@ body {
   widows: 15em;
   border: 2px solid #262626;
   margin-right: 1em;
+}
+
+.top-border {
+  border-top: solid 5px #262626;
+  padding-top: 1em;
 }
 
 ::selection {
