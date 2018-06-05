@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- HTML properties -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"> 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Title -->
+    <title>Fondu ICO</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main">
+      <div class="corner">
+        <div class="corner-trianlge"></div>
+      </div>
+      <div class="article">
+        <h1>Fondu ICO</h1>
+        <h6>Interactive White Paper</h6>
+        <h6>Author: <a href="https://t.me/borodutch">Nikita Kolmogorov</a></h6>
+
+        <h2>Introduction</h2>
+        <p>This paper is a proposal to the whole crypto and opensource community that potentially can save millions of dollars and provide the opportunities for highly valuable yet underrated startups and companies to emerge. ICO market is sick and we have to fix it: swamped with parasites that leach on the industry providing the visionaries with highly overpriced hopes.</p>
+        <p>As we all know — most of the things in IT can be made more efficient my making it automatic. So why is the ICO market any different? We propose sollutions that will allow our community to create semi-automatic opensource service to create and manage any types of ICO. With minimal steps users will be able to fill in their ICO profile, configure the smart-contract with a series of simple questions and start raising money with a marketing-ready website.</p>
+        <p>If you have ever tried to conduct or conducted an ICO you know that writing a smart contract can be as costy as <b>$5,000 to $30,000</b> and creating a marketing website can be priced from <b>$10,000 to $50,000</b> — however, after you spend all this money you are left with a generic website and a slightly modified ERC20 token smart-contract. Why can't it be done automatic?</p>
+
+        <h2>The product</h2>
+        <p>Solution that we propose consists of two really simple modules: ICO constructor and ICO presenter. Former allows users to create ICO from scratch, latter shows the project's data as well as all the neccesities like progress bar, participation address, instructions, etc. Do you want to see how easy it is to build such a service? Look at what I've wrote in 5 minutes while drinking my morning coffee:</p>
+
+        <!-- Profile Constructor Vue -->
+        <div id="profile-constructor">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm">
+                <form>
+                  <input type="text" class="form-control" placeholder="Enter title" v-model="title">
+                  <textarea class="form-control" placeholder="Enter product description" v-model="description"></textarea>
+                  <textarea class="form-control" placeholder="Enter team details" v-model="team"></textarea>
+                  <textarea class="form-control" placeholder="Enter legal details" v-model="legal"></textarea>
+                </form>
+              </div>
+              <div class="col-sm">
+                <h4>{{ title || titleSample }}</h4>
+                <p>{{ description || descriptionSample }}</p>
+                <h4>Team:</h4>
+                <p>{{ team || teamSample }}</p>
+                <h4>Legal:</h4>
+                <p>{{ legal || legalSample }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>It wasn't difficult to setup your first ICO profile, was it? Maybe, it will be harder to create a smart-contruct construcor? Let's see, I've got 5 more minutes to spare:</p>
+
+        <!-- Smart contract Constructor Vue -->
+        <div id="contract-constructor">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm">
+                <form>
+                  <input type="text" class="form-control" placeholder="Token ticker" v-model="ticker">
+                  <input type="number" class="form-control margin-top" placeholder="# of tokens" v-model="supply">
+                </form>
+              </div>
+              <div class="col-sm">
+                <h4>{{ ticker || tickerSample }}.sol</h4>
+                <div class="code">
+                  <code><pre>{{code}}{{ticker||tickerSample}}{{code2}}{{ticker||tickerSample}}{{code3}}{{ticker||tickerSample}}{{code4}}{{supply||supplySample}}{{code5}}</pre></code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>Nice! You've just written your first smart contract! <b>$30,000</b> they say — and you just did it for free! Obviously, it's just a simple demo of ERC20 tokens without the crucial part — ICO token distribution, but believe me — it is as simple as the example above. Most of the ICO's just get copy\paste generic code with names of tokens, owner ETH addresses and supply amount changed. ICO visionaries literally get robbed in the broad daylight — and we just want to help stop it.</p>
+        <p>So far, I guess, you've learnt about our mission and what we are trying to implement. Simple ICO constructor and ICO presenter where launching ICO will not take more than 15 minutes of configuration process. Obviously, to achieve such a goal we need an experienced team of developers and contributors. So who's behind the whole Fondu thing?</p>
+
+        <h2>The team</h2>
+        <img class="img-bordered float-left" src="img/nikita.jpg">
+        <p>Nikita Kolmogorov [<a href="https://t.me/borodutch">Telegram</a>, <a href="https://fb.me/borodutch">Facebook</a>] — creator of <a href="https://t.me/voicybot">@voicybot</a> (1,500,000 users, <a href="https://github.com/backmeupplz/voicy">opensource</a>), <a href="https://t.me/banofbot"></a>@banofbot (150,000 chats, <a href="https://github.com/backmeupplz/banofbot">opensource</a>), <a href="https://toreador.io">Toreador.io</a>  (over $1,000,000 of trading capital), <a href="https://t.me/golden_borodutch">@golden_borodutch</a> — Telegram channel with over 12k subscribers with the focus on cryptocurrencies, IT and self-development.</p>
+        <p>Started to code at the age of 12 he hasparticipated in 35+ projects as a developer, IT enthusiast, manager, lead and consultant. His main focus at the moment is working on his personal projects as well as consulting startups in terms of launching Minimal Viable Products and establishing technical superiority.</p>
+        <p>Nikita is a strong believer that coding talents can be used for greater good and that money comes not from building things but after producing something that brings the most value to the larger amount of people.</p>
+        <h2>The advisors</h2>
+      </div>
+    </div>
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="profile-constructor.js"></script>
+    <script src="contract-constructor.js"></script>
+  </body>
+</html>
