@@ -16,7 +16,7 @@ textarea {
   margin-top: 1em;
 }
 
-.col-sm {
+.left-bordered {
   margin: 1em;
   border-left: 5px solid #262626;
 }
@@ -70,8 +70,9 @@ body {
   padding: 1em;
 }
 
-img {
-  margin-bottom: 1em;
+.left-margin {
+  margin-left: 1em;
+  margin-bottom: 0.5em;
 }
 
 .corner {

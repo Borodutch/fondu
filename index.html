@@ -37,7 +37,7 @@
         <div id="profile-constructor">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-sm">
+              <div class="col-sm left-bordered">
                 <form>
                   <input type="text" class="form-control" placeholder="Enter title" v-model="title">
                   <textarea class="form-control" placeholder="Enter product description" v-model="description"></textarea>
@@ -45,7 +45,7 @@
                   <textarea class="form-control" placeholder="Enter legal details" v-model="legal"></textarea>
                 </form>
               </div>
-              <div class="col-sm">
+              <div class="col-sm left-bordered">
                 <h4>{{ title || titleSample }}</h4>
                 <p>{{ description || descriptionSample }}</p>
                 <h4>Team:</h4>
@@ -63,13 +63,13 @@
         <div id="contract-constructor">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-sm">
+              <div class="col-sm left-bordered">
                 <form>
                   <input type="text" class="form-control" placeholder="Token ticker" v-model="ticker">
                   <input type="number" class="form-control margin-top" placeholder="# of tokens" v-model="supply">
                 </form>
               </div>
-              <div class="col-sm">
+              <div class="col-sm left-bordered">
                 <h4>{{ ticker || tickerSample }}.sol</h4>
                 <div class="code">
                   <code><pre>{{code}}{{ticker||tickerSample}}{{code2}}{{ticker||tickerSample}}{{code3}}{{ticker||tickerSample}}{{code4}}{{supply||supplySample}}{{code5}}</pre></code>
@@ -83,22 +83,24 @@
         <p>So far, I guess, you've learnt about our mission and what we are trying to implement. Simple ICO constructor and ICO presenter where launching ICO will not take more than 15 minutes of configuration process. Obviously, to achieve such a goal we need an experienced team of developers and contributors. So who's behind the whole Fondu thing?</p>
 
         <h2>The team</h2>
-        <img class="img-bordered float-left" src="img/nikita.jpg">
+
+        <img class="img-bordered float-right left-margin" src="img/nikita.jpg">
         <p><b>Nikita Kolmogorov</b> [<a href="https://t.me/borodutch">Telegram</a>, <a href="https://fb.me/borodutch">Facebook</a>] — creator of <a href="https://t.me/voicybot">@voicybot</a> (1,500,000 users, <a href="https://github.com/backmeupplz/voicy">opensource</a>), <a href="https://t.me/banofbot"></a>@banofbot (150,000 chats, <a href="https://github.com/backmeupplz/banofbot">opensource</a>), <a href="https://toreador.io">Toreador.io</a>  (over $1,000,000 of trading capital), <a href="https://t.me/golden_borodutch">@golden_borodutch</a> — Telegram channel with over 12k subscribers with the focus on cryptocurrencies, IT and self-development.</p>
         <p>Started to code at the age of 12 he hasparticipated in 35+ projects as a developer, IT enthusiast, manager, lead and consultant. His main focus at the moment is working on his personal projects as well as consulting startups in terms of launching Minimal Viable Products and establishing technical superiority.</p>
         <p>Nikita is a strong believer that coding talents can be used for greater good and that money comes not from building things but after producing something that brings the most value to the larger amount of people.</p>
+
         <h2>The advisors</h2>
-        <img class="img-bordered float-left" src="img/aler.jpg">
+        <img class="img-bordered float-right left-margin" src="img/aler.jpg">
         <p><b>Aler Denisov</b> [<a href="https://t.me/alerdenisov">Telegram</a>] — Bacon ipsum dolor amet picanha alcatra beef ribs short ribs ham rump, salami swine leberkas bacon kevin tri-tip buffalo ground round. Bresaola tenderloin andouille spare ribs cupim chuck doner. Jowl bresaola jerky leberkas swine chicken, drumstick pork belly salami tri-tip strip steak pork chop. Shank sirloin capicola tongue spare ribs kevin filet mignon, drumstick meatloaf boudin tri-tip.</p>
         <p>Jerky filet mignon ribeye ham hock corned beef cupim turducken, picanha frankfurter short loin short ribs. Cupim ground round strip steak bresaola turkey. Sirloin short loin ball tip cupim bresaola filet mignon. Tri-tip pork ribeye porchetta flank. Ground round shank tri-tip, ribeye tongue t-bone leberkas. Ribeye burgdoggen frankfurter leberkas, tail pork ground round venison.</p> 
           
-        <img class="img-bordered float-left" src="img/pablo.jpg">
+        <img class="img-bordered float-right left-margin" src="img/pablo.jpg">
         <p><b>Pablo Escobar</b> [<a href="https://t.me/abobo24">Telegram</a>] — Brisket leberkas pork belly, ham hock pig sausage corned beef capicola chicken sirloin. Shank pancetta short ribs hamburger burgdoggen flank brisket salami landjaeger venison kielbasa meatball. Shankle short loin prosciutto, pork loin sausage cupim turducken picanha. Shoulder bresaola cupim cow meatloaf ball tip pork loin shank.</p>
         <p>Filet mignon tenderloin shank pig shankle ham hock. Ball tip biltong fatback drumstick frankfurter pastrami short ribs flank ground round filet mignon. Bacon ham hock doner kielbasa. Salami sausage andouille brisket, leberkas flank pork loin tri-tip pork pig. Ham hock tri-tip brisket, chicken chuck biltong beef tongue. Ribeye capicola pork belly flank ball tip tri-tip shoulder strip steak cupim. Pork loin kielbasa short ribs, ham hock picanha bacon beef ribs hamburger tongue turducken kevin frankfurter chuck brisket.</p>
         <h2>The ICO</h2>
         <p>Apparently, this is the reason why most of the text and code above was written. Even though we believe that a project on a such scale can be fueled by the enthusiasm of the contributors, there is also a strong necessity in Fondu on the market at the moment. And it means that we have to act quick — otherwise millions of dollars can be lost to scammers who simply reuse the same smart contract code again and again charging enormously large fees.</p>
         <p>In order to release Fondu faster, we need to hire developers fulltime and by estimate we need around <b>$250,000</b> for the first year of operation. However, the estimate amount of money saved within the first is far exceeding the expenses on human power. If every 10th ICO pledges $1,000 (1/70 of the average smart contract and website budget) to Fondu, this operation will succeed.</p>
-        <img class="img-bordered float-left" src="img/eth.png">
+        <img class="img-bordered float-right left-margin" src="img/eth.png">
         <p>ICO progress:</p>
         <p>[■■■■■■■■■■■■■■■☐☐☐☐☐☐☐☐☐☐☐☐] 50% to Softcap</p>
         <p>Raised: 1500 ETH ($999555)</p>
