@@ -413,14 +413,14 @@
     "absolutePath": "/Users/BackMeUpPlz/code/fondu/contract/contracts/FDUToken.sol",
     "exportedSymbols": {
       "FDUToken": [
-        91
+        97
       ]
     },
-    "id": 92,
+    "id": 98,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 78,
+        "id": 84,
         "literals": [
           "solidity",
           "^",
@@ -433,10 +433,10 @@
       {
         "absolutePath": "/Users/BackMeUpPlz/code/fondu/contract/node_modules/openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol",
         "file": "../node_modules/openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol",
-        "id": 79,
+        "id": 85,
         "nodeType": "ImportDirective",
-        "scope": 92,
-        "sourceUnit": 885,
+        "scope": 98,
+        "sourceUnit": 891,
         "src": "37:87:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -447,51 +447,51 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 80,
+              "id": 86,
               "name": "MintableToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 884,
+              "referencedDeclaration": 890,
               "src": "176:13:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_MintableToken_$884",
+                "typeIdentifier": "t_contract$_MintableToken_$890",
                 "typeString": "contract MintableToken"
               }
             },
-            "id": 81,
+            "id": 87,
             "nodeType": "InheritanceSpecifier",
             "src": "176:13:1"
           }
         ],
         "contractDependencies": [
-          607,
-          703,
-          746,
-          778,
-          884,
-          1131
+          613,
+          709,
+          752,
+          784,
+          890,
+          1137
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 91,
+        "id": 97,
         "linearizedBaseContracts": [
-          91,
-          884,
-          607,
-          1131,
-          703,
-          746,
-          778
+          97,
+          890,
+          613,
+          1137,
+          709,
+          752,
+          784
         ],
         "name": "FDUToken",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 84,
+            "id": 90,
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 91,
+            "scope": 97,
             "src": "194:43:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -500,7 +500,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 82,
+              "id": 88,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "194:6:1",
@@ -512,7 +512,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "466f6e647520546f6b656e",
-              "id": 83,
+              "id": 89,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -531,10 +531,10 @@
           },
           {
             "constant": true,
-            "id": 87,
+            "id": 93,
             "name": "symbol",
             "nodeType": "VariableDeclaration",
-            "scope": 91,
+            "scope": 97,
             "src": "241:37:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -543,7 +543,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 85,
+              "id": 91,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "241:6:1",
@@ -555,7 +555,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "464455",
-              "id": 86,
+              "id": 92,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -574,10 +574,10 @@
           },
           {
             "constant": true,
-            "id": 90,
+            "id": 96,
             "name": "decimals",
             "nodeType": "VariableDeclaration",
-            "scope": 91,
+            "scope": 97,
             "src": "282:35:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -586,7 +586,7 @@
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 88,
+              "id": 94,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
               "src": "282:5:1",
@@ -598,7 +598,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "3138",
-              "id": 89,
+              "id": 95,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -616,7 +616,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 92,
+        "scope": 98,
         "src": "155:165:1"
       }
     ],
@@ -626,14 +626,14 @@
     "absolutePath": "/Users/BackMeUpPlz/code/fondu/contract/contracts/FDUToken.sol",
     "exportedSymbols": {
       "FDUToken": [
-        91
+        97
       ]
     },
-    "id": 92,
+    "id": 98,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 78,
+        "id": 84,
         "literals": [
           "solidity",
           "^",
@@ -646,10 +646,10 @@
       {
         "absolutePath": "/Users/BackMeUpPlz/code/fondu/contract/node_modules/openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol",
         "file": "../node_modules/openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol",
-        "id": 79,
+        "id": 85,
         "nodeType": "ImportDirective",
-        "scope": 92,
-        "sourceUnit": 885,
+        "scope": 98,
+        "sourceUnit": 891,
         "src": "37:87:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -660,51 +660,51 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 80,
+              "id": 86,
               "name": "MintableToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 884,
+              "referencedDeclaration": 890,
               "src": "176:13:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_MintableToken_$884",
+                "typeIdentifier": "t_contract$_MintableToken_$890",
                 "typeString": "contract MintableToken"
               }
             },
-            "id": 81,
+            "id": 87,
             "nodeType": "InheritanceSpecifier",
             "src": "176:13:1"
           }
         ],
         "contractDependencies": [
-          607,
-          703,
-          746,
-          778,
-          884,
-          1131
+          613,
+          709,
+          752,
+          784,
+          890,
+          1137
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 91,
+        "id": 97,
         "linearizedBaseContracts": [
-          91,
-          884,
-          607,
-          1131,
-          703,
-          746,
-          778
+          97,
+          890,
+          613,
+          1137,
+          709,
+          752,
+          784
         ],
         "name": "FDUToken",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": true,
-            "id": 84,
+            "id": 90,
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 91,
+            "scope": 97,
             "src": "194:43:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -713,7 +713,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 82,
+              "id": 88,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "194:6:1",
@@ -725,7 +725,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "466f6e647520546f6b656e",
-              "id": 83,
+              "id": 89,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -744,10 +744,10 @@
           },
           {
             "constant": true,
-            "id": 87,
+            "id": 93,
             "name": "symbol",
             "nodeType": "VariableDeclaration",
-            "scope": 91,
+            "scope": 97,
             "src": "241:37:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -756,7 +756,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 85,
+              "id": 91,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "241:6:1",
@@ -768,7 +768,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "464455",
-              "id": 86,
+              "id": 92,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -787,10 +787,10 @@
           },
           {
             "constant": true,
-            "id": 90,
+            "id": 96,
             "name": "decimals",
             "nodeType": "VariableDeclaration",
-            "scope": 91,
+            "scope": 97,
             "src": "282:35:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -799,7 +799,7 @@
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 88,
+              "id": 94,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
               "src": "282:5:1",
@@ -811,7 +811,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "3138",
-              "id": 89,
+              "id": 95,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -829,7 +829,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 92,
+        "scope": 98,
         "src": "155:165:1"
       }
     ],
@@ -843,10 +843,10 @@
     "1528699019901": {
       "events": {},
       "links": {},
-      "address": "0xfae9937c826b1a90b4158914c260e06909ffd75f",
-      "transactionHash": "0x2fdcc7bc7babf62984cfdda8bc314217caa11291f1740c0789e8c7783a8bb8e5"
+      "address": "0x9f8449247ae88ae9b03dc4ec84978fdf631ea5f8",
+      "transactionHash": "0xf8d552db8816516d2d029773a076c72c295102694a88f01bfe907bd2d246d938"
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-06-11T07:31:41.832Z"
+  "updatedAt": "2018-06-11T07:45:03.246Z"
 }
