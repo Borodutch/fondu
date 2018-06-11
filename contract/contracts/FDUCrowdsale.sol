@@ -6,8 +6,8 @@ import "../node_modules/openzeppelin-solidity/contracts/crowdsale/validation/Tim
 import "../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
 import "./FDUToken.sol";
 
-contract FonduCrowdsale is MintedCrowdsale, TimedCrowdsale, Ownable {
-  constructor(
+contract FDUCrowdsale is MintedCrowdsale, TimedCrowdsale, Ownable {
+  function FDUCrowdsale(
     uint256 _openingTime,
     uint256 _closingTime,
     uint256 _rate,
