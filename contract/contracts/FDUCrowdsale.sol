@@ -1,22 +1,18 @@
 pragma solidity ^0.4.23;
 
 // Imports
-import "../node_modules/openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol";
+import "../node_modules/openzeppelin-solidity/contracts/crowdsale/emission/MintedCrowdsale.sol";
+import "../node_modules/openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
+import "../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "./FDUToken.sol";
 
-// Main token smart contract
-contract FDUToken is MintableToken {
-  string public constant name = "Fondu Token";
-  string public constant symbol = "FDU";
-  uint8 public constant decimals = 18;
-}
-
-contract FonduCrowdsale is MintedCrowdsale {
+contract FonduCrowdsale is MintedCrowdsale, TimedCrowdsale, Ownable {
   constructor(
     uint256 _openingTime,
     uint256 _closingTime,
     uint256 _rate,
     address _wallet,
-    MintableToken _token,
+    MintableToken _token
   )
     public
     Crowdsale(_rate, _wallet, _token)
