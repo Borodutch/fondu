@@ -57,17 +57,8 @@ body {
 }
 
 .main {
-  min-height: 100%;
   background-color: #ffffff;
   position:relative;
-}
-
-.article {
-  min-width: 40%;
-  max-width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1em;
 }
 
 .left-margin {
@@ -94,10 +85,8 @@ body {
 }
 
 .img-bordered {
-  height: 15em;
-  width: 15em;
+  width: 100%;
   border: 2px solid #262626;
-  margin-right: 1em;
 }
 
 .top-border {
@@ -123,13 +112,6 @@ body {
   .corner {
     width: 3em;
     height: 3em;
-  }
-
-  .article {
-    min-width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
   }
 
   .article_list {
