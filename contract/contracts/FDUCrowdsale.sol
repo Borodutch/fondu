@@ -25,9 +25,9 @@ contract FDUCrowdsale is MintedCrowdsale, TimedCrowdsale, Ownable {
     internal view returns (uint256)
   {
     uint256 actualRate = rate;
-    if (block.timestamp < 1533081600) {
+    if (block.timestamp < 1533081600) { // August 1st, 2018
       rate = rate * 4;
-    } else if (block.timestamp < 1546300800) {
+    } else if (block.timestamp < 1546300800) { // January 1st, 2019
       rate = rate * 2;
     }
     rate = rate / 10 finney;
