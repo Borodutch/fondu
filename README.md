@@ -7,6 +7,7 @@ Here's a list of the things that yet to be done:
 * Finish team members
 * Add link to the GitHub
 * Deploy smart-contract
+* Fix mobile version
 
 ## License
 MIT — use for any purpose. Thanks!
