@@ -8,6 +8,8 @@ Here's a list of the things that yet to be done:
 * Add link to the GitHub
 * Deploy smart-contract
 * Fix mobile version
+* Proof-read English texts
+* Translate to Russian and Chinese
 
 ## License
 MIT — use for any purpose. Thanks!
