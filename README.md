@@ -3,7 +3,6 @@ Dear reader, welcome to our humble code repository for the ICO of the Fondu proj
 
 ## TODO:
 Here's a list of the things that yet to be done:
-* Add link to the GitHub
 * Deploy smart-contract
 * Proof-read English texts
 * Translate to Russian and Chinese
