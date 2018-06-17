@@ -25,14 +25,17 @@ textarea {
 h1 {
     padding-top: 1em;
     border-bottom: 5px solid #262626;
+    overflow-y: hidden;
 }
 
 h2 {
     padding-top: 0.5em;
+    overflow-y: hidden;
 }
 
 h4 {
     border-bottom: 5px solid #262626;
+    overflow-y: hidden;
 }
 
 p {
