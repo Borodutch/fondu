@@ -7,7 +7,7 @@ import "../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
 import "./FDUToken.sol";
 
 contract FDUCrowdsale is MintedCrowdsale, TimedCrowdsale, Ownable {
-  function FDUCrowdsale(
+  constructor(
     uint256 _openingTime,
     uint256 _closingTime,
     uint256 _rate,
@@ -30,7 +30,7 @@ contract FDUCrowdsale is MintedCrowdsale, TimedCrowdsale, Ownable {
     } else if (block.timestamp < 1546300800) { // January 1st, 2019
       rate = rate * 2;
     }
-    rate = rate / 10 finney;
+    // rate = rate / 10 finney;
     return _weiAmount.mul(actualRate);
   }
 }
