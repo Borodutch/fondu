@@ -30,7 +30,7 @@ contract FDUCrowdsale is MintedCrowdsale, TimedCrowdsale, Ownable {
     } else if (block.timestamp < 1546300800) { // January 1st, 2019
       rate = rate * 2;
     }
-    // rate = rate / 10 finney;
+    rate = rate / 10 finney;
     return _weiAmount.mul(actualRate);
   }
 }
