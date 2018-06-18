@@ -5,7 +5,7 @@ module.exports = function(deployer, network, accounts) {
     const openingTime = 1514764800; // 15 June 2018
     const closingTime = 1561939200; // 1 July 2019
     const rate = new web3.BigNumber(250); // 250 FDU per 1 wei
-    const wallet = '0x1133ea57c14e1832be99d2093d4bc63e2de072e3';
+    const wallet = '0x2cb2614d4d20843857a41202d3819b410a26711d';
     return deployer
         .then(() => {
             return deployer.deploy(token);
