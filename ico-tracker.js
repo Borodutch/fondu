@@ -1,6 +1,3 @@
-var provider = new Web3.providers.HttpProvider('https://api.myetherapi.com/eth');
-provider.sendAsync = provider.send;
-var web3 = new Web3(provider);
 var erc20Abi = [
   {
     "constant": true,
@@ -87,14 +84,21 @@ var app = new Vue({
       return '[' + temp + '] ' + percentage.toFixed(2) + '% to $250,000';
     },
     raised: function() {
-      // Raised: 1500 ETH ($999555)
-      if (this.error) return '';
+      if (this.error) return 'Please, reload the page to see ICO stats';
       if (!this.totalSupply || !this.ethPrice) return '';
 
       return 'Raised: ' + (this.totalSupply / 250) + ' ETH ($' + (this.totalSupply / 250 * this.ethPrice).toFixed(2) + ' or ' + this.totalSupply + ' FDU)'
     }
   },
   created: function() {
+    try {
+      var provider = new Web3.providers.HttpProvider('https://api.myetherapi.com/eth');
+      provider.sendAsync = provider.send;
+      var web3 = new Web3(provider);
+    } catch (err) {
+      this.error = err.message;
+      return;
+    }
     // Fetch total supply
     var token = web3.eth.contract(erc20Abi).at('0x176afbcd4cf9fb7c41ecf5ec0267b87f018f12f8');
     this.totalSupply = token.totalSupply().dividedBy('1000000000000000000').toNumber();
