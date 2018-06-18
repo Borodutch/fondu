@@ -10,6 +10,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Web3 -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
     <!-- Title -->
     <title>Fondu ICO</title>
     <!-- Fonts -->
@@ -249,21 +253,25 @@
         <h2>ICO</h2>
         <p>Apparently, this is the reason why most of the text and code above were written. Even though we believe that a project on a such scale can be fueled by the enthusiasm of the contributors, there is also a strong necessity in Fondu on the market at the moment. And it means that we have to act quick — otherwise millions of dollars can be lost to scammers who simply reuse the same smart contract code again and again charging enormously large fees.</p>
         <p>In order to release Fondu faster, we need to hire developers, designers and managers fulltime and by estimate we need around <b>$250,000</b> for the first year of operation. However, the estimate amount of money saved within the first is far exceeding the estimate expenses. If every 10th ICO pledges $1,000 (1/70 of the average smart contract and website budget) to Fondu, this ICO will succeed.</p>
-        <p>Terms of the ICO are super simple: you transfer ETH to the ETH address below and get FDU tokens. For every 1 ETH sent you will receive 1000 FDU tokens until August 1st, 2018; 500 tokens until January 1st, 2019; and 250 tokens until July 1st, 2019. Then the crowdfunding ICO campaign will be over.</p>
+        <p>Terms of the ICO are super simple: you transfer ETH to the ETH address below and get FDU tokens. For every 1 ETH sent you will receive 250 FDU tokens until July 1st, 2019. Then the crowdfunding ICO campaign will be over.</p>
         <p>Fondu ICO tokensale will end on July 1st, 2019. All the funds collected will be converted to USD tight away and will be used to pay developers and contributors to the Fondu repositories. So far we haven't come up with the proper use fot the FDU tokens, however we promise to elaborate it to the Fondu platform in the future. When buying FDU tokens, please, execute extreme caution and make sure you understand that you're just supporting our community and getting FDU tokens in return that might hold no value at all in future.</p>
 
-        <div class="row">
-          <div class="col-sm-9">
-              <p>ICO progress:</p>
-              <p>[■■■■■■■■■■■■■■■☐☐☐☐☐☐☐☐☐☐☐☐] 50% to $250,000</p>
-              <p>Raised: 1500 ETH ($999555)</p>
-              <p>Send Ethereum to the address on the qr code or to this address to buy FDU:</p>
-              <p>0x281055afc982d96fab65b3a49cac8b878184cb16</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/eth.png"></p>
+        <!-- ICO tracker Vue -->
+        <div id="ico-tracker">
+          <div class="row">
+            <div class="col-sm-9">
+                <h5>ICO progress (<a href="https://etherscan.io/token/0x176afbcd4cf9fb7c41ecf5ec0267b87f018f12f8">proof</a>):</h5>
+                <p>{{ progress }}</p>
+                <p>{{ raised }}</p>
+                <p>Send Ethereum to the address on the qr code or to this address to buy FDU:</p>
+                <h5>0x7a5eb747f7921b057fa081e52597bc2cf0a03c4a</h5>
+            </div>
+            <div class="col-sm-3">
+              <p><img class="img-bordered" src="img/qr.png"></p>
+            </div>
           </div>
         </div>
+
         <h2>Note on open source</h2>
         <p>We intend to make Fondu fully available for free to whoever wants to use it. It's development is done completely for the sake of excellent programmers giving back to the community. Our goal is to make sure that evertybody can start an ICO for any reason just like anybody can create a GitHub repository. Speaking about GitHub, we are completely transparrent and our smart-contract code and any code in general <a href="https://github.com/backmeupplz/fondu">can always be found</a> on GitHub under MIT license — which means do whatever you want with the code — we would only be glad if it helps anyone. Every single line of code we write within Fondu will always be open to public. Thanks!</p>
 
@@ -277,5 +285,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="profile-constructor.js"></script>
     <script src="contract-constructor.js"></script>
+    <script src="ico-tracker.js"></script>
   </body>
 </html>
