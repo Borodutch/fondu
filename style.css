@@ -107,6 +107,9 @@ body {
     background: #262626; /* Gecko Browsers */
     color: #e6e7e8;
 }
+.bottom-margin {
+    margin-bottom: 1em;
+}
 
 
 @media screen and (max-width: 485px) {

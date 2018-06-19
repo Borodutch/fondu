@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- HTML properties -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <base target="_blank">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"> 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Web3 -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <!-- Title -->
+    <title>Fondu ICO</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main">
+      <!-- Smart contract Constructor Vue -->
+      <div id="contract-constructor">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm left-bordered">
+              <form>
+                <small class="form-text">Human-readable name of your token like "Fondu", "Bitcoin" or "Ethereum":</small>
+                <input type="text" class="form-control bottom-margin" placeholder="Name" v-model="name">
+
+                <small class="form-text">Symbol of your token like "FDU", "BTC" or "ETH":</small>
+                <input type="text" class="form-control bottom-margin" placeholder="Symbol" v-model="symbol">
+
+                <small class="form-text">Number of decimals your currency supports; for instance, Ethereum can go as low as 18 decimals or 0.000000000000000001 ETH:</small>
+                <input type="number" class="form-control bottom-margin" placeholder="Decimals" v-model="decimals">
+
+                <div v-if="!increasingPrice">
+                  <small class="form-text">Rate of how many of your tokens will user get for 1 ETH</small>
+                  <input type="number" class="form-control bottom-margin" placeholder="Rate" v-model="rate">
+                </div>
+
+                <small class="form-text">ETH wallet that will receive the collected funds:</small>
+                <input type="text" class="form-control bottom-margin" placeholder="Wallet" v-model="wallet">
+
+                <small class="form-text">Whether your crowdsale is bounded by a time frame or not:</small>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" v-model="timed">
+                    Is this crowdsale timed?
+                  </label>
+                </div>
+                <div v-if="timed">
+                  <small class="form-text">Start date</small>
+                  <input type="datetime-local" class="form-control bottom-margin" v-model="startDate">
+                  <small class="form-text">End date</small>
+                  <input type="datetime-local" class="form-control bottom-margin" v-model="endDate">
+                </div>
+
+                <div v-if="timed">
+                  <small class="form-text">Whether the funds will be held untill softcap is reached and will be returned to the investors if softcap isn't reached:</small>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" v-model="refundable">
+                      Is this crowdsale refundable?
+                    </label>
+                  </div>
+                  <div v-if="refundable">
+                    <small class="form-text">Specify softcap — how many tokens you need to gather in order not to trigger the refund mechanism</small>
+                    <input type="number" class="form-control bottom-margin" placeholder="Softcap" v-model="goal">
+                  </div>
+                </div>
+
+                <div v-if="timed">
+                  <small class="form-text">Do you need the rate of token to decrease over time so that the sooner you buy the tokens the larger amount of tokens you get?</small>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" v-model="increasingPrice">
+                      Does the crowdsale have increasing price?
+                    </label>
+                  </div>
+                  <div v-if="increasingPrice">
+                      <small class="form-text">Rate of how many of your tokens will user get for 1 ETH at the beginning of the crowdsale</small>
+                      <input type="number" placeholder="Start rate" class="form-control bottom-margin" v-model="startRate">
+                      <small class="form-text">Rate of how many of your tokens will user get for 1 ETH in the end of the crowdsale</small>
+                      <input type="number" placeholder="End rate" class="form-control bottom-margin" v-model="endRate">
+                  </div>
+                </div>
+
+                <small class="form-text">Whether you have the maximum value of tokens sold:</small>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" v-model="capped">
+                      Is this crowdsale capped?
+                    </label>
+                  </div>
+                  <div v-if="capped">
+                    <small class="form-text">What is the maximum amount of tokens you intend to raise?</small>
+                    <input type="number" class="form-control bottom-margin" placeholder="Hardcap" v-model="cap">
+                  </div>
+
+                  <small class="form-text">Would you like to accept Ethereum only from the whitelisted addresses?:</small>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" v-model="whitelisted">
+                      Is this crowdsale whitelist only?
+                    </label>
+                  </div>
+              </form>
+            </div>
+            <div class="col-sm left-bordered">
+              <div class="code">
+                <code><pre>{{code}}</pre></code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contract builder -->
+    <script src="contract-builder/index.js"></script>
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="contract-constructor.js"></script>
+  </body>
+</html>

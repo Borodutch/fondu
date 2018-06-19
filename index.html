@@ -72,19 +72,96 @@
         <p>It wasn't difficult to setup your first ICO profile, was it? Maybe, it will be harder to create a smart-contract constructor? Let's see, I've got 5 more minutes to spare:</p>
 
         <!-- Smart contract Constructor Vue -->
-        <div id="contract-constructor">
+      <div id="contract-constructor">
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm left-bordered">
                 <form>
-                  <input type="text" class="form-control" placeholder="Token ticker" v-model="ticker">
-                  <input type="number" class="form-control margin-top" placeholder="# of tokens" v-model="supply">
+                  <small class="form-text">Human-readable name of your token like "Fondu", "Bitcoin" or "Ethereum":</small>
+                  <input type="text" class="form-control bottom-margin" placeholder="Name" v-model="name">
+  
+                  <small class="form-text">Symbol of your token like "FDU", "BTC" or "ETH":</small>
+                  <input type="text" class="form-control bottom-margin" placeholder="Symbol" v-model="symbol">
+  
+                  <small class="form-text">Number of decimals your currency supports; for instance, Ethereum can go as low as 18 decimals or 0.000000000000000001 ETH:</small>
+                  <input type="number" class="form-control bottom-margin" placeholder="Decimals" v-model="decimals">
+  
+                  <div v-if="!increasingPrice">
+                    <small class="form-text">Rate of how many of your tokens will user get for 1 ETH</small>
+                    <input type="number" class="form-control bottom-margin" placeholder="Rate" v-model="rate">
+                  </div>
+  
+                  <small class="form-text">ETH wallet that will receive the collected funds:</small>
+                  <input type="text" class="form-control bottom-margin" placeholder="Wallet" v-model="wallet">
+  
+                  <small class="form-text">Whether your crowdsale is bounded by a time frame or not:</small>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" v-model="timed">
+                      Is this crowdsale timed?
+                    </label>
+                  </div>
+                  <div v-if="timed">
+                    <small class="form-text">Start date</small>
+                    <input type="datetime-local" class="form-control bottom-margin" v-model="startDate">
+                    <small class="form-text">End date</small>
+                    <input type="datetime-local" class="form-control bottom-margin" v-model="endDate">
+                  </div>
+  
+                  <div v-if="timed">
+                    <small class="form-text">Whether the funds will be held untill softcap is reached and will be returned to the investors if softcap isn't reached:</small>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" v-model="refundable">
+                        Is this crowdsale refundable?
+                      </label>
+                    </div>
+                    <div v-if="refundable">
+                      <small class="form-text">Specify softcap — how many tokens you need to gather in order not to trigger the refund mechanism</small>
+                      <input type="number" class="form-control bottom-margin" placeholder="Softcap" v-model="goal">
+                    </div>
+                  </div>
+  
+                  <div v-if="timed">
+                    <small class="form-text">Do you need the rate of token to decrease over time so that the sooner you buy the tokens the larger amount of tokens you get?</small>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" v-model="increasingPrice">
+                        Does the crowdsale have increasing price?
+                      </label>
+                    </div>
+                    <div v-if="increasingPrice">
+                        <small class="form-text">Rate of how many of your tokens will user get for 1 ETH at the beginning of the crowdsale</small>
+                        <input type="number" placeholder="Start rate" class="form-control bottom-margin" v-model="startRate">
+                        <small class="form-text">Rate of how many of your tokens will user get for 1 ETH in the end of the crowdsale</small>
+                        <input type="number" placeholder="End rate" class="form-control bottom-margin" v-model="endRate">
+                    </div>
+                  </div>
+  
+                  <small class="form-text">Whether you have the maximum value of tokens sold:</small>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" v-model="capped">
+                        Is this crowdsale capped?
+                      </label>
+                    </div>
+                    <div v-if="capped">
+                      <small class="form-text">What is the maximum amount of tokens you intend to raise?</small>
+                      <input type="number" class="form-control bottom-margin" placeholder="Hardcap" v-model="cap">
+                    </div>
+  
+                    <small class="form-text">Would you like to accept Ethereum only from the whitelisted addresses?:</small>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" v-model="whitelisted">
+                        Is this crowdsale whitelist only?
+                      </label>
+                    </div>
                 </form>
               </div>
               <div class="col-sm left-bordered">
-                <h4>{{ ticker || tickerSample }}.sol</h4>
                 <div class="code">
-                  <code><pre>{{code}}{{ticker||tickerSample}}{{code2}}{{ticker||tickerSample}}{{code3}}{{ticker||tickerSample}}{{code4}}{{supply||supplySample}}{{code5}}</pre></code>
+                  <code><pre>{{code}}</pre></code>
                 </div>
               </div>
             </div>
@@ -282,6 +359,9 @@
         <p class="top-border">© 2018, Fondu</p>
       </div>
     </div>
+    
+    <!-- Contract builder -->
+    <script src="contract-builder/index.js"></script>
     <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="profile-constructor.js"></script>
