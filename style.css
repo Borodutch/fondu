@@ -1,6 +1,5 @@
 * {
     font-family: 'Overpass Mono', monospace;
-    overflow-x: hidden;
 }
 
 #profile-constructor, #contract-constructor {
@@ -37,7 +36,9 @@ h4 {
     border-bottom: 5px solid #262626;
     overflow-y: hidden;
 }
-
+h5 {
+    word-wrap: break-word;
+}
 p {
     font-size: 16px;
     white-space: pre-line;
@@ -75,8 +76,8 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 6em;
-    height: 6em;
+    width: 5em;
+    height: 5em;
     background-color: #e6e7e8;
 }
   
@@ -85,7 +86,7 @@ body {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 6em 6em 0;
+    border-width: 0 5em 5em 0;
     border-color: transparent #262626 transparent transparent;
 }
 
@@ -120,6 +121,9 @@ body {
     .corner {
         width: 3em;
         height: 3em;
+    }
+    .corner-trianlge{
+        border-width: 0 3em 3em 0;
     }
 
     .article_list {
