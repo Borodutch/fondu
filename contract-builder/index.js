@@ -44,7 +44,14 @@ class ContractConstructor {
       .then((response) => {
         migration = response;
         
-
+        // Generate zip
+        var zip = new JSZip();
+        zip.file('Token.sol', token)
+        zip.file('Crowdsale.sol', crowdsale)
+        zip.file('1_initial_migration.js', migration)
+        
+        // Return data
+        return zip.generateAsync({ type:"base64" });
       })
   }
 
@@ -68,14 +75,7 @@ class ContractConstructor {
       .then((response) => {
         migration = response;
 
-        // Generate zip
-        var zip = new JSZip();
-        zip.file('Token.sol', token)
-        zip.file('Crowdsale.sol', crowdsale)
-        zip.file('1_initial_migration.js', migration)
-        
-        // Return data
-        return zip.generateAsync({ type:"base64" });
+        return `### Token.sol\n\n${token}\n\n### Crodwsalw.sol\n\n${crowdsale}\n\n### 1_initial_migration.js\n\n${migration}`
       })
   }
 
