@@ -15,6 +15,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Web3 -->
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <!-- Downloadify -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"></script>
     <!-- Title -->
     <title>Fondu ICO</title>
     <!-- Fonts -->
@@ -163,6 +165,16 @@
                 <div class="code">
                   <code><pre>{{code}}</pre></code>
                 </div>
+                <br>
+                <button type="button" class="btn btn-primary" v-on:click="download">Download files</button>
+                <br><br>
+                <p>What's next?</p>
+                <ol>
+                  <li>Run <code>geth --rpc</code></li>
+                  <li>Ensure that you have <code>web3.eth.accounts[0]</code> existing, unlocked and hving enough ETH to deploy a smart contract</li>
+                  <li>Run <code>./install.sh</code> in the root folder of the zip you've downloaded</li>
+                  <li>Enjoy your smart-contract deployed!</li>
+                </ol>
               </div>
             </div>
           </div>
@@ -360,6 +372,8 @@
       </div>
     </div>
     
+    <!-- JSZip -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
     <!-- Contract builder -->
     <script src="contract-builder/index.js"></script>
     <!-- Vue -->

@@ -25,5 +25,12 @@ var app = new Vue({
     const contructConstructor = new ContractConstructor();
     contructConstructor.getCodeText()
       .then(res => this.code = res)
-  }
+  },
+  methods: {
+    download: function(event) {
+      const contructConstructor = new ContractConstructor();
+    contructConstructor.getCode()
+      .then(res => console.log('yay'))
+    },
+  },
 })

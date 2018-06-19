@@ -1,3 +1,5 @@
+var JSZip = require("jszip");
+
 const ContractOptions = {
   Timed: 'Timed', // TimedCrowdsale: openingTime, closingTime
   Refundable: 'Refundable', // RefundableCrowdsale: goal
@@ -27,7 +29,23 @@ class ContractConstructor {
    * @return zip file with all the required code
    */
   getCode() {
+    let token = ''
+    let crowdsale = ''
+    let migration = ''
+    return this.getToken()
+      .then((response) => {
+        token = response;
+        return this.getCrowdsale()
+      })
+      .then((response) => {
+        crowdsale = response;
+        return this.getMigration()
+      })
+      .then((response) => {
+        migration = response;
+        
 
+      })
   }
 
   /**
@@ -49,7 +67,15 @@ class ContractConstructor {
       })
       .then((response) => {
         migration = response;
-        return `### Token.sol\n\n${token}\n\n### Crodwsalw.sol\n\n${crowdsale}\n\n### 1_initial_migration.js\n\n${migration}`
+
+        // Generate zip
+        var zip = new JSZip();
+        zip.file('Token.sol', token)
+        zip.file('Crowdsale.sol', crowdsale)
+        zip.file('1_initial_migration.js', migration)
+        
+        // Return data
+        return zip.generateAsync({ type:"base64" });
       })
   }
 
