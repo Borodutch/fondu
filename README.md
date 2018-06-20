@@ -3,6 +3,9 @@ Dear reader, welcome to our humble code repository for the ICO of the Fondu proj
 
 ## TODO:
 Here's a list of the things that yet to be done:
+* Fix datepickers in the contract constructor
+* Fix null values in the smart-contract and migrations
+* Make download function work for the smart-contracts
 * Proof-read English texts
 * Translate to Russian and Chinese
 
