@@ -88,10 +88,8 @@
                   <small class="form-text">Number of decimals your currency supports; for instance, Ethereum can go as low as 18 decimals or 0.000000000000000001 ETH:</small>
                   <input type="number" class="form-control bottom-margin" placeholder="Decimals" v-model="decimals">
   
-                  <div v-if="!increasingPrice">
-                    <small class="form-text">Rate of how many of your tokens will user get for 1 ETH</small>
-                    <input type="number" class="form-control bottom-margin" placeholder="Rate" v-model="rate">
-                  </div>
+                  <small class="form-text">Rate of how many of your tokens will user get for 1 ETH</small>
+                  <input type="number" class="form-control bottom-margin" placeholder="Rate" v-model="rate">
   
                   <small class="form-text">ETH wallet that will receive the collected funds:</small>
                   <input type="text" class="form-control bottom-margin" placeholder="Wallet" v-model="wallet">

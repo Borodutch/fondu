@@ -112,6 +112,14 @@ class ContractConstructor {
     let result = ''
     if (this.contractOptions.includes(ContractOptions.Timed))
       result = `${result}\nimport "../node_modules/openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";`
+    if (this.contractOptions.includes(ContractOptions.Refundable))
+      result = `${result}\nimport "../node_modules/openzeppelin-solidity/contracts/crowdsale/distribution/RefundableCrowdsale.sol";`
+    if (this.contractOptions.includes(ContractOptions.IncreasingPrice))
+      result = `${result}\nimport "../node_modules/openzeppelin-solidity/contracts/crowdsale/price/IncreasingPriceCrowdsale.sol";`
+    if (this.contractOptions.includes(ContractOptions.Capped))
+      result = `${result}\nimport "../node_modules/openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";`
+    if (this.contractOptions.includes(ContractOptions.Whitelisted))
+      result = `${result}\nimport "../node_modules/openzeppelin-solidity/contracts/crowdsale/validation/WhitelistedCrowdsale.sol";`
     return result
   }
 
@@ -122,6 +130,14 @@ class ContractConstructor {
     let result = ''
     if (this.contractOptions.includes(ContractOptions.Timed))
       result = `${result}, TimedCrowdsale`
+    if (this.contractOptions.includes(ContractOptions.Refundable))
+      result = `${result}, RefundableCrowdsale`
+    if (this.contractOptions.includes(ContractOptions.IncreasingPrice))
+      result = `${result}, IncreasingPriceCrowdsale`
+    if (this.contractOptions.includes(ContractOptions.Capped))
+      result = `${result}, CappedCrowdsale`
+    if (this.contractOptions.includes(ContractOptions.Whitelisted))
+      result = `${result}, WhitelistedCrowdsale`
     return result
   }
 
@@ -132,6 +148,12 @@ class ContractConstructor {
     let result = ''
     if (this.contractOptions.includes(ContractOptions.Timed))
       result = `${result},\n    uint256 _openingTime,\n    uint256 _closingTime`
+    if (this.contractOptions.includes(ContractOptions.Refundable))
+      result = `${result},\n    uint256 _goal`
+    if (this.contractOptions.includes(ContractOptions.IncreasingPrice))
+      result = `${result},\n    uint256 _initialRate,\n    uint256 _finalRate`
+    if (this.contractOptions.includes(ContractOptions.Capped))
+      result = `${result},\n    uint256 _cap`
     return result
   }
 
@@ -142,6 +164,12 @@ class ContractConstructor {
     let result = ''
     if (this.contractOptions.includes(ContractOptions.Timed))
       result = `${result}\n    TimedCrowdsale(_openingTime, _closingTime)`
+    if (this.contractOptions.includes(ContractOptions.Refundable))
+      result = `${result}\n    RefundableCrowdsale(_goal)`
+    if (this.contractOptions.includes(ContractOptions.IncreasingPrice))
+      result = `${result}\n    IncreasingPriceCrowdsale(_initialRate, _finalRate)`
+    if (this.contractOptions.includes(ContractOptions.Capped))
+      result = `${result}\n    CappedCrowdsale(_cap)`
     return result
   }
 
@@ -168,6 +196,18 @@ class ContractConstructor {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Timed)];
       result = `${result}\n    const openingTime = (new Date(${options[0]})).getTime/1000;\n    const closingTime = (new Date(${options[1]})).getTime/1000;`
     }
+    if (this.contractOptions.includes(ContractOptions.Refundable)) {
+      const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Refundable)];
+      result = `${result}\n    const goal = ${options[0]};`
+    }
+    if (this.contractOptions.includes(ContractOptions.IncreasingPrice)) {
+      const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.IncreasingPrice)];
+      result = `${result}\n    const initialRate = ${options[0]};\n    const finalRate = ${options[1]};`
+    }
+    if (this.contractOptions.includes(ContractOptions.Capped)) {
+      const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Capped)];
+      result = `${result}\n    const cap = ${options[0]};`
+    }
     return result
   }
 
@@ -178,6 +218,12 @@ class ContractConstructor {
     let result = ''
     if (this.contractOptions.includes(ContractOptions.Timed)) 
       result = `${result}\n                openingTime,\n                closingTime,`
+    if (this.contractOptions.includes(ContractOptions.Refundable))
+      result = `${result}\n                goal,`
+    if (this.contractOptions.includes(ContractOptions.IncreasingPrice))
+      result = `${result}\n                initialRate,\n                finalRate,`
+    if (this.contractOptions.includes(ContractOptions.Capped))
+      result = `${result}\n                cap,`
     return result
   }
 }
