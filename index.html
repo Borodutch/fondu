@@ -15,8 +15,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Web3 -->
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
-    <!-- Downloadify -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"></script>
+    <!-- FileSaver.js -->
+    <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
     <!-- Title -->
     <title>Fondu ICO</title>
     <!-- Fonts -->
@@ -105,9 +105,9 @@
                   </div>
                   <div v-if="timed">
                     <small class="form-text">Start date</small>
-                    <input type="datetime-local" class="form-control bottom-margin" v-model="startDate">
+                    <input type="text" class="form-control bottom-margin" v-model="startDate">
                     <small class="form-text">End date</small>
-                    <input type="datetime-local" class="form-control bottom-margin" v-model="endDate">
+                    <input type="text" class="form-control bottom-margin" v-model="endDate">
                   </div>
   
                   <div v-if="timed">

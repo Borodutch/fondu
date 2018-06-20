@@ -2,13 +2,8 @@ const token = artifacts.require("../contracts/Token.sol");
 const crowdsale = artifacts.require("../contracts/Crowdsale.sol");
 
 module.exports = function(deployer, network, accounts) {
-    const openingTime = {{openingTime}};
-    const closingTime = {{closingTime}};
-    const goal = {{goal}};
-    const initialRate = {{initialRate}};
-    const finalRate = {{finalRate}};
     const rate = new web3.BigNumber({{rate}});
-    const wallet = {{beneficiary_address}};
+    const wallet = '{{wallet}}';{{migrationConstants}}
     return deployer
         .then(() => {
             return deployer.deploy(token);
@@ -17,10 +12,8 @@ module.exports = function(deployer, network, accounts) {
             return deployer.deploy(
                 crowdsale,
                 token.address,
-                openingTime,
-                closingTime,
                 rate,
-                wallet,
+                wallet,{{migrationConstructorParams}}
             );
         })
         .then(() => {
