@@ -17,7 +17,7 @@ class ContractConstructor {
     this.symbol = (symbol || 'MYT').toUpperCase()
     this.decimals = decimals || 18
     this.rate = rate || 250
-    this.wallet = wallet || '0x0'
+    this.wallet = wallet || '0x281055afc982d96fab65b3a49cac8b878184cb16'
     this.contractOptions = contractOptions || []
     this.contractParams = contractParams || []
   }
@@ -35,6 +35,7 @@ class ContractConstructor {
     let packageFile = ''
     let truffleConfig = ''
     let truffle = ''
+    let migrations = ''
     return this.getToken()
       .then((response) => {
         token = response;
@@ -66,13 +67,18 @@ class ContractConstructor {
       })
       .then((response) => {
         truffle = response.data
-
+        return axios.get('contract-builder/template/contracts/Migrations.sol', { responseType: "blob" })
+      })
+      .then((response) => {
+        migrations = response.data
         // Generate zip
         var zip = new JSZip();
         // Get generated files
         zip.file(`contracts/${this.symbol}Token.sol`, token)
         zip.file(`contracts/${this.symbol}Crowdsale.sol`, crowdsale)
         zip.file('migrations/1_initial_migration.js', migration)
+        // Add dummy migration to silence truffle error
+        zip.file('contracts/Migrations.sol', migrations)
         // Get template files
         zip.file('deploy.sh', deploy)
         zip.file('package-lock.json', packageLock)

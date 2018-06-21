@@ -4,7 +4,7 @@ Dear reader, welcome to our humble code repository for the ICO of the Fondu proj
 ## TODO:
 Here's a list of the things that yet to be done:
 * Fix datepickers in the contract constructor
-* Implement install.sh to deploy contracts
+* Implement install.sh to deploy contracts on geth
 * Proof-read English texts
 * Translate to Russian and Chinese
 
