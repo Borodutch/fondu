@@ -21,6 +21,14 @@
     <title>Fondu ICO</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+     <!-- Bootstrap init -->
+  <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+  <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+   
   </head>
   <body>
     <div class="main">
@@ -103,7 +111,7 @@
                   </div>
                   <div v-if="timed">
                     <small class="form-text">Start date</small>
-                    <input type="text" class="form-control bottom-margin" v-model="startDate">
+                    <input type='text' class="form-control" id='datetimepicker4' />
                     <small class="form-text">End date</small>
                     <input type="text" class="form-control bottom-margin" v-model="endDate">
                   </div>
@@ -379,5 +387,11 @@
     <script src="profile-constructor.js"></script>
     <script src="contract-constructor.js"></script>
     <script src="ico-tracker.js"></script>
+   <script type="text/javascript">
+        $(function () {
+            $('#datetimepickerStart').datetimepicker();
+				 $('#datetimepickerEnd').datetimepicker();
+        });
+    </script>
   </body>
 </html>
