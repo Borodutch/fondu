@@ -105,6 +105,6 @@ fi
 if [ "$staging" = true ] || [ "$release" = true ]; then
   echo "Deploying contracts to geth isn't done yet..."
 else
-  echo 'Deploying contracts to rpc...'
+  echo 'Deploying contracts to testrpc...'
   truffle migrate --reset
 fi
