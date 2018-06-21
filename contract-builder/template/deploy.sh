@@ -4,19 +4,30 @@
 testrpc=true
 staging=false
 release=false
-while getopts 'tsr' flag; do
-  case "${flag}" in
-    s) staging=true ;;
-    r) release=true ;;
+
+PS3="What blockchain would you like to deploy to?
+"
+options=("Local blockchain (testrpc)" "Ethereum testnet" "Ethereum mainnet")
+select opt in "${options[@]}"
+do
+  case $opt in
+    "Local blockchain (testrpc)")
+        echo "Deploying to local staging (testrpc)..."
+        break
+        ;;
+    "Ethereum testnet")
+        echo "Deploying contract to the Ethereum testnet blockchain (geth --testnet)..."
+        staging=true
+        break
+        ;;
+    "Ethereum mainnet")
+        echo "[Warning!] Deploying contract to the Ethereum mainnet blockchain (geth)..."
+        release=true
+        break
+        ;;
+    *) echo "invalid option $REPLY";;
   esac
 done
-if [ "$staging" = true ]; then
-  echo 'Trying to deploy contract to the test Ethereum blockchain...'
-elif [ "$release" = true ]; then
-  echo '[Warning!] Trying to deploy contract to the real Ethereum blockchain...'
-else
-  echo 'Trying to deploy contract to the local test Ethereum blockchain (testrpc)...'
-fi
 
 # Install Node
 if ! which node >/dev/null; then
@@ -104,6 +115,7 @@ fi
 # Deploy contracts
 if [ "$staging" = true ] || [ "$release" = true ]; then
   echo "Deploying contracts to geth isn't done yet..."
+  exit 1
 else
   echo 'Deploying contracts to testrpc...'
   truffle migrate --reset
