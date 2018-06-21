@@ -1,5 +1,5 @@
-const token = artifacts.require("../contracts/Token.sol");
-const crowdsale = artifacts.require("../contracts/Crowdsale.sol");
+const token = artifacts.require("../contracts/{{symbol}}Token.sol");
+const crowdsale = artifacts.require("../contracts/{{symbol}}Crowdsale.sol");
 
 module.exports = function(deployer, network, accounts) {
     const rate = new web3.BigNumber({{rate}});

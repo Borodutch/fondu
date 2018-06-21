@@ -79,3 +79,32 @@ fi
 if ! which truffle >/dev/null; then
   npm install -g truffle
 fi
+
+# Kill any geth or testrpc running
+pkill -f testrpc
+pkill -f geth
+
+# Run geth or testrpc or geth in the background
+if [ "$staging" = true ]; then
+  geth --testnet --rpc --rpcapi="db,eth,net,web3,personal,web3" --light &
+elif [ "$release" = true ]; then
+  geth --rpc --rpcapi="db,eth,net,web3,personal,web3" --light &
+else
+  testrpc &
+fi
+
+# Install node packages
+npm i
+
+# Wait till everything is in sync on test and\or main blockchain
+if [ "$staging" = true ] || [ "$release" = true ]; then
+  echo "Waiting 60 seconds for the blockchain to sync with the --light flag"
+fi
+
+# Deploy contracts
+if [ "$staging" = true ] || [ "$release" = true ]; then
+  echo "Deploying contracts to geth isn't done yet..."
+else
+  echo 'Deploying contracts to rpc...'
+  truffle migrate --reset
+fi

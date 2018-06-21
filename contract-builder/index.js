@@ -14,7 +14,7 @@ class ContractConstructor {
    */
   constructor(name, symbol, decimals, rate, wallet, contractOptions, contractParams) {
     this.name = name || 'My Token'
-    this.symbol = symbol || 'MYT'
+    this.symbol = (symbol || 'MYT').toUpperCase()
     this.decimals = decimals || 18
     this.rate = rate || 250
     this.wallet = wallet || '0x0'
@@ -70,8 +70,8 @@ class ContractConstructor {
         // Generate zip
         var zip = new JSZip();
         // Get generated files
-        zip.file('contracts/Token.sol', token)
-        zip.file('contracts/Crowdsale.sol', crowdsale)
+        zip.file(`contracts/${this.symbol}Token.sol`, token)
+        zip.file(`contracts/${this.symbol}Crowdsale.sol`, crowdsale)
         zip.file('migrations/1_initial_migration.js', migration)
         // Get template files
         zip.file('deploy.sh', deploy)
@@ -212,6 +212,7 @@ class ContractConstructor {
     return axios.get('contract-builder/template/migrations/1_initial_migration.js')
       .then((response) => {
         return response.data
+          .replace(/{{symbol}}/g, this.symbol)
           .replace(/{{rate}}/g, this.rate)
           .replace(/{{wallet}}/g, this.wallet)
           .replace(/{{migrationConstants}}/g, this.getMigrationConstants())
