@@ -30,6 +30,11 @@ class ContractConstructor {
     let token = ''
     let crowdsale = ''
     let migration = ''
+    let deploy = ''
+    let packageLock = ''
+    let packageFile = ''
+    let truffleConfig = ''
+    let truffle = ''
     return this.getToken()
       .then((response) => {
         token = response;
@@ -41,12 +46,39 @@ class ContractConstructor {
       })
       .then((response) => {
         migration = response;
-        
+        return axios.get('contract-builder/template/deploy.sh', { responseType: "blob" })
+      })
+      .then((response) => {
+        deploy = response.data
+        return axios.get('contract-builder/template/package-lock.json', { responseType: "blob" })
+      })
+      .then((response) => {
+        packageLock = response.data
+        return axios.get('contract-builder/template/package.json', { responseType: "blob" })
+      })
+      .then((response) => {
+        packageFile = response.data
+        return axios.get('contract-builder/template/truffle-config.js', { responseType: "blob" })
+      })
+      .then((response) => {
+        truffleConfig = response.data
+        return axios.get('contract-builder/template/truffle.js', { responseType: "blob" })
+      })
+      .then((response) => {
+        truffle = response.data
+
         // Generate zip
         var zip = new JSZip();
-        zip.file('Token.sol', token)
-        zip.file('Crowdsale.sol', crowdsale)
-        zip.file('1_initial_migration.js', migration)
+        // Get generated files
+        zip.file('contracts/Token.sol', token)
+        zip.file('contracts/Crowdsale.sol', crowdsale)
+        zip.file('migrations/1_initial_migration.js', migration)
+        // Get template files
+        zip.file('deploy.sh', deploy)
+        zip.file('package-lock.json', packageLock)
+        zip.file('package.json', packageFile)
+        zip.file('truffle-config.js', truffleConfig)
+        zip.file('truffle.js', truffle)
         
         // Return data
         return zip.generateAsync({ type: "blob" });
