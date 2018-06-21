@@ -60,7 +60,15 @@ var app = new Vue({
         .then(res => this.code = res)
     },
     download: function() {
-      const contructConstructor = new ContractConstructor();
+      const contructConstructor =
+        new ContractConstructor(
+          this.name,
+          this.symbol,
+          this.decimals,
+          this.rate,
+          this.wallet,
+          this.getContractOptions(),
+          this.getContractParams());
       contructConstructor.getCode()
         .then(res => saveAs(res, 'code.zip'))
     },

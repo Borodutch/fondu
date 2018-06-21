@@ -194,19 +194,19 @@ class ContractConstructor {
     let result = ''
     if (this.contractOptions.includes(ContractOptions.Timed)) {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Timed)];
-      result = `${result}\n    const openingTime = (new Date(${options[0]})).getTime/1000;\n    const closingTime = (new Date(${options[1]})).getTime/1000;`
+      result = `${result}\n    const openingTime = (new Date(${options[0] || '2024, 04. 07'})).getTime/1000;\n    const closingTime = (new Date(${options[1] || '2025, 04, 07'})).getTime/1000;`
     }
     if (this.contractOptions.includes(ContractOptions.Refundable)) {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Refundable)];
-      result = `${result}\n    const goal = ${options[0]};`
+      result = `${result}\n    const goal = ${options[0] || 1000};`
     }
     if (this.contractOptions.includes(ContractOptions.IncreasingPrice)) {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.IncreasingPrice)];
-      result = `${result}\n    const initialRate = ${options[0]};\n    const finalRate = ${options[1]};`
+      result = `${result}\n    const initialRate = ${options[0] || 500};\n    const finalRate = ${options[1] || 250};`
     }
     if (this.contractOptions.includes(ContractOptions.Capped)) {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Capped)];
-      result = `${result}\n    const cap = ${options[0]};`
+      result = `${result}\n    const cap = ${options[0] || 1000000};`
     }
     return result
   }
