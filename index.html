@@ -118,7 +118,8 @@
                       <input type='text' class="form-control" id='datetimepickerStart' />
                     <small class="form-text">End date</small>
                       <input type='text' class="form-control" id='datetimepickerEnd' />
-	              <input type='text' class="form-control" placeholder="Fecha Inicio" readonly="true" id='dateIniPick' />
+			  <small class="form-text">Estimated date</small>
+	              <input type='text' class="form-control" placeholder="Estimated date" id='dateIniPick' />
                   </div>
   
                   <div v-if="timed">
@@ -394,12 +395,16 @@
     <script src="ico-tracker.js"></script>
    <script type="text/javascript">
         $(function () {
-            $('#datetimepickerStart').datetimepicker();
-				 $('#datetimepickerEnd').datetimepicker();
-		$('#dateIniPick').datetimepicker({
+            $('#datetimepickerStart').datetimepicker({
+	disableTouchKeyboard: true    
+	    });
+	    $('#datetimepickerEnd').datetimepicker();
+	    $('#dateIniPick').datetimepicker({
     format: 'DD/MM/YYYY',
+    disableTouchKeyboard: true,
     ignoreReadonly: true,
-    allowInputToggle: true
+    allowInputToggle: true,
+		    enableOnReadonly: true
 });
         });
 	   
