@@ -118,6 +118,7 @@
                       <input type='text' class="form-control" id='datetimepickerStart' />
                     <small class="form-text">End date</small>
                       <input type='text' class="form-control" id='datetimepickerEnd' />
+	              <input type='text' class="form-control" placeholder="Fecha Inicio" readonly="true" id='dateIniPick' />
                   </div>
   
                   <div v-if="timed">
@@ -395,7 +396,13 @@
         $(function () {
             $('#datetimepickerStart').datetimepicker();
 				 $('#datetimepickerEnd').datetimepicker();
+		$('#dateIniPick').datetimepicker({
+    format: 'DD/MM/YYYY',
+    ignoreReadonly: true,
+    allowInputToggle: true
+});
         });
+	   
     </script>
   </body>
 </html>
