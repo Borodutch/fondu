@@ -113,19 +113,12 @@
                       Is this crowdsale timed?
                     </label>
                   </div>
-                   <div v-if="timed" >
-				   <div class="form-check" id='dateTimePicker'>
-<small class="form-text">Start date</small>
-<input type='text' class="form-control" placeholder="Start date" />
-<small class="form-text">End date</small>
-<input type='text' class="form-control" placeholder="End date" />
-<small class="form-text">Estimated date</small>
-<input type='text' class="form-control" placeholder="Estimated date" />
-<input type="text" class="actual_range">
-<input type="text" class="actual_range">
-</div>
-</div>
-
+                  <div v-if="timed">
+                    <small class="form-text">Start date</small>
+                      <input type='text' class="form-control" id='datetimepickerStart' />
+                    <small class="form-text">End date</small>
+                      <input type='text' class="form-control" id='datetimepickerEnd' />
+                  </div>
   
                   <div v-if="timed">
                     <small class="form-text">Whether the funds will be held untill softcap is reached and will be returned to the investors if softcap isn't reached:</small>
@@ -398,12 +391,11 @@
     <script src="profile-constructor.js"></script>
     <script src="contract-constructor.js"></script>
     <script src="ico-tracker.js"></script>
-	
-<script type="text/javascript">
+   <script type="text/javascript">
         $(function () {
-        $('#dateTimePicker').datetimepicker();
-	           });	   
+            $('#datetimepickerStart').datetimepicker();
+				 $('#datetimepickerEnd').datetimepicker();
+        });
     </script>
-   
   </body>
 </html>
