@@ -21,6 +21,18 @@
     <title>Fondu ICO</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+	
+	 <link rel="stylesheet" type="text/css" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		  <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+     <!-- Bootstrap init -->
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+		<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+    
+   
   </head>
   <body>
     <div class="main">
@@ -103,9 +115,9 @@
                   </div>
                   <div v-if="timed">
                     <small class="form-text">Start date</small>
-                    <input type="text" class="form-control bottom-margin" v-model="startDate">
+                      <input type='text' class="form-control" id='datetimepickerStart' />
                     <small class="form-text">End date</small>
-                    <input type="text" class="form-control bottom-margin" v-model="endDate">
+                      <input type='text' class="form-control" id='datetimepickerEnd' />
                   </div>
   
                   <div v-if="timed">
@@ -379,5 +391,11 @@
     <script src="profile-constructor.js"></script>
     <script src="contract-constructor.js"></script>
     <script src="ico-tracker.js"></script>
+   <script type="text/javascript">
+        $(function () {
+            $('#datetimepickerStart').datetimepicker();
+				 $('#datetimepickerEnd').datetimepicker();
+        });
+    </script>
   </body>
 </html>
