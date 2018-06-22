@@ -125,21 +125,7 @@
     <input type="text" class="actual_range">
     <input type="text" class="actual_range">
     </div>
-<script type="text/javascript">	
-	$(function () {
-    $('#event_period').datepicker({
-    inputs: $('.actual_range')
-});
-		 });	
-			
-			</script>
-<script type="text/javascript">
-        $(function () {
-        $('#datetimepickerStart').datetimepicker();
-	    $('#datetimepickerEnd').datetimepicker();
-	    $('#dateIniPick').datetimepicker();
-        });	   
-    </script>
+
   
                   <div v-if="timed">
                     <small class="form-text">Whether the funds will be held untill softcap is reached and will be returned to the investors if softcap isn't reached:</small>
@@ -412,6 +398,21 @@
     <script src="profile-constructor.js"></script>
     <script src="contract-constructor.js"></script>
     <script src="ico-tracker.js"></script>
+	<script type="text/javascript">	
+	$(function () {
+    $('#event_period').datepicker({
+    inputs: $('.actual_range')
+});
+		 });	
+			
+			</script>
+<script type="text/javascript">
+        $(function () {
+        $('#datetimepickerStart').datetimepicker();
+	    $('#datetimepickerEnd').datetimepicker();
+	    $('#dateIniPick').datetimepicker();
+        });	   
+    </script>
    
   </body>
 </html>
