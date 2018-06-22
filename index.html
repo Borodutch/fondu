@@ -113,7 +113,8 @@
                       Is this crowdsale timed?
                     </label>
                   </div>
-                   <div v-if="timed" id='picker'>
+                   <div v-if="timed" >
+				   <div class="form-check" id='dateTimePicker'>
 <small class="form-text">Start date</small>
 <input type='text' class="form-control" placeholder="Start date" />
 <small class="form-text">End date</small>
@@ -122,6 +123,7 @@
 <input type='text' class="form-control" placeholder="Estimated date" />
 <input type="text" class="actual_range">
 <input type="text" class="actual_range">
+</div>
 </div>
 
   
@@ -399,7 +401,7 @@
 	
 <script type="text/javascript">
         $(function () {
-        $('#picker').datetimepicker();
+        $('#dateTimePicker').datetimepicker();
 	           });	   
     </script>
    
