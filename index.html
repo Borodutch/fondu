@@ -384,9 +384,13 @@
 
   <script type="text/javascript">
     $(function () {
-            $('#datetimepicker1').datetimepicker();
+            $('#datetimepicker1').datetimepicker({
+	    locale: 'ru',
+            defaultDate: moment()
+          });
             $('#datetimepicker2').datetimepicker({
-	    locale: 'ru'
+	    locale: 'ru',
+            defaultDate: moment()
 	  });
     });
   </script>
