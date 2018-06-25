@@ -89,11 +89,11 @@
                   </div>
                 <div v-if="timed">
                     <small class="form-text">Start date</small>
-             <!--       <input type="text" class="form-control bottom-margin" v-model="startDate">
+                  <input type="text" class="form-control bottom-margin" v-model="startDate">
                     <small class="form-text">End date</small>
                     <input type="text" class="form-control bottom-margin" v-model="endDate">
                   </div>
--->
+
 
     <h2>DateTimePicker #1</h2>
 		  <div class="form-group">
@@ -382,9 +382,8 @@
     $(function () {
             $('#datetimepickerStart').datetimepicker();
 	    $('#datetimepickerEnd').datetimepicker();
- $('#datetimepicker1').datetimepicker();
-          //  $('#datetimepicker2').datetimepicker();
- $('#datetimepicker2').datetimepicker({
+            $('#datetimepicker1').datetimepicker();
+            $('#datetimepicker2').datetimepicker({
 	    locale: 'ru'
 	  });
     });
