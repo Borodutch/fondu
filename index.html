@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <base target="_blank">
     <!-- Bootstrap -->
+   <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+
+  <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+-->
+
     <link rel="stylesheet" href="style.css"> 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -101,12 +107,31 @@
                       Is this crowdsale timed?
                     </label>
                   </div>
-                  <div v-if="timed">
+     <!--             <div v-if="timed">
                     <small class="form-text">Start date</small>
                     <input type="text" class="form-control bottom-margin" v-model="startDate">
                     <small class="form-text">End date</small>
                     <input type="text" class="form-control bottom-margin" v-model="endDate">
                   </div>
+-->
+  <div class="container" v-if="timed">
+    <div class="row">
+	  <div class="col-xs-12">
+		  <h2>DateTimePicker #1</h2>
+		  <div class="form-group">
+			<div class="input-group date" id="datetimepicker1">
+			  <input type="text" class="form-control" />
+			  <span class="input-group-addon">
+				<span class="glyphicon-calendar glyphicon"></span>
+			  </span>
+			</div>
+		  </div>
+		  <h2>DateTimePicker #1</h2>
+		  <input type="text" class="form-control" id="datetimepicker2">	  
+	  </div>
+	</div>
+  </div>
+
   
                   <div v-if="timed">
                     <small class="form-text">Whether the funds will be held untill softcap is reached and will be returned to the investors if softcap isn't reached:</small>
