@@ -10,7 +10,10 @@ module.exports = function(deployer, network, accounts) {
     const account = web3.eth.accounts.pop()
     // Get gas limit
     let gasLimit = web3.eth.getBlock('latest').gasLimit
-    const gasPrice = web3.eth.gasPrice * 4 // 4 times to get it accepted faster
+    const gasPrice = web3.eth.gasPrice
+    if (process.argv[4] === '--staging') {
+        gasPrice *= 4
+    }
     console.log(`Determined gas limit: ${gasLimit}; and gas price: ${gasPrice}; max deployment price is ${web3.fromWei(gasPrice * gasLimit, 'ether')} ETH`)
     // Deploy contract
     return deployer

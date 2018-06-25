@@ -12,19 +12,28 @@ select opt in "${options[@]}"
 do
   case $opt in
     "Local blockchain (testrpc)")
-        echo "Deploying to local staging (testrpc)..."
-        break
-        ;;
+      echo "Deploying to local staging (testrpc)..."
+      break
+      ;;
     "Ethereum testnet")
-        echo "Deploying contract to the Ethereum testnet blockchain (geth --testnet)..."
-        staging=true
-        break
-        ;;
+      echo "Deploying contract to the Ethereum testnet blockchain (geth --testnet)..."
+      staging=true
+      break
+      ;;
     "Ethereum mainnet")
-        echo "[Warning!] Deploying contract to the Ethereum mainnet blockchain (geth)..."
-        release=true
-        break
-        ;;
+      echo "[Warning!] Deploying contract to the Ethereum mainnet blockchain (geth)..."
+      release=true
+      read -p "Are you sure you want to continue? Any mistakes here can as well result in a monetary loss. We mean real money loss. By continuing you accept that no liability whatsoever can be applied to anybody but yourself. Also, make sure you read through the source code you've just downloaded. Please, also note that this feature is in the beta at the moment. So, again, are you sure you want to continue? (y/n)" choice
+      case "$choice" in 
+        y|Y ) echo "Alright, let's get to it!";;
+        n|N )
+          echo "Good choice. Bye."
+          exit 1
+          ;;
+        * ) echo "invalid";;
+      esac
+      break
+      ;;
     *) echo "invalid option $REPLY";;
   esac
 done
@@ -88,10 +97,12 @@ pkill -f testrpc
 pkill -f geth
 
 # Abort if geth is running
-if pgrep geth >/dev/null 2>&1
-then
-  echo 'Looks like you have got geth running already. Please, close it by running "pkill -f geth"'
-  exit 1
+if [ "$staging" = true ] || [ "$release" = true ]; then
+  if pgrep geth >/dev/null 2>&1
+  then
+    echo 'Looks like you have got geth running already. Please, close it by running "pkill -f geth"'
+    exit 1
+  fi
 fi
 
 # Run geth or testrpc or geth in the background
@@ -116,22 +127,25 @@ npm i --quiet
 # Wait till everything is in sync on test and\or main blockchain
 if [ "$staging" = true ] || [ "$release" = true ]; then
   echo "Waiting 60 seconds for the blockchain to sync with the --light flag. If script fails after this, please, run \"geth\" or \"geth --testnet\" separately in the --light mode and make sure it's in sync"
-  sleep 1
+  sleep 60
 fi
 
 # Deploy contracts
 if [ "$staging" = true ]; then
   echo "Deploying contacts to geth Ethereum testnet"
   truffle exec scripts/createTestAccount.js
-  truffle migrate --reset --staging $account
+  truffle migrate --reset --staging
   # Congratulate
-  echo 'Your smart contracts were deployed successfully to the Ethereum Testnet; you can now access running geth --testnet blockchain by executing "truffle console" command. Thank you!'
+  echo 'Congratulations! Your smart contracts were deployed successfully to the Ethereum Testnet; you can now access the running geth --testnet blockchain by executing "truffle console" command. Thank you!'
 elif [ "$release" = true ]; then
-  echo "Deploying contracts to geth mainnet isn't done yet..."
+  echo "Deploying contacts to geth Ethereum mainnet"
+  truffle exec scripts/createRealAccount.js
   truffle migrate --reset --release
+  # Congratulate
+  echo 'Congratulations! Your smart contracts were deployed successfully to the Ethereum Mainnet; you can now access the running geth blockchain by executing "truffle console" command. Thank you!'
 else
   echo 'Deploying contracts to testrpc...'
   truffle migrate --reset
   # Congratulate
-  echo 'Your smart contracts were deployed successfully to testrpc; you can now access running testrpc blockchain by executing "truffle console" command. Thank you!'
+  echo 'Congratulations! Your smart contracts were deployed successfully to testrpc; you can now access the running testrpc blockchain by executing "truffle console" command. Thank you!'
 fi

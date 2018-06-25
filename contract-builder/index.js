@@ -38,6 +38,7 @@ class ContractConstructor {
     let migrations = ''
     let setDefaultAccount = ''
     let createTestAccount = ''
+    let createRealAccount = ''
     return this.getToken()
       .then((response) => {
         token = response;
@@ -81,6 +82,10 @@ class ContractConstructor {
       })
       .then((response) => {
         createTestAccount = response.data
+        return axios.get('contract-builder/template/scripts/createRealAccount.js', { responseType: "blob" })
+      })
+      .then((response) => {
+        createRealAccount = response.data
         // Generate zip
         var zip = new JSZip();
         // Get generated files
@@ -97,6 +102,7 @@ class ContractConstructor {
         zip.file('truffle.js', truffle)
         zip.file('scripts/setDefaultAccount.js', setDefaultAccount)
         zip.file('scripts/createTestAccount.js', createTestAccount)
+        zip.file('scripts/createRealAccount.js', createRealAccount)
         
         // Return data
         return zip.generateAsync({ type: "blob" });
