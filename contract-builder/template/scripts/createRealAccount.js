@@ -2,7 +2,7 @@ const request = require('sync-request')
 const	query = require('cli-interact').getYesNo
 
 module.exports = function(callback) {
-  const account = web3.eth.accounts.pop()//web3.personal.newAccount('123456789')
+  const account = web3.personal.newAccount('123456789')
   console.log(`Created ETH wallet to deploy contracts: ${account} (password is '123456789', don't loose it) — you will be able to access it later`)
   // Get gas limit
   const gasLimit = web3.eth.getBlock('latest').gasLimit
