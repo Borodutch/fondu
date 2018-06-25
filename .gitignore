@@ -1,3 +1,4 @@
 contract/build/*
 contract/node_modules
 contract/build
+contract-builder/template/node_modules

@@ -36,6 +36,8 @@ class ContractConstructor {
     let truffleConfig = ''
     let truffle = ''
     let migrations = ''
+    let setDefaultAccount = ''
+    let createTestAccount = ''
     return this.getToken()
       .then((response) => {
         token = response;
@@ -71,6 +73,14 @@ class ContractConstructor {
       })
       .then((response) => {
         migrations = response.data
+        return axios.get('contract-builder/template/scripts/setDefaultAccount.js', { responseType: "blob" })
+      })
+      .then((response) => {
+        setDefaultAccount = response.data
+        return axios.get('contract-builder/template/scripts/createTestAccount.js', { responseType: "blob" })
+      })
+      .then((response) => {
+        createTestAccount = response.data
         // Generate zip
         var zip = new JSZip();
         // Get generated files
@@ -85,6 +95,8 @@ class ContractConstructor {
         zip.file('package.json', packageFile)
         zip.file('truffle-config.js', truffleConfig)
         zip.file('truffle.js', truffle)
+        zip.file('scripts/setDefaultAccount.js', setDefaultAccount)
+        zip.file('scripts/createTestAccount.js', createTestAccount)
         
         // Return data
         return zip.generateAsync({ type: "blob" });
@@ -233,19 +245,19 @@ class ContractConstructor {
     let result = ''
     if (this.contractOptions.includes(ContractOptions.Timed)) {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Timed)];
-      result = `${result}\n    const openingTime = (new Date(${options[0] || '2024, 04, 07'})).getTime/1000;\n    const closingTime = (new Date(${options[1] || '2025, 04, 07'})).getTime/1000;`
+      result = `${result}\n    const openingTime = (new Date(${options[0] || '2024, 04, 07'})).getTime/1000\n    const closingTime = (new Date(${options[1] || '2025, 04, 07'})).getTime/1000`
     }
     if (this.contractOptions.includes(ContractOptions.Refundable)) {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Refundable)];
-      result = `${result}\n    const goal = ${options[0] || 1000};`
+      result = `${result}\n    const goal = ${options[0] || 1000}`
     }
     if (this.contractOptions.includes(ContractOptions.IncreasingPrice)) {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.IncreasingPrice)];
-      result = `${result}\n    const initialRate = ${options[0] || 500};\n    const finalRate = ${options[1] || 250};`
+      result = `${result}\n    const initialRate = ${options[0] || 500}\n    const finalRate = ${options[1] || 250}`
     }
     if (this.contractOptions.includes(ContractOptions.Capped)) {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Capped)];
-      result = `${result}\n    const cap = ${options[0] || 1000000};`
+      result = `${result}\n    const cap = ${options[0] || 1000000}`
     }
     return result
   }
