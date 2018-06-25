@@ -10,7 +10,7 @@ module.exports = function(deployer, network, accounts) {
     const account = web3.eth.accounts.pop()
     // Get gas limit
     let gasLimit = web3.eth.getBlock('latest').gasLimit
-    const gasPrice = web3.eth.gasPrice
+    let gasPrice = web3.eth.gasPrice
     if (process.argv[4] === '--staging') {
         gasPrice *= 4
     }
