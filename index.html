@@ -89,11 +89,7 @@
                   </div>
                 <div v-if="timed">
                     <small class="form-text">Start date</small>
-                  <input type="text" class="form-control bottom-margin" v-model="startDate" id="dateStart">
-                    <small class="form-text">End date</small>
-                    <input type="text" class="form-control bottom-margin" v-model="endDate" id="dateEnd">
-					<h2>DateStart #2</h2>
-		  <div class="form-group">
+                 <div class="form-group">
 			<div class="input-group date" id="datetimepicker1">
 			  <input type="text" class="form-control" />
 			  <span class="input-group-addon">
@@ -101,9 +97,16 @@
 			  </span>
 			</div>
 		  </div>
-
-                   <h2>DateStart #1</h2>
-		  <input type="text" class="form-control" id="datetimepicker2">	 
+                    <small class="form-text">End date</small>
+                    <div class="form-group">
+			<div class="input-group date" id="datetimepicker2">
+			  <input type="text" class="form-control" />
+			  <span class="input-group-addon">
+				<span class="glyphicon-calendar glyphicon"></span>
+			  </span>
+			</div>
+		  </div>
+					
                   </div>
 
 
@@ -381,8 +384,6 @@
 
   <script type="text/javascript">
     $(function () {
-            $('#dateStart').datetimepicker();
-	    $('#dateEnd').datetimepicker();
             $('#datetimepicker1').datetimepicker();
             $('#datetimepicker2').datetimepicker({
 	    locale: 'ru'
