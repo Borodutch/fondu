@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap DaeteTimePicker</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+
+  </head>
+  <body style="margin:40px;">
+  <h1 class="page-header">Bootstrap DateTimePicker</h1>
+  <div class="container">
+    <div class="row">
+	  <div class="col-xs-12">
+		  <h2>DateTimePicker #1</h2>
+		  <div class="form-group">
+			<div class="input-group date" id="datetimepicker1">
+			  <input type="text" class="form-control" />
+			  <span class="input-group-addon">
+				<span class="glyphicon-calendar glyphicon"></span>
+			  </span>
+			</div>
+		  </div>
+		  <h2>DateTimePicker #1</h2>
+		  <input type="text" class="form-control" id="datetimepicker2">	  
+	  </div>
+	</div>
+  </div>
+
+
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/moment-with-locales.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('#datetimepicker1').datetimepicker({
+	    locale: 'ru',
+		stepping:10,
+		format: 'DD.MM.YYYY',
+		defaultDate: moment('01.11.2017').format('DD.MM.YYYY'),
+		daysOfWeekDisabled:[0,6]
+	  });
+      $('#datetimepicker2').datetimepicker({
+	    locale: 'ru'
+	  });
+    });
+  </script>
+
+  </body>
+</html>

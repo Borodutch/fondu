@@ -1,28 +1,14 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- HTML properties -->
+   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <base target="_blank">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css"> 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Axios -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- Web3 -->
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
-    <!-- FileSaver.js -->
-    <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
-    <!-- Title -->
-    <title>Fondu ICO</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap DaeteTimePicker</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
   </head>
-  <body>
+ <body style="margin:40px;">
     <div class="main">
       <div class="corner">
         <div class="corner-trianlge"></div>
@@ -101,13 +87,33 @@
                       Is this crowdsale timed?
                     </label>
                   </div>
-                  <div v-if="timed">
+                <div v-if="timed">
                     <small class="form-text">Start date</small>
-                    <input type="text" class="form-control bottom-margin" v-model="startDate">
+                 <div class="form-group">
+			<div class="input-group date" id="datetimepicker1">
+			  <input type="text" class="form-control" />
+			  <span class="input-group-addon">
+				<span class="glyphicon-calendar glyphicon"></span>
+			  </span>
+			</div>
+		  </div>
                     <small class="form-text">End date</small>
-                    <input type="text" class="form-control bottom-margin" v-model="endDate">
+                    <div class="form-group">
+			<div class="input-group date" id="datetimepicker2">
+			  <input type="text" class="form-control" />
+			  <span class="input-group-addon">
+				<span class="glyphicon-calendar glyphicon"></span>
+			  </span>
+			</div>
+		  </div>
+					
                   </div>
-  
+
+
+    
+
+  </div>
+
                   <div v-if="timed">
                     <small class="form-text">Whether the funds will be held untill softcap is reached and will be returned to the investors if softcap isn't reached:</small>
                     <div class="form-check">
@@ -369,15 +375,26 @@
         <p class="top-border">© 2018, Fondu</p>
       </div>
     </div>
-  
-    <!-- JSZip -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
-    <!-- Contract builder -->
-    <script src="contract-builder/index.js"></script>
-    <!-- Vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="profile-constructor.js"></script>
-    <script src="contract-constructor.js"></script>
-    <script src="ico-tracker.js"></script>
+<!--bootstrap DateTimePicker-->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/moment-with-locales.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-datetimepicker.min.js"></script>
+
+
+  <script type="text/javascript">
+    $(function () {
+            $('#datetimepicker1').datetimepicker({
+	    locale: 'ru',
+            defaultDate: moment()
+          });
+            $('#datetimepicker2').datetimepicker({
+	    locale: 'ru',
+            defaultDate: moment()
+	  });
+    });
+  </script>
+
+
   </body>
 </html>
