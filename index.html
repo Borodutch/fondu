@@ -7,17 +7,6 @@
     <title>Bootstrap DaeteTimePicker</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
- 
-
-    <!-- Web3 -->
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
-    <!-- FileSaver.js -->
-    <script src="https://fastcdn.org/FileSaver.js/1.1.20151003/FileSaver.min.js"></script>
-   
-    <!-- Title -->
-    <title>Fondu ICO</title>
-<!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
   </head>
  <body style="margin:40px;">
     <div class="main">
@@ -396,26 +385,16 @@
   <script type="text/javascript">
     $(function () {
             $('#datetimepicker1').datetimepicker({
-            defaultDate: moment(),
-	    locale: 'ru'
-
-});
+	    locale: 'ru',
+            defaultDate: moment()
+          });
             $('#datetimepicker2').datetimepicker({
-            defaultDate: moment(),
-	    locale: 'ru'
+	    locale: 'ru',
+            defaultDate: moment()
 	  });
     });
   </script>
 
 
-    <!-- JSZip -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
-    <!-- Contract builder -->
-    <script src="contract-builder/index.js"></script>
-    <!-- Vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="profile-constructor.js"></script>
-    <script src="contract-constructor.js"></script>
-    <script src="ico-tracker.js"></script>
   </body>
 </html>
