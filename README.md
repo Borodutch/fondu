@@ -4,7 +4,7 @@ Dear reader, welcome to our humble code repository for the ICO of the Fondu proj
 ## TODO:
 Here's a list of the things that yet to be done:
 * Fix datepickers in the contract constructor
-* Implement install.sh to deploy contracts on mainnet
+* Test deploy.sh to deploy contracts on mainnet
 * FIgure out why picking all contract options doesn't work
 * Proof-read English texts
 * Translate to Russian and Chinese
