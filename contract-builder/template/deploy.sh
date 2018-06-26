@@ -39,7 +39,7 @@ do
 done
 
 # Need this to fail the script on error for sure
-set +e
+set -e
 
 # Install Node
 if ! which node >/dev/null; then
@@ -118,7 +118,7 @@ else
 fi
 
 # The rest fails OK
-set -e
+set +e
 
 # Install node packages
 echo "Fetching OpenZeppelin contracts"
