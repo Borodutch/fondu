@@ -251,7 +251,7 @@ class ContractConstructor {
     let result = ''
     if (this.contractOptions.includes(ContractOptions.Timed)) {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Timed)];
-      result = `${result}\n    const openingTime = (new Date(${options[0] || '2024, 04, 07'})).getTime/1000\n    const closingTime = (new Date(${options[1] || '2025, 04, 07'})).getTime/1000`
+      result = `${result}\n    const openingTime = (new Date(${options[0] ? `'${options[0]}'` : '2024, 04, 07'})).getTime/1000\n    const closingTime = (new Date(${options[1] ? `'${options[1]}'` : '2025, 04, 07'})).getTime/1000`
     }
     if (this.contractOptions.includes(ContractOptions.Refundable)) {
       const options = this.contractParams[this.contractOptions.indexOf(ContractOptions.Refundable)];
