@@ -33,19 +33,21 @@
         <h6>Author: <a href="https://t.me/borodutch">Nikita Kolmogorov</a></h6>
 
         <h2>Introduction</h2>
-        <p>This paper is a proposal to the whole crypto and open source community that potentially can save millions of dollars and provide the opportunities for highly valuable yet underrated startups and companies to emerge. ICO market is sick and we have to fix it: swamped with parasites that leach on the industry providing the visionaries with highly overpriced hopes.</p>
-        <p>As we all know — most of the things in IT can be made more efficient my making it automatic. So why is the ICO market any different? We propose solutions that will allow our community to create semi-automatic open source service to create and manage any types of ICO. With minimal steps users will be able to fill in their ICO profile, configure the smart-contract with a series of simple questions and start raising money with a marketing-ready website.</p>
-        <p>If you have ever tried to conduct or conducted an ICO you know that writing a smart contract can be as costly as <b>$10,000 to $75,000</b> and creating a marketing website can be priced from <b>$30,000 to $70,000</b> — however, after you spend all this money, you are left with a generic website and a slightly modified ERC20 token smart-contract. Why can't it be done automatic?</p>
+        <p>This paper is a proposal to the whole crypto and open source community to save millions of dollars by providing emerging and underrated startups with the key services they need to emerge. Swamped with parasitical speculators, imitators, and scammers that continue to leach on the industry by misleading investors and developers alike, the ICO market is sick and we need to fix it.</p>
+
+        <p>As we all know, automation continues to bring efficiency to businesses and applications around the world. Why should the ICO market be any different? We are proposing a unique solution to this problem by allowing our community to create semi-automatic open sourced services to create and manage all kinds of ICOs. With minimal steps, users will be able to fill in their ICO profile, configure the smart-contract with a series of simple questions, and start raising money with a market-ready website.</p>
+
+        <p>If you have ever conducted an ICO, you know that writing a smart contract can be as costly as $10,000 to $75,000, and marketing costs can run as high as $30,000 to $70,000. Often, developers find that once they have spent all their money, they are left with only a generic website and a slightly modified ERC20 token smart-contract. Thus raising the question: why can't it be done automatically?</p>
 
         <h2>Product</h2>
-        <p>Solution that we propose consists of three simple modules: ICO constructor, ICO presenter and Investor Personal Profile. Let us explain each of them.</p>
+        <p>The solution that we propose consists of three simple modules: the ICO constructor, the ICO presenter and the Investor Personal Profile. Let us explain each of them in detail.</p>
         <ul class="article_list">
-          <li><b>ICO constructor</b> — simple webpage with forms that you fill with the ICO information like token name, team details, product description, logo, screenshots, social network contacts, legal details, whitepapper, roadmap, etc. Smart-contract constructor is a part of this module that allows you to fill simple forms, answer a series of multiple-choice questions and get a smart-contract deployed to the ETH and/or EOS blockchain.</li>
-          <li><b>ICO presenter</b> — after constructing the ICO with the previous tool you will get a personalized profile page that can act as the main website for the ICO and can contain all the necessary information for the investors including live ICO progress (we'll fetch the smart-contract state in the real time), important milestones and the contract address. Everything is hosted on Fondu platform and has zero costs assosiated with keeping it up.</li>
-          <li><b>Investor Personal Profile</b> — one of the most difficult to implement and one of the most expensive things in any ICO. This is the part that allows potential investors to pre-register for the sale and seek for approval — as well as a perfect tool to provide KYC and whitelisting functionality to the ICO conductors. We intend to make this module a part of the initial release — as it will allow to drastically decrease the costs associated with ICO and improve investors' user experience.</li>
+          <li><b>The ICO constructor:</b> a simple webpage with forms to be filled in with critical ICO information such as the token name, team details, product description, logo, screenshots, social network contacts, legal details, whitepaper, roadmap, etc. The Smart-contract constructor is a part of this module, allowing you to fill simple forms, answer a series of multiple-choice questions, and get a smart-contract deployed to the ETH and/or EOS blockchain immediately.</li>
+          <li><b>The ICO presenter:</b> after constructing the ICO, you will get a personalized profile page that acts as the main landing page for the ICO and contains all the necessary information for investors including live ICO progress (displaying the smart-contract state in the real time), important milestones, and the contract address. Everything is hosted on Fondu platform and has zero costs associated with its upkeep.</li>
+          <li><b>The Investor Personal Profile:</b> one of the most difficult to implement and expensive aspects of running any ICO, this module allows potential investors to pre-register for the sale and seek approval. As well as being a perfect tool to provide KYC and whitelisting functionality to the ICO conductors, we intend to make this module a part of the initial release, as it will allow for drastically reduced costs associated with running an ICO while improving the overall investor user experience. </li>
         </ul>  
-        <p>But the main goal of our project is to bring ICO concept back down to the usual people, so that anybody can use smart-contracts to conduct any type of the crowdfunding. Whether it is something happy — like funding wedding with the help of guests (instead of them buying presents), or rather unfortunate — like funding a necessary complex medical operations for the ones in need. Everybody should be able to launch ICO without headache and large capital investment.</p>
-        <p>In case you wonder how difficult it is to build things that we aim at, look at what I've wrote in 5 minutes while drinking my morning coffee:</p>
+        <p>The main goal of our project is to democratize the ICO concept for all, enabling anyone to theoretically access smart-contracts in order to conduct any type of crowd funding. Whether it is something positive, like funding a wedding with the help of guests (instead of them buying presents), or rather unfortunate, like funding a complex medical operation for someone in need, everybody ought to be able to launch an ICO without headache and a large capital investment.</p>
+        <p>In case you’re wondering how difficult it is to build what we have just described, look at what I've written in 5 minutes while drinking my morning coffee:</p>
 
         <!-- Profile Constructor Vue -->
         <div id="profile-constructor">
@@ -71,7 +73,7 @@
           </div>
         </div>
 
-        <p>It wasn't difficult to setup your first ICO profile, was it? Maybe, it will be harder to create a smart-contract constructor? Let's see, I've got 5 more minutes to spare:</p>
+        <p>It wasn't difficult to setup your first ICO profile, was it? Perhaps it will be more difficult to create a smart-contract constructor.</p>
 
         <!-- Smart contract Constructor Vue -->
       <div id="contract-constructor">
@@ -88,7 +90,7 @@
                   <small class="form-text">Number of decimals your currency supports; for instance, Ethereum can go as low as 18 decimals or 0.000000000000000001 ETH:</small>
                   <input type="number" class="form-control bottom-margin" placeholder="Decimals" v-model="decimals">
   
-                  <small class="form-text">Rate of how many of your tokens will user get for 1 ETH</small>
+                  <small class="form-text">How many of your tokens will user get for 1 ETH</small>
                   <input type="number" class="form-control bottom-margin" placeholder="Rate" v-model="rate">
   
                   <small class="form-text">ETH wallet that will receive the collected funds:</small>
@@ -150,7 +152,7 @@
                       <input type="number" class="form-control bottom-margin" placeholder="Hardcap" v-model="cap">
                     </div>
   
-                    <small class="form-text">Would you like to accept Ethereum only from the whitelisted addresses?:</small>
+                    <small class="form-text">Would you like to accept Ethereum only from the whitelisted addresses?</small>
                     <div class="form-check">
                       <label class="form-check-label">
                         <input class="form-check-input" type="checkbox" v-model="whitelisted">
@@ -177,28 +179,28 @@
           </div>
         </div>
 
-        <p>Nice! You've just written your first smart contract! <b>$70,000</b> they say — and you just did it for free! Download the resulting code and follow the deploy instructions — it is fully capable of deploying the smart contracts to the local, test and main Ethereum networks! Just like that: for free and with no particular hassle! Most of the ICO's just get copy\paste generic code with names of tokens, owner ETH addresses and supply amount changed. ICO visionaries literally get robbed in the broad daylight — and we just want to help stop it.</p>
-        <p>So far, I guess, you've learnt about our mission and what we are trying to implement. Simple ICO constructor, ICO presenter and Investor Personal Space — serivce where launching ICO will not take more than 15 minutes of configuration process. Obviously, to achieve such a goal we need an experienced team of developers and contributors. So who's behind the whole Fondu thing?</p>
+        <p>Congratulations you have just written your first smart contract! <b>$70,000</b> they say — and you just did it for free! Download the resulting code and follow the deployment instructions, our product is fully capable of deploying smart contracts to the local, test and main Ethereum networks! For free and without hassle! The worst offenders amongst ICO's copy\paste generic code with the names of their tokens, their owner ETH addresses and with the supply amount changed. Real ICO visionaries are getting robbed in broad daylight and we want to help stop it.</p>
+        <p>So far, you have learned about our mission and our project: The Simple ICO Constructor, the ICO Presenter and the Investor Personal Profile. With these services, launching an ICO will not take more than 15 minutes of configuration process. Obviously, in order to achieve such an ambitious goal we need an experienced team of developers and contributors. So who is behind the Fondu team?</p>
 
         <h2>Team</h2>
         <div class="row">
           <div class="col-sm-9">
             <h5>Nikita Kolmogorov [<a href="https://t.me/borodutch">TG</a>, <a href="https://fb.me/borodutch">FB</a>]</h5>
-            <p>Creator of <a href="https://t.me/voicybot">@voicybot</a> (1,500,000 users, <a href="https://github.com/backmeupplz/voicy">open source</a>), <a href="https://t.me/banofbot">@banofbot</a> (150,000 chats, <a href="https://github.com/backmeupplz/banofbot">open source</a>), <a href="https://toreador.io">Toreador.io</a>  (over $1,000,000 of trading capital), <a href="https://t.me/golden_borodutch">@golden_borodutch</a> — Telegram channel with over 12,000 subscribers with the focus on cryptocurrencies, IT and self-development. One of the main contributors to <a href="https://t.me/arbeit_bot">@arbeit_bot</a> (<a href="https://github.com/arbeitbot">open source</a>).</p>
-            <p>Started to code at the age of 12 he has participated in 35+ projects as a developer, IT enthusiast, manager, lead and consultant. His main focus at the moment is working on his personal projects as well as consulting startups in terms of launching Minimal Viable Products and establishing technical superiority.</p>
-            <p>Nikita is a strong believer that coding talents can be used for greater good and that money comes not from building things but after producing something that brings the most value to the larger amount of people.</p>
+            <p>Creator of <a href="https://t.me/voicybot">@voicybot</a> (1,500,000 users, <a href="https://github.com/backmeupplz/voicy">open source</a>), <a href="https://t.me/banofbot">@banofbot</a> (150,000 chats, <a href="https://github.com/backmeupplz/banofbot">open source</a>), <a href="https://toreador.io">Toreador.io</a> (over $1,000,000 of trading capital), <a href="https://t.me/golden_borodutch">@golden_borodutch</a> — Telegram channel with over 12,000 subscribers with the focus on cryptocurrencies, IT and self-development. One of the main contributors to <a href="https://t.me/arbeit_bot">@arbeit_bot</a> (<a href="https://github.com/arbeitbot">open source</a>).</p>
+            <p>Since learning to code at the young age of 12, he has since participated in 35+ projects as a developer, IT enthusiast, manager, lead and consultant. Today, his main focus is working on his personal projects, and consulting startups interested in launching Minimal Viable Products through establishing technical superiority.</p>
+            <p>Nikita is a strong believer that coding talents can be used for the greater good and that the reward comes not only from building quality products but also only after his work successfully creates value for the largest amount of people possible.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/nikita.jpg"></p>
           </div>
         </div>
 
-        <p><i>Disclaimer: the only person that works at Fondu at the moment is Nikita Kolmogorov. The following team members are potential and agreed to participate in the project in case of the successfull funding. The following people are not responsible for anything in the project at the moment and are not to be held responsible for any actions taken by Fondu.</i></p>
+        <p><i>Disclaimer: the only person currently working at Fondu is Nikita Kolmogorov. The following team members are potential only, having agreed to participate in the project only in the case of successful funding. The following people are not responsible for the project and cannot be held responsible for any actions taken by Fondu.</i></p>
 
         <div class="row">
           <div class="col-sm-9">
             <h5>Nikita Pechenov [<a href="https://t.me/zachot">TG</a>]</h5>
-            <p>Has over 10 year of commercial development experience. Worked with numerous companies as a contractor with projects ranging from entertainment mini-apps to large busness-architectures. Has worked with Amwey, Sberbank, Alfabank, Tinkoff and OneTwoTrip. Currently works mainly as a frontend engineer however also practices writing backend to maintain the skill. At the moment consults <a href="https://bestrate.org">BestRate</a> and <a href="https://toreador.io">Toreador</a>.
+            <p>Nikita has over 10 year of commercial development experience. He has worked with numerous companies as a contractor for projects ranging from entertainment mini-apps to large business-architecture. He has worked with Amwey, Sberbank, Alfabank, Tinkoff and OneTwoTrip. Nikita currently works as a front-end engineer, however he also continues to maintain his back-end development abilities. At the moment he is a consultant for <a href="https://bestrate.org">BestRate</a> and <a href="https://toreador.io">Toreador</a>.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/zachot.jpg"></p>
@@ -208,8 +210,10 @@
         <div class="row">
           <div class="col-sm-9">
             <h5>Artyom Chebotaryov [<a href="https://t.me/Derik117">TG</a>, <a href="https://vk.com/derik117">VK</a>]</h5>
-            <p>Creator of <a href="https://t.me/VoterBiBot">@VoterBiBot</a> — sweepstakes bot for Telegram groups and channels, full-stack developer specializing in Python Django and Vue.js. Has been involved in a series of different IT ventures as a coder: starting with electronics parts websites parser for one of the companies and continuing to building software solutions for <a href="http://neolab.io">Neolab</a> as well as building event-oriented Telegram bots followed by an alternative to Monitor (courtesy of <a href="https://medium.com/meduza-how-it-works/introducing-monitor-cms-for-human-corrected-news-aggregator-92d4105c5cf4">Meduza</a>).</p>
-            <p>Started his develop career 2 years ago. Got head over heels in love with programming beause of the opportunity to create products valuable for people as well as to freely work where and when he decides. He loves backend development and works with bigdata as a hobby.</p>
+
+            <p>Creator of <a href="https://t.me/VoterBiBot">@VoterBiBot</a>, a sweepstakes bot for Telegram groups and channels. Artyom is a full-stack developer specializing in Python Django and Vue.js. He has been involved in a series of different IT ventures as a coder: starting as an electronics parts websites parser, building software solutions for <a href="http://neolab.io">Neolab</a>, building event-oriented Telegram bots, and finally building an alternative to Monitor (<a href="https://medium.com/meduza-how-it-works/introducing-monitor-cms-for-human-corrected-news-aggregator-92d4105c5cf4">courtesy of Meduza</a>).</p>
+
+            <p>Artyom started his developer career 2 years ago. He has since fallen head over heels in love with programming because of the opportunity to create valuable people oriented products and for the freedom that comes from working as a freelancer. He loves back-end development and works with big data as a hobby.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/artem.png"></p>
@@ -219,8 +223,9 @@
         <div class="row">
           <div class="col-sm-9">
             <h5>Aleksandr Mihhailov [<a href="https://t.me/jet4fire">TG</a>]</h5>
-            <p>Goal oriented fullstack developer with 7+ years of development experience. He is always looking to work on exciting projects with exciting people and strives to participate in social-oriented projects. Likes learning new programming languages and techniques.</p>
-            <p>Spent most of his career picking up and mastering new skills. Thus, he has extensive experience with the MEAN stack, Ruby, TypeScript and various databases. Has participated in the development of <a href="https://adcash.com">adcash</a>, <a href="http://tacticrealtime.com/">Tactic</a>, <a href="http://motiva.ee/">motiva</a>.</p>
+            <p>A goal oriented full stack developer with 7+ years of development experience. He is always looking to work on exciting projects with exciting people and strives to participate in social-oriented projects. Aleksandr likes learning new programming languages and techniques.</p>
+
+            <p>He has spent most of his career picking up and mastering new skills. For instance, he has extensive experience with the MEAN stack, Ruby, TypeScript and various databases. Finally, he has participated in the development of <a href="https://adcash.com">adcash</a>, <a href="http://tacticrealtime.com/">Tactic</a>, <a href="http://motiva.ee/">motiva</a>.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/alexandr.jpg"></p>
@@ -230,8 +235,9 @@
         <div class="row">
           <div class="col-sm-9">
             <h5>Artem Biryukov [<a href="https://t.me/impowski">TG</a>]</h5>
-            <p>Has began his developer career in 6th grade with Pascal. Have since transitioned to a more serious programming tasks to solve business problems and as a hobby to build valuable products for various markets. Fondu has attracted him as a fascinating idea solving multiple industry-wide issues and a way to gather blockchain related experience.</p>
-            <p>Has contributed to Mozilla open source repositories, <a href="https://github.com/rust-lang-nursery/rust-bindgen">rust-bindgen</a>, <a href="https://github.com/servo/servo">servo</a> and <a href="https://github.com/SergioBenitez/Rocket">Rocket</a>. Experienced in Node.js, JavaScript (Vue, React), Python, Rust, Go as well as various databases, Docker, GraphQL, etc.</p>
+            <p>Artem began his developer career in 6th grade with Pascal and has since transitioned to more serious programming tasks such as solving problems for businesses and building valuable products for various markets. Fondu has attracted him as a fascinating idea with its potential to solve multiple industry-wide issues and as a means to gather blockchain related experience.</p>
+
+            <p>Artem has contributed to Mozilla open source repositories, <a href="https://github.com/rust-lang-nursery/rust-bindgen">rust-bindgen</a>, <a href="https://github.com/servo/servo">servo</a> and <a href="https://github.com/SergioBenitez/Rocket">Rocket</a>. He is experienced in Node.js, JavaScript (Vue, React), Python, Rust, Go, as well as various databases such as Docker, and GraphQL.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/artem.jpg"></p>
@@ -241,8 +247,9 @@
         <div class="row">
           <div class="col-sm-9">
             <h5>Alexey Kakotkin [<a href="https://t.me/a_alexei_0">TG</a>]</h5>
-            <p>Started do develop software in high school, has been doing commercial development for the last 3 years. Started programming as a way to strech his knowledge and challenge the brain. Wants to participate in Fondu as a part of the crypto experience.</p>
-            <p>Has been working on various hobby projects, <a href="https://gitlab.com/Apyr/diary">the most recent</a> one being a personal blogging platform. His main tech stack at the moment is React, Python, Java, C#, Go — as represented by his <a href="https://gitlab.com/Apyr">GitLab profile</a>.</p>
+            <p>Alexey started to develop software in high school, and has been doing commercial development for the last 3 years. He started programming as a way to stretch his knowledge and challenge his brain. Alexey wants to participate in Fondu to build his blockchain portfolio.</p>
+
+            <p>Alexey has been working on various hobby projects with <a href="https://gitlab.com/Apyr/diary">the most recent</a> being a personal blogging platform. His main tech stack at the moment is React, Python, Java, C#, Go — as represented by his <a href="https://gitlab.com/Apyr">GitLab profile</a>.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/alex.jpg"></p>
@@ -252,8 +259,9 @@
         <div class="row">
           <div class="col-sm-9">
             <h5>Rauf Salikhov [<a href="https://t.me/avrdude">TG</a>]</h5>
-            <p>Has started development 2 years ago as a part of a small freelance project. Since then he has grown as a programmer to use more advanced and sophisticated technologies including the MEAN stack and Vue.</p>
-            <p>Unfortunately, no traces of his previous projects are left on the Internet, however he has wide experience with developing a network of websites for various businesses like real-estate agencies, car dealerships, beauty product distributors. Has peaked into the mobile development starting with Swift.</p>
+            <p>Rauf started development 2 years ago as a part of a small freelance project. Since then he has grown as a programmer to use more advanced and sophisticated technologies including the MEAN stack and Vue.</p>
+
+            <p>Unfortunately, while no trace of his previous projects are left on the Internet, he has considerable experience developing networks for various businesses such as real-estate agencies, car dealerships, and beauty product distributors. He has also begun looking into mobile development, starting with Swift.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/rauf.jpg"></p>
@@ -263,7 +271,7 @@
         <div class="row">
           <div class="col-sm-9">
             <h5>Michel Erohov [<a href="https://t.me/wsmichel">TG</a>]</h5>
-            <p>Frontend developer who started his career in 2014. Participated in the currenlty shut down project Controlio. Currently works at <a href="https://bbdogroup.ru/">BBDO</a>. Fondu has caught him as an opportunity to contribute to the comunity and increase his presence in the open source world.</p>
+            <p>A front-end developer who started his career in 2014, Michel participated in the shut down project Controlio. He currently works at <a href="https://bbdogroup.ru/">BBDO</a>. Fondu has interested him as an opportunity to contribute to the community and increase his presence in the open source community.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/michel.jpg"></p>
@@ -271,13 +279,14 @@
         </div>
 
         <h2>Advisors</h2>
-        <p><i>Disclaimer: the only thing that adivsors do in Fondu is advising the project. They do it completely pro bono and no risks should be ever associated with them as well as they should not be held responsible for anything — the only people who are fully responsible for Fondu are the actual project team of contributors. Also worth noting that even though all the advisors listed agreed to participate in the project after successfull funding, not all of them actively advise the project at the moment.</i></p>
+        <p><i>Disclaimer: the only role advisors have in Fondu is advising the developer team. They do it completely pro bono. No risk should be ever associated with them and they should not be held responsible for the company’s actions. The only people who are responsible for Fondu are the actual project team of contributors and developers. Although all the listed advisors have agreed to participate in the project after successful funding, not all of them currently advise the project.</i></p>
 
         <div class="row">
           <div class="col-sm-9">
             <h5>Max Frolov [<a href="https://t.me/maffa">TG</a>, <a href="https://www.linkedin.com/in/maksimfrolov/">LI</a>]</h5>
-            <p>Visionary, ICO and legal advisor. Managed projects in a company group that develops Russian stock market. Participated in listing of the foreign securities on Saints-Petersburg Exchange, off-market exchanges and ETF clearing. Was a part of the crypto exchange launch attempt in Russian jurisdiction which is now setting up in Switzerland.</p>
-            <p>Was responsible for business-architecture of the solutions, efforts and releases planning as well as brokers comunication at <a href="https://spbexchange.ru">SPB Exchange</a>, <a href="https://nprts.ru">NPRTS</a> and <a href="https://voskhod.io">Voskhod</a>.</p>
+            <p>Visionary, ICO and legal advisor, Max managed projects in a company group that develops applications for the Russian stock market. He participated in the listing of foreign securities on the Saint Petersburg Exchange, off-market exchanges, and ETF clearing. He was a part of the initial crypto exchange launch first attempted in Russian jurisdiction but which is now setting up in Switzerland.</p>
+
+            <p>Max was responsible for business-architecture for solutions, efforts and release planning as well as brokers communication at <a href="https://spbexchange.ru">SPB Exchange</a>, <a href="https://nprts.ru">NPRTS</a> and <a href="https://voskhod.io">Voskhod</a>.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/max.jpg"></p>
@@ -287,8 +296,9 @@
         <div class="row">
           <div class="col-sm-9">
             <h5>Aler Denisov [<a href="https://t.me/alerdenisov">TG</a>]</h5>
-            <p>Blockchain enthusiast and technical advisor at Fondu. Has broad experience at development of various projects. Founder of <a href="https://vibrance.ru">Vibrance</a> devshop that has developed apps for multiple high-end brands. Recently participated in the development of <a href="https://tokenstars.com/ru/ace">Ace Token</a>, <a href="https://tokenstars.com/ru/team">Team Token</a>, <a href="https://alt.estate">Alt Estate</a>, <a href="https://musereum.org">Musereum</a>.</p>
-            <p>Has contributed his wisdom to make Fondu smart-contract more secure, reliable and human-readable. Agreed to advise on the technical aspect of smart contract constructor as well as general service architecture.</p>
+            <p>Blockchain enthusiast and technical advisor at Fondu, Aler has broad experience developing various projects. He is the founder of <a href="https://vibrance.ru">Vibrance</a> devshop that has developed apps for multiple high-end brands. He recently participated in the development of <a href="https://tokenstars.com/ru/ace">Ace Token</a>, <a href="https://tokenstars.com/ru/team">Team Token</a>, <a href="https://alt.estate">Alt Estate</a>, <a href="https://musereum.org">Musereum</a>.</p>
+
+            <p>Aler has contributed his wisdom to making Fondu smart-contracts more secure, reliable and human-readable. Finally, he has agreed to advise on the technical aspect of the smart contract constructor as well as general service architecture.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/aler.jpg"></p>
@@ -299,7 +309,8 @@
           <div class="col-sm-9">
             <h5>Vlad Sofronov [<a href="https://t.me/vladsofronov">TG</a>, <a href="https://www.linkedin.com/in/vladimir-sofronov-42b80a17/">LI</a></a>]</h5>
             <p>Vlad Sofronov is VP for Partner Relations at ICOBox, the world's largest provider of SaaS ICO solutions. For most of his professional career he has been implementing groundbreaking technologies in new fields, including a multi-year stint as a highly sought-after VFX supervisor in the film industry. For the past 5 years Vlad has been actively involved in cryptocurrency trading and mining, and, over the past year, has been deeply engaged in studying and participating in ICOs.</p>
-            <p>Because of his thorough understanding of the new technology, he was invited to come onboard at ICOBox, where he now manages relations with all of the ICOBox's global partners, acts as the company's ambassador at public events, and is extremely busy supporting ICOs of the company's strategic clients. Has been a part of <a href="https://amltoken.com/">AML Bitcoin</a>, <a href="https://crowdsale.storiqa.com/">Storiqa</a>, <a href="https://pavocoin.com/">PAVO</a>, <a href="https://cinematix.io/">Cinematix</a>, <a href="https://www.tradelize.com/">Tradelize</a>, <a href="https://modltoken.io/">MODULE</a>, <a href="https://www.goldmint.io/">Goldmint</a>. Having such a wide exprtise in conducting ICO's Vlad is a very valuable advisor at Fondu helping out with deciding on what's important and what's not.</p>
+
+            <p>Because of his thorough understanding of the new technology, he was invited to come onboard at ICOBox, where he now manages relations with all of the ICOBox's global partners, acts as the company's ambassador at public events, and is extremely busy supporting ICOs of the company's strategic clients. He has also been a part of <a href="https://amltoken.com/">AML Bitcoin</a>, <a href="https://crowdsale.storiqa.com/">Storiqa</a>, <a href="https://pavocoin.com/">PAVO</a>, <a href="https://cinematix.io/">Cinematix</a>, <a href="https://www.tradelize.com/">Tradelize</a>, <a href="https://modltoken.io/">MODULE</a>, <a href="https://www.goldmint.io/">Goldmint</a>. Having such a wide expertise in conducting ICO's, Vlad is a very valuable advisor at Fondu, helping with the planning and decision making process.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/vlad.jpg"></p>
@@ -309,7 +320,7 @@
         <div class="row">
           <div class="col-sm-9">
             <h5>Andrew Ahachinsky [<a href="https://www.facebook.com/andrew.ahachinsky">FB</a>, <a href="https://www.linkedin.com/in/andrew-ahachinsky/">LI</a>]</h5>
-            <p>Longevity specialist and the founder and CEO at <a href="http://eterly.com">Eterly</a>. Andrew has been a driving visionary and business advisor. Having experience with conducting ICO, he shapes the develoment of the product toward the needs of customers instead of forcing it to go for the most hype technologies.</p>
+            <p>Longevity specialist and founder and CEO at <a href="http://eterly.com">Eterly</a>, Andrew has been a driving visionary and business advisor. With experience conducting ICO’s, he shapes the development of his products toward the needs of customers instead of following hype and the status quo.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/andrew.jpg"></p>
@@ -319,8 +330,9 @@
         <div class="row">
           <div class="col-sm-9">
             <h5>Yuriy Kashnikov [<a href="https://t.me/YKashnikov">TG</a>]</h5>
-            <p>Yuriy is a software engineer at Exyte, Russia. Yuriy works on blockchain and related technologies bridging latest research results with real world applications. Previously he graduated with PhD from University of Versailes, France and worked on HPC problems at Exascale research center, Paris. Participated in the devleopment of <a href="https://github.com/kayuri">Kayuri</a>, <a href="https://dragonking.io">Dragon King</a>, <a href="https://dorado.tech">Dorado</a> and <a href="https://microcar.co.nz">microCAR</a>.</p>
-            <p>Together with <a href="https://github.com/ystrot">Yuri Strot</a> they are developing ICO generator and they agreed to share experience and advise Fondu on the technical and visionary problems.</p>
+            <p>Yuriy is a software engineer at Exyte, Russia. Yuriy works on blockchain and related technologies bridging the latest research results with real world applications. He previously graduated with a PhD from the University of Versailles, France, and worked on HPC problems at the Exascale research center in Paris. He participated in the development of <a href="https://github.com/kayuri">Kayuri</a>, <a href="https://dragonking.io">Dragon King</a>, <a href="https://dorado.tech">Dorado</a> and <a href="https://microcar.co.nz">microCAR</a>.</p>
+
+            <p>Together with <a href="https://github.com/ystrot">Yuri Strot</a>, he is developing the ICO generator and they have agreed to share their experiences solving technical and visionary problems as advisors for Fondu.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/yuriy.jpg"></p>
@@ -330,8 +342,9 @@
         <div class="row">
           <div class="col-sm-9">
             <h5>Mike Goryunov [<a href="https://t.me/mikegoryunov">TG</a>]</h5>
-            <p>Has started his marketing career in 2009 and has been working in business development since 2014. THe latest project he currently works with is <a href="https://3commas.io">3commas</a> — cryptoexchange trading terminal, analytics and trading bots. He is responsible for partners relations and marketing there.</p>
-            <p>3commas is one of the leading crypto-trading platforms with over 40 000 users and 13 integrated exchanges. Mike and 3commas team in general will advise Fondu on technical ad business levels: how to drive complete product to the market.</p>
+            <p>Mike started his marketing career in 2009 and has been working in business development since 2014. His latest project is <a href="https://3commas.io">3commas</a>, a crypto exchange trading terminal, analytics and trading bot. There he is responsible for partner relations and marketing.</p>
+
+            <p>3commas is one of the leading crypto-trading platforms with over 40 000 users and 13 integrated exchanges. Mike and the 3commas team will advise Fondu on technical and business levels, particularly on how to drive a complete product to market.</p>
           </div>
           <div class="col-sm-3">
             <p><img class="img-bordered" src="img/mike.jpg"></p>
@@ -339,10 +352,13 @@
         </div>
 
         <h2>ICO</h2>
-        <p>Apparently, this is the reason why most of the text and code above were written. Even though we believe that a project on a such scale can be fueled by the enthusiasm of the contributors, there is also a strong necessity in Fondu on the market at the moment. And it means that we have to act quick — otherwise millions of dollars can be lost to scammers who simply reuse the same smart contract code again and again charging enormously large fees.</p>
-        <p>In order to release Fondu faster, we need to hire developers, designers and managers fulltime and by estimate we need around <b>$250,000</b> for the first year of operation. However, the estimate amount of money saved within the first is far exceeding the estimate expenses. If every 10th ICO pledges $1,000 (1/70 of the average smart contract and website budget) to Fondu, this ICO will succeed.</p>
-        <p>Terms of the ICO are super simple: you transfer ETH to the ETH address below and get FDU tokens. For every 1 ETH sent you will receive 250 FDU tokens until July 1st, 2019. Then the crowdfunding ICO campaign will be over.</p>
-        <p>Fondu ICO tokensale will end on July 1st, 2019. All the funds collected will be converted to USD right away and will be used to pay developers and contributors to the Fondu repositories. So far we haven't come up with the proper use for the FDU tokens, however we promise to elaborate it to the Fondu platform in the future. When buying FDU tokens, please, execute extreme caution and make sure you understand that you're just supporting our community and getting FDU tokens in return that might hold no value at all in the future.</p>
+        <p>Even though we wish that a project of such scale could be fuelled by the enthusiasm of the contributors alone, there is a strong necessity for Fondu to attract investors. We have to act quickly, otherwise the community risks losing millions of dollars to scammers who continue to simply reuse stolen smart-contract code again and again, while charging enormously large fees.</p>
+
+        <p>In order to release Fondu to market as quickly as possible, we need to hire developers, designers, and managers full-time. Our best estimate for our first year of operations is around $250,000. However, the estimated amount of money saved within the first should exceed the estimate expenses. If every 10th ICO pledges $1,000 (1/70 of the average smart contract and website budget) to Fondu, this ICO will succeed.</p>
+        
+        <p>The terms of the ICO are simple, all one needs to do is to transfer ETH to the ETH address below to receive FDU tokens in return. For every 1 ETH sent you will receive 250 FDU tokens until July 1st, 2019. Then the crowd funding ICO campaign will be over.</p>
+        
+        <p>The Fondu ICO token sale will end on July 1st, 2019. All the proceeds will be converted to USD and will be used to pay developers and contributors to the Fondu repositories. The use and purpose of FDU tokens is yet to be wholly defined, however we promise to present the use case for the Fondu platform in the near future. When buying FDU tokens, please execute extreme caution and make sure you understand that by purchasing FDU tokens, you are supporting our community and an asset that might hold no value at all in the future.</p>
 
         <!-- ICO tracker Vue -->
         <div id="ico-tracker">
@@ -361,11 +377,11 @@
         </div>
 
         <h2>Note on open source</h2>
-        <p>We intend to make Fondu fully available for free to whoever wants to use it. It's development is done completely for the sake of excellent programmers giving back to the community. Our goal is to make sure that evertybody can start an ICO for any reason just like anybody can create a GitHub repository. Speaking about GitHub, we are completely transparrent and our smart-contract code and any code in general <a href="https://github.com/backmeupplz/fondu">can always be found</a> on GitHub under MIT license — which means do whatever you want with the code — we would only be glad if it helps anyone. Every single line of code we write within Fondu will always be open to public. Thanks!</p>
+        <p>We intend to make Fondu fully available for free for everyone. Our intent is to give our excellent developers a chance to give back to the open source community. Our goal is to empower anyone to start their own ICO for any reason, just like anybody can create a GitHub repository. On the topic of GitHub, we are completely transparent and our smart-contract code and any code in general can always be found on <a href="https://github.com/backmeupplz/fondu">GitHub</a> under MIT license, meaning our code is open source to all those who wish to use it. As developers, we can only hope that our project delivers value to those in need, as we seek to empower and democratize the ICO process for all. Every single line of code we write within Fondu will always be open to public. Thanks!</p>
 
         <h2>Conclusion</h2>
-        <p>We strongly believe that posessing such an incredible amount of experience and having great developers as well as advisors we will be able to launch the release version of the product within 2 months after the crowdsale reaches $50,000 rasied — and first ICO made on our open source free platform will not make anybody wait. The only thing that we need now is funding, aside of the funds and time invested by us personally. We also hope that acting together as a community we can change the way ICO's look like from an extravagant exceptions to the everyday experience to the normal user who is far from IT.</p>
-        <p>Thank you a lot in advance and please let us know if you have any questions whatsoever in out public group on Telegram: <a href="https://t.me/project_f">@project_f</a>. Team members try to be online as much as possible to answer any inquiries. You're awesome. Stay this way.</p>
+        <p>We strongly believe that by possessing such an incredible amount of experience and knowledge between our developer and advisory teams, that we will be able to launch the first generation release version of the product within 2 months after the crowd sale reaches our initial target of $50,000 raised. Let nobody wait for the first ICO made on our open source free platform to be made available. The only operating constraint ahead is funding, beyond what has already been invested by us personally. We also hope that by acting together as a community we can change the way ICO's are perceived by the general public, to democratize the crypto climate away from the extravagant exceptions exploited by speculators and imitators in order to level the playing field and experience for non technical users everywhere. Only through this initiative can the rapid adoption of cryptocurrency and blockchain technology be made possible.</p>
+        <p>The Fondu developer team would like to thank you in advance, and please let us know if you have any questions by contacting us in our public Telegram group: <a href="https://t.me/project_f">@project_f</a>. Team members are online as much as possible to answer all inquiries. You're awesome – stay this way!</p>
         <p class="top-border">© 2018, Fondu</p>
       </div>
     </div>
