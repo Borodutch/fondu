@@ -28,361 +28,115 @@
         <div class="corner-trianlge"></div>
       </div>
       <div class="container">
-        <h1>Fondu ICO</h1>
-        <h6>Interactive White Paper [<a href="https://fondu.io" target="_self">English</a>, <a href="https://fondu.io/ru.html" target="_self">Russian</a>]</h6>
-        <h6>Author: <a href="https://t.me/borodutch">Nikita Kolmogorov</a></h6>
-
-        <h2>Introduction</h2>
-        <p>This paper is a proposal to the whole crypto and open source community to save millions of dollars by providing emerging and underrated startups with the key services they need to emerge. Swamped with parasitical speculators, imitators, and scammers that continue to leach on the industry by misleading investors and developers alike, the ICO market is sick and we need to fix it.</p>
-
-        <p>As we all know, automation continues to bring efficiency to businesses and applications around the world. Why should the ICO market be any different? We are proposing a unique solution to this problem by allowing our community to create semi-automatic open sourced services to create and manage all kinds of ICOs. With minimal steps, users will be able to fill in their ICO profile, configure the smart-contract with a series of simple questions, and start raising money with a market-ready website.</p>
-
-        <p>If you have ever conducted an ICO, you know that writing a smart contract can be as costly as $10,000 to $75,000, and marketing costs can run as high as $30,000 to $70,000. Often, developers find that once they have spent all their money, they are left with only a generic website and a slightly modified ERC20 token smart-contract. Thus raising the question: why can't it be done automatically?</p>
-
-        <h2>Product</h2>
-        <p>The solution that we propose consists of three simple modules: the ICO constructor, the ICO presenter and the Investor Personal Profile. Let us explain each of them in detail.</p>
-        <ul class="article_list">
-          <li><b>The ICO constructor:</b> a simple webpage with forms to be filled in with critical ICO information such as the token name, team details, product description, logo, screenshots, social network contacts, legal details, whitepaper, roadmap, etc. The Smart-contract constructor is a part of this module, allowing you to fill simple forms, answer a series of multiple-choice questions, and get a smart-contract deployed to the ETH and/or EOS blockchain immediately.</li>
-          <li><b>The ICO presenter:</b> after constructing the ICO, you will get a personalized profile page that acts as the main landing page for the ICO and contains all the necessary information for investors including live ICO progress (displaying the smart-contract state in the real time), important milestones, and the contract address. Everything is hosted on Fondu platform and has zero costs associated with its upkeep.</li>
-          <li><b>The Investor Personal Profile:</b> one of the most difficult to implement and expensive aspects of running any ICO, this module allows potential investors to pre-register for the sale and seek approval. As well as being a perfect tool to provide KYC and whitelisting functionality to the ICO conductors, we intend to make this module a part of the initial release, as it will allow for drastically reduced costs associated with running an ICO while improving the overall investor user experience. </li>
-        </ul>  
-        <p>The main goal of our project is to democratize the ICO concept for all, enabling anyone to theoretically access smart-contracts in order to conduct any type of crowd funding. Whether it is something positive, like funding a wedding with the help of guests (instead of them buying presents), or rather unfortunate, like funding a complex medical operation for someone in need, everybody ought to be able to launch an ICO without headache and a large capital investment.</p>
-        <p>In case you’re wondering how difficult it is to build what we have just described, look at what I've written in 5 minutes while drinking my morning coffee:</p>
-
-        <!-- Profile Constructor Vue -->
-        <div id="profile-constructor">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-sm left-bordered">
-                <form>
-                  <input type="text" class="form-control" placeholder="Enter title" v-model="title">
-                  <textarea class="form-control" placeholder="Enter product description" v-model="description"></textarea>
-                  <textarea class="form-control" placeholder="Enter team details" v-model="team"></textarea>
-                  <textarea class="form-control" placeholder="Enter legal details" v-model="legal"></textarea>
-                </form>
-              </div>
-              <div class="col-sm left-bordered">
-                <h4>{{ title || titleSample }}</h4>
-                <p>{{ description || descriptionSample }}</p>
-                <h4>Team:</h4>
-                <p>{{ team || teamSample }}</p>
-                <h4>Legal:</h4>
-                <p>{{ legal || legalSample }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p>It wasn't difficult to setup your first ICO profile, was it? Perhaps it will be more difficult to create a smart-contract constructor.</p>
-
+        <h1>Fondu</h1>
+        <h6>ICO smart-contract builder</h6>
+        <p>Hi there! I guess you landed here to lay the foundation for your crowd sale smart-contract or even build it here completely. Well, you are at the right place! Fondu is an <a href="https://github.com/backmeupplz/fondu">open source</a> (feel free to submit issues or pull requests), hosted by <a href="https://pages.github.com/">GitHub Pages</a> and absolutely free to use smart-contract builder. It has initially been created by me as a proof of concept, but heck, maybe somebody could find it useful. Just fill out the questionnaire bellow and hit the <code>Download files</code> button. Easy peasy lemon squeezy, right?</p>
         <!-- Smart contract Constructor Vue -->
-      <div id="contract-constructor">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-sm left-bordered">
-                <form>
-                  <small class="form-text">Human-readable name of your token like "Fondu", "Bitcoin" or "Ethereum":</small>
-                  <input type="text" class="form-control bottom-margin" placeholder="Name" v-model="name">
-  
-                  <small class="form-text">Symbol of your token like "FDU", "BTC" or "ETH":</small>
-                  <input type="text" class="form-control bottom-margin" placeholder="Symbol" v-model="symbol">
-  
-                  <small class="form-text">Number of decimals your currency supports; for instance, Ethereum can go as low as 18 decimals or 0.000000000000000001 ETH:</small>
-                  <input type="number" class="form-control bottom-margin" placeholder="Decimals" v-model="decimals">
-  
-                  <small class="form-text">How many of your tokens will user get for 1 ETH</small>
-                  <input type="number" class="form-control bottom-margin" placeholder="Rate" v-model="rate">
-  
-                  <small class="form-text">ETH wallet that will receive the collected funds:</small>
-                  <input type="text" class="form-control bottom-margin" placeholder="Wallet" v-model="wallet">
-  
-                  <small class="form-text">Whether your crowdsale is bounded by a time frame or not:</small>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" v-model="timed">
-                      Is this crowdsale timed?
-                    </label>
-                  </div>
-                  <div v-if="timed">
-                    <small class="form-text">Start date</small>
-                    <input type="date" class="form-control bottom-margin" v-model="startDate">
-                    <small class="form-text">End date</small>
-                    <input type="date" class="form-control bottom-margin" v-model="endDate">
-                  </div>
-  
-                  <div v-if="timed">
-                    <small class="form-text">Whether the funds will be held untill softcap is reached and will be returned to the investors if softcap isn't reached:</small>
+        <div id="contract-constructor">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm left-bordered">
+                  <form>
+                    <small class="form-text">Human-readable name of your token like "Fondu", "Bitcoin" or "Ethereum":</small>
+                    <input type="text" class="form-control bottom-margin" placeholder="Name" v-model="name">
+    
+                    <small class="form-text">Symbol of your token like "FDU", "BTC" or "ETH":</small>
+                    <input type="text" class="form-control bottom-margin" placeholder="Symbol" v-model="symbol">
+    
+                    <small class="form-text">Number of decimals your currency supports; for instance, Ethereum can go as low as 18 decimals or 0.000000000000000001 ETH:</small>
+                    <input type="number" class="form-control bottom-margin" placeholder="Decimals" v-model="decimals">
+    
+                    <small class="form-text">How many of your tokens will user get for 1 ETH</small>
+                    <input type="number" class="form-control bottom-margin" placeholder="Rate" v-model="rate">
+    
+                    <small class="form-text">ETH wallet that will receive the collected funds:</small>
+                    <input type="text" class="form-control bottom-margin" placeholder="Wallet" v-model="wallet">
+    
+                    <small class="form-text">Whether your crowdsale is bounded by a time frame or not:</small>
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" v-model="refundable">
-                        Is this crowdsale refundable?
+                        <input class="form-check-input" type="checkbox" v-model="timed">
+                        Is this crowdsale timed?
                       </label>
                     </div>
-                    <div v-if="refundable">
-                      <small class="form-text">Specify softcap — how many tokens you need to gather in order not to trigger the refund mechanism</small>
-                      <input type="number" class="form-control bottom-margin" placeholder="Softcap" v-model="goal">
+                    <div v-if="timed">
+                      <small class="form-text">Start date</small>
+                      <input type="date" class="form-control bottom-margin" v-model="startDate">
+                      <small class="form-text">End date</small>
+                      <input type="date" class="form-control bottom-margin" v-model="endDate">
                     </div>
-                  </div>
-  
-                  <div v-if="timed">
-                    <small class="form-text">Do you need the rate of token to decrease over time so that the sooner you buy the tokens the larger amount of tokens you get?</small>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" v-model="increasingPrice">
-                        Does the crowdsale have increasing price?
-                      </label>
+    
+                    <div v-if="timed">
+                      <small class="form-text">Whether the funds will be held untill softcap is reached and will be returned to the investors if softcap isn't reached:</small>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" v-model="refundable">
+                          Is this crowdsale refundable?
+                        </label>
+                      </div>
+                      <div v-if="refundable">
+                        <small class="form-text">Specify softcap — how many tokens you need to gather in order not to trigger the refund mechanism</small>
+                        <input type="number" class="form-control bottom-margin" placeholder="Softcap" v-model="goal">
+                      </div>
                     </div>
-                    <div v-if="increasingPrice">
-                        <small class="form-text">Rate of how many of your tokens will user get for 1 ETH at the beginning of the crowdsale</small>
-                        <input type="number" placeholder="Start rate" class="form-control bottom-margin" v-model="startRate">
-                        <small class="form-text">Rate of how many of your tokens will user get for 1 ETH in the end of the crowdsale</small>
-                        <input type="number" placeholder="End rate" class="form-control bottom-margin" v-model="endRate">
+    
+                    <div v-if="timed">
+                      <small class="form-text">Do you need the rate of token to decrease over time so that the sooner you buy the tokens the larger amount of tokens you get?</small>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" v-model="increasingPrice">
+                          Does the crowdsale have increasing price?
+                        </label>
+                      </div>
+                      <div v-if="increasingPrice">
+                          <small class="form-text">Rate of how many of your tokens will user get for 1 ETH at the beginning of the crowdsale</small>
+                          <input type="number" placeholder="Start rate" class="form-control bottom-margin" v-model="startRate">
+                          <small class="form-text">Rate of how many of your tokens will user get for 1 ETH in the end of the crowdsale</small>
+                          <input type="number" placeholder="End rate" class="form-control bottom-margin" v-model="endRate">
+                      </div>
                     </div>
-                  </div>
-  
-                  <small class="form-text">Whether you have the maximum value of tokens sold:</small>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" v-model="capped">
-                        Is this crowdsale capped?
-                      </label>
-                    </div>
-                    <div v-if="capped">
-                      <small class="form-text">What is the maximum amount of tokens you intend to raise?</small>
-                      <input type="number" class="form-control bottom-margin" placeholder="Hardcap" v-model="cap">
-                    </div>
-  
-                    <small class="form-text">Would you like to accept Ethereum only from the whitelisted addresses?</small>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" v-model="whitelisted">
-                        Is this crowdsale whitelist only?
-                      </label>
-                    </div>
-                </form>
-              </div>
-              <div class="col-sm left-bordered">
-                <div class="code">
-                  <code><pre>{{code}}</pre></code>
+    
+                    <small class="form-text">Whether you have the maximum value of tokens sold:</small>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" v-model="capped">
+                          Is this crowdsale capped?
+                        </label>
+                      </div>
+                      <div v-if="capped">
+                        <small class="form-text">What is the maximum amount of tokens you intend to raise?</small>
+                        <input type="number" class="form-control bottom-margin" placeholder="Hardcap" v-model="cap">
+                      </div>
+    
+                      <small class="form-text">Would you like to accept Ethereum only from the whitelisted addresses?</small>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" v-model="whitelisted">
+                          Is this crowdsale whitelist only?
+                        </label>
+                      </div>
+                  </form>
                 </div>
-                <br>
-                <button type="button" class="btn btn-primary" v-on:click="download">Download files</button>
-                <br><br>
-                <p>What's next?</p>
-                <ol>
-                  <li>Run <code>./deploy.sh</code> in the root folder of the zip you've downloaded</li>
-                  <li>Follow the steps of the deployer</li>
-                  <li>Enjoy your smart-contract deployed!</li>
-                </ol>
+                <div class="col-sm left-bordered">
+                  <div class="code">
+                    <code><pre>{{code}}</pre></code>
+                  </div>
+                  <br>
+                  <button type="button" class="btn btn-primary" v-on:click="download">Download files</button>
+                  <br><br>
+                  <p>What's next?</p>
+                  <ol>
+                    <li>Run <code>./deploy.sh</code> in the root folder of the zip you've downloaded</li>
+                    <li>Follow the steps of the deployer</li>
+                    <li>Enjoy your smart-contract deployed!</li>
+                  </ol>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <p>Congratulations you have just written your first smart contract! <b>$70,000</b> they say — and you just did it for free! Download the resulting code and follow the deployment instructions, our product is fully capable of deploying smart contracts to the local, test and main Ethereum networks! For free and without hassle! The worst offenders amongst ICO's copy\paste generic code with the names of their tokens, their owner ETH addresses and with the supply amount changed. Real ICO visionaries are getting robbed in broad daylight and we want to help stop it.</p>
-        <p>So far, you have learned about our mission and our project: The Simple ICO Constructor, the ICO Presenter and the Investor Personal Profile. With these services, launching an ICO will not take more than 15 minutes of configuration process. Obviously, in order to achieve such an ambitious goal we need an experienced team of developers and contributors. So who is behind the Fondu team?</p>
-
-        <h2>Team</h2>
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Nikita Kolmogorov [<a href="https://t.me/borodutch">TG</a>, <a href="https://fb.me/borodutch">FB</a>]</h5>
-            <p>Creator of <a href="https://t.me/voicybot">@voicybot</a> (1,500,000 users, <a href="https://github.com/backmeupplz/voicy">open source</a>), <a href="https://t.me/banofbot">@banofbot</a> (150,000 chats, <a href="https://github.com/backmeupplz/banofbot">open source</a>), <a href="https://toreador.io">Toreador.io</a> (over $1,000,000 of trading capital), <a href="https://t.me/golden_borodutch">@golden_borodutch</a> — Telegram channel with over 12,000 subscribers with the focus on cryptocurrencies, IT and self-development. One of the main contributors to <a href="https://t.me/arbeit_bot">@arbeit_bot</a> (<a href="https://github.com/arbeitbot">open source</a>).</p>
-            <p>Since learning to code at the young age of 12, he has since participated in 35+ projects as a developer, IT enthusiast, manager, lead and consultant. Today, his main focus is working on his personal projects, and consulting startups interested in launching Minimal Viable Products through establishing technical superiority.</p>
-            <p>Nikita is a strong believer that coding talents can be used for the greater good and that the reward comes not only from building quality products but also only after his work successfully creates value for the largest amount of people possible.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/nikita.jpg"></p>
-          </div>
-        </div>
-
-        <p><i>Disclaimer: the only person currently working at Fondu is Nikita Kolmogorov. The following team members are potential only, having agreed to participate in the project only in the case of successful funding. The following people are not responsible for the project and cannot be held responsible for any actions taken by Fondu.</i></p>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Nikita Pechenov [<a href="https://t.me/zachot">TG</a>]</h5>
-            <p>Nikita has over 10 year of commercial development experience. He has worked with numerous companies as a contractor for projects ranging from entertainment mini-apps to large business-architecture. He has worked with Amwey, Sberbank, Alfabank, Tinkoff and OneTwoTrip. Nikita currently works as a front-end engineer, however he also continues to maintain his back-end development abilities. At the moment he is a consultant for <a href="https://bestrate.org">BestRate</a> and <a href="https://toreador.io">Toreador</a>.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/zachot.jpg"></p>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Artyom Chebotaryov [<a href="https://t.me/Derik117">TG</a>, <a href="https://vk.com/derik117">VK</a>]</h5>
-
-            <p>Creator of <a href="https://t.me/VoterBiBot">@VoterBiBot</a>, a sweepstakes bot for Telegram groups and channels. Artyom is a full-stack developer specializing in Python Django and Vue.js. He has been involved in a series of different IT ventures as a coder: starting as an electronics parts websites parser, building software solutions for <a href="http://neolab.io">Neolab</a>, building event-oriented Telegram bots, and finally building an alternative to Monitor (<a href="https://medium.com/meduza-how-it-works/introducing-monitor-cms-for-human-corrected-news-aggregator-92d4105c5cf4">courtesy of Meduza</a>).</p>
-
-            <p>Artyom started his developer career 2 years ago. He has since fallen head over heels in love with programming because of the opportunity to create valuable people oriented products and for the freedom that comes from working as a freelancer. He loves back-end development and works with big data as a hobby.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/artem.png"></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Aleksandr Mihhailov [<a href="https://t.me/jet4fire">TG</a>]</h5>
-            <p>A goal oriented full stack developer with 7+ years of development experience. He is always looking to work on exciting projects with exciting people and strives to participate in social-oriented projects. Aleksandr likes learning new programming languages and techniques.</p>
-
-            <p>He has spent most of his career picking up and mastering new skills. For instance, he has extensive experience with the MEAN stack, Ruby, TypeScript and various databases. Finally, he has participated in the development of <a href="https://adcash.com">adcash</a>, <a href="http://tacticrealtime.com/">Tactic</a>, <a href="http://motiva.ee/">motiva</a>.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/alexandr.jpg"></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Artem Biryukov [<a href="https://t.me/impowski">TG</a>]</h5>
-            <p>Artem began his developer career in 6th grade with Pascal and has since transitioned to more serious programming tasks such as solving problems for businesses and building valuable products for various markets. Fondu has attracted him as a fascinating idea with its potential to solve multiple industry-wide issues and as a means to gather blockchain related experience.</p>
-
-            <p>Artem has contributed to Mozilla open source repositories, <a href="https://github.com/rust-lang-nursery/rust-bindgen">rust-bindgen</a>, <a href="https://github.com/servo/servo">servo</a> and <a href="https://github.com/SergioBenitez/Rocket">Rocket</a>. He is experienced in Node.js, JavaScript (Vue, React), Python, Rust, Go, as well as various technologies such as Docker, and GraphQL. He currently works on the <a href="deexter_bot">@deexter_bot</a>.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/artem.jpg"></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Alexey Kakotkin [<a href="https://t.me/a_alexei_0">TG</a>]</h5>
-            <p>Alexey started to develop software in high school, and has been doing commercial development for the last 3 years. He started programming as a way to stretch his knowledge and challenge his brain. Alexey wants to participate in Fondu to build his blockchain portfolio.</p>
-
-            <p>Alexey has been working on various hobby projects with <a href="https://gitlab.com/Apyr/diary">the most recent</a> being a personal blogging platform. His main tech stack at the moment is React, Python, Java, C#, Go — as represented by his <a href="https://gitlab.com/Apyr">GitLab profile</a>.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/alex.jpg"></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Rauf Salikhov [<a href="https://t.me/avrdude">TG</a>]</h5>
-            <p>Rauf started development 2 years ago as a part of a small freelance project. Since then he has grown as a programmer to use more advanced and sophisticated technologies including the MEAN stack and Vue.</p>
-
-            <p>Unfortunately, while no trace of his previous projects are left on the Internet, he has considerable experience developing networks for various businesses such as real-estate agencies, car dealerships, and beauty product distributors. He has also begun looking into mobile development, starting with Swift.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/rauf.jpg"></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Michel Erohov [<a href="https://t.me/wsmichel">TG</a>]</h5>
-            <p>A front-end developer who started his career in 2014, Michel participated in the shut down project Controlio. He currently works at <a href="https://bbdogroup.ru/">BBDO</a>. Fondu has interested him as an opportunity to contribute to the community and increase his presence in the open source community.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/michel.jpg"></p>
-          </div>
-        </div>
-
-        <h2>Advisors</h2>
-        <p><i>Disclaimer: the only role advisors have in Fondu is advising the developer team. They do it completely pro bono. No risk should be ever associated with them and they should not be held responsible for the company’s actions. The only people who are responsible for Fondu are the actual project team of contributors and developers. Although all the listed advisors have agreed to participate in the project after successful funding, not all of them currently advise the project.</i></p>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Max Frolov [<a href="https://t.me/maffa">TG</a>, <a href="https://www.linkedin.com/in/maksimfrolov/">LI</a>]</h5>
-            <p>Visionary, ICO and legal advisor, Max managed projects in a company group that develops applications for the Russian stock market. He participated in the listing of foreign securities on the Saint Petersburg Exchange, off-market exchanges, and ETF clearing. He was a part of the initial crypto exchange launch first attempted in Russian jurisdiction but which is now setting up in Switzerland.</p>
-
-            <p>Max was responsible for business-architecture for solutions, efforts and release planning as well as brokers communication at <a href="https://spbexchange.ru">SPB Exchange</a>, <a href="https://nprts.ru">NPRTS</a> and <a href="https://voskhod.io">Voskhod</a>.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/max.jpg"></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Aler Denisov [<a href="https://t.me/alerdenisov">TG</a>]</h5>
-            <p>Blockchain enthusiast and technical advisor at Fondu, Aler has broad experience developing various projects. He is the founder of <a href="https://vibrance.ru">Vibrance</a> devshop that has developed apps for multiple high-end brands. He recently participated in the development of <a href="https://tokenstars.com/ru/ace">Ace Token</a>, <a href="https://tokenstars.com/ru/team">Team Token</a>, <a href="https://alt.estate">Alt Estate</a>, <a href="https://musereum.org">Musereum</a>.</p>
-
-            <p>Aler has contributed his wisdom to making Fondu smart-contracts more secure, reliable and human-readable. Finally, he has agreed to advise on the technical aspect of the smart contract constructor as well as general service architecture.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/aler.jpg"></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Vlad Sofronov [<a href="https://t.me/vladsofronov">TG</a>, <a href="https://www.linkedin.com/in/vladimir-sofronov-42b80a17/">LI</a>]</h5>
-            <p>Vlad Sofronov is VP for Partner Relations at ICOBox, the world's largest provider of SaaS ICO solutions. For most of his professional career he has been implementing groundbreaking technologies in new fields, including a multi-year stint as a highly sought-after VFX supervisor in the film industry. For the past 5 years Vlad has been actively involved in cryptocurrency trading and mining, and, over the past year, has been deeply engaged in studying and participating in ICOs.</p>
-
-            <p>Because of his thorough understanding of the new technology, he was invited to come onboard at ICOBox, where he now manages relations with all of the ICOBox's global partners, acts as the company's ambassador at public events, and is extremely busy supporting ICOs of the company's strategic clients. He has also been a part of <a href="https://amltoken.com/">AML Bitcoin</a>, <a href="https://crowdsale.storiqa.com/">Storiqa</a>, <a href="https://pavocoin.com/">PAVO</a>, <a href="https://cinematix.io/">Cinematix</a>, <a href="https://www.tradelize.com/">Tradelize</a>, <a href="https://modltoken.io/">MODULE</a>, <a href="https://www.goldmint.io/">Goldmint</a>. Having such a wide expertise in conducting ICO's, Vlad is a very valuable advisor at Fondu, helping with the planning and decision making process.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/vlad.jpg"></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Andrew Ahachinsky [<a href="https://www.facebook.com/andrew.ahachinsky">FB</a>, <a href="https://www.linkedin.com/in/andrew-ahachinsky/">LI</a>]</h5>
-            <p>Longevity specialist and founder and CEO at <a href="http://eterly.com">Eterly</a>, Andrew has been a driving visionary and business advisor. With experience conducting ICO’s, he shapes the development of his products toward the needs of customers instead of following hype and the status quo.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/andrew.jpg"></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Yuriy Kashnikov [<a href="https://t.me/YKashnikov">TG</a>]</h5>
-            <p>Yuriy is a software engineer at Exyte, Russia. Yuriy works on blockchain and related technologies bridging the latest research results with real world applications. He previously graduated with a PhD from the University of Versailles, France, and worked on HPC problems at the Exascale research center in Paris. He participated in the development of <a href="https://github.com/kayuri">Kayuri</a>, <a href="https://dragonking.io">Dragon King</a>, <a href="https://dorado.tech">Dorado</a> and <a href="https://microcar.co.nz">microCAR</a>.</p>
-
-            <p>Together with <a href="https://github.com/ystrot">Yuri Strot</a>, he is developing the ICO generator and they have agreed to share their experiences solving technical and visionary problems as advisors for Fondu.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/yuriy.jpg"></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-9">
-            <h5>Mike Goryunov [<a href="https://t.me/mikegoryunov">TG</a>]</h5>
-            <p>Mike started his marketing career in 2009 and has been working in business development since 2014. His latest project is <a href="https://3commas.io">3commas</a>, a crypto exchange trading terminal, analytics and trading bot. There he is responsible for partner relations and marketing.</p>
-
-            <p>3commas is one of the leading crypto-trading platforms with over 40 000 users and 13 integrated exchanges. Mike and the 3commas team will advise Fondu on technical and business levels, particularly on how to drive a complete product to market.</p>
-          </div>
-          <div class="col-sm-3">
-            <p><img class="img-bordered" src="img/mike.jpg"></p>
-          </div>
-        </div>
-
-        <h2>ICO</h2>
-        <p>Even though we wish that a project of such scale could be fuelled by the enthusiasm of the contributors alone, there is a strong necessity for Fondu to attract investors. We have to act quickly, otherwise the community risks losing millions of dollars to scammers who continue to simply reuse stolen smart-contract code again and again, while charging enormously large fees.</p>
-
-        <p>In order to release Fondu to market as quickly as possible, we need to hire developers, designers, and managers full-time. Our best estimate for our first year of operations is around $250,000. However, the estimated amount of money saved within the first should exceed the estimate expenses. If every 10th ICO pledges $1,000 (1/70 of the average smart contract and website budget) to Fondu, this ICO will succeed.</p>
-        
-        <p>The terms of the ICO are simple, all one needs to do is to transfer ETH to the ETH address below to receive FDU tokens in return. For every 1 ETH sent you will receive 250 FDU tokens until July 1st, 2019. Then the crowd funding ICO campaign will be over.</p>
-        
-        <p>The Fondu ICO token sale will end on July 1st, 2019. All the proceeds will be converted to USD and will be used to pay developers and contributors to the Fondu repositories. The use and purpose of FDU tokens is yet to be wholly defined, however we promise to present the use case for the Fondu platform in the near future. When buying FDU tokens, please execute extreme caution and make sure you understand that by purchasing FDU tokens, you are supporting our community and an asset that might hold no value at all in the future.</p>
-
-        <!-- ICO tracker Vue -->
-        <div id="ico-tracker">
-          <div class="row">
-            <div class="col-sm-9">
-                <h5>ICO progress (<a href="https://etherscan.io/token/0x176afbcd4cf9fb7c41ecf5ec0267b87f018f12f8">proof</a>):</h5>
-                <p>{{ progress }}</p>
-                <p>{{ raised }}</p>
-                <p>Send Ethereum to the address on the qr code or to this address to buy FDU:</p>
-                <h5>0x7a5eb747f7921b057fa081e52597bc2cf0a03c4a</h5>
-            </div>
-            <div class="col-sm-3">
-              <p><img class="img-bordered" src="img/qr.png"></p>
-            </div>
-          </div>
-        </div>
-
-        <h2>Note on open source</h2>
-        <p>We intend to make Fondu fully available for free for everyone. Our intent is to give our excellent developers a chance to give back to the open source community. Our goal is to empower anyone to start their own ICO for any reason, just like anybody can create a GitHub repository. On the topic of GitHub, we are completely transparent and our smart-contract code and any code in general can always be found on <a href="https://github.com/backmeupplz/fondu">GitHub</a> under MIT license, meaning our code is open source to all those who wish to use it. As developers, we can only hope that our project delivers value to those in need, as we seek to empower and democratize the ICO process for all. Every single line of code we write within Fondu will always be open to public. Thanks!</p>
-
-        <h2>Conclusion</h2>
-        <p>We strongly believe that by possessing such an incredible amount of experience and knowledge between our developer and advisory teams, that we will be able to launch the first generation release version of the product within 2 months after the crowd sale reaches our initial target of $50,000 raised. Let nobody wait for the first ICO made on our open source free platform to be made available. The only operating constraint ahead is funding, beyond what has already been invested by us personally. We also hope that by acting together as a community we can change the way ICO's are perceived by the general public, to democratize the crypto climate away from the extravagant exceptions exploited by speculators and imitators in order to level the playing field and experience for non technical users everywhere. Only through this initiative can the rapid adoption of cryptocurrency and blockchain technology be made possible.</p>
-        <p>The Fondu developer team would like to thank you in advance, and please let us know if you have any questions by contacting us in our public Telegram group: <a href="https://t.me/project_f">@project_f</a>. Team members are online as much as possible to answer all inquiries. You're awesome – stay this way!</p>
-        <p class="top-border">© 2018, Fondu</p>
+        <p>Congratulations! You have just written your first smart contract! Feel free to publish it to the Ethereum using the tools provided above. Don't just trust us, review the code you've downloaded. And yes, MIT license — no strings attach, feel free to do whatever you want with this website or the results of it's work for no charge. If you have any questions or issues about the code, please join us in the official Telegram support group <a href="https://t.me/fonduio">@fonduio</a> (English and Russian speaking) or bug <a href="https://twitter.com/backmeupplz">@backmeupplz</a> on Twitter. Thanks!</p>
+        <p class="top-border">© 2018, <a href="https://t.me/borodutch">@borodutch</a></p>
       </div>
     </div>
   
