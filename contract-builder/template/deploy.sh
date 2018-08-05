@@ -42,7 +42,8 @@ done
 set -e
 
 # Install Node
-if ! which node >/dev/null; then
+echo "Detecting OS version to install node..."
+if ! which node > /dev/null; then
   case "$OSTYPE" in
     linux*)
       echo "OS detected: Linux / WSL, installing Node" 
@@ -64,8 +65,9 @@ if ! which node >/dev/null; then
 fi
 
 # Install geth or testrpc
+echo "Detecting OS version to install geth or testrpc..."
 if [ "$staging" = true ] || [ "$release" = true ]; then
-  if ! which node >/dev/null; then
+  if ! which geth > /dev/null; then
     echo "Installing geth"
     case "$OSTYPE" in
       linux*)
@@ -81,24 +83,33 @@ if [ "$staging" = true ] || [ "$release" = true ]; then
     esac
   fi
 else
-  if ! which testrpc >/dev/null; then
+  if ! which testrpc > /dev/null; then
     echo "Installing testrpc"
     npm install -g ethereumjs-testrpc
   fi
 fi
 
 # Install truffle
-if ! which truffle >/dev/null; then
+echo "Installing Truffle..."
+if ! which truffle > /dev/null; then
   npm install -g truffle
 fi
 
+# The rest fails OK
+set +e
+
 # Kill any geth or testrpc running
+echo "Closing all the geth and testrpc connections..."
 pkill -f testrpc
 pkill -f geth
 
+# Need this to fail the script on error for sure
+set -e
+
 # Abort if geth is running
+echo "Checking if shutting down get and testrpc worked..."
 if [ "$staging" = true ] || [ "$release" = true ]; then
-  if pgrep geth >/dev/null 2>&1
+  if pgrep geth > /dev/null 2>&1
   then
     echo 'Looks like you have got geth running already. Please, close it by running "pkill -f geth"'
     exit 1
@@ -106,6 +117,7 @@ if [ "$staging" = true ] || [ "$release" = true ]; then
 fi
 
 # Run geth or testrpc or geth in the background
+echo "Starting Ethereum node..."
 if [ "$staging" = true ]; then
   echo "Starting geth --testnet"
   geth --testnet --rpc --rpcapi="db,eth,net,web3,personal,web3" --light --verbosity "0" &
