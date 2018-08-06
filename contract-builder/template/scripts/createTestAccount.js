@@ -12,7 +12,7 @@ module.exports = function(callback) {
 }
 
 function checkBalance(account, callback) {
-  console.log(account, web3.eth)
+  const balance = web3.eth.getBalance(account)
   if (balance.toNumber() > 0) {
     console.log(`Received 1 test ETH successfully (balance is ${web3.fromWei(balance, 'ether')} ETH)`)
     callback()
