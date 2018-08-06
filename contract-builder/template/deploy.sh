@@ -145,7 +145,11 @@ fi
 # Deploy contracts
 if [ "$staging" = true ]; then
   echo "Deploying contacts to geth Ethereum testnet"
+# Need this to fail the script on error for sure
+set -e
   truffle exec scripts/createTestAccount.js
+# The rest fails OK
+set +e
   truffle migrate --reset --staging
   # Congratulate
   echo 'Congratulations! Your smart contracts were deployed successfully to the Ethereum Testnet; you can now access the running geth --testnet blockchain by executing "truffle console" command. Thank you!'
