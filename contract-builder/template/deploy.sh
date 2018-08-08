@@ -53,7 +53,7 @@ if ! which node > /dev/null; then
       ;;
     darwin*)
       echo "OS detected: Mac OS, installing homebrew" 
-      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
       echo "Installing node"
       brew install node
       ;;
