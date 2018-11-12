@@ -4,10 +4,11 @@
 testrpc=true
 staging=false
 release=false
+dry=false
 
 PS3="What blockchain would you like to deploy to?
 "
-options=("Local blockchain (testrpc)" "Ethereum testnet" "Ethereum mainnet")
+options=("Local blockchain (testrpc)" "Ethereum testnet" "Ethereum mainnet" "Dry run (no deploy)")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -32,6 +33,12 @@ do
           ;;
         * ) echo "invalid";;
       esac
+      break
+      ;;
+    "Dry run (no deploy)")
+      echo "Generating code without deploying anywhere"
+      dry=true
+      testrpc=false
       break
       ;;
     *) echo "invalid option $REPLY";;
@@ -82,7 +89,7 @@ if [ "$staging" = true ] || [ "$release" = true ]; then
         ;;
     esac
   fi
-else
+elif [ "$testrpc" = true ]; then
   if ! which testrpc > /dev/null; then
     echo "Installing testrpc"
     npm install -g ethereumjs-testrpc
@@ -93,6 +100,14 @@ fi
 echo "Installing Truffle..."
 if ! which truffle > /dev/null; then
   npm install -g truffle
+fi
+
+# Do the dry run and finish the script
+if [ "$dry" = true ]; then
+  rm -rf build
+  truffle compile
+  echo "Success! Your compiled contracts can be found in \"build/contracts\"."
+  exit 1
 fi
 
 # The rest fails OK
