@@ -49,6 +49,7 @@
     "@types/react-dom": "^17.0.0",
     "autoprefixer": "^9",
     "postcss": "^7",
+    "prettier": "2.2.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "typescript": "^4.1.2"
   }
