@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         'base-blue': '#6486FF',
         'base-black': '#05050F',
+        'base-dark': '#0F0F2A',
       },
       borderRadius: {
         base: '8px',
