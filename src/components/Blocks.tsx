@@ -1,33 +1,5 @@
 import React, { FC } from 'react'
 import { classnames } from 'classnames/tailwind'
-import classNames from 'classnames'
-
-const largeBlockClasses = classnames(
-  'bg-purple-500',
-  'bg-opacity-25',
-  'rounded',
-  'my-3',
-  'p-3'
-)
-export const LargeBlock: FC = ({ children }) => {
-  return <div className={largeBlockClasses}>{children}</div>
-}
-
-const subBlockClasses = classnames(
-  'p-2',
-  'bg-purple-500',
-  'bg-opacity-25',
-  'rounded',
-  'flex-grow'
-)
-export const SubBlock: FC = ({ children }) => {
-  return <div className={subBlockClasses}>{children}</div>
-}
-
-const row = classnames('flex', 'flex-row', 'my-1')
-export const Row: FC = ({ children }) => {
-  return <div className={row}>{children}</div>
-}
 
 type BlockNumberProps = {
   number: Number
@@ -59,7 +31,7 @@ type DashLineProps = {
   isActive?: Boolean
 }
 export const DashLine: FC<DashLineProps> = ({ isActive = false }) => {
-  const classes = classNames(
+  const classes = classnames(
     'flex-grow',
     'border',
     'border-dashed',
@@ -72,18 +44,14 @@ export const DashLine: FC<DashLineProps> = ({ isActive = false }) => {
   return <div className={classes} />
 }
 
-const numberWrapper = classnames('mr-3', 'hidden', 'md:block')
-export const NumberWrapper: FC = ({ children }) => {
-  return <div className={numberWrapper}>{children}</div>
-}
-
 type TabButtonProps = {
   text: String
   isActive?: Boolean
 }
 export const TabButton: FC<TabButtonProps> = ({ text, isActive = false }) => {
-  const classes = classNames(
-    'mx-3 w-full',
+  const classes = classnames(
+    'mx-3',
+    'w-full',
     'md:w-auto',
     'text-center',
     'text-purple-400',
