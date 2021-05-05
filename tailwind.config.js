@@ -7,6 +7,8 @@ module.exports = {
         'base-blue': '#6486FF',
         'base-black': '#05050F',
         'base-dark': '#0F0F2A',
+        'button-red': '#FF6464',
+        'light-purple': '#C751FF',
       },
       borderRadius: {
         base: '8px',
