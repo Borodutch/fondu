@@ -3679,8 +3679,6 @@ export type TWordBreak =
 
 export type TFontFamily =
   | 'font-sans'
-  | 'font-serif'
-  | 'font-mono'
 
 export type TFontSize =
   | 'text-xs'
@@ -7578,16 +7576,6 @@ export type TPseudoClasses =
   | 'lg:font-sans'
   | 'xl:font-sans'
   | '2xl:font-sans'
-  | 'sm:font-serif'
-  | 'md:font-serif'
-  | 'lg:font-serif'
-  | 'xl:font-serif'
-  | '2xl:font-serif'
-  | 'sm:font-mono'
-  | 'md:font-mono'
-  | 'lg:font-mono'
-  | 'xl:font-mono'
-  | '2xl:font-mono'
   | 'sm:text-xs'
   | 'md:text-xs'
   | 'lg:text-xs'

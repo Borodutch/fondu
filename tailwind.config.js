@@ -2,6 +2,9 @@
 module.exports = {
   purge: ['./public/index.html', './src/**/!(tailwind).{ts,tsx}'],
   theme: {
+    fontFamily: {
+      sans: ['Roboto', 'sans-serif'],
+    },
     extend: {
       colors: {
         'base-blue': '#6486FF',
