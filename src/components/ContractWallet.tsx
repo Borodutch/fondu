@@ -3,7 +3,7 @@ import { inputTextStyle } from "helpers/style.helper";
 import EditIcon from "assets/icons/edit.svg";
 import React, { FC } from "react";
 
-const wrapperStyle = classnames("flex", "md:flex-row", "flex-col");
+const wrapperStyle = classnames("flex", "md:flex-row", "flex-col", "p-4");
 const leftBlockStyle = classnames(
   "flex-grow",
   "pb-5",

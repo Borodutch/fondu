@@ -13,12 +13,7 @@ const sectionTitleStyle = classnames(
   "text-base-black",
   "mb-2"
 );
-const sectionBlockStyle = classnames(
-  "bg-base-gray",
-  "py-3",
-  "px-4",
-  "rounded-base"
-);
+const sectionBlockStyle = classnames("bg-base-gray", "rounded-base");
 
 const Root: FC<SectionProps> = ({ children, title }) => {
   return (

@@ -1,13 +1,20 @@
 import { makeAutoObservable } from "mobx";
 
 export const enum AppTabs {
+  TokenType,
+  TokenSettings,
+  Deployment,
+}
+
+export const enum AppNetworks {
   Test,
   Real,
 }
 
 class AppStore {
   dark = false;
-  currentTab: AppTabs = AppTabs.Test;
+  currentTab: AppTabs = AppTabs.TokenType;
+  currentNetwork: AppNetworks = AppNetworks.Test;
 
   constructor() {
     makeAutoObservable(this);
@@ -15,10 +22,6 @@ class AppStore {
 
   toggleDark() {
     this.dark = !this.dark;
-  }
-
-  setCurrentTab(tab: AppTabs) {
-    this.currentTab = tab;
   }
 }
 

@@ -1,7 +1,14 @@
 import React, { FC } from "react";
 import { classnames } from "classnames/tailwind";
 
-const headerStyle = classnames("mt-5", "mb-10");
+const headerStyle = classnames(
+  "mt-5",
+  "mb-10",
+  "flex",
+  "flex-row",
+  "justify-between",
+  "items-center"
+);
 const logoWrapperStyle = classnames("text-3xl", "font-bold");
 const logoStyle = classnames(
   "bg-clip-text",
@@ -20,6 +27,7 @@ const Header: FC = () => {
       <div className={logoWrapperStyle}>
         <span className={logoStyle}>Fondu</span>
       </div>
+      <nav>nav</nav>
     </header>
   );
 };

@@ -3,6 +3,7 @@ import Root from "./components/Root";
 import Header from "./components/Header";
 import Section from "components/Section";
 import ContractWallet from "components/ContractWallet";
+import ContractMain from "components/ContractMain";
 
 const App = () => {
   return (
@@ -11,7 +12,9 @@ const App = () => {
       <Section title="Contracts">
         <ContractWallet />
       </Section>
-      <Section>Main</Section>
+      <Section>
+        <ContractMain />
+      </Section>
     </Root>
   );
 };
