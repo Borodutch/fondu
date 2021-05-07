@@ -15,7 +15,5 @@ export const logoStyle = classnames(
   "bg-gradient-to-r",
   "from-base-blue",
   "to-light-purple",
-  "uppercase",
-  "cursor-default",
-  "select-none"
+  "uppercase"
 );

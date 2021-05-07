@@ -13,3 +13,4 @@ export const inputTextStyle = classnames(
   "bg-white",
   "text-base-black"
 );
+export const hideMobile = classnames("hidden", "md:block");

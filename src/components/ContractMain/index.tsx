@@ -6,7 +6,6 @@ import StepperNavigation from "components/StepperNavigation";
 import TokenTypeView from "views/token-type.view";
 import TokenSettingsView from "views/token-settings.view";
 import DeploymentView from "views/deployment.view";
-
 import { appStore } from "store/app.store";
 
 const ContractMain: FC = () => {

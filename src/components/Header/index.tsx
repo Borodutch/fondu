@@ -5,7 +5,9 @@ const Header: FC = () => {
   return (
     <header className={headerStyle}>
       <div className={logoWrapperStyle}>
-        <span className={logoStyle}>Fondu</span>
+        <a className={logoStyle} href="/">
+          Fondu
+        </a>
       </div>
       <nav>nav</nav>
     </header>
