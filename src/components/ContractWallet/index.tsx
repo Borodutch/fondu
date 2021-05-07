@@ -5,8 +5,10 @@ import {
   addButtonStyle,
   balanceFlexStyle,
   balanceWrapperStyle,
-  editButtonStyle,
-  ethBalanceStyle,
+  editButtonStyleReal,
+  editButtonStyleTest,
+  ethBalanceStyleReal,
+  ethBalanceStyleTest,
   leftBlockInnerStyle,
   leftBlockStyle,
   rightBlockStyle,
@@ -14,6 +16,8 @@ import {
   usdBalanceStyle,
   wrapperStyle,
 } from "./styles";
+import { observer } from "mobx-react-lite";
+import { AppNetworks, appStore } from "store/app.store";
 
 const ContractWallet: FC = () => {
   return (
@@ -26,7 +30,13 @@ const ContractWallet: FC = () => {
             className={inputTextStyle}
             placeholder="Enter Eth adress"
           />
-          <button className={editButtonStyle}>
+          <button
+            className={
+              appStore.currentNetwork === AppNetworks.Test
+                ? editButtonStyleTest
+                : editButtonStyleReal
+            }
+          >
             <img src={EditIcon} alt="Edit" />
           </button>
         </div>
@@ -35,16 +45,26 @@ const ContractWallet: FC = () => {
         <h2 className={subtitleStyle}>Balance</h2>
         <div className={balanceWrapperStyle}>
           <div className={balanceFlexStyle}>
-            <span className={ethBalanceStyle}>0.0920 Eth</span>
+            <span
+              className={
+                appStore.currentNetwork === AppNetworks.Real
+                  ? ethBalanceStyleReal
+                  : ethBalanceStyleTest
+              }
+            >
+              0.0920 Eth
+            </span>
             <span className={usdBalanceStyle}>1.133 USD</span>
           </div>
-          <button className={addButtonStyle}>
-            Get test ETH to your wallet
-          </button>
+          {appStore.currentNetwork === AppNetworks.Test && (
+            <button className={addButtonStyle}>
+              Get test ETH to your wallet
+            </button>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default ContractWallet;
+export default observer(ContractWallet);

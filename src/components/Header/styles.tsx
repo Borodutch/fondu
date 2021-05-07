@@ -8,12 +8,19 @@ export const headerStyle = classnames(
   "justify-between",
   "items-center"
 );
+
+// Logo text style
 export const logoWrapperStyle = classnames("text-3xl", "font-bold");
-export const logoStyle = classnames(
-  "bg-clip-text",
-  "text-transparent",
+const logoStyle = classnames("bg-clip-text", "text-transparent", "uppercase");
+export const logoStyleTest = classnames(
+  logoStyle,
   "bg-gradient-to-r",
   "from-base-blue",
-  "to-light-purple",
-  "uppercase"
+  "to-light-purple"
+);
+export const logoStyleReal = classnames(
+  logoStyle,
+  "bg-gradient-to-r",
+  "from-red-400",
+  "to-light-purple"
 );

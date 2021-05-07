@@ -1,12 +1,26 @@
 import React, { FC } from "react";
-import { headerStyle, logoStyle, logoWrapperStyle } from "./styles";
+import {
+  headerStyle,
+  logoStyleReal,
+  logoStyleTest,
+  logoWrapperStyle,
+} from "./styles";
 import Navigation from "components/Navigation";
+import { observer } from "mobx-react-lite";
+import { AppNetworks, appStore } from "store/app.store";
 
 const Header: FC = () => {
   return (
     <header className={headerStyle}>
       <div className={logoWrapperStyle}>
-        <a className={logoStyle} href="/">
+        <a
+          className={
+            appStore.currentNetwork === AppNetworks.Real
+              ? logoStyleReal
+              : logoStyleTest
+          }
+          href="/"
+        >
           Fondu
         </a>
       </div>
@@ -15,4 +29,4 @@ const Header: FC = () => {
   );
 };
 
-export default Header;
+export default observer(Header);

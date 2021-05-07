@@ -27,6 +27,7 @@ class AppStore {
       this.currentNetwork === AppNetworks.Test
         ? AppNetworks.Real
         : AppNetworks.Test;
+    this.currentTab = 1;
   }
 
   previousTab() {

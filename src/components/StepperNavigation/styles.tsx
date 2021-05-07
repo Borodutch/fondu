@@ -11,15 +11,24 @@ export const inactiveButtonStyle = classnames(
   "focus:outline-none",
   "cursor-default"
 );
-export const activeButtonStyle = classnames(
+const activeButtonStyle = classnames(
   "flex-1",
   "p-3",
   "border-2",
-  "border-blue-400",
-  "text-base-blue",
+  "transition",
   "rounded-base",
   "hover:opacity-80",
   "focus:outline-none"
+);
+export const activeButtonStyleTest = classnames(
+  activeButtonStyle,
+  "border-blue-400",
+  "text-base-blue"
+);
+export const activeButtonStyleReal = classnames(
+  activeButtonStyle,
+  "border-red-400",
+  "text-red-400"
 );
 export const stepperWrapper = classnames(
   "flex",

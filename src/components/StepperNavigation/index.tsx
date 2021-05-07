@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { observer } from "mobx-react-lite";
-import { appStore } from "store/app.store";
+import { AppNetworks, appStore } from "store/app.store";
 import {
-  activeButtonStyle,
+  activeButtonStyleReal,
+  activeButtonStyleTest,
   inactiveButtonStyle,
   stepperWrapper,
 } from "./styles";
@@ -12,7 +13,11 @@ const StepperNavigation: FC = () => {
     <div className={stepperWrapper}>
       <button
         className={
-          appStore.currentTab === 1 ? inactiveButtonStyle : activeButtonStyle
+          appStore.currentTab === 1
+            ? inactiveButtonStyle
+            : appStore.currentNetwork === AppNetworks.Test
+            ? activeButtonStyleTest
+            : activeButtonStyleReal
         }
         onClick={() => appStore.previousTab()}
       >
@@ -20,7 +25,11 @@ const StepperNavigation: FC = () => {
       </button>
       <button
         className={
-          appStore.currentTab === 3 ? inactiveButtonStyle : activeButtonStyle
+          appStore.currentTab === 3
+            ? inactiveButtonStyle
+            : appStore.currentNetwork === AppNetworks.Test
+            ? activeButtonStyleTest
+            : activeButtonStyleReal
         }
         onClick={() => appStore.nextTab()}
       >

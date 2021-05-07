@@ -7,7 +7,7 @@ export const wrapperStyle = classnames(
   "p-4"
 );
 export const leftBlockStyle = classnames(
-  "flex-grow",
+  "flex-1",
   "pb-5",
   "md:pb-0",
   "md:pr-10",
@@ -18,7 +18,7 @@ export const leftBlockStyle = classnames(
   "space-y-1"
 );
 export const rightBlockStyle = classnames(
-  "flex-grow",
+  "flex-1",
   "md:pl-10",
   "pt-5",
   "md:pt-0"
@@ -29,8 +29,7 @@ export const subtitleStyle = classnames(
   "font-medium"
 );
 export const leftBlockInnerStyle = classnames("flex", "flex-row", "space-x-3");
-export const editButtonStyle = classnames(
-  "bg-base-blue",
+const editButtonStyle = classnames(
   "p-3",
   "pr-2",
   "rounded-base",
@@ -38,6 +37,8 @@ export const editButtonStyle = classnames(
   "transition",
   "focus:outline-none"
 );
+export const editButtonStyleTest = classnames(editButtonStyle, "bg-base-blue");
+export const editButtonStyleReal = classnames(editButtonStyle, "bg-red-400");
 export const addButtonStyle = classnames(
   "border-2",
   "border-blue-400",
@@ -58,5 +59,12 @@ export const balanceWrapperStyle = classnames(
   "md:space-y-0"
 );
 export const balanceFlexStyle = classnames("flex", "flex-col", "flex-grow");
-export const ethBalanceStyle = classnames("text-xl", "text-base-blue");
+
+// Eth wallet balance
+export const ethBalanceStyle = classnames("text-xl", "transition");
+export const ethBalanceStyleTest = classnames(
+  ethBalanceStyle,
+  "text-base-blue"
+);
+export const ethBalanceStyleReal = classnames(ethBalanceStyle, "text-red-400");
 export const usdBalanceStyle = classnames("text-gray-400", "text-sm");

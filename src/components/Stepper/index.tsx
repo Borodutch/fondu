@@ -1,31 +1,68 @@
 import React, { FC } from "react";
 import { observer } from "mobx-react-lite";
-import { appStore } from "store/app.store";
+import { AppNetworks, appStore } from "store/app.store";
 import {
-  activeTabStyle,
-  activeTextStyle,
+  activeTextStyleReal,
+  activeTextStyleTest,
   inactiveLineStyle,
-  inactiveTabStyle,
   inactiveTextStyle,
-  passedLineStyle,
-  passedTabStyle,
-  passedTextStyle,
+  passedTextStyleTest,
+  passedTextStyleReal,
+  passedLineStyleReal,
+  passedLineStyleTest,
+  activeTabStyleReal,
+  activeTabStyleTest,
+  passedTabStyleReal,
+  passedTabStyleTest,
+  inactiveTabStyleTest,
+  inactiveTabStyleReal,
+  stepperWrapper,
+  singleStepStyle,
 } from "./styles";
 
 const Stepper: FC = () => {
+  const currentActiveTextStyle =
+    appStore.currentNetwork === AppNetworks.Real
+      ? activeTextStyleReal
+      : activeTextStyleTest;
+  const currentPassedTextStyle =
+    appStore.currentNetwork === AppNetworks.Real
+      ? passedTextStyleReal
+      : passedTextStyleTest;
+  const currentPassedLineStyle =
+    appStore.currentNetwork === AppNetworks.Real
+      ? passedLineStyleReal
+      : passedLineStyleTest;
+  const currentActiveTabStyle =
+    appStore.currentNetwork === AppNetworks.Real
+      ? activeTabStyleReal
+      : activeTabStyleTest;
+  const currentInactiveTabStyle =
+    appStore.currentNetwork === AppNetworks.Real
+      ? inactiveTabStyleReal
+      : inactiveTabStyleTest;
+  const currentPassedTabStyle =
+    appStore.currentNetwork === AppNetworks.Real
+      ? passedTabStyleReal
+      : passedTabStyleTest;
+
   return (
-    <div className="w-auto md:w-4/6 mx-auto flex justify-between items-center pt-3 pb-8 space-x-3">
-      <div className="flex flex-row items-center space-x-2">
+    <div className={stepperWrapper}>
+      <div className={singleStepStyle}>
         <div
           className={
-            appStore.currentTab === 1 ? activeTabStyle : passedTabStyle
+            appStore.currentTab === 1
+              ? currentActiveTabStyle
+              : currentPassedTabStyle
           }
         >
           1
         </div>
         <span
           className={
-            appStore.currentTab === 1 ? activeTextStyle : passedTextStyle
+            appStore.currentTab === 1
+              ? currentActiveTextStyle
+              : currentPassedTextStyle
           }
         >
           Token type
@@ -33,17 +70,17 @@ const Stepper: FC = () => {
       </div>
       <div
         className={
-          appStore.currentTab > 1 ? passedLineStyle : inactiveLineStyle
+          appStore.currentTab > 1 ? currentPassedLineStyle : inactiveLineStyle
         }
       ></div>
-      <div className="flex flex-row items-center space-x-2">
+      <div className={singleStepStyle}>
         <div
           className={
             appStore.currentTab === 2
-              ? activeTabStyle
+              ? currentActiveTabStyle
               : appStore.currentTab > 2
-              ? passedTabStyle
-              : inactiveTabStyle
+              ? currentPassedTabStyle
+              : currentInactiveTabStyle
           }
         >
           2
@@ -51,9 +88,9 @@ const Stepper: FC = () => {
         <span
           className={
             appStore.currentTab === 2
-              ? activeTextStyle
+              ? currentActiveTextStyle
               : appStore.currentTab > 2
-              ? passedTextStyle
+              ? currentPassedTextStyle
               : inactiveTextStyle
           }
         >
@@ -62,20 +99,24 @@ const Stepper: FC = () => {
       </div>
       <div
         className={
-          appStore.currentTab > 2 ? passedLineStyle : inactiveLineStyle
+          appStore.currentTab > 2 ? currentPassedLineStyle : inactiveLineStyle
         }
       ></div>
-      <div className="flex flex-row items-center space-x-2">
+      <div className={singleStepStyle}>
         <div
           className={
-            appStore.currentTab === 3 ? activeTabStyle : inactiveTabStyle
+            appStore.currentTab === 3
+              ? currentActiveTabStyle
+              : currentInactiveTabStyle
           }
         >
           3
         </div>
         <span
           className={
-            appStore.currentTab === 3 ? activeTextStyle : inactiveTextStyle
+            appStore.currentTab === 3
+              ? currentActiveTextStyle
+              : inactiveTextStyle
           }
         >
           Deployment
