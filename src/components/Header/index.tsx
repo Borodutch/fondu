@@ -1,7 +1,5 @@
-import { observer } from "mobx-react-lite";
 import React, { FC } from "react";
 import { headerStyle, logoStyle, logoWrapperStyle } from "./styles";
-import { appStore } from "store/app.store";
 import Navigation from "components/Navigation";
 
 const Header: FC = () => {

@@ -21,3 +21,9 @@ export const activeButtonStyle = classnames(
   "hover:opacity-80",
   "focus:outline-none"
 );
+export const stepperWrapper = classnames(
+  "flex",
+  "flex-row",
+  "pt-4",
+  "space-x-4"
+);

@@ -1,11 +1,15 @@
 import React, { FC } from "react";
 import { observer } from "mobx-react-lite";
 import { appStore } from "store/app.store";
-import { activeButtonStyle, inactiveButtonStyle } from "./styles";
+import {
+  activeButtonStyle,
+  inactiveButtonStyle,
+  stepperWrapper,
+} from "./styles";
 
 const StepperNavigation: FC = () => {
   return (
-    <div className="flex flex-row pt-4 space-x-4">
+    <div className={stepperWrapper}>
       <button
         className={
           appStore.currentTab === 1 ? inactiveButtonStyle : activeButtonStyle
