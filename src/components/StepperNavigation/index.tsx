@@ -1,21 +1,22 @@
-import { observer } from "mobx-react-lite";
 import React, { FC } from "react";
+import { observer } from "mobx-react-lite";
 import { appStore } from "store/app.store";
+import { activeButtonStyle, inactiveButtonStyle } from "./styles";
 
 const StepperNavigation: FC = () => {
   return (
     <div className="flex flex-row pt-4 space-x-4">
       <button
         className={
-          "flex-1 p-3 bg border-2 border-gray-300 text-gray-300 rounded-base hover:opacity-80 focus:outline-none"
+          appStore.currentTab === 1 ? inactiveButtonStyle : activeButtonStyle
         }
-        onClick={() => appStore.ppreviousTab()}
+        onClick={() => appStore.previousTab()}
       >
         Previous step
       </button>
       <button
         className={
-          "flex-1 p-3 border-2 border-base-blue text-base-blue rounded-base hover:opacity-80 focus:outline-none"
+          appStore.currentTab === 3 ? inactiveButtonStyle : activeButtonStyle
         }
         onClick={() => appStore.nextTab()}
       >

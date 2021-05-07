@@ -7,12 +7,13 @@ import TokenTypeView from "views/token-type.view";
 import TokenSettingsView from "views/token-settings.view";
 import DeploymentView from "views/deployment.view";
 import { appStore } from "store/app.store";
+import { contractInnerStyle, contractWrapperStyle } from "./styles";
 
 const ContractMain: FC = () => {
   return (
     <>
-      <div className="p-4">
-        <div className="flex flex-col">
+      <div className={contractWrapperStyle}>
+        <div className={contractInnerStyle}>
           <Stepper />
           <Card>
             {appStore.currentTab === 1 && <TokenTypeView />}

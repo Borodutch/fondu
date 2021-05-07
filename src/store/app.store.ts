@@ -22,7 +22,14 @@ class AppStore {
     if (this.currentTab !== 3) this.currentTab++;
   }
 
-  ppreviousTab() {
+  toggleNetwork() {
+    this.currentNetwork =
+      this.currentNetwork === AppNetworks.Test
+        ? AppNetworks.Real
+        : AppNetworks.Test;
+  }
+
+  previousTab() {
     if (this.currentTab !== 1) this.currentTab--;
   }
 }
