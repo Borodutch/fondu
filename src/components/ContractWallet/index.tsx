@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import InputMask from "react-input-mask";
 import EditIcon from "assets/icons/edit.svg";
 import { inputTextStyle } from "helpers/style.helper";
@@ -62,8 +62,11 @@ const ContractWallet: FC = () => {
             mask="0x****************************************"
             maskChar={null}
             placeholder="Enter Eth adress"
-            defaultValue={userStore.ethAdress}
+            value={userStore.ethAdress}
             disabled={adressDisabled}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              userStore.setEthAdress(e.target.value)
+            }
           />
           <button
             className={
