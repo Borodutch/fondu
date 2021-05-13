@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import EditIcon from "assets/icons/edit.svg";
 import { inputTextStyle } from "helpers/style.helper";
 import {
@@ -18,8 +18,38 @@ import {
 } from "./styles";
 import { observer } from "mobx-react-lite";
 import { AppNetworks, appStore } from "store/app.store";
+import { web3Store } from "store/web3.store";
+import { userStore } from "store/user.store";
+import useSWR from "swr";
+import { fetcher } from "helpers/fetcher.helper";
 
 const ContractWallet: FC = () => {
+  const [adressDisabled, setAdressDisabled] = useState<boolean>(true);
+  const { data } = useSWR(
+    "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD",
+    fetcher
+  );
+
+  useEffect(() => {
+    const newAccount = web3Store.testContext.eth.accounts.create();
+    userStore.setEthAdress(newAccount.address);
+    userStore.setPrivateKey(newAccount.privateKey);
+    async function getBalance() {
+      const balance = await web3Store.testContext.eth.getBalance(
+        newAccount.address
+      );
+      const ethBalance = web3Store.testContext.utils.fromWei(balance);
+      userStore.setEthBalance(ethBalance);
+    }
+    getBalance();
+  }, []);
+
+  useEffect(() => {
+    if (data) {
+      userStore.setUsdBalance(data["USD"] * parseInt(userStore.ethBalance, 10));
+    }
+  }, [data]);
+
   return (
     <div className={wrapperStyle}>
       <div className={leftBlockStyle}>
@@ -29,6 +59,8 @@ const ContractWallet: FC = () => {
             type="text"
             className={inputTextStyle}
             placeholder="Enter Eth adress"
+            defaultValue={userStore.ethAdress}
+            disabled={adressDisabled}
           />
           <button
             className={
@@ -36,6 +68,7 @@ const ContractWallet: FC = () => {
                 ? editButtonStyleTest
                 : editButtonStyleReal
             }
+            onClick={() => setAdressDisabled(!adressDisabled)}
           >
             <img src={EditIcon} alt="Edit" />
           </button>
@@ -52,9 +85,9 @@ const ContractWallet: FC = () => {
                   : ethBalanceStyleTest
               }
             >
-              0.0920 Eth
+              {userStore.ethBalance} Eth
             </span>
-            <span className={usdBalanceStyle}>1.133 USD</span>
+            <span className={usdBalanceStyle}>{userStore.usdBalance} USD</span>
           </div>
           {appStore.currentNetwork === AppNetworks.Test && (
             <button className={addButtonStyle}>

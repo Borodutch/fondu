@@ -7,6 +7,15 @@ export enum TokenType {
 
 class InputStore {
   tokenType: TokenType = TokenType.ERC20;
+  tokenName: string = "Fondu";
+  tokenSymbol: string = "FDU";
+  toWallet = "0x281055afc982d96fab65b3a49cac8b878184cb16";
+  decimals = 18;
+  tokensFor = 250;
+  timed = false;
+  capped = false;
+  tokensCap = 1000000;
+  whitelist = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -14,6 +23,42 @@ class InputStore {
 
   setTokenType(tokenType: TokenType) {
     this.tokenType = tokenType;
+  }
+
+  setCapped(cap: boolean) {
+    this.capped = cap;
+  }
+
+  setTokensCap(cap: string) {
+    this.tokensCap = parseInt(cap, 10);
+  }
+
+  setTimed(timed: boolean) {
+    this.timed = timed;
+  }
+
+  setWhitelist(whitelist: boolean) {
+    this.whitelist = whitelist;
+  }
+
+  setTokenName(tokenName: string) {
+    this.tokenName = tokenName;
+  }
+
+  setTokenSymbol(tokenSymbol: string) {
+    this.tokenSymbol = tokenSymbol;
+  }
+
+  setToWallet(wallet: string) {
+    this.toWallet = wallet;
+  }
+
+  setDecimals(decimals: string) {
+    this.decimals = parseInt(decimals, 10);
+  }
+
+  setTokensFor(tokens: string) {
+    this.tokensFor = parseInt(tokens, 10);
   }
 }
 

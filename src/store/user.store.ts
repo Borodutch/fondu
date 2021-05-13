@@ -4,6 +4,8 @@ class UserStore {
   ethAdress = "";
   publicKey = "";
   privateKey = "";
+  ethBalance = "0";
+  usdBalance = 0;
 
   constructor() {
     makeAutoObservable(this);
@@ -11,6 +13,18 @@ class UserStore {
 
   setEthAdress(adress: string) {
     this.ethAdress = adress;
+  }
+
+  setPrivateKey(key: string) {
+    this.privateKey = key;
+  }
+
+  setEthBalance(balance: string) {
+    this.ethBalance = balance;
+  }
+
+  setUsdBalance(balance: number) {
+    this.usdBalance = balance;
   }
 }
 

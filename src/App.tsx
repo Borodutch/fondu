@@ -1,5 +1,6 @@
 import React from "react";
 import Root from "components/Root";
+import { observer } from "mobx-react-lite";
 import Header from "components/Header";
 import Section from "components/Section";
 import ContractWallet from "components/ContractWallet";
@@ -19,4 +20,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default observer(App);
