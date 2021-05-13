@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
+import InputMask from "react-input-mask";
 import EditIcon from "assets/icons/edit.svg";
 import { inputTextStyle } from "helpers/style.helper";
 import {
@@ -55,9 +56,11 @@ const ContractWallet: FC = () => {
       <div className={leftBlockStyle}>
         <h2 className={subtitleStyle}>Adress</h2>
         <div className={leftBlockInnerStyle}>
-          <input
+          <InputMask
             type="text"
             className={inputTextStyle}
+            mask="0x****************************************"
+            maskChar={null}
             placeholder="Enter Eth adress"
             defaultValue={userStore.ethAdress}
             disabled={adressDisabled}

@@ -1,6 +1,7 @@
 import { inputTextStyle } from "helpers/style.helper";
 import { observer } from "mobx-react-lite";
-import React, { FC } from "react";
+import React, { ChangeEvent, FC } from "react";
+import InputMask from "react-input-mask";
 import { inputStore } from "store/input.store";
 
 const TokenSettingsView: FC = () => {
@@ -32,11 +33,15 @@ const TokenSettingsView: FC = () => {
         </div>
         <div className="space-y-2">
           <p>ETH wallet that will receive the collected funds</p>
-          <input
+          <InputMask
             type="text"
             className={inputTextStyle}
+            mask="0x****************************************"
+            maskChar={null}
             defaultValue={inputStore.toWallet}
-            onChange={(e) => inputStore.setToWallet(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              inputStore.setToWallet(e.target.value)
+            }
             placeholder="ETH wallet"
           />
         </div>
