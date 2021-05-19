@@ -7,12 +7,18 @@ module.exports = {
     },
     extend: {
       colors: {
-        "base-blue": "#6486FF",
-        "base-gray": "#F9F9F9",
-        "base-black": "#05050F",
-        "base-dark": "#0F0F2A",
-        "button-red": "#FF6464",
-        "light-purple": "#C751FF",
+        base: {
+          blue: "#6486FF",
+          gray: "#F9F9F9",
+          black: "#05050F",
+          dark: "#0F0F2A",
+        },
+        button: {
+          red: "#FF6464",
+        },
+        light: {
+          purple: "#C751FF",
+        },
       },
       borderRadius: {
         base: "8px",

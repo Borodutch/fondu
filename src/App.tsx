@@ -1,10 +1,10 @@
-import React from "react";
-import Root from "components/Root";
-import { observer } from "mobx-react-lite";
-import Header from "components/Header";
-import Section from "components/Section";
-import ContractWallet from "components/ContractWallet";
-import ContractMain from "components/ContractMain";
+import React from "react"
+import Root from "components/Root"
+import { observer } from "mobx-react-lite"
+import Header from "components/Header"
+import Section from "components/Section"
+import ContractWallet from "components/ContractWallet"
+import ContractMain from "components/ContractMain"
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
         <ContractMain />
       </Section>
     </Root>
-  );
-};
+  )
+}
 
-export default observer(App);
+export default observer(App)
