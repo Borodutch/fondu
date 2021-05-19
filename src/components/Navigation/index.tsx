@@ -1,7 +1,7 @@
-import { observer } from "mobx-react-lite";
-import React, { FC } from "react";
-import { AppNetworks, appStore } from "store/app.store";
-import { buttonStyleReal, buttonStyleTest } from "./styles";
+import { observer } from "mobx-react-lite"
+import React, { FC } from "react"
+import { AppNetworks, appStore } from "store/app.store"
+import { buttonStyleReal, buttonStyleTest } from "./styles"
 
 const Navigation: FC = () => {
   return (
@@ -18,7 +18,7 @@ const Navigation: FC = () => {
         {appStore.currentNetwork === AppNetworks.Test && "Test network"}
       </button>
     </nav>
-  );
-};
+  )
+}
 
-export default observer(Navigation);
+export default observer(Navigation)

@@ -1,3 +1,3 @@
-import { classnames } from "classnames/tailwind";
+import { classnames } from "classnames/tailwind"
 
-export const rootStyle = classnames("container", "mx-auto", "px-5", "pb-10");
+export const rootStyle = classnames("container", "mx-auto", "px-5", "pb-10")

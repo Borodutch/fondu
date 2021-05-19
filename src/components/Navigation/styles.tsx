@@ -1,4 +1,4 @@
-import { classnames } from "classnames/tailwind";
+import { classnames } from "classnames/tailwind"
 
 const buttonStyle = classnames(
   "py-3",
@@ -10,14 +10,14 @@ const buttonStyle = classnames(
   "focus:outline-none",
   "hover:opacity-80",
   "transition"
-);
+)
 export const buttonStyleTest = classnames(
   buttonStyle,
   "border-blue-400",
   "text-base-blue"
-);
+)
 export const buttonStyleReal = classnames(
   buttonStyle,
   "border-red-400",
   "text-red-400"
-);
+)

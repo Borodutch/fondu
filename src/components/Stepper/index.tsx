@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { observer } from "mobx-react-lite";
-import { AppNetworks, appStore } from "store/app.store";
+import React, { FC } from "react"
+import { observer } from "mobx-react-lite"
+import { AppNetworks, appStore } from "store/app.store"
 import {
   activeTextStyleReal,
   activeTextStyleTest,
@@ -18,33 +18,33 @@ import {
   inactiveTabStyleReal,
   stepperWrapper,
   singleStepStyle,
-} from "./styles";
+} from "./styles"
 
 const Stepper: FC = () => {
   const currentActiveTextStyle =
     appStore.currentNetwork === AppNetworks.Real
       ? activeTextStyleReal
-      : activeTextStyleTest;
+      : activeTextStyleTest
   const currentPassedTextStyle =
     appStore.currentNetwork === AppNetworks.Real
       ? passedTextStyleReal
-      : passedTextStyleTest;
+      : passedTextStyleTest
   const currentPassedLineStyle =
     appStore.currentNetwork === AppNetworks.Real
       ? passedLineStyleReal
-      : passedLineStyleTest;
+      : passedLineStyleTest
   const currentActiveTabStyle =
     appStore.currentNetwork === AppNetworks.Real
       ? activeTabStyleReal
-      : activeTabStyleTest;
+      : activeTabStyleTest
   const currentInactiveTabStyle =
     appStore.currentNetwork === AppNetworks.Real
       ? inactiveTabStyleReal
-      : inactiveTabStyleTest;
+      : inactiveTabStyleTest
   const currentPassedTabStyle =
     appStore.currentNetwork === AppNetworks.Real
       ? passedTabStyleReal
-      : passedTabStyleTest;
+      : passedTabStyleTest
 
   return (
     <div className={stepperWrapper}>
@@ -123,7 +123,7 @@ const Stepper: FC = () => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default observer(Stepper);
+export default observer(Stepper)
