@@ -1,4 +1,4 @@
-import { classnames } from "classnames/tailwind";
+import { classnames } from "classnames/tailwind"
 
 export const inputTextStyle = classnames(
   "transition",
@@ -12,5 +12,5 @@ export const inputTextStyle = classnames(
   "focus:border-gray-300",
   "bg-white",
   "text-base-black"
-);
-export const hideMobile = classnames("hidden", "md:block");
+)
+export const hideMobile = classnames("hidden", "md:block")

@@ -1,6 +1,6 @@
-import { observer } from "mobx-react-lite";
-import React, { FC } from "react";
-import { inputStore } from "store/input.store";
+import { observer } from "mobx-react-lite"
+import React, { FC } from "react"
+import { inputStore } from "store/input.store"
 
 const DeploymentView: FC = () => {
   return (
@@ -34,7 +34,7 @@ const DeploymentView: FC = () => {
         )}
       </ol>
     </>
-  );
-};
+  )
+}
 
-export default observer(DeploymentView);
+export default observer(DeploymentView)

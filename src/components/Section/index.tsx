@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { sectionBlockStyle, sectionStyle, sectionTitleStyle } from "./styles";
+import React, { FC } from "react"
+import { sectionBlockStyle, sectionStyle, sectionTitleStyle } from "./styles"
 
 interface SectionProps {
-  title?: string;
+  title?: string
 }
 
 const Root: FC<SectionProps> = ({ children, title }) => {
@@ -11,7 +11,7 @@ const Root: FC<SectionProps> = ({ children, title }) => {
       {title && <h2 className={sectionTitleStyle}>{title}</h2>}
       <div className={sectionBlockStyle}>{children}</div>
     </section>
-  );
-};
+  )
+}
 
-export default Root;
+export default Root

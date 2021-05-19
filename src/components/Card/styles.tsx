@@ -1,4 +1,4 @@
-import { classnames } from "classnames/tailwind";
+import { classnames } from "classnames/tailwind"
 
 export const cardStyle = classnames(
   "bg-white",
@@ -10,4 +10,4 @@ export const cardStyle = classnames(
   "w-full",
   "shadow-sm",
   "text-lg"
-);
+)

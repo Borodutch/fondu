@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import { observer } from "mobx-react-lite";
-import { inputStore, TokenType } from "store/input.store";
-import { AppNetworks, appStore } from "store/app.store";
+import React, { FC } from "react"
+import { observer } from "mobx-react-lite"
+import { inputStore, TokenType } from "store/input.store"
+import { AppNetworks, appStore } from "store/app.store"
 import {
   buttonStyleActiveReal,
   buttonStyleActiveTest,
   buttonStyleInactive,
-} from "./styles";
+} from "./styles"
 
 const TokenTypeView: FC = () => {
   return (
@@ -37,7 +37,7 @@ const TokenTypeView: FC = () => {
         ERC-721
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default observer(TokenTypeView);
+export default observer(TokenTypeView)

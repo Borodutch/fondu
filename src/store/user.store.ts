@@ -1,31 +1,31 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable } from "mobx"
 
 class UserStore {
-  ethAdress = "";
-  publicKey = "";
-  privateKey = "";
-  ethBalance = "0";
-  usdBalance = 0;
+  ethAdress = ""
+  publicKey = ""
+  privateKey = ""
+  ethBalance = "0"
+  usdBalance = 0
 
   constructor() {
-    makeAutoObservable(this);
+    makeAutoObservable(this)
   }
 
   setEthAdress(adress: string) {
-    this.ethAdress = adress;
+    this.ethAdress = adress
   }
 
   setPrivateKey(key: string) {
-    this.privateKey = key;
+    this.privateKey = key
   }
 
   setEthBalance(balance: string) {
-    this.ethBalance = balance;
+    this.ethBalance = balance
   }
 
   setUsdBalance(balance: number) {
-    this.usdBalance = balance;
+    this.usdBalance = balance
   }
 }
 
-export const userStore = new UserStore();
+export const userStore = new UserStore()

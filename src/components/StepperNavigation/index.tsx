@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import { observer } from "mobx-react-lite";
-import { AppNetworks, appStore } from "store/app.store";
+import React, { FC } from "react"
+import { observer } from "mobx-react-lite"
+import { AppNetworks, appStore } from "store/app.store"
 import {
   activeButtonStyleReal,
   activeButtonStyleTest,
   inactiveButtonStyle,
   stepperWrapper,
-} from "./styles";
+} from "./styles"
 
 const StepperNavigation: FC = () => {
   return (
@@ -36,7 +36,7 @@ const StepperNavigation: FC = () => {
         Next step
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default observer(StepperNavigation);
+export default observer(StepperNavigation)

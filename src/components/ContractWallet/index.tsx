@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FC, useEffect, useState } from "react";
-import InputMask from "react-input-mask";
-import EditIcon from "assets/icons/edit.svg";
-import { inputTextStyle } from "helpers/style.helper";
+import React, { ChangeEvent, FC, useEffect, useState } from "react"
+import InputMask from "react-input-mask"
+import EditIcon from "assets/icons/edit.svg"
+import { inputTextStyle } from "helpers/style.helper"
 import {
   addButtonStyle,
   balanceFlexStyle,
@@ -16,40 +16,40 @@ import {
   subtitleStyle,
   usdBalanceStyle,
   wrapperStyle,
-} from "./styles";
-import { observer } from "mobx-react-lite";
-import { AppNetworks, appStore } from "store/app.store";
-import { web3Store } from "store/web3.store";
-import { userStore } from "store/user.store";
-import useSWR from "swr";
-import { fetcher } from "helpers/fetcher.helper";
+} from "./styles"
+import { observer } from "mobx-react-lite"
+import { AppNetworks, appStore } from "store/app.store"
+import { web3Store } from "store/web3.store"
+import { userStore } from "store/user.store"
+import useSWR from "swr"
+import { fetcher } from "helpers/fetcher.helper"
 
 const ContractWallet: FC = () => {
-  const [adressDisabled, setAdressDisabled] = useState<boolean>(true);
+  const [adressDisabled, setAdressDisabled] = useState<boolean>(true)
   const { data } = useSWR(
     "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD",
     fetcher
-  );
+  )
 
   useEffect(() => {
-    const newAccount = web3Store.testContext.eth.accounts.create();
-    userStore.setEthAdress(newAccount.address);
-    userStore.setPrivateKey(newAccount.privateKey);
+    const newAccount = web3Store.testContext.eth.accounts.create()
+    userStore.setEthAdress(newAccount.address)
+    userStore.setPrivateKey(newAccount.privateKey)
     async function getBalance() {
       const balance = await web3Store.testContext.eth.getBalance(
         newAccount.address
-      );
-      const ethBalance = web3Store.testContext.utils.fromWei(balance);
-      userStore.setEthBalance(ethBalance);
+      )
+      const ethBalance = web3Store.testContext.utils.fromWei(balance)
+      userStore.setEthBalance(ethBalance)
     }
-    getBalance();
-  }, []);
+    getBalance()
+  }, [])
 
   useEffect(() => {
     if (data) {
-      userStore.setUsdBalance(data["USD"] * parseInt(userStore.ethBalance, 10));
+      userStore.setUsdBalance(data["USD"] * parseInt(userStore.ethBalance, 10))
     }
-  }, [data]);
+  }, [data])
 
   return (
     <div className={wrapperStyle}>
@@ -103,7 +103,7 @@ const ContractWallet: FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default observer(ContractWallet);
+export default observer(ContractWallet)

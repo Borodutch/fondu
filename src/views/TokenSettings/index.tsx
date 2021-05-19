@@ -1,8 +1,8 @@
-import { inputTextStyle } from "helpers/style.helper";
-import { observer } from "mobx-react-lite";
-import React, { ChangeEvent, FC } from "react";
-import InputMask from "react-input-mask";
-import { inputStore } from "store/input.store";
+import { inputTextStyle } from "helpers/style.helper"
+import { observer } from "mobx-react-lite"
+import React, { ChangeEvent, FC } from "react"
+import InputMask from "react-input-mask"
+import { inputStore } from "store/input.store"
 
 const TokenSettingsView: FC = () => {
   return (
@@ -112,7 +112,7 @@ const TokenSettingsView: FC = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default observer(TokenSettingsView);
+export default observer(TokenSettingsView)

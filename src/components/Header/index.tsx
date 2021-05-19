@@ -1,13 +1,13 @@
-import React, { FC } from "react";
+import React, { FC } from "react"
 import {
   headerStyle,
   logoStyleReal,
   logoStyleTest,
   logoWrapperStyle,
-} from "./styles";
-import Navigation from "components/Navigation";
-import { observer } from "mobx-react-lite";
-import { AppNetworks, appStore } from "store/app.store";
+} from "./styles"
+import Navigation from "components/Navigation"
+import { observer } from "mobx-react-lite"
+import { AppNetworks, appStore } from "store/app.store"
 
 const Header: FC = () => {
   return (
@@ -26,7 +26,7 @@ const Header: FC = () => {
       </div>
       <Navigation />
     </header>
-  );
-};
+  )
+}
 
-export default observer(Header);
+export default observer(Header)

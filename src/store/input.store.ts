@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable } from "mobx"
 
 export enum TokenType {
   ERC20,
@@ -6,60 +6,60 @@ export enum TokenType {
 }
 
 class InputStore {
-  tokenType: TokenType = TokenType.ERC20;
-  tokenName: string = "Fondu";
-  tokenSymbol: string = "FDU";
-  toWallet = "0x281055afc982d96fab65b3a49cac8b878184cb16";
-  decimals = 18;
-  tokensFor = 250;
-  timed = false;
-  capped = false;
-  tokensCap = 1000000;
-  whitelist = false;
+  tokenType: TokenType = TokenType.ERC20
+  tokenName: string = "Fondu"
+  tokenSymbol: string = "FDU"
+  toWallet = "0x281055afc982d96fab65b3a49cac8b878184cb16"
+  decimals = 18
+  tokensFor = 250
+  timed = false
+  capped = false
+  tokensCap = 1000000
+  whitelist = false
 
   constructor() {
-    makeAutoObservable(this);
+    makeAutoObservable(this)
   }
 
   setTokenType(tokenType: TokenType) {
-    this.tokenType = tokenType;
+    this.tokenType = tokenType
   }
 
   setCapped(cap: boolean) {
-    this.capped = cap;
+    this.capped = cap
   }
 
   setTokensCap(cap: string) {
-    this.tokensCap = parseInt(cap, 10);
+    this.tokensCap = parseInt(cap, 10)
   }
 
   setTimed(timed: boolean) {
-    this.timed = timed;
+    this.timed = timed
   }
 
   setWhitelist(whitelist: boolean) {
-    this.whitelist = whitelist;
+    this.whitelist = whitelist
   }
 
   setTokenName(tokenName: string) {
-    this.tokenName = tokenName;
+    this.tokenName = tokenName
   }
 
   setTokenSymbol(tokenSymbol: string) {
-    this.tokenSymbol = tokenSymbol;
+    this.tokenSymbol = tokenSymbol
   }
 
   setToWallet(wallet: string) {
-    this.toWallet = wallet;
+    this.toWallet = wallet
   }
 
   setDecimals(decimals: string) {
-    this.decimals = parseInt(decimals, 10);
+    this.decimals = parseInt(decimals, 10)
   }
 
   setTokensFor(tokens: string) {
-    this.tokensFor = parseInt(tokens, 10);
+    this.tokensFor = parseInt(tokens, 10)
   }
 }
 
-export const inputStore = new InputStore();
+export const inputStore = new InputStore()

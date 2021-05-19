@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import { observer } from "mobx-react-lite";
-import Card from "components/Card";
-import Stepper from "components/Stepper";
-import StepperNavigation from "components/StepperNavigation";
-import TokenTypeView from "views/TokenType";
-import TokenSettingsView from "views/TokenSettings";
-import DeploymentView from "views/Deployment";
-import { appStore } from "store/app.store";
-import { contractInnerStyle, contractWrapperStyle } from "./styles";
+import React, { FC } from "react"
+import { observer } from "mobx-react-lite"
+import Card from "components/Card"
+import Stepper from "components/Stepper"
+import StepperNavigation from "components/StepperNavigation"
+import TokenTypeView from "views/TokenType"
+import TokenSettingsView from "views/TokenSettings"
+import DeploymentView from "views/Deployment"
+import { appStore } from "store/app.store"
+import { contractInnerStyle, contractWrapperStyle } from "./styles"
 
 const ContractMain: FC = () => {
   return (
@@ -24,7 +24,7 @@ const ContractMain: FC = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default observer(ContractMain);
+export default observer(ContractMain)
