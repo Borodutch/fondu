@@ -3,36 +3,50 @@ import { observer } from "mobx-react-lite"
 import React, { ChangeEvent, FC } from "react"
 import InputMask from "react-input-mask"
 import { inputStore } from "store/input.store"
+import {
+  tokenNameLabel,
+  tokenNamePlaceholderText,
+  tokenSymbolLabel,
+  tokenSymbolPlaceholderText,
+  ethWalletLabel,
+  ethWalletPlaceholderText,
+  numberOfDecimalsLabel,
+  numberOfDecimalsPlaceholderText,
+  tokensPerEthLabel,
+  tokensPerEthPlaceholderText,
+  crowdsaleTimedCheckboxText,
+  cappedTokensCheckboxText,
+  cappedTokensLabel,
+  cappedTokensPlaceholderText,
+  whitelistCheckboxText,
+} from "components/Text"
 
 const TokenSettingsView: FC = () => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
         <div className="space-y-2">
-          <p>
-            Human-readable name of your token like "Fondu", "Bitcoin" or
-            "Ethereum"
-          </p>
+          <p>{tokenNameLabel}</p>
           <input
             type="text"
             className={inputTextStyle}
             defaultValue={inputStore.tokenName}
             onChange={(e) => inputStore.setTokenName(e.target.value)}
-            placeholder="Token name"
+            placeholder={tokenNamePlaceholderText}
           />
         </div>
         <div className="space-y-2">
-          <p>Symbol of your token like "FDU", "BTC" or "ETH"</p>
+          <p>{tokenSymbolLabel}</p>
           <input
             type="text"
             className={inputTextStyle}
             defaultValue={inputStore.tokenSymbol}
             onChange={(e) => inputStore.setTokenSymbol(e.target.value)}
-            placeholder="Token symbol"
+            placeholder={tokenSymbolPlaceholderText}
           />
         </div>
         <div className="space-y-2">
-          <p>ETH wallet that will receive the collected funds</p>
+          <p>{ethWalletLabel}</p>
           <InputMask
             type="text"
             className={inputTextStyle}
@@ -42,27 +56,27 @@ const TokenSettingsView: FC = () => {
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               inputStore.setToWallet(e.target.value)
             }
-            placeholder="ETH wallet"
+            placeholder={ethWalletPlaceholderText}
           />
         </div>
         <div className="space-y-2">
-          <p>Number of decimals your currency supports</p>
+          <p>{numberOfDecimalsLabel}</p>
           <input
             type="number"
             className={inputTextStyle}
             defaultValue={inputStore.decimals}
             onChange={(e) => inputStore.setDecimals(e.target.value)}
-            placeholder="Number of decimals"
+            placeholder={numberOfDecimalsPlaceholderText}
           />
         </div>
         <div className="space-y-2">
-          <p>How many of your tokens will user get for 1 ETH</p>
+          <p>{tokensPerEthLabel}</p>
           <input
             type="number"
             className={inputTextStyle}
             defaultValue={inputStore.tokensFor}
             onChange={(e) => inputStore.setTokensFor(e.target.value)}
-            placeholder="Tokens for 1 ETH"
+            placeholder={tokensPerEthPlaceholderText}
           />
         </div>
       </div>
@@ -74,7 +88,7 @@ const TokenSettingsView: FC = () => {
             defaultChecked={inputStore.timed}
             onChange={(e) => inputStore.setTimed(e.target.checked)}
           />
-          Crowdsale is bounded by a time frame
+          {crowdsaleTimedCheckboxText}
         </div>
       </div>
       <div className="grid grid-cols-1 pt-5">
@@ -85,16 +99,16 @@ const TokenSettingsView: FC = () => {
             defaultChecked={inputStore.capped}
             onChange={(e) => inputStore.setCapped(e.target.checked)}
           />
-          You have the maximum value of tokens sold
+          {cappedTokensCheckboxText}
           {inputStore.capped && (
             <div className="p-3 mt-2 bg-gray-50 rounded-base">
-              What is the maximum amount of tokens you intend to raise?
+              {cappedTokensLabel}
               <input
                 type="number"
                 className={inputTextStyle}
                 defaultValue={inputStore.tokensCap}
                 onChange={(e) => inputStore.setTokensCap(e.target.value)}
-                placeholder="Amount of tokens"
+                placeholder={cappedTokensPlaceholderText}
               />
             </div>
           )}
@@ -108,7 +122,7 @@ const TokenSettingsView: FC = () => {
             defaultChecked={inputStore.whitelist}
             onChange={(e) => inputStore.setWhitelist(e.target.checked)}
           />
-          Accept Ethereum only from the whitelisted addresses
+          {whitelistCheckboxText}
         </div>
       </div>
     </>

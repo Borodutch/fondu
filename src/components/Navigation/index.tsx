@@ -2,6 +2,7 @@ import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { AppNetworks, appStore } from "store/app.store"
 import { buttonStyleReal, buttonStyleTest } from "./styles"
+import { realNetworkButtonText, testNetworkButtonText } from "components/Text"
 
 const Navigation: FC = () => {
   return (
@@ -14,8 +15,8 @@ const Navigation: FC = () => {
             : buttonStyleTest
         }
       >
-        {appStore.currentNetwork === AppNetworks.Real && "Real network"}
-        {appStore.currentNetwork === AppNetworks.Test && "Test network"}
+        {appStore.currentNetwork === AppNetworks.Real && realNetworkButtonText}
+        {appStore.currentNetwork === AppNetworks.Test && testNetworkButtonText}
       </button>
     </nav>
   )

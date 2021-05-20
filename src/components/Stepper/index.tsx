@@ -19,6 +19,11 @@ import {
   stepperWrapper,
   singleStepStyle,
 } from "./styles"
+import {
+  tokenTypeTabText,
+  tokenSettingsTabText,
+  deploymentTabText,
+} from "components/Text"
 
 const Stepper: FC = () => {
   const currentActiveTextStyle =
@@ -65,7 +70,7 @@ const Stepper: FC = () => {
               : currentPassedTextStyle
           }
         >
-          Token type
+          {tokenTypeTabText}
         </span>
       </div>
       <div
@@ -94,7 +99,7 @@ const Stepper: FC = () => {
               : inactiveTextStyle
           }
         >
-          Token settings
+          {tokenSettingsTabText}
         </span>
       </div>
       <div
@@ -119,7 +124,7 @@ const Stepper: FC = () => {
               : inactiveTextStyle
           }
         >
-          Deployment
+          {deploymentTabText}
         </span>
       </div>
     </div>

@@ -7,6 +7,7 @@ import {
   buttonStyleActiveTest,
   buttonStyleInactive,
 } from "./styles"
+import { erc20contractName, erc721ContractName } from "components/Text"
 
 const TokenTypeView: FC = () => {
   return (
@@ -21,7 +22,7 @@ const TokenTypeView: FC = () => {
         }
         onClick={() => inputStore.setTokenType(TokenType.ERC20)}
       >
-        ERC-20
+        {erc20contractName}
       </button>
       <div className="text-gray-400 text-lg">or</div>
       <button
@@ -34,7 +35,7 @@ const TokenTypeView: FC = () => {
         }
         onClick={() => inputStore.setTokenType(TokenType.ERC721)}
       >
-        ERC-721
+        {erc721ContractName}
       </button>
     </div>
   )

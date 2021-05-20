@@ -7,6 +7,7 @@ import {
   inactiveButtonStyle,
   stepperWrapper,
 } from "./styles"
+import { previousButtonText, nextButtonText } from "components/Text"
 
 const StepperNavigation: FC = () => {
   return (
@@ -21,7 +22,7 @@ const StepperNavigation: FC = () => {
         }
         onClick={() => appStore.previousTab()}
       >
-        Previous step
+        {previousButtonText}
       </button>
       <button
         className={
@@ -33,7 +34,7 @@ const StepperNavigation: FC = () => {
         }
         onClick={() => appStore.nextTab()}
       >
-        Next step
+        {nextButtonText}
       </button>
     </div>
   )

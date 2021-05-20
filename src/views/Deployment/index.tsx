@@ -1,37 +1,52 @@
 import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { inputStore } from "store/input.store"
+import {
+  checkSettingsText,
+  erc20contractName,
+  erc721ContractName,
+  tokenTypeCheckText,
+  tokenNameCheckText,
+  tokenSymbolCheckText,
+  tokensPerEthCheckText,
+  recieverCheckText,
+  decimalsCheckText,
+  crowdsaleTimedCheckText,
+  cappedTokensCheckText,
+  whitelistCheckText,
+} from "components/Text"
 
 const DeploymentView: FC = () => {
   return (
     <>
-      <p className="pb-2 font-medium">Check your settings again:</p>
+      <p className="pb-2 font-medium">{checkSettingsText}</p>
       <ol className="list-disc list-inside">
         <li>
-          <b>Token type:</b> {inputStore.tokenType === 0 ? "ERC-20" : "ERC-721"}
+          <b>{tokenTypeCheckText}</b>{" "}
+          {inputStore.tokenType === 0 ? erc20contractName : erc721ContractName}
         </li>
         <li>
-          <b>Token name:</b> {inputStore.tokenName}
+          <b>{tokenNameCheckText}</b> {inputStore.tokenName}
         </li>
         <li>
-          <b>Token symbol:</b> {inputStore.tokenSymbol}
+          <b>{tokenSymbolCheckText}</b> {inputStore.tokenSymbol}
         </li>
         <li>
-          <b>Tokens for 1 ETH:</b> {inputStore.tokensFor}
+          <b>{tokensPerEthCheckText}</b> {inputStore.tokensFor}
         </li>
         <li>
-          <b>Reciever:</b> {inputStore.toWallet}
+          <b>{recieverCheckText}</b> {inputStore.toWallet}
         </li>
         <li>
-          <b>Decimals:</b> {inputStore.decimals}
+          <b>{decimalsCheckText}</b> {inputStore.decimals}
         </li>
-        {inputStore.timed && <li>Crowdsale is bounded by a time frame</li>}
+        {inputStore.timed && <li>{crowdsaleTimedCheckText}</li>}
         {inputStore.capped && (
-          <li>Amount of tokens intend to raise: {inputStore.tokensCap}</li>
+          <li>
+            {cappedTokensCheckText} {inputStore.tokensCap}
+          </li>
         )}
-        {inputStore.whitelist && (
-          <li>Accept Ethereum only from the whitelisted addresses</li>
-        )}
+        {inputStore.whitelist && <li>{whitelistCheckText}</li>}
       </ol>
     </>
   )
