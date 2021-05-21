@@ -23,6 +23,8 @@ import { web3Store } from "store/web3.store"
 import { userStore } from "store/user.store"
 import useSWR from "swr"
 import { fetcher } from "helpers/fetcher.helper"
+import { IntlProvider, FormattedMessage } from "react-intl"
+import { langStore } from "store/language.store"
 
 const ContractWallet: FC = () => {
   const [adressDisabled, setAdressDisabled] = useState<boolean>(true)
@@ -97,7 +99,16 @@ const ContractWallet: FC = () => {
           </div>
           {appStore.currentNetwork === AppNetworks.Test && (
             <button className={addButtonStyle}>
-              Get test ETH to your wallet
+              <IntlProvider
+                locale={langStore.currentLanguage}
+                defaultLocale="en"
+                messages={langStore.loadLocaleData(langStore.currentLanguage)}
+              >
+                <FormattedMessage
+                  id="subtitleBalance"
+                  defaultMessage="Get test ETH to your wallet"
+                />
+              </IntlProvider>
             </button>
           )}
         </div>

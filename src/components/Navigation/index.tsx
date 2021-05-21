@@ -1,11 +1,21 @@
 import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { AppNetworks, appStore } from "store/app.store"
+import { langStore } from "store/language.store"
 import { buttonStyleReal, buttonStyleTest } from "./styles"
 
 const Navigation: FC = () => {
   return (
     <nav>
+      <button
+        onClick={() => langStore.toggleLanguage()}
+        className={
+          langStore.currentLanguage === "en" ? buttonStyleReal : buttonStyleTest
+        }
+      >
+        {langStore.currentLanguage === "en" && "English"}
+        {langStore.currentLanguage === "ru" && "Русский"}
+      </button>
       <button
         onClick={() => appStore.toggleNetwork()}
         className={
