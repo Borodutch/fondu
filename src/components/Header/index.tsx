@@ -6,6 +6,7 @@ import {
   logoWrapperStyle,
 } from "./styles"
 import Navigation from "components/Navigation"
+import LanguageButtons from "components/LanguageButtons"
 import { observer } from "mobx-react-lite"
 import { AppNetworks, appStore } from "store/app.store"
 
@@ -24,6 +25,7 @@ const Header: FC = () => {
           Fondu
         </a>
       </div>
+      <LanguageButtons />
       <Navigation />
     </header>
   )

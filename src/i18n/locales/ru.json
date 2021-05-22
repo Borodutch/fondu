@@ -1,0 +1,14 @@
+{
+  "title": "Контракты",
+  "address": "Адрес",
+  "balance": "Баланс",
+  "buttonTestNetwork": "Тестовая сеть",
+  "buttonRealNetwork": "Реальная сеть",
+  "buttonGetTest": "Возьмите на тест ETH в кошелек",
+  "tokenType": "Тип токена",
+  "tokenSettings": "Настройки токена",
+  "deployment": "Размещение",
+  "or": "или",
+  "previousStep": "Назад",
+  "nextStep": "Далее"
+}
