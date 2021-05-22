@@ -1,0 +1,14 @@
+{
+  "title": "Contracts",
+  "address": "Address",
+  "balance": "Balance",
+  "buttonTestNetwork": "Test Network",
+  "buttonRealNetwork": "Real Network",
+  "buttonGetTest": "Get test ETH to your wallet",
+  "tokenType": "Token type",
+  "tokenSettings": "Token settings",
+  "deployment": "Deployment",
+  "or": "or",
+  "previousStep": "Previous step",
+  "nextStep": "Next step"
+}

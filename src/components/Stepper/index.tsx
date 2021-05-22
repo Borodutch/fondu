@@ -1,4 +1,5 @@
 import React, { FC } from "react"
+import { FormattedMessage } from "react-intl"
 import { observer } from "mobx-react-lite"
 import { AppNetworks, appStore } from "store/app.store"
 import {
@@ -65,7 +66,7 @@ const Stepper: FC = () => {
               : currentPassedTextStyle
           }
         >
-          Token type
+          <FormattedMessage id="tokenType" />
         </span>
       </div>
       <div
@@ -94,7 +95,7 @@ const Stepper: FC = () => {
               : inactiveTextStyle
           }
         >
-          Token settings
+          <FormattedMessage id="tokenSettings" />
         </span>
       </div>
       <div
@@ -119,7 +120,7 @@ const Stepper: FC = () => {
               : inactiveTextStyle
           }
         >
-          Deployment
+          <FormattedMessage id="deployment" />
         </span>
       </div>
     </div>

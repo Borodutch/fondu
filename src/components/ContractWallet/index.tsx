@@ -23,6 +23,7 @@ import { web3Store } from "store/web3.store"
 import { userStore } from "store/user.store"
 import useSWR from "swr"
 import { fetcher } from "helpers/fetcher.helper"
+import { FormattedMessage } from "react-intl"
 
 const ContractWallet: FC = () => {
   const [adressDisabled, setAdressDisabled] = useState<boolean>(true)
@@ -54,7 +55,9 @@ const ContractWallet: FC = () => {
   return (
     <div className={wrapperStyle}>
       <div className={leftBlockStyle}>
-        <h2 className={subtitleStyle}>Adress</h2>
+        <h2 className={subtitleStyle}>
+          <FormattedMessage id="address" />
+        </h2>
         <div className={leftBlockInnerStyle}>
           <InputMask
             type="text"
@@ -81,7 +84,9 @@ const ContractWallet: FC = () => {
         </div>
       </div>
       <div className={rightBlockStyle}>
-        <h2 className={subtitleStyle}>Balance</h2>
+        <h2 className={subtitleStyle}>
+          <FormattedMessage id="balance" />
+        </h2>
         <div className={balanceWrapperStyle}>
           <div className={balanceFlexStyle}>
             <span
@@ -97,7 +102,7 @@ const ContractWallet: FC = () => {
           </div>
           {appStore.currentNetwork === AppNetworks.Test && (
             <button className={addButtonStyle}>
-              Get test ETH to your wallet
+              <FormattedMessage id="buttonGetTest" />
             </button>
           )}
         </div>

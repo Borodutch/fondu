@@ -2,6 +2,7 @@ import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { AppNetworks, appStore } from "store/app.store"
 import { buttonStyleReal, buttonStyleTest } from "./styles"
+import { FormattedMessage } from "react-intl"
 
 const Navigation: FC = () => {
   return (
@@ -14,8 +15,12 @@ const Navigation: FC = () => {
             : buttonStyleTest
         }
       >
-        {appStore.currentNetwork === AppNetworks.Real && "Real network"}
-        {appStore.currentNetwork === AppNetworks.Test && "Test network"}
+        {appStore.currentNetwork === AppNetworks.Real && (
+          <FormattedMessage id="buttonRealNetwork" />
+        )}
+        {appStore.currentNetwork === AppNetworks.Test && (
+          <FormattedMessage id="buttonTestNetwork" />
+        )}
       </button>
     </nav>
   )
