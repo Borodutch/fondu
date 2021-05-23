@@ -1,36 +1,66 @@
 import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { inputStore } from "store/input.store"
+import { FormattedMessage } from "react-intl"
 
 const DeploymentView: FC = () => {
   return (
     <>
-      <p className="pb-2 font-medium">Check your settings again:</p>
+      <p className="pb-2 font-medium">
+        <FormattedMessage id="deployCheck" />
+      </p>
       <ol className="list-disc list-inside">
         <li>
-          <b>Token type:</b> {inputStore.tokenType === 0 ? "ERC-20" : "ERC-721"}
+          <b>
+            <FormattedMessage id="deployTokenType" />
+          </b>{" "}
+          {inputStore.tokenType === 0 ? "ERC-20" : "ERC-721"}
         </li>
         <li>
-          <b>Token name:</b> {inputStore.tokenName}
+          <b>
+            <FormattedMessage id="deployTokenName" />
+          </b>{" "}
+          {inputStore.tokenName}
         </li>
         <li>
-          <b>Token symbol:</b> {inputStore.tokenSymbol}
+          <b>
+            <FormattedMessage id="deployTokenSymbol" />
+          </b>{" "}
+          {inputStore.tokenSymbol}
         </li>
         <li>
-          <b>Tokens for 1 ETH:</b> {inputStore.tokensFor}
+          <b>
+            <FormattedMessage id="deployTokensFor" />
+          </b>{" "}
+          {inputStore.tokensFor}
         </li>
         <li>
-          <b>Reciever:</b> {inputStore.toWallet}
+          <b>
+            <FormattedMessage id="deployReceiver" />
+          </b>{" "}
+          {inputStore.toWallet}
         </li>
         <li>
-          <b>Decimals:</b> {inputStore.decimals}
+          <b>
+            <FormattedMessage id="deployDecimals" />
+          </b>{" "}
+          {inputStore.decimals}
         </li>
-        {inputStore.timed && <li>Crowdsale is bounded by a time frame</li>}
+        {inputStore.timed && (
+          <li>
+            <FormattedMessage id="deployTimed" />
+          </li>
+        )}
         {inputStore.capped && (
-          <li>Amount of tokens intend to raise: {inputStore.tokensCap}</li>
+          <li>
+            <FormattedMessage id="deployRaise" />
+            {inputStore.tokensCap}
+          </li>
         )}
         {inputStore.whitelist && (
-          <li>Accept Ethereum only from the whitelisted addresses</li>
+          <li>
+            <FormattedMessage id="deployWhitelist" />
+          </li>
         )}
       </ol>
     </>
