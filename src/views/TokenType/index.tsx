@@ -1,4 +1,5 @@
 import React, { FC } from "react"
+import { FormattedMessage } from "react-intl"
 import { observer } from "mobx-react-lite"
 import { inputStore, TokenType } from "store/input.store"
 import { ContractButton } from "components/Controls"
@@ -12,7 +13,9 @@ const TokenTypeView: FC = () => {
       >
         ERC-20
       </ContractButton>
-      <div className="text-gray-400 text-lg">or</div>
+      <div className="text-gray-400 text-lg">
+        <FormattedMessage id="or" />
+      </div>
       <ContractButton
         active={inputStore.tokenType === TokenType.ERC721}
         onClick={() => inputStore.setTokenType(TokenType.ERC721)}
