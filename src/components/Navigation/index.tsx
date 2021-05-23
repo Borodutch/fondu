@@ -1,22 +1,15 @@
 import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { AppNetworks, appStore } from "store/app.store"
-import { buttonStyleReal, buttonStyleTest } from "./styles"
+import { Button } from "components/Controls"
 
 const Navigation: FC = () => {
   return (
     <nav>
-      <button
-        onClick={() => appStore.toggleNetwork()}
-        className={
-          appStore.currentNetwork === AppNetworks.Real
-            ? buttonStyleReal
-            : buttonStyleTest
-        }
-      >
+      <Button onClick={() => appStore.toggleNetwork()}>
         {appStore.currentNetwork === AppNetworks.Real && "Real network"}
         {appStore.currentNetwork === AppNetworks.Test && "Test network"}
-      </button>
+      </Button>
     </nav>
   )
 }

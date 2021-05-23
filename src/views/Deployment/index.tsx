@@ -1,36 +1,57 @@
 import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { inputStore } from "store/input.store"
+import { BodyText, BoldText } from "components/Text"
 
 const DeploymentView: FC = () => {
   return (
     <>
-      <p className="pb-2 font-medium">Check your settings again:</p>
-      <ol className="list-disc list-inside">
+      <BoldText>Check your settings again:</BoldText>
+      <ol className="list-disc list-inside pt-2">
         <li>
-          <b>Token type:</b> {inputStore.tokenType === 0 ? "ERC-20" : "ERC-721"}
+          <BoldText>Token type: </BoldText>
+          <BodyText>
+            {inputStore.tokenType === 0 ? "ERC-20" : "ERC-721"}
+          </BodyText>
         </li>
         <li>
-          <b>Token name:</b> {inputStore.tokenName}
+          <BoldText>Token name:</BoldText>
+          <BodyText> {inputStore.tokenName}</BodyText>
         </li>
         <li>
-          <b>Token symbol:</b> {inputStore.tokenSymbol}
+          <BoldText>Token symbol:</BoldText>
+          <BodyText> {inputStore.tokenSymbol}</BodyText>
         </li>
         <li>
-          <b>Tokens for 1 ETH:</b> {inputStore.tokensFor}
+          <BoldText>Tokens for 1 ETH:</BoldText>
+          <BodyText> {inputStore.tokensFor}</BodyText>
         </li>
         <li>
-          <b>Reciever:</b> {inputStore.toWallet}
+          <BoldText>Reciever:</BoldText>
+          <BodyText> {inputStore.toWallet}</BodyText>
         </li>
         <li>
-          <b>Decimals:</b> {inputStore.decimals}
+          <BoldText>Decimals:</BoldText>
+          <BodyText> {inputStore.decimals}</BodyText>
         </li>
-        {inputStore.timed && <li>Crowdsale is bounded by a time frame</li>}
+        {inputStore.timed && (
+          <li>
+            <BodyText>Crowdsale is bounded by a time frame</BodyText>
+          </li>
+        )}
         {inputStore.capped && (
-          <li>Amount of tokens intend to raise: {inputStore.tokensCap}</li>
+          <li>
+            <BodyText>
+              Amount of tokens intend to raise: {inputStore.tokensCap}
+            </BodyText>
+          </li>
         )}
         {inputStore.whitelist && (
-          <li>Accept Ethereum only from the whitelisted addresses</li>
+          <li>
+            <BodyText>
+              Accept Ethereum only from the whitelisted addresses
+            </BodyText>
+          </li>
         )}
       </ol>
     </>
