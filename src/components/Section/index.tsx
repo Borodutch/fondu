@@ -1,5 +1,6 @@
 import React, { FC } from "react"
-import { sectionBlockStyle, sectionStyle, sectionTitleStyle } from "./styles"
+import { sectionBlockStyle, sectionStyle } from "./styles"
+import { SectionTitleText } from "components/Text"
 
 interface SectionProps {
   title?: string
@@ -8,7 +9,7 @@ interface SectionProps {
 const Root: FC<SectionProps> = ({ children, title }) => {
   return (
     <section className={sectionStyle}>
-      {title && <h2 className={sectionTitleStyle}>{title}</h2>}
+      {title && <SectionTitleText>{title}</SectionTitleText>}
       <div className={sectionBlockStyle}>{children}</div>
     </section>
   )
