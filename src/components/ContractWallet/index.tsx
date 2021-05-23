@@ -18,7 +18,6 @@ import useSWR from "swr"
 import { fetcher } from "helpers/fetcher.helper"
 import { SubtitleText, ETHBalanceText, USDBalanceText } from "components/Text"
 import { Button } from "components/Controls"
-import { FormattedMessage } from "react-intl"
 
 const ContractWallet: FC = () => {
   const [adressDisabled, setAdressDisabled] = useState<boolean>(true)
@@ -50,9 +49,7 @@ const ContractWallet: FC = () => {
   return (
     <div className={wrapperStyle}>
       <div className={leftBlockStyle}>
-        <SubtitleText>
-          <FormattedMessage id="address" />
-        </SubtitleText>
+        <SubtitleText>Adress</SubtitleText>
         <div className={leftBlockInnerStyle}>
           <InputMask
             type="text"
@@ -75,18 +72,14 @@ const ContractWallet: FC = () => {
         </div>
       </div>
       <div className={rightBlockStyle}>
-        <SubtitleText>
-          <FormattedMessage id="balance" />
-        </SubtitleText>
+        <SubtitleText>Balance</SubtitleText>
         <div className={balanceWrapperStyle}>
           <div className={balanceFlexStyle}>
             <ETHBalanceText>{userStore.ethBalance} Eth</ETHBalanceText>
             <USDBalanceText>{userStore.usdBalance} USD</USDBalanceText>
           </div>
           {appStore.currentNetwork === AppNetworks.Test && (
-            <Button>
-              <FormattedMessage id="buttonGetTest" />
-            </Button>
+            <Button>Get test ETH to your wallet</Button>
           )}
         </div>
       </div>
