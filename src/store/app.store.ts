@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx"
+import Language from "models/Language"
 
 export enum AppNetworks {
   Test,
@@ -6,6 +7,7 @@ export enum AppNetworks {
 }
 
 class AppStore {
+  language: Language = Language.en
   dark = false
   currentTab = 1
   currentNetwork: AppNetworks = AppNetworks.Test
