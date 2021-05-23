@@ -11,6 +11,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-input-mask": "^2.0.4",
+    "react-intl": "^5.18.1",
     "react-scripts": "4.0.3",
     "swr": "^0.5.6",
     "tailwindcss-classnames": "^2.0.7",
