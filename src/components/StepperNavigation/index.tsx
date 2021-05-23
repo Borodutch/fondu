@@ -1,4 +1,5 @@
 import React, { FC } from "react"
+import { FormattedMessage } from "react-intl"
 import { observer } from "mobx-react-lite"
 import { appStore } from "store/app.store"
 import { stepperWrapper } from "./styles"
@@ -11,13 +12,13 @@ const StepperNavigation: FC = () => {
         active={appStore.currentTab !== 1}
         onClick={() => appStore.previousTab()}
       >
-        Previous step
+        <FormattedMessage id="previousStep" />
       </Button>
       <Button
         active={appStore.currentTab !== 3}
         onClick={() => appStore.nextTab()}
       >
-        Next step
+        <FormattedMessage id="nextStep" />
       </Button>
     </div>
   )
