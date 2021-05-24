@@ -4,6 +4,7 @@ import React, { ChangeEvent, FC } from "react"
 import InputMask from "react-input-mask"
 import { inputStore } from "store/input.store"
 import { BodyText } from "components/Text"
+import { FormattedMessage } from "react-intl"
 
 const TokenSettingsView: FC = () => {
   return (
@@ -11,8 +12,7 @@ const TokenSettingsView: FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
         <div className="space-y-2">
           <BodyText>
-            Human-readable name of your token like "Fondu", "Bitcoin" or
-            "Ethereum"
+            <FormattedMessage id="tokenSettingsName" />
           </BodyText>
           <input
             type="text"
@@ -23,7 +23,9 @@ const TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText>Symbol of your token like "FDU", "BTC" or "ETH"</BodyText>
+          <BodyText>
+            <FormattedMessage id="tokenSettingsSymbol" />
+          </BodyText>
           <input
             type="text"
             className={inputTextStyle}
@@ -33,7 +35,9 @@ const TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText>ETH wallet that will receive the collected funds</BodyText>
+          <BodyText>
+            <FormattedMessage id="tokenSettingsWallet" />
+          </BodyText>
           <InputMask
             type="text"
             className={inputTextStyle}
@@ -47,7 +51,9 @@ const TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText>Number of decimals your currency supports</BodyText>
+          <BodyText>
+            <FormattedMessage id="tokenSettingsDecimals" />
+          </BodyText>
           <input
             type="number"
             className={inputTextStyle}
@@ -57,7 +63,9 @@ const TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText>How many of your tokens will user get for 1 ETH</BodyText>
+          <BodyText>
+            <FormattedMessage id="tokenSettingsAmount" />
+          </BodyText>
           <input
             type="number"
             className={inputTextStyle}
@@ -75,7 +83,9 @@ const TokenSettingsView: FC = () => {
             defaultChecked={inputStore.timed}
             onChange={(e) => inputStore.setTimed(e.target.checked)}
           />
-          <BodyText>Crowdsale is bounded by a time frame</BodyText>
+          <BodyText>
+            <FormattedMessage id="tokenSettingsTimed" />
+          </BodyText>
         </div>
       </div>
       <div className="grid grid-cols-1 pt-5">
@@ -86,11 +96,13 @@ const TokenSettingsView: FC = () => {
             defaultChecked={inputStore.capped}
             onChange={(e) => inputStore.setCapped(e.target.checked)}
           />
-          <BodyText>You have the maximum value of tokens sold</BodyText>
+          <BodyText>
+            <FormattedMessage id="tokenSettingsSold" />
+          </BodyText>
           {inputStore.capped && (
             <div className="p-3 mt-2 bg-gray-50 rounded-base">
               <BodyText>
-                What is the maximum amount of tokens you intend to raise?
+                <FormattedMessage id="tokenSettingsRaise" />
               </BodyText>
               <input
                 type="number"
@@ -112,7 +124,7 @@ const TokenSettingsView: FC = () => {
             onChange={(e) => inputStore.setWhitelist(e.target.checked)}
           />
           <BodyText>
-            Accept Ethereum only from the whitelisted addresses
+            <FormattedMessage id="tokenSettingsWhitelist" />
           </BodyText>
         </div>
       </div>
