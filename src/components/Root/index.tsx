@@ -1,8 +1,18 @@
+import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
-import { rootStyle } from "./styles"
+import { rootStyle, rootDarkStyle } from "./styles"
+import { AppNetworks, appStore } from "store/app.store"
 
 const Root: FC = ({ children }) => {
-  return <main className={rootStyle}>{children}</main>
+  return (
+    <main
+      className={
+        appStore.currentTheme === AppNetworks.Light ? rootDarkStyle : rootStyle
+      }
+    >
+      {children}
+    </main>
+  )
 }
 
-export default Root
+export default observer(Root)

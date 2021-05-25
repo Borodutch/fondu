@@ -8,6 +8,7 @@ import {
 import Navigation from "components/Navigation"
 import { observer } from "mobx-react-lite"
 import { AppNetworks, appStore } from "store/app.store"
+import DarkModeToggle from "components/DarkModeToggle"
 
 const Header: FC = () => {
   return (
@@ -24,6 +25,8 @@ const Header: FC = () => {
           Fondu
         </a>
       </div>
+      <DarkModeToggle />
+
       <Navigation />
     </header>
   )

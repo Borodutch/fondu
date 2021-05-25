@@ -3,10 +3,13 @@ import { makeAutoObservable } from "mobx"
 export enum AppNetworks {
   Test,
   Real,
+  Dark,
+  Light,
 }
 
 class AppStore {
   dark = false
+  currentTheme: AppNetworks = AppNetworks.Light
   currentTab = 1
   currentNetwork: AppNetworks = AppNetworks.Test
 
@@ -16,6 +19,12 @@ class AppStore {
 
   toggleDark() {
     this.dark = !this.dark
+    this.currentTheme =
+      this.currentTheme === AppNetworks.Light
+        ? AppNetworks.Dark
+        : AppNetworks.Light
+    this.currentTab = 1
+    return this.dark
   }
 
   nextTab() {
