@@ -5,7 +5,7 @@ interface SectionProps {
   title?: string
 }
 
-const Root: FC<SectionProps> = ({ children, title }) => {
+const Section: FC<SectionProps> = ({ children, title }) => {
   return (
     <section className={sectionStyle}>
       {title && <h2 className={sectionTitleStyle}>{title}</h2>}
@@ -14,4 +14,4 @@ const Root: FC<SectionProps> = ({ children, title }) => {
   )
 }
 
-export default Root
+export default Section

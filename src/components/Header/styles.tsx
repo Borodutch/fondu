@@ -10,7 +10,11 @@ export const headerStyle = classnames(
 )
 
 // Logo text style
-export const logoWrapperStyle = classnames("text-3xl", "font-bold")
+export const logoWrapperStyle = classnames(
+  "text-3xl",
+  "font-bold",
+  "text-text-black"
+)
 const logoStyle = classnames("bg-clip-text", "text-transparent", "uppercase")
 export const logoStyleTest = classnames(
   logoStyle,

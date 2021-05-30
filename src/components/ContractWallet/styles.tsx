@@ -20,7 +20,7 @@ export const rightBlockStyle = classnames(
 )
 export const subtitleStyle = classnames(
   "text-lg",
-  "text-gray-600",
+  "text-text-gray",
   "font-medium"
 )
 export const leftBlockInnerStyle = classnames("flex", "flex-row", "space-x-3")

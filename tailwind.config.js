@@ -8,19 +8,25 @@ module.exports = {
     },
     extend: {
       colors: {
+        white: "var(--color-white)",
         base: {
-          blue: "#6486FF",
-          gray: "#F9F9F9",
-          black: "#05050F",
-          dark: "#0F0F2A",
+          blue: "var(--color-blue)",
+          gray: "var(--color-gray)",
+          black: "var(--color-black)",
+          dark: "var(--color-dark)",
+          root: "var(--background-root)",
+          white: "var(--color-white)",
+          card: "var(--background-card)",
+          contract: "var(--background-conract)",
         },
-        textColor: {
-          gray: "#F9F9F9",
-          dark: "#f7fafc",
+        text: {
+          gray: "var(--text-gray)",
+          white: "var(--text-white)",
+          black: "var(--text-black)",
         },
         button: {
-          red: "#FF6464",
-          dark: "#2d3748",
+          red: "var(--button-red)",
+          dark: "var(--buttton-dark)",
         },
         light: {
           purple: "#C751FF",
@@ -31,21 +37,4 @@ module.exports = {
       },
     },
   },
-  // dark: {
-  //   colors: {
-  //     base: {
-  //       colorPrimary: "#2d3748",
-  //       colorSecondary: "#283141",
-  //     },
-  //     button: {
-  //       red: "#FF6464",
-  //     },
-  //     light: {
-  //       purple: "#C751FF",
-  //     },
-  //   },
-  //   borderRadius: {
-  //     base: "8px",
-  //   },
-  // },
 }
