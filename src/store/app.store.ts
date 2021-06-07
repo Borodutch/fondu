@@ -23,7 +23,6 @@ class AppStore {
     this.dark = !this.dark
     this.currentTheme =
       this.currentTheme === Theme.Light ? Theme.Dark : Theme.Light
-    return this.dark
   }
 
   nextTab() {

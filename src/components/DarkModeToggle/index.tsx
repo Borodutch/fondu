@@ -1,19 +1,12 @@
-import { ThemeContext } from "components/Theme"
 import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { Theme, appStore } from "store/app.store"
 import { buttonStyleDark, buttonStyleLight } from "./styles"
 
-export const Toggle: FC = () => {
-  const { theme, setTheme } = React.useContext(ThemeContext)
-
-  function isLight() {
-    return theme === "light"
-  }
+const Toggle: FC = () => {
   return (
     <button
-      onClick={(e) => {
-        setTheme(isLight() ? "dark" : "light")
+      onClick={() => {
         appStore.toggleDark()
       }}
       className={
