@@ -1,6 +1,5 @@
 import { makeAutoObservable } from "mobx"
-import { isSynchronized, persistence } from "mobx-persist-store"
-import storageAdapter from "store/storageAdapter"
+import { makePersistable } from "mobx-persist-store"
 
 export enum AppNetworks {
   Test,
@@ -18,10 +17,13 @@ class AppStore {
 
   constructor() {
     makeAutoObservable(this)
+    makePersistable(this, {
+      name: "Appstore",
+      properties: ["dark"],
+      storage: window.localStorage,
+    })
   }
-  get isSynchronized() {
-    return isSynchronized(this)
-  }
+
   toggleDark() {
     this.dark = !this.dark
   }
@@ -42,8 +44,4 @@ class AppStore {
     if (this.currentTab !== 1) this.currentTab--
   }
 }
-export const appStore = persistence({
-  name: "AppStore",
-  properties: ["dark"],
-  adapter: storageAdapter,
-})(new AppStore())
+export const appStore = new AppStore()
