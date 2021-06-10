@@ -1,4 +1,6 @@
 import { makeAutoObservable } from "mobx"
+import { isSynchronized, persistence } from "mobx-persist-store"
+import storageAdapter from "store/storageAdapter"
 
 export enum AppNetworks {
   Test,
@@ -14,15 +16,23 @@ class AppStore {
   currentTheme: Theme = Theme.Light
   currentTab = 1
   currentNetwork: AppNetworks = AppNetworks.Test
+  colorTheme: "light" | "dark" = "light"
 
   constructor() {
     makeAutoObservable(this)
   }
-
+  get isSynchronized() {
+    return isSynchronized(this)
+  }
   toggleDark() {
     this.dark = !this.dark
-    this.currentTheme =
-      this.currentTheme === Theme.Light ? Theme.Dark : Theme.Light
+    if (this.dark === true) {
+      this.colorTheme = "dark"
+      this.currentTheme = Theme.Dark
+    } else {
+      this.colorTheme = "light"
+      this.currentTheme = Theme.Light
+    }
   }
 
   nextTab() {
@@ -41,5 +51,8 @@ class AppStore {
     if (this.currentTab !== 1) this.currentTab--
   }
 }
-
-export const appStore = new AppStore()
+export const appStore = persistence({
+  name: "AppStore",
+  properties: ["colorTheme"],
+  adapter: storageAdapter,
+})(new AppStore())
