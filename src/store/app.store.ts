@@ -13,10 +13,8 @@ export enum Theme {
 }
 class AppStore {
   dark = false
-  currentTheme: Theme = Theme.Light
   currentTab = 1
   currentNetwork: AppNetworks = AppNetworks.Test
-  colorTheme: "light" | "dark" = "light"
 
   constructor() {
     makeAutoObservable(this)
@@ -26,13 +24,6 @@ class AppStore {
   }
   toggleDark() {
     this.dark = !this.dark
-    if (this.dark === true) {
-      this.colorTheme = "dark"
-      this.currentTheme = Theme.Dark
-    } else {
-      this.colorTheme = "light"
-      this.currentTheme = Theme.Light
-    }
   }
 
   nextTab() {
@@ -53,6 +44,6 @@ class AppStore {
 }
 export const appStore = persistence({
   name: "AppStore",
-  properties: ["colorTheme"],
+  properties: ["dark"],
   adapter: storageAdapter,
 })(new AppStore())
