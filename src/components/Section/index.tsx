@@ -1,5 +1,7 @@
 import React, { FC } from "react"
-import { sectionBlockStyle, sectionStyle, sectionTitleStyle } from "./styles"
+import { sectionBlockStyle, sectionStyle } from "./styles"
+import { SectionTitleText } from "components/Text"
+import { FormattedMessage } from "react-intl"
 
 interface SectionProps {
   title?: string
@@ -8,7 +10,11 @@ interface SectionProps {
 const Section: FC<SectionProps> = ({ children, title }) => {
   return (
     <section className={sectionStyle}>
-      {title && <h2 className={sectionTitleStyle}>{title}</h2>}
+      {title && (
+        <SectionTitleText>
+          <FormattedMessage id="title" />
+        </SectionTitleText>
+      )}
       <div className={sectionBlockStyle}>{children}</div>
     </section>
   )

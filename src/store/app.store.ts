@@ -1,16 +1,14 @@
 import { makeAutoObservable } from "mobx"
 import { makePersistable } from "mobx-persist-store"
+import Language from "models/Language"
 
 export enum AppNetworks {
   Test,
   Real,
 }
 
-export enum Theme {
-  Dark,
-  Light,
-}
 class AppStore {
+  language: Language = Language.en
   dark = false
   currentTab = 1
   currentNetwork: AppNetworks = AppNetworks.Test

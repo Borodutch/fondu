@@ -1,4 +1,5 @@
 import React from "react"
+import IntlProvider from "i18n/IntlProvider"
 import Root from "components/Root"
 import { observer } from "mobx-react-lite"
 import Header from "components/Header"
@@ -10,6 +11,7 @@ import ThemeProvider from "components/Theme/index"
 const App = () => {
   return (
     <ThemeProvider>
+    <IntlProvider>
       <Root>
         <Header />
         <Section title="Contracts">
@@ -19,6 +21,7 @@ const App = () => {
           <ContractMain />
         </Section>
       </Root>
+    </IntlProvider>
     </ThemeProvider>
   )
 }

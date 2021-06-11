@@ -3,18 +3,11 @@ import InputMask from "react-input-mask"
 import EditIcon from "assets/icons/edit.svg"
 import { inputTextStyle } from "helpers/style.helper"
 import {
-  addButtonStyle,
   balanceFlexStyle,
   balanceWrapperStyle,
-  editButtonStyleReal,
-  editButtonStyleTest,
-  ethBalanceStyleReal,
-  ethBalanceStyleTest,
   leftBlockInnerStyle,
   leftBlockStyle,
   rightBlockStyle,
-  subtitleStyle,
-  usdBalanceStyle,
   wrapperStyle,
 } from "./styles"
 import { observer } from "mobx-react-lite"
@@ -23,6 +16,9 @@ import { web3Store } from "store/web3.store"
 import { userStore } from "store/user.store"
 import useSWR from "swr"
 import { fetcher } from "helpers/fetcher.helper"
+import { SubtitleText, ETHBalanceText, USDBalanceText } from "components/Text"
+import { Button } from "components/Controls"
+import { FormattedMessage } from "react-intl"
 
 const ContractWallet: FC = () => {
   const [adressDisabled, setAdressDisabled] = useState<boolean>(true)
@@ -54,7 +50,9 @@ const ContractWallet: FC = () => {
   return (
     <div className={wrapperStyle}>
       <div className={leftBlockStyle}>
-        <h2 className={subtitleStyle}>Adress</h2>
+        <SubtitleText>
+          <FormattedMessage id="address" />
+        </SubtitleText>
         <div className={leftBlockInnerStyle}>
           <InputMask
             type="text"
@@ -68,37 +66,27 @@ const ContractWallet: FC = () => {
               userStore.setEthAdress(e.target.value)
             }
           />
-          <button
-            className={
-              appStore.currentNetwork === AppNetworks.Test
-                ? editButtonStyleTest
-                : editButtonStyleReal
-            }
+          <Button
+            filled={true}
             onClick={() => setAdressDisabled(!adressDisabled)}
           >
             <img src={EditIcon} alt="Edit" />
-          </button>
+          </Button>
         </div>
       </div>
       <div className={rightBlockStyle}>
-        <h2 className={subtitleStyle}>Balance</h2>
+        <SubtitleText>
+          <FormattedMessage id="balance" />
+        </SubtitleText>
         <div className={balanceWrapperStyle}>
           <div className={balanceFlexStyle}>
-            <span
-              className={
-                appStore.currentNetwork === AppNetworks.Real
-                  ? ethBalanceStyleReal
-                  : ethBalanceStyleTest
-              }
-            >
-              {userStore.ethBalance} Eth
-            </span>
-            <span className={usdBalanceStyle}>{userStore.usdBalance} USD</span>
+            <ETHBalanceText>{userStore.ethBalance} Eth</ETHBalanceText>
+            <USDBalanceText>{userStore.usdBalance} USD</USDBalanceText>
           </div>
           {appStore.currentNetwork === AppNetworks.Test && (
-            <button className={addButtonStyle}>
-              Get test ETH to your wallet
-            </button>
+            <Button>
+              <FormattedMessage id="buttonGetTest" />
+            </Button>
           )}
         </div>
       </div>

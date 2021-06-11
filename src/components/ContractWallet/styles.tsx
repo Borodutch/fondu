@@ -18,34 +18,7 @@ export const rightBlockStyle = classnames(
   "pt-5",
   "md:pt-0"
 )
-export const subtitleStyle = classnames(
-  "text-lg",
-  "text-text-gray",
-  "font-medium"
-)
 export const leftBlockInnerStyle = classnames("flex", "flex-row", "space-x-3")
-const editButtonStyle = classnames(
-  "p-3",
-  "pr-2",
-  "rounded-base",
-  "hover:opacity-80",
-  "transition",
-  "focus:outline-none"
-)
-export const editButtonStyleTest = classnames(editButtonStyle, "bg-base-blue")
-export const editButtonStyleReal = classnames(editButtonStyle, "bg-red-400")
-export const addButtonStyle = classnames(
-  "border-2",
-  "border-blue-400",
-  "py-3",
-  "px-10",
-  "rounded-base",
-  "text-base-blue",
-  "text-sm",
-  "focus:outline-none",
-  "hover:opacity-80",
-  "transition"
-)
 export const balanceWrapperStyle = classnames(
   "flex",
   "md:flex-row",
@@ -53,10 +26,9 @@ export const balanceWrapperStyle = classnames(
   "space-y-2",
   "md:space-y-0"
 )
-export const balanceFlexStyle = classnames("flex", "flex-col", "flex-grow")
-
-// Eth wallet balance
-export const ethBalanceStyle = classnames("text-xl", "transition")
-export const ethBalanceStyleTest = classnames(ethBalanceStyle, "text-base-blue")
-export const ethBalanceStyleReal = classnames(ethBalanceStyle, "text-red-400")
-export const usdBalanceStyle = classnames("text-gray-400", "text-sm")
+export const balanceFlexStyle = classnames(
+  "flex",
+  "flex-col",
+  "flex-grow",
+  "pt-1"
+)
