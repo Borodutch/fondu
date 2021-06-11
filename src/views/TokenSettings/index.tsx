@@ -1,12 +1,20 @@
 import { inputTextStyle } from "helpers/style.helper"
 import { observer } from "mobx-react-lite"
-import React, { ChangeEvent, FC } from "react"
+import React, { ChangeEvent, FC, useEffect } from "react"
 import InputMask from "react-input-mask"
+import { web3Store } from "store/web3.store"
 import { inputStore } from "store/input.store"
 import { BodyText } from "components/Text"
 import { FormattedMessage } from "react-intl"
 
 const TokenSettingsView: FC = () => {
+  useEffect(() => {
+    if (inputStore.toWallet === "") {
+      const newAccount = web3Store.testContext.eth.accounts.create()
+      inputStore.setToWallet(newAccount.address)
+    }
+  }, [])
+
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
@@ -43,11 +51,11 @@ const TokenSettingsView: FC = () => {
             className={inputTextStyle}
             mask="0x****************************************"
             maskChar={null}
-            defaultValue={inputStore.toWallet}
+            placeholder="ETH wallet"
+            value={inputStore.toWallet}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               inputStore.setToWallet(e.target.value)
             }
-            placeholder="ETH wallet"
           />
         </div>
         <div className="space-y-2">
