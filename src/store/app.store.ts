@@ -44,4 +44,5 @@ class AppStore {
     if (this.currentTab !== 1) this.currentTab--
   }
 }
+
 export const appStore = new AppStore()
