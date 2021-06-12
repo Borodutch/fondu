@@ -4,7 +4,7 @@ import { inputStore } from "store/input.store"
 import { BodyText, BoldText } from "components/Text"
 import { FormattedMessage } from "react-intl"
 
-const DeploymentView: FC = () => {
+const ERC20DeploymentView: FC = () => {
   return (
     <>
       <BoldText>
@@ -15,56 +15,54 @@ const DeploymentView: FC = () => {
           <BoldText>
             <FormattedMessage id="deployTokenType" />
           </BoldText>
-          <BodyText>
-            {inputStore.tokenType === 0 ? "ERC-20" : "ERC-721"}
-          </BodyText>
+          <BodyText> ERC-20</BodyText>
         </li>
         <li>
           <BoldText>
             <FormattedMessage id="deployTokenName" />
           </BoldText>
-          <BodyText> {inputStore.tokenName}</BodyText>
+          <BodyText> {inputStore.erc20.name}</BodyText>
         </li>
         <li>
           <BoldText>
             <FormattedMessage id="deployTokenSymbol" />
           </BoldText>
-          <BodyText> {inputStore.tokenSymbol}</BodyText>
+          <BodyText> {inputStore.erc20.symbol}</BodyText>
         </li>
         <li>
           <BoldText>
             <FormattedMessage id="deployTokensFor" />
           </BoldText>
-          <BodyText> {inputStore.tokensFor}</BodyText>
+          <BodyText> {inputStore.erc20.rate}</BodyText>
         </li>
         <li>
           <BoldText>
             <FormattedMessage id="deployReceiver" />
           </BoldText>
-          <BodyText> {inputStore.toWallet}</BodyText>
+          <BodyText> {inputStore.erc20.receiver}</BodyText>
         </li>
         <li>
           <BoldText>
             <FormattedMessage id="deployDecimals" />
           </BoldText>
-          <BodyText> {inputStore.decimals}</BodyText>
+          <BodyText> {inputStore.erc20.decimals}</BodyText>
         </li>
-        {inputStore.timed && (
+        {inputStore.erc20.timed && (
           <li>
             <BodyText>
               <FormattedMessage id="deployTimed" />
             </BodyText>
           </li>
         )}
-        {inputStore.capped && (
+        {inputStore.erc20.capped && (
           <li>
             <BodyText>
               <FormattedMessage id="deployRaise" />
-              {inputStore.tokensCap}
+              {inputStore.erc20.maxTokens}
             </BodyText>
           </li>
         )}
-        {inputStore.whitelist && (
+        {inputStore.erc20.whitelist && (
           <li>
             <BodyText>
               <FormattedMessage id="deployWhitelist" />
@@ -76,4 +74,4 @@ const DeploymentView: FC = () => {
   )
 }
 
-export default observer(DeploymentView)
+export default observer(ERC20DeploymentView)

@@ -1,4 +1,6 @@
 import { makeAutoObservable } from "mobx"
+import erc20 from "interfaces/erc20"
+import erc721 from "interfaces/erc721"
 
 export enum TokenType {
   ERC20,
@@ -7,15 +9,22 @@ export enum TokenType {
 
 class InputStore {
   tokenType: TokenType = TokenType.ERC20
-  tokenName: string = "Fondu"
-  tokenSymbol: string = "FDU"
-  toWallet = "0x281055afc982d96fab65b3a49cac8b878184cb16"
-  decimals = 18
-  tokensFor = 250
-  timed = false
-  capped = false
-  tokensCap = 1000000
-  whitelist = false
+  erc20: erc20 = {
+    name: "Fondu",
+    symbol: "FDU",
+    decimals: 18,
+    rate: 250,
+    receiver: "0x281055afc982d96fab65b3a49cac8b878184cb16",
+    capped: false,
+    whitelist: false,
+    timed: false,
+    maxTokens: 0,
+  }
+  erc721: erc721 = {
+    name: "Fondu",
+    symbol: "FDU",
+    receiver: "0x281055afc982d96fab65b3a49cac8b878184cb16",
+  }
 
   constructor() {
     makeAutoObservable(this)
@@ -25,40 +34,40 @@ class InputStore {
     this.tokenType = tokenType
   }
 
-  setCapped(cap: boolean) {
-    this.capped = cap
+  setERC20Capped(cap: boolean) {
+    this.erc20.capped = cap
   }
 
-  setTokensCap(cap: string) {
-    this.tokensCap = parseInt(cap, 10)
+  setERC20TokensCap(cap: string) {
+    this.erc20.maxTokens = parseInt(cap, 10)
   }
 
-  setTimed(timed: boolean) {
-    this.timed = timed
+  setERC20Timed(timed: boolean) {
+    this.erc20.timed = timed
   }
 
-  setWhitelist(whitelist: boolean) {
-    this.whitelist = whitelist
+  setERC20Whitelist(whitelist: boolean) {
+    this.erc20.whitelist = whitelist
   }
 
-  setTokenName(tokenName: string) {
-    this.tokenName = tokenName
+  setERC20TokenName(tokenName: string) {
+    this.erc20.name = tokenName
   }
 
-  setTokenSymbol(tokenSymbol: string) {
-    this.tokenSymbol = tokenSymbol
+  setERC20TokenSymbol(tokenSymbol: string) {
+    this.erc20.symbol = tokenSymbol
   }
 
-  setToWallet(wallet: string) {
-    this.toWallet = wallet
+  setERC20Receiver(wallet: string) {
+    this.erc20.receiver = wallet
   }
 
-  setDecimals(decimals: string) {
-    this.decimals = parseInt(decimals, 10)
+  setERC20Decimals(decimals: string) {
+    this.erc20.decimals = parseInt(decimals, 10)
   }
 
-  setTokensFor(tokens: string) {
-    this.tokensFor = parseInt(tokens, 10)
+  setERC20Rate(tokens: string) {
+    this.erc20.rate = parseInt(tokens, 10)
   }
 }
 

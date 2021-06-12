@@ -6,7 +6,7 @@ import { inputStore } from "store/input.store"
 import { BodyText } from "components/Text"
 import { FormattedMessage } from "react-intl"
 
-const TokenSettingsView: FC = () => {
+const ERC20TokenSettingsView: FC = () => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
@@ -17,8 +17,8 @@ const TokenSettingsView: FC = () => {
           <input
             type="text"
             className={inputTextStyle}
-            defaultValue={inputStore.tokenName}
-            onChange={(e) => inputStore.setTokenName(e.target.value)}
+            defaultValue={inputStore.erc20.name}
+            onChange={(e) => inputStore.setERC20TokenName(e.target.value)}
             placeholder="Token name"
           />
         </div>
@@ -29,8 +29,8 @@ const TokenSettingsView: FC = () => {
           <input
             type="text"
             className={inputTextStyle}
-            defaultValue={inputStore.tokenSymbol}
-            onChange={(e) => inputStore.setTokenSymbol(e.target.value)}
+            defaultValue={inputStore.erc20.symbol}
+            onChange={(e) => inputStore.setERC20TokenSymbol(e.target.value)}
             placeholder="Token symbol"
           />
         </div>
@@ -43,9 +43,9 @@ const TokenSettingsView: FC = () => {
             className={inputTextStyle}
             mask="0x****************************************"
             maskChar={null}
-            defaultValue={inputStore.toWallet}
+            defaultValue={inputStore.erc20.receiver}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              inputStore.setToWallet(e.target.value)
+              inputStore.setERC20Receiver(e.target.value)
             }
             placeholder="ETH wallet"
           />
@@ -57,8 +57,8 @@ const TokenSettingsView: FC = () => {
           <input
             type="number"
             className={inputTextStyle}
-            defaultValue={inputStore.decimals}
-            onChange={(e) => inputStore.setDecimals(e.target.value)}
+            defaultValue={inputStore.erc20.decimals}
+            onChange={(e) => inputStore.setERC20Decimals(e.target.value)}
             placeholder="Number of decimals"
           />
         </div>
@@ -69,8 +69,8 @@ const TokenSettingsView: FC = () => {
           <input
             type="number"
             className={inputTextStyle}
-            defaultValue={inputStore.tokensFor}
-            onChange={(e) => inputStore.setTokensFor(e.target.value)}
+            defaultValue={inputStore.erc20.rate}
+            onChange={(e) => inputStore.setERC20Rate(e.target.value)}
             placeholder="Tokens for 1 ETH"
           />
         </div>
@@ -80,8 +80,8 @@ const TokenSettingsView: FC = () => {
           <input
             type="checkbox"
             className="mr-2"
-            defaultChecked={inputStore.timed}
-            onChange={(e) => inputStore.setTimed(e.target.checked)}
+            defaultChecked={inputStore.erc20.timed}
+            onChange={(e) => inputStore.setERC20Timed(e.target.checked)}
           />
           <BodyText>
             <FormattedMessage id="tokenSettingsTimed" />
@@ -93,13 +93,13 @@ const TokenSettingsView: FC = () => {
           <input
             type="checkbox"
             className="mr-2"
-            defaultChecked={inputStore.capped}
-            onChange={(e) => inputStore.setCapped(e.target.checked)}
+            defaultChecked={inputStore.erc20.capped}
+            onChange={(e) => inputStore.setERC20Capped(e.target.checked)}
           />
           <BodyText>
             <FormattedMessage id="tokenSettingsSold" />
           </BodyText>
-          {inputStore.capped && (
+          {inputStore.erc20.capped && (
             <div className="p-3 mt-2 bg-gray-50 rounded-base">
               <BodyText>
                 <FormattedMessage id="tokenSettingsRaise" />
@@ -107,8 +107,8 @@ const TokenSettingsView: FC = () => {
               <input
                 type="number"
                 className={inputTextStyle}
-                defaultValue={inputStore.tokensCap}
-                onChange={(e) => inputStore.setTokensCap(e.target.value)}
+                defaultValue={inputStore.erc20.maxTokens}
+                onChange={(e) => inputStore.setERC20TokensCap(e.target.value)}
                 placeholder="Amount of tokens"
               />
             </div>
@@ -120,8 +120,8 @@ const TokenSettingsView: FC = () => {
           <input
             type="checkbox"
             className="mr-2"
-            defaultChecked={inputStore.whitelist}
-            onChange={(e) => inputStore.setWhitelist(e.target.checked)}
+            defaultChecked={inputStore.erc20.whitelist}
+            onChange={(e) => inputStore.setERC20Whitelist(e.target.checked)}
           />
           <BodyText>
             <FormattedMessage id="tokenSettingsWhitelist" />
@@ -132,4 +132,4 @@ const TokenSettingsView: FC = () => {
   )
 }
 
-export default observer(TokenSettingsView)
+export default observer(ERC20TokenSettingsView)
