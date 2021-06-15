@@ -9,7 +9,8 @@ class InputStore {
   tokenType: TokenType = TokenType.ERC20
   tokenName: string = "Fondu"
   tokenSymbol: string = "FDU"
-  toWallet = "0x281055afc982d96fab65b3a49cac8b878184cb16"
+  toWallet = ""
+  privateKey = ""
   decimals = 18
   tokensFor = 250
   timed = false
@@ -51,6 +52,10 @@ class InputStore {
 
   setToWallet(wallet: string) {
     this.toWallet = wallet
+  }
+
+  setPrivateKey(key: string) {
+    this.privateKey = key
   }
 
   setDecimals(decimals: string) {
