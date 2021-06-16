@@ -2,6 +2,8 @@ import React, { FC } from "react"
 import { headerStyle } from "./styles"
 import Navigation from "components/Navigation"
 import { observer } from "mobx-react-lite"
+import { AppNetworks, appStore } from "store/app.store"
+import DarkModeToggle from "components/DarkModeToggle"
 import { LogoText } from "components/Text"
 import LanguageButtons from "components/LanguageButtons"
 
@@ -11,7 +13,8 @@ const Header: FC = () => {
       <LogoText>
         <a href="/">Fondu</a>
       </LogoText>
-      <LanguageButtons />
+         <DarkModeToggle />
+          <LanguageButtons />
       <Navigation />
     </header>
   )

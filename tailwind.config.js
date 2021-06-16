@@ -1,20 +1,32 @@
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   purge: ["./public/index.html", "./src/**/!(tailwind).{ts,tsx}"],
+  darkMode: "class",
   theme: {
     fontFamily: {
       sans: ["Roboto", "sans-serif"],
     },
     extend: {
       colors: {
+        white: "var(--color-white)",
         base: {
-          blue: "#6486FF",
-          gray: "#F9F9F9",
-          black: "#05050F",
-          dark: "#0F0F2A",
+          blue: "var(--color-blue)",
+          gray: "var(--color-gray)",
+          black: "var(--color-black)",
+          dark: "var(--color-dark)",
+          root: "var(--background-root)",
+          white: "var(--color-white)",
+          card: "var(--background-card)",
+          contract: "var(--background-conract)",
+        },
+        text: {
+          gray: "var(--text-gray)",
+          white: "var(--text-white)",
+          black: "var(--text-black)",
         },
         button: {
-          red: "#FF6464",
+          red: "var(--button-red)",
+          dark: "var(--buttton-dark)",
         },
         light: {
           purple: "#C751FF",
@@ -25,4 +37,4 @@ module.exports = {
       },
     },
   },
-};
+}

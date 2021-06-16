@@ -6,9 +6,11 @@ import Header from "components/Header"
 import Section from "components/Section"
 import ContractWallet from "components/ContractWallet"
 import ContractMain from "components/ContractMain"
+import ThemeProvider from "components/Theme/index"
 
 const App = () => {
   return (
+    <ThemeProvider>
     <IntlProvider>
       <Root>
         <Header />
@@ -20,6 +22,7 @@ const App = () => {
         </Section>
       </Root>
     </IntlProvider>
+    </ThemeProvider>
   )
 }
 

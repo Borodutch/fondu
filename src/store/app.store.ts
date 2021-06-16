@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx"
+import { makePersistable } from "mobx-persist-store"
 import Language from "models/Language"
 
 export enum AppNetworks {
@@ -14,6 +15,11 @@ class AppStore {
 
   constructor() {
     makeAutoObservable(this)
+    makePersistable(this, {
+      name: "Appstore",
+      properties: ["dark"],
+      storage: window.localStorage,
+    })
   }
 
   toggleDark() {

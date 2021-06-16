@@ -19,7 +19,6 @@ export const rightBlockStyle = classnames(
   "md:pt-0"
 )
 export const leftBlockInnerStyle = classnames("flex", "flex-row", "space-x-3")
-
 export const balanceWrapperStyle = classnames(
   "flex",
   "md:flex-row",

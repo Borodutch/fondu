@@ -9,5 +9,6 @@ export const cardStyle = classnames(
   "rounded-base",
   "w-full",
   "shadow-sm",
-  "text-lg"
+  "text-lg",
+  "bg-base-card"
 )
