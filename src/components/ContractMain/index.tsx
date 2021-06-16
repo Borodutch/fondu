@@ -4,10 +4,13 @@ import Card from "components/Card"
 import Stepper from "components/Stepper"
 import StepperNavigation from "components/StepperNavigation"
 import TokenTypeView from "views/TokenType"
-import TokenSettingsView from "views/TokenSettings"
-import DeploymentView from "views/Deployment"
+import ERC20TokenSettingsView from "views/ERC20TokenSettings"
+import ERC721TokenSettingsView from "views/ERC721TokenSettings"
+import ERC20DeploymentView from "views/ERC20Deployment"
+import ERC721DeploymentView from "views/ERC721Deployment"
 import { appStore } from "store/app.store"
 import { contractInnerStyle, contractWrapperStyle } from "./styles"
+import { inputStore, TokenType } from "store/input.store"
 
 const ContractMain: FC = () => {
   return (
@@ -17,8 +20,22 @@ const ContractMain: FC = () => {
           <Stepper />
           <Card>
             {appStore.currentTab === 1 && <TokenTypeView />}
-            {appStore.currentTab === 2 && <TokenSettingsView />}
-            {appStore.currentTab === 3 && <DeploymentView />}
+            {appStore.currentTab === 2 &&
+              inputStore.tokenType === TokenType.ERC20 && (
+                <ERC20TokenSettingsView />
+              )}
+            {appStore.currentTab === 2 &&
+              inputStore.tokenType === TokenType.ERC721 && (
+                <ERC721TokenSettingsView />
+              )}
+            {appStore.currentTab === 3 &&
+              inputStore.tokenType === TokenType.ERC20 && (
+                <ERC20DeploymentView />
+              )}
+            {appStore.currentTab === 3 &&
+              inputStore.tokenType === TokenType.ERC721 && (
+                <ERC721DeploymentView />
+              )}
           </Card>
           <StepperNavigation />
         </div>
