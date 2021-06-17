@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx"
 import { makePersistable } from "mobx-persist-store"
+import { newAccount, updateBalance } from "helpers/eth"
 import Language from "models/Language"
 
 export enum AppNetworks {
@@ -36,6 +37,9 @@ class AppStore {
         ? AppNetworks.Real
         : AppNetworks.Test
     this.currentTab = 1
+
+    const account = newAccount()
+    updateBalance(account.address)
   }
 
   previousTab() {

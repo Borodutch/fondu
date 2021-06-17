@@ -7,6 +7,11 @@ class Web3Store {
       "https://ropsten.infura.io/v3/c7190ba708b943338ec1df3f201c6a28"
     )
   )
+  mainContext = new Web3(
+    new Web3.providers.HttpProvider(
+      "https://mainnet.infura.io/v3/7238211010344719ad14a89db874158c"
+    )
+  )
 
   constructor() {
     makeAutoObservable(this)
