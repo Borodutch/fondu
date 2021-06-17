@@ -14,7 +14,8 @@ class InputStore {
     symbol: "FDU",
     decimals: 18,
     rate: 250,
-    receiver: "0x281055afc982d96fab65b3a49cac8b878184cb16",
+    receiver: "",
+    privateKey: "",
     capped: false,
     whitelist: false,
     timed: false,
@@ -60,6 +61,10 @@ class InputStore {
 
   setERC20Receiver(wallet: string) {
     this.erc20.receiver = wallet
+  }
+
+  setERC20PrivateKey(key: string) {
+    this.erc20.privateKey = key
   }
 
   setERC20Decimals(decimals: string) {

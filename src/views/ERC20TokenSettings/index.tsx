@@ -1,12 +1,23 @@
 import { inputTextStyle } from "helpers/style.helper"
 import { observer } from "mobx-react-lite"
-import React, { ChangeEvent, FC } from "react"
+import React, { ChangeEvent, FC, useEffect } from "react"
 import InputMask from "react-input-mask"
+import EditIcon from "assets/icons/edit.svg"
+import { leftBlockInnerStyle } from "components/ContractWallet/styles"
+import { web3Store } from "store/web3.store"
 import { inputStore } from "store/input.store"
 import { BodyText } from "components/Text"
+import { Button } from "components/Controls"
 import { FormattedMessage } from "react-intl"
 
 const ERC20TokenSettingsView: FC = () => {
+  useEffect(() => {
+    if (inputStore.erc20.receiver === "") {
+      const newAccount = web3Store.testContext.eth.accounts.create()
+      inputStore.setERC20Receiver(newAccount.address)
+      inputStore.setERC20PrivateKey(newAccount.privateKey)
+    }
+  }, [])
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
@@ -38,17 +49,25 @@ const ERC20TokenSettingsView: FC = () => {
           <BodyText>
             <FormattedMessage id="tokenSettingsWallet" />
           </BodyText>
-          <InputMask
-            type="text"
-            className={inputTextStyle}
-            mask="0x****************************************"
-            maskChar={null}
-            defaultValue={inputStore.erc20.receiver}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              inputStore.setERC20Receiver(e.target.value)
-            }
-            placeholder="ETH wallet"
-          />
+          <div className={leftBlockInnerStyle}>
+            <InputMask
+              type="text"
+              className={inputTextStyle}
+              mask="0x****************************************"
+              maskChar={null}
+              placeholder="ETH wallet"
+              value={inputStore.erc20.receiver}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                inputStore.setERC20Receiver(e.target.value)
+              }
+            />
+            <Button
+              filled={true}
+              onClick={() => alert(inputStore.erc20.privateKey)}
+            >
+              <img src={EditIcon} alt="Edit" />
+            </Button>
+          </div>
         </div>
         <div className="space-y-2">
           <BodyText>
