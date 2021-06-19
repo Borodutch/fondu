@@ -1,12 +1,23 @@
 import { inputTextStyle } from "helpers/style.helper"
 import { observer } from "mobx-react-lite"
-import React, { ChangeEvent, FC } from "react"
+import React, { ChangeEvent, FC, useEffect } from "react"
 import InputMask from "react-input-mask"
+import EditIcon from "assets/icons/edit.svg"
+import { leftBlockInnerStyle } from "components/ContractWallet/styles"
+import { web3Store } from "store/web3.store"
 import { inputStore } from "store/input.store"
 import { BodyText } from "components/Text"
+import { Button } from "components/Controls"
 import { FormattedMessage } from "react-intl"
 
 const ERC721TokenSettingsView: FC = () => {
+  useEffect(() => {
+    if (inputStore.erc721.receiver === "") {
+      const newAccount = web3Store.testContext.eth.accounts.create()
+      inputStore.setERC721Receiver(newAccount.address)
+      inputStore.setERC721PrivateKey(newAccount.privateKey)
+    }
+  }, [])
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
@@ -18,7 +29,7 @@ const ERC721TokenSettingsView: FC = () => {
             type="text"
             className={inputTextStyle}
             defaultValue={inputStore.erc721.name}
-            onChange={(e) => inputStore.setERC20TokenName(e.target.value)}
+            onChange={(e) => inputStore.setERC721TokenName(e.target.value)}
             placeholder="Token name"
           />
         </div>
@@ -30,7 +41,7 @@ const ERC721TokenSettingsView: FC = () => {
             type="text"
             className={inputTextStyle}
             defaultValue={inputStore.erc721.symbol}
-            onChange={(e) => inputStore.setERC20TokenSymbol(e.target.value)}
+            onChange={(e) => inputStore.setERC721TokenSymbol(e.target.value)}
             placeholder="Token symbol"
           />
         </div>
@@ -38,17 +49,25 @@ const ERC721TokenSettingsView: FC = () => {
           <BodyText>
             <FormattedMessage id="tokenSettingsWallet" />
           </BodyText>
-          <InputMask
-            type="text"
-            className={inputTextStyle}
-            mask="0x****************************************"
-            maskChar={null}
-            defaultValue={inputStore.erc721.receiver}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              inputStore.setERC20Receiver(e.target.value)
-            }
-            placeholder="ETH wallet"
-          />
+          <div className={leftBlockInnerStyle}>
+            <InputMask
+              type="text"
+              className={inputTextStyle}
+              mask="0x****************************************"
+              maskChar={null}
+              placeholder="ETH wallet"
+              value={inputStore.erc721.receiver}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                inputStore.setERC721Receiver(e.target.value)
+              }
+            />
+            <Button
+              filled={true}
+              onClick={() => alert(inputStore.erc721.privateKey)}
+            >
+              <img src={EditIcon} alt="Edit" />
+            </Button>
+          </div>
         </div>
       </div>
     </>
