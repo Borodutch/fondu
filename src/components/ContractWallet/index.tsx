@@ -50,7 +50,7 @@ const ContractWallet: FC = () => {
   return (
     <div className={wrapperStyle}>
       <div className={leftBlockStyle}>
-        <SubtitleText real={appStore.currentNetwork === AppNetworks.Real}>
+        <SubtitleText>
           <FormattedMessage id="address" />
         </SubtitleText>
         <div className={leftBlockInnerStyle}>
@@ -69,24 +69,19 @@ const ContractWallet: FC = () => {
           <Button
             filled={true}
             onClick={() => setAdressDisabled(!adressDisabled)}
-            real={appStore.currentNetwork === AppNetworks.Real}
           >
             <img src={EditIcon} alt="Edit" />
           </Button>
         </div>
       </div>
       <div className={rightBlockStyle}>
-        <SubtitleText real={appStore.currentNetwork === AppNetworks.Real}>
+        <SubtitleText>
           <FormattedMessage id="balance" />
         </SubtitleText>
         <div className={balanceWrapperStyle}>
           <div className={balanceFlexStyle}>
-            <ETHBalanceText real={appStore.currentNetwork === AppNetworks.Real}>
-              {userStore.ethBalance} Eth
-            </ETHBalanceText>
-            <USDBalanceText real={appStore.currentNetwork === AppNetworks.Real}>
-              {userStore.usdBalance} USD
-            </USDBalanceText>
+            <ETHBalanceText>{userStore.ethBalance} Eth</ETHBalanceText>
+            <USDBalanceText>{userStore.usdBalance} USD</USDBalanceText>
           </div>
           {appStore.currentNetwork === AppNetworks.Test && (
             <Button>

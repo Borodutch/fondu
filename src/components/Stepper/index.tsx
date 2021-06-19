@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import { useIntl } from "react-intl"
 import { observer } from "mobx-react-lite"
-import { AppNetworks, appStore } from "store/app.store"
+import { appStore } from "store/app.store"
 import { StepperTabs } from "components/Controls"
 
 const Stepper: FC = () => {
@@ -14,7 +14,6 @@ const Stepper: FC = () => {
         formatMessage({ id: "deployment" }),
       ]}
       currentTab={appStore.currentTab}
-      real={appStore.currentNetwork === AppNetworks.Real}
     />
   )
 }

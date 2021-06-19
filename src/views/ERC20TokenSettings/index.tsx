@@ -5,14 +5,13 @@ import InputMask from "react-input-mask"
 import { inputStore } from "store/input.store"
 import { BodyText } from "components/Text"
 import { FormattedMessage } from "react-intl"
-import { AppNetworks, appStore } from "store/app.store"
 
 const ERC20TokenSettingsView: FC = () => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsName" />
           </BodyText>
           <input
@@ -24,7 +23,7 @@ const ERC20TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsSymbol" />
           </BodyText>
           <input
@@ -36,7 +35,7 @@ const ERC20TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsWallet" />
           </BodyText>
           <InputMask
@@ -52,7 +51,7 @@ const ERC20TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsDecimals" />
           </BodyText>
           <input
@@ -64,7 +63,7 @@ const ERC20TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsAmount" />
           </BodyText>
           <input
@@ -80,11 +79,11 @@ const ERC20TokenSettingsView: FC = () => {
         <div>
           <input
             type="checkbox"
-            className="mr-2 dark:bg-base-dark"
+            className="mr-2"
             defaultChecked={inputStore.erc20.timed}
             onChange={(e) => inputStore.setERC20Timed(e.target.checked)}
           />
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsTimed" />
           </BodyText>
         </div>
@@ -97,12 +96,12 @@ const ERC20TokenSettingsView: FC = () => {
             defaultChecked={inputStore.erc20.capped}
             onChange={(e) => inputStore.setERC20Capped(e.target.checked)}
           />
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsSold" />
           </BodyText>
           {inputStore.erc20.capped && (
-            <div className="p-3 mt-2 bg-base-light rounded-base">
-              <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+            <div className="p-3 mt-2 bg-gray-50 rounded-base">
+              <BodyText>
                 <FormattedMessage id="tokenSettingsRaise" />
               </BodyText>
               <input
@@ -124,7 +123,7 @@ const ERC20TokenSettingsView: FC = () => {
             defaultChecked={inputStore.erc20.whitelist}
             onChange={(e) => inputStore.setERC20Whitelist(e.target.checked)}
           />
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsWhitelist" />
           </BodyText>
         </div>

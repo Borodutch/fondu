@@ -3,50 +3,37 @@ import React, { FC } from "react"
 import { inputStore } from "store/input.store"
 import { BodyText, BoldText } from "components/Text"
 import { FormattedMessage } from "react-intl"
-import { AppNetworks, appStore } from "store/app.store"
 
 const ERC721DeploymentView: FC = () => {
   return (
     <>
-      <BoldText real={appStore.currentNetwork === AppNetworks.Real}>
+      <BoldText>
         <FormattedMessage id="deployCheck" />
       </BoldText>
       <ol className="list-disc list-inside pt-2">
         <li>
-          <BoldText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BoldText>
             <FormattedMessage id="deployTokenType" />
           </BoldText>
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
-            {" "}
-            ERC-721
-          </BodyText>
+          <BodyText> ERC-721</BodyText>
         </li>
         <li>
-          <BoldText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BoldText>
             <FormattedMessage id="deployTokenName" />
           </BoldText>
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
-            {" "}
-            {inputStore.erc721.name}
-          </BodyText>
+          <BodyText> {inputStore.erc721.name}</BodyText>
         </li>
         <li>
-          <BoldText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BoldText>
             <FormattedMessage id="deployTokenSymbol" />
           </BoldText>
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
-            {" "}
-            {inputStore.erc721.symbol}
-          </BodyText>
+          <BodyText> {inputStore.erc721.symbol}</BodyText>
         </li>
         <li>
-          <BoldText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BoldText>
             <FormattedMessage id="deployReceiver" />
           </BoldText>
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
-            {" "}
-            {inputStore.erc721.receiver}
-          </BodyText>
+          <BodyText> {inputStore.erc721.receiver}</BodyText>
         </li>
       </ol>
     </>

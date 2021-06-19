@@ -5,14 +5,13 @@ import InputMask from "react-input-mask"
 import { inputStore } from "store/input.store"
 import { BodyText } from "components/Text"
 import { FormattedMessage } from "react-intl"
-import { AppNetworks, appStore } from "store/app.store"
 
 const ERC721TokenSettingsView: FC = () => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsName" />
           </BodyText>
           <input
@@ -24,7 +23,7 @@ const ERC721TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsSymbol" />
           </BodyText>
           <input
@@ -36,7 +35,7 @@ const ERC721TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsWallet" />
           </BodyText>
           <InputMask

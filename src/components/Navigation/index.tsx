@@ -7,10 +7,7 @@ import { FormattedMessage } from "react-intl"
 const Navigation: FC = () => {
   return (
     <nav>
-      <Button
-        onClick={() => appStore.toggleNetwork()}
-        real={appStore.currentNetwork === AppNetworks.Real}
-      >
+      <Button onClick={() => appStore.toggleNetwork()}>
         {appStore.currentNetwork === AppNetworks.Real && (
           <FormattedMessage id="buttonRealNetwork" />
         )}

@@ -15,9 +15,7 @@ export const languageButton = classnames(
   "rounded-base",
   "text-sm",
   "font-medium",
-  "text-base-black",
   "focus:outline-none",
   "hover:opacity-40",
-  "transition",
-  "border-gray-400"
+  "transition"
 )
