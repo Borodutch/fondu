@@ -16,14 +16,13 @@ import { userStore } from "store/user.store"
 import { SubtitleText, ETHBalanceText, USDBalanceText } from "components/Text"
 import { Button } from "components/Controls"
 import { FormattedMessage } from "react-intl"
-import { newAccount, updateBalance } from "helpers/eth"
+import { newAccount } from "helpers/eth"
 
 const ContractWallet: FC = () => {
   const [adressDisabled, setAdressDisabled] = useState<boolean>(true)
 
   useEffect(() => {
-    const account = newAccount()
-    updateBalance(account.address)
+    newAccount()
   }, [])
 
   return (
@@ -39,11 +38,11 @@ const ContractWallet: FC = () => {
             mask="0x****************************************"
             maskChar={null}
             placeholder="Enter Eth adress"
-            value={userStore.ethAdress}
+            value={userStore.ethAddress}
             disabled={adressDisabled}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              userStore.setEthAdress(e.target.value)
-            }
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              userStore.setEthAddress(e.target.value)
+            }}
           />
           <Button
             filled={true}

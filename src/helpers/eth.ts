@@ -1,32 +1,56 @@
 import { AppNetworks, appStore } from "store/app.store"
 import { web3Store } from "store/web3.store"
 import { userStore } from "store/user.store"
-import { Account } from "web3-core"
 import { fetcher } from "helpers/fetcher.helper"
-import Web3 from "web3"
 
-function getContext(): Web3 {
+function getContext() {
   return appStore.currentNetwork === AppNetworks.Test
     ? web3Store.testContext
     : web3Store.mainContext
 }
 
-export function newAccount(): Account {
+export function clearSubscriptions() {
+  const web3Context = getContext()
+  web3Context.eth.clearSubscriptions(() => {})
+}
+
+export function newAccount() {
   const web3Context = getContext()
   const newAccount = web3Context.eth.accounts.create()
-  userStore.setEthAdress(newAccount.address)
+  userStore.setEthAddress(newAccount.address)
   userStore.setPrivateKey(newAccount.privateKey)
+
   return newAccount
 }
 
-export async function updateBalance(adress: string) {
+export async function subscribeToBalance(address: string) {
+  try {
+    await getBalance(address)
+
+    clearSubscriptions()
+
+    const web3Context = getContext()
+    web3Context.eth.subscribe("newBlockHeaders", async (error) => {
+      if (error) {
+        console.log(error)
+      } else {
+        await getBalance(address)
+      }
+    })
+  } catch (error) {
+    userStore.setEthBalance("0")
+    userStore.setUsdBalance(0)
+    console.log(error)
+  }
+}
+
+async function getBalance(address: string) {
   const web3Context = getContext()
-  const balance = await web3Context.eth.getBalance(adress)
+  const balance = await web3Context.eth.getBalance(address)
   const ethBalance = web3Context.utils.fromWei(balance)
   userStore.setEthBalance(ethBalance)
-
   const data = await fetcher(
     "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD"
   )
-  userStore.setUsdBalance(data["USD"] * parseInt(ethBalance, 10))
+  userStore.setUsdBalance(data.USD * parseInt(ethBalance, 10))
 }

@@ -3,13 +3,14 @@ import Web3 from "web3"
 
 class Web3Store {
   testContext = new Web3(
-    new Web3.providers.HttpProvider(
-      "https://ropsten.infura.io/v3/c7190ba708b943338ec1df3f201c6a28"
+    new Web3.providers.WebsocketProvider(
+      "wss://ropsten.infura.io/ws/v3/c7190ba708b943338ec1df3f201c6a28"
     )
   )
+
   mainContext = new Web3(
-    new Web3.providers.HttpProvider(
-      "https://mainnet.infura.io/v3/7238211010344719ad14a89db874158c"
+    new Web3.providers.WebsocketProvider(
+      "wss://mainnet.infura.io/ws/v3/c7190ba708b943338ec1df3f201c6a28"
     )
   )
 
