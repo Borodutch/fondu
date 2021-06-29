@@ -13,4 +13,5 @@ const ThemeProvider: FC = ({ children }) => {
 
   return <div className={theme}>{children}</div>
 }
+
 export default observer(ThemeProvider)

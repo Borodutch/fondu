@@ -252,8 +252,8 @@ export const StepperTabs: FC<stepperTabHeaderProps> = ({
   return (
     <div className={stepperWrapper}>
       {tabs.map((tab: String, index) => (
-        <>
-          <div key={index} className={singleStepStyle}>
+        <div key={index}>
+          <div className={singleStepStyle}>
             <div
               className={
                 index + 1 === currentTab
@@ -300,7 +300,7 @@ export const StepperTabs: FC<stepperTabHeaderProps> = ({
               }
             ></div>
           )}
-        </>
+        </div>
       ))}
     </div>
   )

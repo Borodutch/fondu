@@ -5,7 +5,7 @@ import Header from 'components/Header'
 import Section from 'components/Section'
 import ContractWallet from 'components/ContractWallet'
 import ContractMain from 'components/ContractMain'
-import ThemeProvider from 'components/Theme'
+import ThemeProvider from 'components/ThemeProvider'
 
 const App = () => {
   return (

@@ -1,50 +1,43 @@
 import { makeAutoObservable } from 'mobx'
 import { makePersistable } from 'mobx-persist-store'
-import { newAccount, clearSubscriptions } from 'helpers/eth'
-import Language from 'models/Language'
+import { Language } from 'models/Language'
 
-export enum AppNetworks {
-  Test,
-  Real,
-}
+export type Theme = 'dark' | 'light'
+export type ETHNetwork = 'test' | 'real'
 
 class AppStore {
-  language: Language = Language.en
-  dark = false
-  currentTab = 1
-  currentNetwork: AppNetworks = AppNetworks.Test
+  language: Language = 'en'
+  theme: Theme = 'dark'
+  tab = 1
+  network: ETHNetwork = 'test'
 
   constructor() {
     makeAutoObservable(this)
     makePersistable(this, {
       name: 'Appstore',
-      properties: ['dark'],
+      properties: ['theme', 'language', 'network', 'tab'],
       storage: window.localStorage,
     })
   }
 
   toggleDark() {
-    this.dark = !this.dark
+    this.theme = this.theme === 'dark' ? 'light' : 'dark'
   }
 
-  nextTab() {
-    if (this.currentTab !== 3) this.currentTab++
+  incrementTab() {
+    if (this.tab < 3) {
+      this.tab++
+    }
   }
 
   toggleNetwork() {
-    clearSubscriptions()
-
-    this.currentNetwork =
-      this.currentNetwork === AppNetworks.Test
-        ? AppNetworks.Real
-        : AppNetworks.Test
-    this.currentTab = 1
-
-    newAccount()
+    this.network = this.network === 'real' ? 'test' : 'real'
   }
 
-  previousTab() {
-    if (this.currentTab !== 1) this.currentTab--
+  decrementTab() {
+    if (this.tab > 1) {
+      this.tab--
+    }
   }
 }
 

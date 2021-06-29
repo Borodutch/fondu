@@ -16,7 +16,7 @@ import { userStore } from 'store/UserStore'
 import { SubtitleText, ETHBalanceText, USDBalanceText } from 'components/Text'
 import { Button } from 'components/Controls'
 import { FormattedMessage } from 'react-intl'
-import { newAccount } from 'helpers/eth'
+import { newAccount } from 'helpers/web3'
 
 const ContractWallet: FC = () => {
   const [adressDisabled, setAdressDisabled] = useState<boolean>(true)
