@@ -1,4 +1,3 @@
-import React from 'react'
 import IntlProvider from 'i18n/IntlProvider'
 import Root from 'components/Root'
 import { observer } from 'mobx-react-lite'

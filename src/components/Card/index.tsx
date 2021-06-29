@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { cardStyle } from './styles'
 
 const Card: FC = ({ children }) => {

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { headerStyle } from './styles'
 import Navigation from 'components/Navigation'
 import { observer } from 'mobx-react-lite'

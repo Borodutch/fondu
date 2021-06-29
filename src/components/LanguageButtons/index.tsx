@@ -1,4 +1,3 @@
-import React from 'react'
 import Language, { flagForLanguage } from 'models/Language'
 import { appStore } from 'store/app.store'
 import { container, languageButton } from './styles'

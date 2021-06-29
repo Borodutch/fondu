@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { inputStore } from 'store/input.store'
 import { BodyText, BoldText } from 'components/Text'
 import { FormattedMessage } from 'react-intl'

@@ -1,6 +1,6 @@
 import { inputTextStyle } from 'helpers/style.helper'
 import { observer } from 'mobx-react-lite'
-import React, { ChangeEvent, FC, useEffect } from 'react'
+import { ChangeEvent, FC, useEffect } from 'react'
 import InputMask from 'react-input-mask'
 import EditIcon from 'assets/icons/edit.svg'
 import { leftBlockInnerStyle } from 'components/ContractWallet/styles'

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useState } from 'react'
 import InputMask from 'react-input-mask'
 import EditIcon from 'assets/icons/edit.svg'
 import { inputTextStyle } from 'helpers/style.helper'

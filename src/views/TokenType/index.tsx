@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { observer } from 'mobx-react-lite'
 import { inputStore, TokenType } from 'store/input.store'

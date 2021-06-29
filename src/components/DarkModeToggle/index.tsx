@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { appStore } from 'store/app.store'
 import { buttonStyleDark, buttonStyleLight } from './styles'
 

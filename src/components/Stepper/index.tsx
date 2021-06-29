@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { useIntl } from 'react-intl'
 import { observer } from 'mobx-react-lite'
 import { AppNetworks, appStore } from 'store/app.store'
