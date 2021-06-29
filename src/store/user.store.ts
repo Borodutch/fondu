@@ -1,7 +1,9 @@
 import { makeAutoObservable } from "mobx"
+import { web3Store } from "store/web3.store"
+import { subscribeToBalance } from "helpers/eth"
 
 class UserStore {
-  ethAdress = ""
+  ethAddress = ""
   publicKey = ""
   privateKey = ""
   ethBalance = "0"
@@ -11,8 +13,11 @@ class UserStore {
     makeAutoObservable(this)
   }
 
-  setEthAdress(adress: string) {
-    this.ethAdress = adress
+  setEthAddress(address: string) {
+    web3Store.testContext.eth.clearSubscriptions(() => {})
+    this.ethAddress = address
+
+    subscribeToBalance(address)
   }
 
   setPrivateKey(key: string) {

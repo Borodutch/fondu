@@ -12,40 +12,18 @@ import {
 } from "./styles"
 import { observer } from "mobx-react-lite"
 import { AppNetworks, appStore } from "store/app.store"
-import { web3Store } from "store/web3.store"
 import { userStore } from "store/user.store"
-import useSWR from "swr"
-import { fetcher } from "helpers/fetcher.helper"
 import { SubtitleText, ETHBalanceText, USDBalanceText } from "components/Text"
 import { Button } from "components/Controls"
 import { FormattedMessage } from "react-intl"
+import { newAccount } from "helpers/eth"
 
 const ContractWallet: FC = () => {
   const [adressDisabled, setAdressDisabled] = useState<boolean>(true)
-  const { data } = useSWR(
-    "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD",
-    fetcher
-  )
 
   useEffect(() => {
-    const newAccount = web3Store.testContext.eth.accounts.create()
-    userStore.setEthAdress(newAccount.address)
-    userStore.setPrivateKey(newAccount.privateKey)
-    async function getBalance() {
-      const balance = await web3Store.testContext.eth.getBalance(
-        newAccount.address
-      )
-      const ethBalance = web3Store.testContext.utils.fromWei(balance)
-      userStore.setEthBalance(ethBalance)
-    }
-    getBalance()
+    newAccount()
   }, [])
-
-  useEffect(() => {
-    if (data) {
-      userStore.setUsdBalance(data["USD"] * parseInt(userStore.ethBalance, 10))
-    }
-  }, [data])
 
   return (
     <div className={wrapperStyle}>
@@ -60,11 +38,11 @@ const ContractWallet: FC = () => {
             mask="0x****************************************"
             maskChar={null}
             placeholder="Enter Eth adress"
-            value={userStore.ethAdress}
+            value={userStore.ethAddress}
             disabled={adressDisabled}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              userStore.setEthAdress(e.target.value)
-            }
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              userStore.setEthAddress(e.target.value)
+            }}
           />
           <Button
             filled={true}

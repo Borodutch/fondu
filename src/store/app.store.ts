@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx"
 import { makePersistable } from "mobx-persist-store"
+import { newAccount, clearSubscriptions } from "helpers/eth"
 import Language from "models/Language"
 
 export enum AppNetworks {
@@ -31,11 +32,15 @@ class AppStore {
   }
 
   toggleNetwork() {
+    clearSubscriptions()
+
     this.currentNetwork =
       this.currentNetwork === AppNetworks.Test
         ? AppNetworks.Real
         : AppNetworks.Test
     this.currentTab = 1
+
+    newAccount()
   }
 
   previousTab() {
