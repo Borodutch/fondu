@@ -1,15 +1,29 @@
-# Frontend code template in React
+# [Fondu](https://fondu.io) website code
 
-This template to be used for frontend applications. As opposed to [the previous one](https://github.com/backmeupplz/frontend-starter) written in Vue, this one uses React and Tailwind CSS.
+The whole frontend code of the beloved ETH smart-contract constructor.
+
+## Installation and local launch
+
+1. Clone this repo: `git clone https://github.com/Borodutch/fondu`
+2. Launch the [backend](https://github.com/Borodutch/fondu-backend) locally (or connect to https://backend.fondu.io)
+3. Create `.env` with the environment variables listed below
+4. Run `yarn`
+5. Run `yarn start`
+
+## Environment variables
+
+| Name      | Description                 |
+| --------- | --------------------------- |
+| `BACKEND` | URL of the backend database |
+
+Also, please, consider looking at `.env.sample`.
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `yarn start` — runs the app in the development mode
+- `yarn build` — builds the app for production to the `docs` folder
+- `yarn update` — builds the app and pushes the commit
 
-### `yarn start`
+## Continuous integration
 
-Runs the app in the development mode.
-
-### `yarn build`
-
-Builds the app for production to the `docs` folder.
+Any commit pushed to `main` with `yarn update` gets deployed to [fondu.io](https://fondu.io).

@@ -1,6 +1,6 @@
 {
-  "name": "frontend-starter-react",
-  "version": "1.0.0",
+  "name": "fondu",
+  "version": "2.0.0",
   "private": false,
   "license": "MIT",
   "dependencies": {
