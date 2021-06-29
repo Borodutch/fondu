@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
-import { appStore } from 'store/app.store'
+import { appStore } from 'store/AppStore'
 
 const ThemeProvider: FC = ({ children }) => {
   let theme = appStore.dark ? 'dark' : 'light'

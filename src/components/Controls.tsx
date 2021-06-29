@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { classnames } from 'classnames/tailwind'
-import { hideMobile } from 'helpers/style.helper'
+import { hideMobile } from 'helpers/style'
 
 const stylizedTextColor = classnames('text-base-blue')
 const realStylizedTextColor = classnames('text-red-400')

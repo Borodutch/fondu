@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Language from 'models/Language'
 import { IntlProvider as BaseIntlProvider } from 'react-intl'
 import { observer } from 'mobx-react-lite'
-import { appStore } from 'store/app.store'
+import { appStore } from 'store/AppStore'
 import en from 'i18n/locales/en.json'
 import ru from 'i18n/locales/ru.json'
 

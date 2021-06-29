@@ -1,6 +1,27 @@
 import Language, { flagForLanguage } from 'models/Language'
-import { appStore } from 'store/app.store'
-import { container, languageButton } from './styles'
+import { appStore } from 'store/AppStore'
+import { classnames } from 'classnames/tailwind'
+
+const container = classnames(
+  'flex',
+  'flex-row',
+  'items-center',
+  'justify-center',
+  'mb-4'
+)
+const languageButton = classnames(
+  'py-3',
+  'px-4',
+  'border-2',
+  'rounded-base',
+  'text-sm',
+  'font-medium',
+  'text-base-black',
+  'focus:outline-none',
+  'hover:opacity-40',
+  'transition',
+  'border-gray-400'
+)
 
 export default function LanguageButtons() {
   return (

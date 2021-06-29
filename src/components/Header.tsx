@@ -1,10 +1,19 @@
 import { FC } from 'react'
-import { headerStyle } from './styles'
 import Navigation from 'components/Navigation'
 import { observer } from 'mobx-react-lite'
 import DarkModeToggle from 'components/DarkModeToggle'
 import { LogoText } from 'components/Text'
 import LanguageButtons from 'components/LanguageButtons'
+import { classnames } from 'classnames/tailwind'
+
+const headerStyle = classnames(
+  'mt-5',
+  'mb-10',
+  'flex',
+  'flex-row',
+  'justify-between',
+  'items-center'
+)
 
 const Header: FC = () => {
   return (

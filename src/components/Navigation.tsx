@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
-import { AppNetworks, appStore } from 'store/app.store'
+import { AppNetworks, appStore } from 'store/AppStore'
 import { Button } from 'components/Controls'
 import { FormattedMessage } from 'react-intl'
 

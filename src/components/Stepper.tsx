@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useIntl } from 'react-intl'
 import { observer } from 'mobx-react-lite'
-import { AppNetworks, appStore } from 'store/app.store'
+import { AppNetworks, appStore } from 'store/AppStore'
 import { StepperTabs } from 'components/Controls'
 
 const Stepper: FC = () => {

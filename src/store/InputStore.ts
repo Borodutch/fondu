@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx'
-import erc20 from 'interfaces/erc20'
-import erc721 from 'interfaces/erc721'
+import erc20 from 'models/ERC20'
+import erc721 from 'models/ERC721'
 
 export enum TokenType {
   ERC20,

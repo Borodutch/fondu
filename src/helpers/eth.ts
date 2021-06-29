@@ -1,7 +1,7 @@
-import { AppNetworks, appStore } from 'store/app.store'
-import { web3Store } from 'store/web3.store'
-import { userStore } from 'store/user.store'
-import { fetcher } from 'helpers/fetcher.helper'
+import { AppNetworks, appStore } from 'store/AppStore'
+import { web3Store } from 'store/Web3Store'
+import { userStore } from 'store/UserStore'
+import { fetcher } from 'helpers/fetcher'
 
 function getContext() {
   return appStore.currentNetwork === AppNetworks.Test

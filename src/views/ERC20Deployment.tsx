@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
-import { inputStore } from 'store/input.store'
+import { inputStore } from 'store/InputStore'
 import { BodyText, BoldText } from 'components/Text'
 import { FormattedMessage } from 'react-intl'
-import { AppNetworks, appStore } from 'store/app.store'
+import { AppNetworks, appStore } from 'store/AppStore'
 
 const ERC20DeploymentView: FC = () => {
   return (

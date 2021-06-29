@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { observer } from 'mobx-react-lite'
-import { inputStore, TokenType } from 'store/input.store'
+import { inputStore, TokenType } from 'store/InputStore'
 import { ContractButton } from 'components/Controls'
-import { AppNetworks, appStore } from 'store/app.store'
+import { AppNetworks, appStore } from 'store/AppStore'
 
 const TokenTypeView: FC = () => {
   return (

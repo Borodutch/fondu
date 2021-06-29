@@ -1,9 +1,11 @@
 import { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { observer } from 'mobx-react-lite'
-import { AppNetworks, appStore } from 'store/app.store'
-import { stepperWrapper } from './styles'
+import { AppNetworks, appStore } from 'store/AppStore'
 import { Button } from 'components/Controls'
+import { classnames } from 'classnames/tailwind'
+
+const stepperWrapper = classnames('flex', 'flex-row', 'pt-4', 'space-x-4')
 
 const StepperNavigation: FC = () => {
   return (

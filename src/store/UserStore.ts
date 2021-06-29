@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx'
-import { web3Store } from 'store/web3.store'
+import { web3Store } from 'store/Web3Store'
 import { subscribeToBalance } from 'helpers/eth'
 
 class UserStore {

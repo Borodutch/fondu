@@ -1,15 +1,15 @@
-import { inputTextStyle } from 'helpers/style.helper'
+import { inputTextStyle } from 'helpers/style'
 import { observer } from 'mobx-react-lite'
 import { ChangeEvent, FC, useEffect } from 'react'
 import InputMask from 'react-input-mask'
 import EditIcon from 'assets/icons/edit.svg'
 import { leftBlockInnerStyle } from 'components/ContractWallet/styles'
-import { web3Store } from 'store/web3.store'
-import { inputStore } from 'store/input.store'
+import { web3Store } from 'store/Web3Store'
+import { inputStore } from 'store/InputStore'
 import { BodyText } from 'components/Text'
 import { Button } from 'components/Controls'
 import { FormattedMessage } from 'react-intl'
-import { AppNetworks, appStore } from 'store/app.store'
+import { AppNetworks, appStore } from 'store/AppStore'
 
 const ERC20TokenSettingsView: FC = () => {
   useEffect(() => {
