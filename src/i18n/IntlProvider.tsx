@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import Language from 'models/Language'
 import { IntlProvider as BaseIntlProvider } from 'react-intl'
 import { observer } from 'mobx-react-lite'
 import { appStore } from 'store/AppStore'
@@ -15,7 +14,7 @@ const IntlProvider: FC = ({ children }) => {
   return (
     <BaseIntlProvider
       locale={appStore.language}
-      defaultLocale={Language.en}
+      defaultLocale="en"
       messages={messages[appStore.language]}
     >
       {children}
