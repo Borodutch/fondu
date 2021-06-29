@@ -1,19 +1,19 @@
-import { inputTextStyle } from "helpers/style.helper"
-import { observer } from "mobx-react-lite"
-import React, { ChangeEvent, FC, useEffect } from "react"
-import InputMask from "react-input-mask"
-import EditIcon from "assets/icons/edit.svg"
-import { leftBlockInnerStyle } from "components/ContractWallet/styles"
-import { web3Store } from "store/web3.store"
-import { inputStore } from "store/input.store"
-import { BodyText } from "components/Text"
-import { Button } from "components/Controls"
-import { FormattedMessage } from "react-intl"
-import { AppNetworks, appStore } from "store/app.store"
+import { inputTextStyle } from 'helpers/style.helper'
+import { observer } from 'mobx-react-lite'
+import React, { ChangeEvent, FC, useEffect } from 'react'
+import InputMask from 'react-input-mask'
+import EditIcon from 'assets/icons/edit.svg'
+import { leftBlockInnerStyle } from 'components/ContractWallet/styles'
+import { web3Store } from 'store/web3.store'
+import { inputStore } from 'store/input.store'
+import { BodyText } from 'components/Text'
+import { Button } from 'components/Controls'
+import { FormattedMessage } from 'react-intl'
+import { AppNetworks, appStore } from 'store/app.store'
 
 const ERC721TokenSettingsView: FC = () => {
   useEffect(() => {
-    if (inputStore.erc721.receiver === "") {
+    if (inputStore.erc721.receiver === '') {
       const newAccount = web3Store.testContext.eth.accounts.create()
       inputStore.setERC721Receiver(newAccount.address)
       inputStore.setERC721PrivateKey(newAccount.privateKey)

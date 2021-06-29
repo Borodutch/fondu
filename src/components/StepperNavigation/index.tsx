@@ -1,9 +1,9 @@
-import React, { FC } from "react"
-import { FormattedMessage } from "react-intl"
-import { observer } from "mobx-react-lite"
-import { AppNetworks, appStore } from "store/app.store"
-import { stepperWrapper } from "./styles"
-import { Button } from "components/Controls"
+import React, { FC } from 'react'
+import { FormattedMessage } from 'react-intl'
+import { observer } from 'mobx-react-lite'
+import { AppNetworks, appStore } from 'store/app.store'
+import { stepperWrapper } from './styles'
+import { Button } from 'components/Controls'
 
 const StepperNavigation: FC = () => {
   return (

@@ -1,7 +1,7 @@
-import { makeAutoObservable } from "mobx"
-import { makePersistable } from "mobx-persist-store"
-import { newAccount, clearSubscriptions } from "helpers/eth"
-import Language from "models/Language"
+import { makeAutoObservable } from 'mobx'
+import { makePersistable } from 'mobx-persist-store'
+import { newAccount, clearSubscriptions } from 'helpers/eth'
+import Language from 'models/Language'
 
 export enum AppNetworks {
   Test,
@@ -17,8 +17,8 @@ class AppStore {
   constructor() {
     makeAutoObservable(this)
     makePersistable(this, {
-      name: "Appstore",
-      properties: ["dark"],
+      name: 'Appstore',
+      properties: ['dark'],
       storage: window.localStorage,
     })
   }

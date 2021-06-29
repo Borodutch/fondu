@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FC, useEffect, useState } from "react"
-import InputMask from "react-input-mask"
-import EditIcon from "assets/icons/edit.svg"
-import { inputTextStyle } from "helpers/style.helper"
+import React, { ChangeEvent, FC, useEffect, useState } from 'react'
+import InputMask from 'react-input-mask'
+import EditIcon from 'assets/icons/edit.svg'
+import { inputTextStyle } from 'helpers/style.helper'
 import {
   balanceFlexStyle,
   balanceWrapperStyle,
@@ -9,14 +9,14 @@ import {
   leftBlockStyle,
   rightBlockStyle,
   wrapperStyle,
-} from "./styles"
-import { observer } from "mobx-react-lite"
-import { AppNetworks, appStore } from "store/app.store"
-import { userStore } from "store/user.store"
-import { SubtitleText, ETHBalanceText, USDBalanceText } from "components/Text"
-import { Button } from "components/Controls"
-import { FormattedMessage } from "react-intl"
-import { newAccount } from "helpers/eth"
+} from './styles'
+import { observer } from 'mobx-react-lite'
+import { AppNetworks, appStore } from 'store/app.store'
+import { userStore } from 'store/user.store'
+import { SubtitleText, ETHBalanceText, USDBalanceText } from 'components/Text'
+import { Button } from 'components/Controls'
+import { FormattedMessage } from 'react-intl'
+import { newAccount } from 'helpers/eth'
 
 const ContractWallet: FC = () => {
   const [adressDisabled, setAdressDisabled] = useState<boolean>(true)

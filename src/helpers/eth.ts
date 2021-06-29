@@ -1,7 +1,7 @@
-import { AppNetworks, appStore } from "store/app.store"
-import { web3Store } from "store/web3.store"
-import { userStore } from "store/user.store"
-import { fetcher } from "helpers/fetcher.helper"
+import { AppNetworks, appStore } from 'store/app.store'
+import { web3Store } from 'store/web3.store'
+import { userStore } from 'store/user.store'
+import { fetcher } from 'helpers/fetcher.helper'
 
 function getContext() {
   return appStore.currentNetwork === AppNetworks.Test
@@ -30,7 +30,7 @@ export async function subscribeToBalance(address: string) {
     clearSubscriptions()
 
     const web3Context = getContext()
-    web3Context.eth.subscribe("newBlockHeaders", async (error) => {
+    web3Context.eth.subscribe('newBlockHeaders', async (error) => {
       if (error) {
         console.log(error)
       } else {
@@ -38,7 +38,7 @@ export async function subscribeToBalance(address: string) {
       }
     })
   } catch (error) {
-    userStore.setEthBalance("0")
+    userStore.setEthBalance('0')
     userStore.setUsdBalance(0)
     console.log(error)
   }
@@ -50,7 +50,7 @@ async function getBalance(address: string) {
   const ethBalance = web3Context.utils.fromWei(balance)
   userStore.setEthBalance(ethBalance)
   const data = await fetcher(
-    "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD"
+    'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
   )
   userStore.setUsdBalance(data.USD * parseInt(ethBalance, 10))
 }

@@ -1,12 +1,12 @@
-import { makeAutoObservable } from "mobx"
-import { web3Store } from "store/web3.store"
-import { subscribeToBalance } from "helpers/eth"
+import { makeAutoObservable } from 'mobx'
+import { web3Store } from 'store/web3.store'
+import { subscribeToBalance } from 'helpers/eth'
 
 class UserStore {
-  ethAddress = ""
-  publicKey = ""
-  privateKey = ""
-  ethBalance = "0"
+  ethAddress = ''
+  publicKey = ''
+  privateKey = ''
+  ethBalance = '0'
   usdBalance = 0
 
   constructor() {

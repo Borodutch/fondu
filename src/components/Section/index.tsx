@@ -1,10 +1,10 @@
-import React, { FC } from "react"
-import { observer } from "mobx-react-lite"
+import React, { FC } from 'react'
+import { observer } from 'mobx-react-lite'
 
-import { sectionBlockStyle, sectionStyle } from "./styles"
-import { SectionTitleText } from "components/Text"
-import { FormattedMessage } from "react-intl"
-import { AppNetworks, appStore } from "store/app.store"
+import { sectionBlockStyle, sectionStyle } from './styles'
+import { SectionTitleText } from 'components/Text'
+import { FormattedMessage } from 'react-intl'
+import { AppNetworks, appStore } from 'store/app.store'
 
 interface SectionProps {
   title?: string

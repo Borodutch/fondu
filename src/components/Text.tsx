@@ -1,31 +1,31 @@
-import React, { FC } from "react"
-import { classnames } from "classnames/tailwind"
+import React, { FC } from 'react'
+import { classnames } from 'classnames/tailwind'
 
-const stylizedTextColor = classnames("text-base-blue")
-const realStylizedTextColor = classnames("text-red-400")
+const stylizedTextColor = classnames('text-base-blue')
+const realStylizedTextColor = classnames('text-red-400')
 
 export const StylizedText: FC = ({ children }) => {
   return <span className={stylizedTextColor}>{children}</span>
 }
 
 const logoTextStyle = classnames(
-  "text-3xl",
-  "font-bold",
-  "bg-clip-text",
-  "text-transparent",
-  "uppercase"
+  'text-3xl',
+  'font-bold',
+  'bg-clip-text',
+  'text-transparent',
+  'uppercase'
 )
 const logoGradient = classnames(
-  "bg-gradient-to-r",
-  "from-base-blue",
-  "to-light-purple"
+  'bg-gradient-to-r',
+  'from-base-blue',
+  'to-light-purple'
 )
 const logoStyle = classnames(logoTextStyle, logoGradient)
 const realLogoStyle = classnames(
   logoTextStyle,
-  "bg-gradient-to-r",
-  "from-red-600",
-  "to-light-purple"
+  'bg-gradient-to-r',
+  'from-red-600',
+  'to-light-purple'
 )
 interface logoTextProps {
   real?: Boolean
@@ -34,8 +34,8 @@ export const LogoText: FC<logoTextProps> = ({ children, real }) => {
   return <div className={real ? realLogoStyle : logoStyle}>{children}</div>
 }
 
-const subtitleStyle = classnames("text-lg", "text-base-darkgray", "font-medium")
-const realSubtitleStyle = classnames("text-lg", "text-red-600", "font-medium")
+const subtitleStyle = classnames('text-lg', 'text-base-darkgray', 'font-medium')
+const realSubtitleStyle = classnames('text-lg', 'text-red-600', 'font-medium')
 interface subtitleTextProps {
   real?: Boolean
 }
@@ -45,11 +45,11 @@ export const SubtitleText: FC<subtitleTextProps> = ({ children, real }) => {
   )
 }
 
-const ethBalanceStyle = classnames(stylizedTextColor, "text-xl", "transition")
+const ethBalanceStyle = classnames(stylizedTextColor, 'text-xl', 'transition')
 const realEthBalanceStyle = classnames(
   realStylizedTextColor,
-  "text-xl",
-  "transition"
+  'text-xl',
+  'transition'
 )
 interface ETHBalanceTextProps {
   real?: Boolean
@@ -62,8 +62,8 @@ export const ETHBalanceText: FC<ETHBalanceTextProps> = ({ children, real }) => {
   )
 }
 
-const usdBalanceStyle = classnames("text-text-lightgray", "text-sm")
-const realUsdBalanceStyle = classnames("text-red-400", "text-sm")
+const usdBalanceStyle = classnames('text-text-lightgray', 'text-sm')
+const realUsdBalanceStyle = classnames('text-red-400', 'text-sm')
 interface USDBalanceTextProps {
   real?: Boolean
 }
@@ -76,18 +76,18 @@ export const USDBalanceText: FC<USDBalanceTextProps> = ({ children, real }) => {
 }
 
 const sectionTitleStyle = classnames(
-  "text-2xl",
-  "uppercase",
-  "font-medium",
-  "text-base-black",
-  "mb-2"
+  'text-2xl',
+  'uppercase',
+  'font-medium',
+  'text-base-black',
+  'mb-2'
 )
 const realSectionTitleStyle = classnames(
-  "text-2xl",
-  "uppercase",
-  "font-medium",
-  "text-red-900",
-  "mb-2"
+  'text-2xl',
+  'uppercase',
+  'font-medium',
+  'text-red-900',
+  'mb-2'
 )
 interface sectionTitleTextProps {
   real?: Boolean
@@ -103,8 +103,8 @@ export const SectionTitleText: FC<sectionTitleTextProps> = ({
   )
 }
 
-const bodyTextStyle = classnames("text-base-black")
-const realBodyTextStyle = classnames("text-red-600")
+const bodyTextStyle = classnames('text-base-black')
+const realBodyTextStyle = classnames('text-red-600')
 interface bodyTextProps {
   real?: Boolean
 }

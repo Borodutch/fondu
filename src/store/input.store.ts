@@ -1,6 +1,6 @@
-import { makeAutoObservable } from "mobx"
-import erc20 from "interfaces/erc20"
-import erc721 from "interfaces/erc721"
+import { makeAutoObservable } from 'mobx'
+import erc20 from 'interfaces/erc20'
+import erc721 from 'interfaces/erc721'
 
 export enum TokenType {
   ERC20,
@@ -10,22 +10,22 @@ export enum TokenType {
 class InputStore {
   tokenType: TokenType = TokenType.ERC20
   erc20: erc20 = {
-    name: "Fondu",
-    symbol: "FDU",
+    name: 'Fondu',
+    symbol: 'FDU',
     decimals: 18,
     rate: 250,
-    receiver: "",
-    privateKey: "",
+    receiver: '',
+    privateKey: '',
     capped: false,
     whitelist: false,
     timed: false,
     maxTokens: 0,
   }
   erc721: erc721 = {
-    name: "Fondu",
-    symbol: "FDU",
-    receiver: "",
-    privateKey: "",
+    name: 'Fondu',
+    symbol: 'FDU',
+    receiver: '',
+    privateKey: '',
   }
 
   constructor() {

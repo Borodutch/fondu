@@ -1,7 +1,7 @@
-import { observer } from "mobx-react-lite"
-import React, { FC } from "react"
-import { appStore } from "store/app.store"
-import { buttonStyleDark, buttonStyleLight } from "./styles"
+import { observer } from 'mobx-react-lite'
+import React, { FC } from 'react'
+import { appStore } from 'store/app.store'
+import { buttonStyleDark, buttonStyleLight } from './styles'
 
 const Toggle: FC = () => {
   return (
@@ -11,8 +11,8 @@ const Toggle: FC = () => {
       }}
       className={appStore.dark ? buttonStyleDark : buttonStyleLight}
     >
-      {appStore.dark === false && "Dark"}
-      {appStore.dark === true && "Light"}
+      {appStore.dark === false && 'Dark'}
+      {appStore.dark === true && 'Light'}
     </button>
   )
 }

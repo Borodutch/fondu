@@ -1,16 +1,16 @@
-import React, { FC } from "react"
-import { observer } from "mobx-react-lite"
-import Card from "components/Card"
-import Stepper from "components/Stepper"
-import StepperNavigation from "components/StepperNavigation"
-import TokenTypeView from "views/TokenType"
-import ERC20TokenSettingsView from "views/ERC20TokenSettings"
-import ERC721TokenSettingsView from "views/ERC721TokenSettings"
-import ERC20DeploymentView from "views/ERC20Deployment"
-import ERC721DeploymentView from "views/ERC721Deployment"
-import { appStore } from "store/app.store"
-import { contractInnerStyle, contractWrapperStyle } from "./styles"
-import { inputStore, TokenType } from "store/input.store"
+import React, { FC } from 'react'
+import { observer } from 'mobx-react-lite'
+import Card from 'components/Card'
+import Stepper from 'components/Stepper'
+import StepperNavigation from 'components/StepperNavigation'
+import TokenTypeView from 'views/TokenType'
+import ERC20TokenSettingsView from 'views/ERC20TokenSettings'
+import ERC721TokenSettingsView from 'views/ERC721TokenSettings'
+import ERC20DeploymentView from 'views/ERC20Deployment'
+import ERC721DeploymentView from 'views/ERC721Deployment'
+import { appStore } from 'store/app.store'
+import { contractInnerStyle, contractWrapperStyle } from './styles'
+import { inputStore, TokenType } from 'store/input.store'
 
 const ContractMain: FC = () => {
   return (
