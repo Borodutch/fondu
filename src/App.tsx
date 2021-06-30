@@ -3,8 +3,8 @@ import Root from 'components/Root'
 import { observer } from 'mobx-react-lite'
 import Header from 'components/Header'
 import Section from 'components/Section'
-import ContractWallet from 'components/ContractWallet'
-import ContractMain from 'components/ContractMain'
+import Wallet from 'components/Wallet'
+import ContractBuilder from 'components/ContractBuilder'
 import ThemeProvider from 'components/ThemeProvider'
 
 const App = () => {
@@ -13,11 +13,11 @@ const App = () => {
       <IntlProvider>
         <Root>
           <Header />
-          <Section title="Contracts">
-            <ContractWallet />
+          <Section>
+            <Wallet />
           </Section>
           <Section>
-            <ContractMain />
+            <ContractBuilder />
           </Section>
         </Root>
       </IntlProvider>
