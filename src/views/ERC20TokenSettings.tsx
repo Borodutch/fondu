@@ -4,17 +4,16 @@ import { ChangeEvent, FC, useEffect } from 'react'
 import InputMask from 'react-input-mask'
 import EditIcon from 'assets/icons/edit.svg'
 import { leftBlockInnerStyle } from 'components/ContractWallet/styles'
-import { web3Store } from 'store/Web3Store'
 import { inputStore } from 'store/InputStore'
 import { BodyText } from 'components/Text'
 import { Button } from 'components/Controls'
 import { FormattedMessage } from 'react-intl'
-import { AppNetworks, appStore } from 'store/AppStore'
+import { getWeb3 } from 'helpers/web3'
 
 const ERC20TokenSettingsView: FC = () => {
   useEffect(() => {
     if (inputStore.erc20.receiver === '') {
-      const newAccount = web3Store.testContext.eth.accounts.create()
+      const newAccount = getWeb3().eth.accounts.create()
       inputStore.setERC20Receiver(newAccount.address)
       inputStore.setERC20PrivateKey(newAccount.privateKey)
     }
@@ -23,7 +22,7 @@ const ERC20TokenSettingsView: FC = () => {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsName" />
           </BodyText>
           <input
@@ -35,7 +34,7 @@ const ERC20TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsSymbol" />
           </BodyText>
           <input
@@ -47,7 +46,7 @@ const ERC20TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsWallet" />
           </BodyText>
           <div className={leftBlockInnerStyle}>
@@ -71,7 +70,7 @@ const ERC20TokenSettingsView: FC = () => {
           </div>
         </div>
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsDecimals" />
           </BodyText>
           <input
@@ -83,7 +82,7 @@ const ERC20TokenSettingsView: FC = () => {
           />
         </div>
         <div className="space-y-2">
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsAmount" />
           </BodyText>
           <input
@@ -103,7 +102,7 @@ const ERC20TokenSettingsView: FC = () => {
             defaultChecked={inputStore.erc20.timed}
             onChange={(e) => inputStore.setERC20Timed(e.target.checked)}
           />
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsTimed" />
           </BodyText>
         </div>
@@ -116,12 +115,12 @@ const ERC20TokenSettingsView: FC = () => {
             defaultChecked={inputStore.erc20.capped}
             onChange={(e) => inputStore.setERC20Capped(e.target.checked)}
           />
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsSold" />
           </BodyText>
           {inputStore.erc20.capped && (
             <div className="p-3 mt-2 bg-base-light rounded-base">
-              <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+              <BodyText>
                 <FormattedMessage id="tokenSettingsRaise" />
               </BodyText>
               <input
@@ -143,7 +142,7 @@ const ERC20TokenSettingsView: FC = () => {
             defaultChecked={inputStore.erc20.whitelist}
             onChange={(e) => inputStore.setERC20Whitelist(e.target.checked)}
           />
-          <BodyText real={appStore.currentNetwork === AppNetworks.Real}>
+          <BodyText>
             <FormattedMessage id="tokenSettingsWhitelist" />
           </BodyText>
         </div>

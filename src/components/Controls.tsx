@@ -3,32 +3,14 @@ import { classnames } from 'classnames/tailwind'
 import { hideMobile } from 'helpers/style'
 
 const stylizedTextColor = classnames('text-base-blue')
-const realStylizedTextColor = classnames('text-red-400')
-
 const stylizedBorderColor = classnames('border-blue-400')
-const realStylizedBorderColor = classnames('border-red-400')
-
 const stylizedBackgroundColor = classnames('bg-base-blue')
-const realStylizedBackgroundColor = classnames('bg-red-400')
-
 const stylizedPassedTextColor = classnames('text-blue-200')
-const realStylizedPassedTextColor = classnames('text-red-200')
-
 const stylizedPassedBorderColor = classnames('border-blue-200')
-const realStylizedPassedBorderColor = classnames('border-red-200')
-
 const stylizedPassedBackgroundColor = classnames('bg-blue-200')
-const realStylizedPassedBackgroundColor = classnames('bg-red-200')
-
 const inactiveTextColor = classnames('text-gray-300')
-const realInactiveTextColor = classnames('text-red-300')
-
 const inactiveBorderColor = classnames('border-gray-300')
-const realInactiveBorderColor = classnames('border-red-300')
-
 const inactiveBackgroundColor = classnames('bg-gray-300')
-
-const realInactiveBackgroundColor = classnames('bg-red-100')
 
 const baseButtonStyle = classnames(
   'flex-1',
@@ -46,22 +28,10 @@ const inactiveButtonStyle = classnames(
   inactiveTextColor,
   'cursor-default'
 )
-const realInactiveButtonStyle = classnames(
-  baseButtonStyle,
-  realInactiveBorderColor,
-  realInactiveTextColor,
-  'cursor-default'
-)
 const inactiveFilledButtonStyle = classnames(
   baseButtonStyle,
   inactiveBackgroundColor,
   'text-white',
-  'cursor-default'
-)
-const realInactiveFilledButtonStyle = classnames(
-  baseButtonStyle,
-  realInactiveBackgroundColor,
-  'text-red-400',
   'cursor-default'
 )
 
@@ -71,43 +41,24 @@ const activeButtonStyle = classnames(
   stylizedTextColor
 )
 
-const realActiveButtonStyle = classnames(
-  baseButtonStyle,
-  realStylizedBorderColor,
-  realStylizedTextColor
-)
 const activeFilledButtonStyle = classnames(
   baseButtonStyle,
   stylizedBackgroundColor,
   'text-white'
 )
-const realActiveFilledButtonStyle = classnames(
-  baseButtonStyle,
-  realStylizedBackgroundColor,
-  'text-red-400'
-)
 
 interface buttonTextProps {
   active?: Boolean
   filled?: Boolean
-  real?: Boolean
 }
 export const Button: FC<
   buttonTextProps & React.ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ children, active = true, filled = false, real = false, ...props }) => {
+> = ({ children, active = true, filled = false, ...props }) => {
   return (
     <button
       {...props}
       className={
-        real
-          ? !active
-            ? !filled
-              ? realInactiveButtonStyle
-              : realInactiveFilledButtonStyle
-            : !filled
-            ? realActiveButtonStyle
-            : realActiveFilledButtonStyle
-          : !active
+        !active
           ? !filled
             ? inactiveButtonStyle
             : inactiveFilledButtonStyle
@@ -133,40 +84,22 @@ const contractButtonStyleActive = classnames(
   stylizedBorderColor,
   stylizedTextColor
 )
-const realContractButtonStyleActive = classnames(
-  contractButtonStyle,
-  realStylizedBorderColor,
-  realStylizedTextColor
-)
-
 const contractButtonStyleInactive = classnames(
   contractButtonStyle,
   'text-text-gray',
   'border-dashed'
 )
-const realContractButtonStyleInactive = classnames(
-  contractButtonStyle,
-  'text-red-400',
-  'border-dashed'
-)
 interface contractButtonTextProps {
   active: Boolean
-  real?: Boolean
 }
 export const ContractButton: FC<
   contractButtonTextProps & React.ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ children, active, real, ...props }) => {
+> = ({ children, active, ...props }) => {
   return (
     <button
       {...props}
       className={
-        real
-          ? active
-            ? realContractButtonStyleActive
-            : realContractButtonStyleInactive
-          : active
-          ? contractButtonStyleActive
-          : contractButtonStyleInactive
+        active ? contractButtonStyleActive : contractButtonStyleInactive
       }
     >
       {children}
@@ -203,51 +136,25 @@ const baseTabStyle = classnames(
 )
 
 const activeTabStyle = classnames(baseTabStyle, stylizedBackgroundColor)
-const realActiveTabStyle = classnames(baseTabStyle, realStylizedBackgroundColor)
-
 const inactiveTabStyle = classnames(baseTabStyle, inactiveBackgroundColor)
-const realInactiveTabStyle = classnames(
-  baseTabStyle,
-  realInactiveBackgroundColor
-)
-
 const passedTabStyle = classnames(baseTabStyle, stylizedPassedBackgroundColor)
-const realPassedTabStyle = classnames(
-  baseTabStyle,
-  realStylizedPassedBackgroundColor
-)
-
 const baseTextStyle = classnames(hideMobile, 'transition')
 const activeTextStyle = classnames(baseTextStyle, stylizedTextColor)
-const realActiveTextStyle = classnames(baseTextStyle, realStylizedTextColor)
-
 const inactiveTextStyle = classnames(baseTextStyle, inactiveTextColor)
-const realInactiveTextStyle = classnames(baseTextStyle, realInactiveTextColor)
-
 const passedTextStyle = classnames(baseTextStyle, stylizedPassedTextColor)
-const realPassedTextStyle = classnames(
-  baseTextStyle,
-  realStylizedPassedTextColor
-)
 
 const baseLineStyle = classnames('border-b-2', 'w-10', 'md:w-40')
 const inactiveLineStyle = classnames(baseLineStyle, 'border-dashed')
 const passedLineStyle = classnames(baseLineStyle, stylizedPassedBorderColor)
-const realPassedLineStyle = classnames(
-  baseLineStyle,
-  realStylizedPassedBorderColor
-)
 
 interface stepperTabHeaderProps {
   tabs: Array<String>
   currentTab: Number
-  real?: Boolean
 }
 
 export const StepperTabs: FC<stepperTabHeaderProps> = ({
   tabs,
   currentTab,
-  real,
 }) => {
   return (
     <div className={stepperWrapper}>
@@ -257,15 +164,9 @@ export const StepperTabs: FC<stepperTabHeaderProps> = ({
             <div
               className={
                 index + 1 === currentTab
-                  ? real
-                    ? realActiveTabStyle
-                    : activeTabStyle
+                  ? activeTabStyle
                   : index < currentTab
-                  ? real
-                    ? realPassedTabStyle
-                    : passedTabStyle
-                  : real
-                  ? realInactiveTabStyle
+                  ? passedTabStyle
                   : inactiveTabStyle
               }
             >
@@ -274,15 +175,9 @@ export const StepperTabs: FC<stepperTabHeaderProps> = ({
             <span
               className={
                 index + 1 === currentTab
-                  ? real
-                    ? realActiveTextStyle
-                    : activeTextStyle
+                  ? activeTextStyle
                   : index < currentTab
-                  ? real
-                    ? realPassedTextStyle
-                    : passedTextStyle
-                  : real
-                  ? realInactiveTextStyle
+                  ? passedTextStyle
                   : inactiveTextStyle
               }
             >
@@ -292,11 +187,7 @@ export const StepperTabs: FC<stepperTabHeaderProps> = ({
           {index < tabs.length - 1 && (
             <div
               className={
-                index + 1 < currentTab
-                  ? real
-                    ? realPassedLineStyle
-                    : passedLineStyle
-                  : inactiveLineStyle
+                index + 1 < currentTab ? passedLineStyle : inactiveLineStyle
               }
             ></div>
           )}

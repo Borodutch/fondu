@@ -1,20 +1,17 @@
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
-import { AppNetworks, appStore } from 'store/AppStore'
+import { appStore } from 'store/AppStore'
 import { Button } from 'components/Controls'
 import { FormattedMessage } from 'react-intl'
 
 const Navigation: FC = () => {
   return (
     <nav>
-      <Button
-        onClick={() => appStore.toggleNetwork()}
-        real={appStore.currentNetwork === AppNetworks.Real}
-      >
-        {appStore.currentNetwork === AppNetworks.Real && (
+      <Button onClick={() => appStore.toggleNetwork()}>
+        {appStore.network === 'real' && (
           <FormattedMessage id="buttonRealNetwork" />
         )}
-        {appStore.currentNetwork === AppNetworks.Test && (
+        {appStore.network === 'test' && (
           <FormattedMessage id="buttonTestNetwork" />
         )}
       </Button>

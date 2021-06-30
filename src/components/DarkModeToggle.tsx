@@ -31,10 +31,9 @@ const Toggle: FC = () => {
       onClick={() => {
         appStore.toggleDark()
       }}
-      className={appStore.dark ? buttonStyleDark : buttonStyleLight}
+      className={appStore.theme === 'dark' ? buttonStyleDark : buttonStyleLight}
     >
-      {appStore.dark === false && 'Dark'}
-      {appStore.dark === true && 'Light'}
+      {appStore.theme}
     </button>
   )
 }

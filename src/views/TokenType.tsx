@@ -3,7 +3,6 @@ import { FormattedMessage } from 'react-intl'
 import { observer } from 'mobx-react-lite'
 import { inputStore, TokenType } from 'store/InputStore'
 import { ContractButton } from 'components/Controls'
-import { AppNetworks, appStore } from 'store/AppStore'
 
 const TokenTypeView: FC = () => {
   return (
@@ -11,7 +10,6 @@ const TokenTypeView: FC = () => {
       <ContractButton
         active={inputStore.tokenType === TokenType.ERC20}
         onClick={() => inputStore.setTokenType(TokenType.ERC20)}
-        real={appStore.currentNetwork === AppNetworks.Real}
       >
         ERC-20
       </ContractButton>
@@ -21,7 +19,6 @@ const TokenTypeView: FC = () => {
       <ContractButton
         active={inputStore.tokenType === TokenType.ERC721}
         onClick={() => inputStore.setTokenType(TokenType.ERC721)}
-        real={appStore.currentNetwork === AppNetworks.Real}
       >
         ERC-721
       </ContractButton>

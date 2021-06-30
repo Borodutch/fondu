@@ -22,20 +22,18 @@ const ContractMain: FC = () => {
         <div className={contractInnerStyle}>
           <Stepper />
           <Card>
-            {appStore.currentTab === 1 && <TokenTypeView />}
-            {appStore.currentTab === 2 &&
-              inputStore.tokenType === TokenType.ERC20 && (
-                <ERC20TokenSettingsView />
-              )}
-            {appStore.currentTab === 2 &&
+            {appStore.tab === 1 && <TokenTypeView />}
+            {appStore.tab === 2 && inputStore.tokenType === TokenType.ERC20 && (
+              <ERC20TokenSettingsView />
+            )}
+            {appStore.tab === 2 &&
               inputStore.tokenType === TokenType.ERC721 && (
                 <ERC721TokenSettingsView />
               )}
-            {appStore.currentTab === 3 &&
-              inputStore.tokenType === TokenType.ERC20 && (
-                <ERC20DeploymentView />
-              )}
-            {appStore.currentTab === 3 &&
+            {appStore.tab === 3 && inputStore.tokenType === TokenType.ERC20 && (
+              <ERC20DeploymentView />
+            )}
+            {appStore.tab === 3 &&
               inputStore.tokenType === TokenType.ERC721 && (
                 <ERC721DeploymentView />
               )}
