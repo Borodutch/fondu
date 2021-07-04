@@ -3,8 +3,10 @@ import { classnames } from 'classnames/tailwind'
 import { hideMobile } from 'helpers/style'
 
 const stylizedTextColor = classnames('text-base-blue')
+const stylizedHoverTextColor = classnames('hover:text-white')
 const stylizedBorderColor = classnames('border-blue-400')
 const stylizedBackgroundColor = classnames('bg-base-blue')
+const stylizedHoverBackgroundColor = classnames('hover:bg-base-blue')
 const stylizedPassedTextColor = classnames('text-blue-200')
 const stylizedPassedBorderColor = classnames('border-blue-200')
 const stylizedPassedBackgroundColor = classnames('bg-blue-200')
@@ -15,12 +17,13 @@ const inactiveBackgroundColor = classnames('bg-gray-300')
 const baseButtonStyle = classnames(
   'flex-1',
   'p-3',
-  'border-2',
+  'border',
   'hover:opacity-80',
   'focus:outline-none',
   'rounded-base',
   'transition',
-  'min-w-max'
+  'min-w-max',
+  'font-light'
 )
 const inactiveButtonStyle = classnames(
   baseButtonStyle,
@@ -38,7 +41,9 @@ const inactiveFilledButtonStyle = classnames(
 const activeButtonStyle = classnames(
   baseButtonStyle,
   stylizedBorderColor,
-  stylizedTextColor
+  stylizedTextColor,
+  stylizedHoverTextColor,
+  stylizedHoverBackgroundColor
 )
 
 const activeFilledButtonStyle = classnames(
