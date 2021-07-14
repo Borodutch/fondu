@@ -1,38 +1,38 @@
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
 import { inputStore } from 'store/InputStore'
-import { BodyText, BoldText } from 'components/Text'
+import { BodyText } from 'components/Text'
 import { FormattedMessage } from 'react-intl'
 
 const ERC721DeploymentView: FC = () => {
   return (
     <>
-      <BoldText>
+      <BodyText>
         <FormattedMessage id="deployCheck" />
-      </BoldText>
+      </BodyText>
       <ol className="list-disc list-inside pt-2">
         <li>
-          <BoldText>
+          <BodyText>
             <FormattedMessage id="deployTokenType" />
-          </BoldText>
+          </BodyText>
           <BodyText> ERC-721</BodyText>
         </li>
         <li>
-          <BoldText>
+          <BodyText>
             <FormattedMessage id="deployTokenName" />
-          </BoldText>
+          </BodyText>
           <BodyText> {inputStore.erc721.name}</BodyText>
         </li>
         <li>
-          <BoldText>
+          <BodyText>
             <FormattedMessage id="deployTokenSymbol" />
-          </BoldText>
+          </BodyText>
           <BodyText> {inputStore.erc721.symbol}</BodyText>
         </li>
         <li>
-          <BoldText>
+          <BodyText>
             <FormattedMessage id="deployReceiver" />
-          </BoldText>
+          </BodyText>
           <BodyText> {inputStore.erc721.receiver}</BodyText>
         </li>
       </ol>

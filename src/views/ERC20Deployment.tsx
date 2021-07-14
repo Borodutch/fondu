@@ -1,50 +1,50 @@
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
 import { inputStore } from 'store/InputStore'
-import { BodyText, BoldText } from 'components/Text'
+import { BodyText } from 'components/Text'
 import { FormattedMessage } from 'react-intl'
 
 const ERC20DeploymentView: FC = () => {
   return (
     <>
-      <BoldText>
+      <BodyText>
         <FormattedMessage id="deployCheck" />
-      </BoldText>
+      </BodyText>
       <ol className="list-disc list-inside pt-2">
         <li>
-          <BoldText>
+          <BodyText>
             <FormattedMessage id="deployTokenType" />
-          </BoldText>
+          </BodyText>
           <BodyText> ERC-20</BodyText>
         </li>
         <li>
-          <BoldText>
+          <BodyText>
             <FormattedMessage id="deployTokenName" />
-          </BoldText>
+          </BodyText>
           <BodyText> {inputStore.erc20.name}</BodyText>
         </li>
         <li>
-          <BoldText>
+          <BodyText>
             <FormattedMessage id="deployTokenSymbol" />
-          </BoldText>
+          </BodyText>
           <BodyText> {inputStore.erc20.symbol}</BodyText>
         </li>
         <li>
-          <BoldText>
+          <BodyText>
             <FormattedMessage id="deployTokensFor" />
-          </BoldText>
+          </BodyText>
           <BodyText> {inputStore.erc20.rate}</BodyText>
         </li>
         <li>
-          <BoldText>
+          <BodyText>
             <FormattedMessage id="deployReceiver" />
-          </BoldText>
+          </BodyText>
           <BodyText> {inputStore.erc20.receiver}</BodyText>
         </li>
         <li>
-          <BoldText>
+          <BodyText>
             <FormattedMessage id="deployDecimals" />
-          </BoldText>
+          </BodyText>
           <BodyText> {inputStore.erc20.decimals}</BodyText>
         </li>
         {inputStore.erc20.timed && (
