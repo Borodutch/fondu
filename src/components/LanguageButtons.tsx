@@ -1,7 +1,7 @@
 import { Language, flagForLanguage } from 'models/Language'
 import { appStore } from 'store/AppStore'
 import { classnames } from 'classnames/tailwind'
-import { Button } from 'components/Controls'
+import Button from 'components/Button'
 
 const container = classnames(
   'flex',
@@ -15,13 +15,12 @@ export default function LanguageButtons() {
     <div className={container}>
       {(['en', 'ru'] as Language[]).map((k) => (
         <Button
+          title={flagForLanguage(k)}
           key={k}
           onClick={() => {
             appStore.language = k
           }}
-        >
-          {flagForLanguage(k)}
-        </Button>
+        />
       ))}
     </div>
   )
