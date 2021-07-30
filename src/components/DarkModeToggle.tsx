@@ -20,11 +20,11 @@ const properties = {
   },
   springConfig: { mass: 4, tension: 250, friction: 35 },
 }
-
+//appStore.theme
 const Toggle: FC = () => {
-  const [isDarkMode, setDarkMode] = React.useState(false)
+  const isDarkMode = appStore.theme
   const { r, transform, cx, cy, opacity } = properties[
-    isDarkMode ? 'dark' : 'light'
+    isDarkMode === 'dark' ? 'dark' : 'light'
   ]
   const svgContainerProps = useSpring({ transform })
   const centerCircleProps = useSpring({ r })
@@ -32,7 +32,6 @@ const Toggle: FC = () => {
   const linesProps = useSpring({ opacity })
 
   const toggleDarkMode = () => {
-    setDarkMode((previous) => !previous)
     appStore.toggleDark()
   }
 
