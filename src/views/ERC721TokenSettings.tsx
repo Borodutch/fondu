@@ -6,7 +6,7 @@ import EditIcon from 'assets/icons/edit.svg'
 import { leftBlockInnerStyle } from 'components/Wallet/styles'
 import { inputStore } from 'store/InputStore'
 import { BodyText } from 'components/Text'
-import { Button } from 'components/Controls'
+import Button from 'components/Button'
 import { FormattedMessage } from 'react-intl'
 import { getWeb3 } from 'helpers/web3'
 
@@ -62,11 +62,10 @@ const ERC721TokenSettingsView: FC = () => {
               }
             />
             <Button
-              filled={true}
+              icon={EditIcon}
+              selected={true}
               onClick={() => alert(inputStore.erc721.privateKey)}
-            >
-              <img src={EditIcon} alt="Edit" />
-            </Button>
+            />
           </div>
         </div>
       </div>
