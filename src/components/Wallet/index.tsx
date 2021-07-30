@@ -13,8 +13,8 @@ import {
 import { observer } from 'mobx-react-lite'
 import { appStore } from 'store/AppStore'
 import { userStore } from 'store/UserStore'
-import { SubtitleText, ETHBalanceText, USDBalanceText } from 'components/Text'
 import Button from 'components/Button'
+import { TitleText, BodyText } from 'components/Text'
 import { FormattedMessage } from 'react-intl'
 
 const ContractWallet: FC = () => {
@@ -23,9 +23,9 @@ const ContractWallet: FC = () => {
   return (
     <div className={wrapperStyle}>
       <div className={leftBlockStyle}>
-        <SubtitleText>
+        <TitleText>
           <FormattedMessage id="address" />
-        </SubtitleText>
+        </TitleText>
         <div className={leftBlockInnerStyle}>
           <InputMask
             type="text"
@@ -49,13 +49,13 @@ const ContractWallet: FC = () => {
         </div>
       </div>
       <div className={rightBlockStyle}>
-        <SubtitleText>
+        <TitleText>
           <FormattedMessage id="balance" />
-        </SubtitleText>
+        </TitleText>
         <div className={balanceWrapperStyle}>
           <div className={balanceFlexStyle}>
-            <ETHBalanceText>{userStore.ethBalance} Eth</ETHBalanceText>
-            <USDBalanceText>{userStore.usdBalance} USD</USDBalanceText>
+            <BodyText>{userStore.ethBalance} Eth</BodyText>
+            <BodyText>{userStore.usdBalance} USD</BodyText>
           </div>
           {appStore.network === 'test' && <Button intlKey={'buttonGetTest'} />}
         </div>
