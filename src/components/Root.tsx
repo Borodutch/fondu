@@ -7,7 +7,7 @@ const rootStyle = classnames(
   'mx-auto',
   'px-5',
   'pb-10',
-  'bg-base-root'
+  'bg-base-background'
 )
 
 const Root: FC = ({ children }) => {

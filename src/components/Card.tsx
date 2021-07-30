@@ -2,16 +2,16 @@ import { classnames } from 'classnames/tailwind'
 import { FC } from 'react'
 
 const cardStyle = classnames(
-  'bg-white',
+  'bg-base-backgroundMainFrame',
   'border',
-  'border-gray-200',
+  'border-border',
   'py-3',
   'px-4',
   'rounded-base',
   'w-full',
   'shadow-sm',
-  'text-lg',
-  'bg-base-card'
+  'text-lg'
+  // 'bg-base-card'
 )
 
 const Card: FC = ({ children }) => {
