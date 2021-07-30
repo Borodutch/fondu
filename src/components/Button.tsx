@@ -34,7 +34,7 @@ const selectedButtonStyle = classnames(
   'text-white'
 )
 
-interface buttonTextProps {
+interface ButtonTextProps {
   disabled?: boolean
   selected?: boolean
   title?: string
@@ -43,7 +43,7 @@ interface buttonTextProps {
 }
 
 const Button: FC<
-  buttonTextProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+  ButtonTextProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({
   disabled = false,
   selected = false,
@@ -63,12 +63,8 @@ const Button: FC<
           : buttonStyle
       }
     >
-      <img src={icon} alt="" />
-      {intlKey !== undefined ? (
-        <FormattedMessage id={intlKey} />
-      ) : (
-        <span>{title}</span>
-      )}
+      {!!icon && <img src={icon} alt={icon} />}
+      {!!intlKey ? <FormattedMessage id={intlKey} /> : <span>{title}</span>}
     </button>
   )
 }
