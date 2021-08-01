@@ -10,6 +10,7 @@ const properties = {
     cx: 12,
     cy: 4,
     opacity: 0,
+    color: 'white',
   },
   light: {
     r: 5,
@@ -17,15 +18,12 @@ const properties = {
     cx: 30,
     cy: 0,
     opacity: 1,
+    color: 'black',
   },
   springConfig: { mass: 4, tension: 250, friction: 35 },
 }
-//appStore.theme
 const Toggle: FC = () => {
-  const isDarkMode = appStore.theme
-  const { r, transform, cx, cy, opacity } = properties[
-    isDarkMode === 'dark' ? 'dark' : 'light'
-  ]
+  const { r, transform, cx, cy, opacity } = properties[appStore.theme]
   const svgContainerProps = useSpring({ transform })
   const centerCircleProps = useSpring({ r })
   const maskedCircleProps = useSpring({ cx, cy })
@@ -39,8 +37,8 @@ const Toggle: FC = () => {
     <animated.svg
       className="darkModeIcon"
       xmlns="http://www.w3.org/2000/svg"
-      width="50"
-      height="50"
+      width="32"
+      height="32"
       viewBox="0 0 24 24"
       fill="none"
       strokeWidth="2"
@@ -66,8 +64,9 @@ const Toggle: FC = () => {
         cx="12"
         cy="12"
         style={centerCircleProps as React.CSSProperties}
-        fill="black"
+        fill={properties[appStore.theme].color}
         mask="url(#myMask2)"
+        stroke={properties[appStore.theme].color}
       />
       <animated.g stroke="currentColor" style={linesProps}>
         <line x1="12" y1="1" x2="12" y2="3" />
