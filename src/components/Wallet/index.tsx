@@ -13,8 +13,8 @@ import {
 import { observer } from 'mobx-react-lite'
 import { appStore } from 'store/AppStore'
 import { userStore } from 'store/UserStore'
+import Button from 'components/Button'
 import { TitleText, BodyText } from 'components/Text'
-import { Button } from 'components/Controls'
 import { FormattedMessage } from 'react-intl'
 
 const ContractWallet: FC = () => {
@@ -42,11 +42,10 @@ const ContractWallet: FC = () => {
             }}
           />
           <Button
-            filled={true}
+            selected={true}
+            icon={EditIcon}
             onClick={() => setAdressDisabled(!adressDisabled)}
-          >
-            <img src={EditIcon} alt="Edit" />
-          </Button>
+          />
         </div>
       </div>
       <div className={rightBlockStyle}>
@@ -58,11 +57,7 @@ const ContractWallet: FC = () => {
             <BodyText>{userStore.ethBalance} Eth</BodyText>
             <BodyText>{userStore.usdBalance} USD</BodyText>
           </div>
-          {appStore.network === 'test' && (
-            <Button>
-              <FormattedMessage id="buttonGetTest" />
-            </Button>
-          )}
+          {appStore.network === 'test' && <Button intlKey={'buttonGetTest'} />}
         </div>
       </div>
     </div>
