@@ -5,12 +5,12 @@ export const inputTextStyle = classnames(
   'w-full',
   'rounded-base',
   'border-2',
-  'border-gray-100',
+  'border-input',
   'py-2',
   'px-4',
   'focus:outline-none',
   'focus:border-gray-300',
-  'bg-white',
-  'text-base-black'
+  'bg-background-card',
+  'text-text-main'
 )
 export const hideMobile = classnames('hidden', 'md:block')

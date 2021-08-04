@@ -4,7 +4,7 @@ import { classnames } from 'classnames/tailwind'
 
 export const sectionStyle = classnames('mt-4')
 export const sectionBlockStyle = classnames(
-  'bg-base-backgroundMain',
+  'bg-background-section',
   'rounded-base'
 )
 

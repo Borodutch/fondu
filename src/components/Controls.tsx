@@ -2,8 +2,8 @@ import { FC } from 'react'
 import { classnames } from 'classnames/tailwind'
 import { hideMobile } from 'helpers/style'
 
-const stylizedTextColor = classnames('text-base-blue')
-const stylizedBackgroundColor = classnames('bg-base-blue')
+const stylizedTextColor = classnames('text-main')
+const stylizedBackgroundColor = classnames('bg-main')
 const stylizedPassedTextColor = classnames('text-blue-200')
 const stylizedPassedBorderColor = classnames('border-blue-200')
 const stylizedPassedBackgroundColor = classnames('bg-blue-200')
@@ -31,7 +31,7 @@ const singleStepStyle = classnames(
 const baseTabStyle = classnames(
   'w-8',
   'h-8',
-  'text-text-textButton',
+  'text-background-main',
   'rounded-full',
   'transition',
   'flex',

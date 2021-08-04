@@ -9,107 +9,27 @@ body {
 }
 .dark {
   --background: #05050f;
+  --background-section: #0f0f2a;
+  --background-card: #141433;
   --text-main: #ffffff;
-  /* --background-main: #0f0f2a; */
-  /* --background: #05050f;
-  --background-main: #0f0f2a;
-  --background-main-frame: #141433;
-  --background-active-frame: #1b1b3f;
-  --background-license-field: #05050f;
-  --border: #1b1b3f;
-
-  --color-active: #6486ff;
-  --color-inactive: #424274; */
-  /* --button-active: #6486ff; */
-
-  /* --line-position-inactive: #424274; */
-  /* --line-adress: #e5e5e5;
-
-  --logo: linearGradient(#6486ff, #c751ff);
-
-  --text-main: #ffffff;
-  --text-network: #6486ff;
-  --text-button: #ffffff; */
-
-  /* --color-blue: #99afff;
-  --color-gray: #38383a;
-  --color-lightgray: #617db4;
-  --color-darkgray: #bbd5f8;
-  --color-black: #cccccc;
-  --color-dark: #2a0f0f;
-  --color-white: #494949;
-  --button-red: #4b1d1d;
-  --button-dark: #162031;
-  --background-light: #252429;
-  --background-root: #252429;
-  --background-card: #3d3c42f8;
-  --text-white: #000000;
-  --text-black: #ffffff;
-  --text-gray: #a3a3a3;
-  --text-lightgray: #7785a3; */
+  --card-border: #1b1b3f;
+  --input-border: #2f2f5f;
+  --logo-from: #6486ff;
+  --logo-to: #c751ff;
 }
 .light {
   --background: #ffffff;
-  --text-main: #05050f;
-  /* --background: #ffffff;
-  --background-main: #f9f9f9;
-  --background-main-frame: #ffffff;
-  --background-active-frame: #e5e5e5;
-  --background-license-field: #05050f;
-  --border: #e8e7ed; */
-  /* --inactiveBorder: #6486ff; */
-
-  /* --color-active: #6486ff;
-  --color-inactive: #424274; */
-  /*   
-  --button-active: #6486ff;
-
-  --line-position-inactive: #424274; */
-
-  /* --line-adress: #e5e5e5;
-
-  --logo: linearGradient(#6486ff, #c751ff);
-
-  --text-main: #05050f;
-  --text-network: #6486ff;
-  --text-button: #ffffff; */
-
-  /* --color-blue: #6486ff;
-  --color-gray: #f9f9f9;
-  --color-lightgray: #9ca3af;
-  --color-darkgray: #4b5563;
-  --color-black: #05050f;
-  --color-dark: #0f0f2a;
-  --color-white: #ffffff;
-  --button-red: #ff6464;
-  --button-dark: #2d3748;
-  --background-light: #f9fafb;
-  --background-root: #ffffff;
+  --background-section: #f9f9f9;
   --background-card: #ffffff;
-  --text-white: #ffffff;
-  --text-black: #000000;
-  --text-gray: #4b5563;
-  --text-lightgray: #9ca3af; */
+  --text-main: #05050f;
+  --card-border: #e8e7ed;
+  --input-border: #e8e7ed;
+  --logo-from: #6486ff;
+  --logo-to: #c751ff;
 }
 .real {
-  /* --background: #ffffff;
-  --background-main: #f9f9f9;
-  --background-main-frame: #ffffff;
-  --background-active-frame: #e5e5e5;
-  --background-license-field: #05050f; */
-
-  /* --button-active: #ff0000; */
-  /* --color-active: #ff0000;
-  --color-inactive: #fd8383; */
-
-  /* --line-position-active: #ff0000; */
-  /* --line-position-inactive: #fd8383; */
-
-  /* --line-adress: #ff0000;
-
-  --logo: linearGradient(#6486ff, #fc071b);
-
-  --text-main: #720000;
-  --text-network: #d50000;
-  --text-button: #ffffff; */
+  --main-color: #ff6464;
+}
+.test {
+  --main-color: #6486ff;
 }
