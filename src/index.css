@@ -9,6 +9,9 @@ body {
 }
 .dark {
   --background: #05050f;
+  --text-main: #ffffff;
+  /* --background-main: #0f0f2a; */
+  /* --background: #05050f;
   --background-main: #0f0f2a;
   --background-main-frame: #141433;
   --background-active-frame: #1b1b3f;
@@ -16,19 +19,19 @@ body {
   --border: #1b1b3f;
 
   --color-active: #6486ff;
-  --color-inactive: #424274;
+  --color-inactive: #424274; */
   /* --button-active: #6486ff; */
 
   /* --line-position-inactive: #424274; */
-  --line-adress: #e5e5e5;
+  /* --line-adress: #e5e5e5;
 
   --logo: linearGradient(#6486ff, #c751ff);
 
   --text-main: #ffffff;
   --text-network: #6486ff;
-  --text-button: #ffffff;
+  --text-button: #ffffff; */
 
-  --color-blue: #99afff;
+  /* --color-blue: #99afff;
   --color-gray: #38383a;
   --color-lightgray: #617db4;
   --color-darkgray: #bbd5f8;
@@ -43,33 +46,35 @@ body {
   --text-white: #000000;
   --text-black: #ffffff;
   --text-gray: #a3a3a3;
-  --text-lightgray: #7785a3;
+  --text-lightgray: #7785a3; */
 }
 .light {
   --background: #ffffff;
+  --text-main: #05050f;
+  /* --background: #ffffff;
   --background-main: #f9f9f9;
   --background-main-frame: #ffffff;
   --background-active-frame: #e5e5e5;
   --background-license-field: #05050f;
-  --border: #e8e7ed;
+  --border: #e8e7ed; */
   /* --inactiveBorder: #6486ff; */
 
-  --color-active: #6486ff;
-  --color-inactive: #424274;
+  /* --color-active: #6486ff;
+  --color-inactive: #424274; */
   /*   
   --button-active: #6486ff;
 
   --line-position-inactive: #424274; */
 
-  --line-adress: #e5e5e5;
+  /* --line-adress: #e5e5e5;
 
   --logo: linearGradient(#6486ff, #c751ff);
 
   --text-main: #05050f;
   --text-network: #6486ff;
-  --text-button: #ffffff;
+  --text-button: #ffffff; */
 
-  --color-blue: #6486ff;
+  /* --color-blue: #6486ff;
   --color-gray: #f9f9f9;
   --color-lightgray: #9ca3af;
   --color-darkgray: #4b5563;
@@ -84,27 +89,27 @@ body {
   --text-white: #ffffff;
   --text-black: #000000;
   --text-gray: #4b5563;
-  --text-lightgray: #9ca3af;
+  --text-lightgray: #9ca3af; */
 }
 .real {
-  --background: #ffffff;
+  /* --background: #ffffff;
   --background-main: #f9f9f9;
   --background-main-frame: #ffffff;
   --background-active-frame: #e5e5e5;
-  --background-license-field: #05050f;
+  --background-license-field: #05050f; */
 
   /* --button-active: #ff0000; */
-  --color-active: #ff0000;
-  --color-inactive: #fd8383;
+  /* --color-active: #ff0000;
+  --color-inactive: #fd8383; */
 
-  --line-position-active: #ff0000;
+  /* --line-position-active: #ff0000; */
   /* --line-position-inactive: #fd8383; */
 
-  --line-adress: #ff0000;
+  /* --line-adress: #ff0000;
 
   --logo: linearGradient(#6486ff, #fc071b);
 
   --text-main: #720000;
   --text-network: #d50000;
-  --text-button: #ffffff;
+  --text-button: #ffffff; */
 }
