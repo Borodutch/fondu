@@ -4,7 +4,7 @@ import { appStore } from 'store/AppStore'
 import { classnames } from 'classnames/tailwind'
 
 const ThemeProvider: FC = ({ children }) => {
-  const backgroundStyle = classnames('bg-background-main', 'h-screen')
+  const backgroundStyle = classnames('bg-background-main', 'h-screen', 'pt-5')
 
   const root = window.document.documentElement
   // Theme
