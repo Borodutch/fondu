@@ -75,10 +75,7 @@ interface stepperTabHeaderProps {
   currentTab: Number
 }
 
-export const StepperTabs: FC<stepperTabHeaderProps> = ({
-  tabs,
-  currentTab,
-}) => {
+const StepperTabs: FC<stepperTabHeaderProps> = ({ tabs, currentTab }) => {
   return (
     <div className={stepperWrapper}>
       {tabs.map((tab: String, index) => (
@@ -119,3 +116,5 @@ export const StepperTabs: FC<stepperTabHeaderProps> = ({
     </div>
   )
 }
+
+export default StepperTabs

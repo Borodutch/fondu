@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useIntl } from 'react-intl'
 import { observer } from 'mobx-react-lite'
 import { appStore } from 'store/AppStore'
-import { StepperTabs } from 'components/Controls'
+import StepperTabs from 'components/StepperTabs'
 
 const Stepper: FC = () => {
   const { formatMessage } = useIntl()
