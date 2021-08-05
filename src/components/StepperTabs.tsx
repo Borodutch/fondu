@@ -2,13 +2,7 @@ import { FC } from 'react'
 import { classnames } from 'classnames/tailwind'
 import { hideMobile } from 'helpers/style'
 
-const stylizedTextColor = classnames('text-main')
-const stylizedBackgroundColor = classnames('bg-main')
-const stylizedPassedTextColor = classnames('text-main')
-const stylizedPassedBorderColor = classnames('border-active')
-const inactiveTextColor = classnames('text-gray-300')
-const inactiveBorderColor = classnames('border-active')
-const inactiveBackgroundColor = classnames('bg-gray-300')
+const backgroundColor = classnames('bg-main')
 
 const stepperWrapper = classnames(
   'w-auto',
@@ -38,25 +32,17 @@ const baseTabStyle = classnames(
   'justify-center'
 )
 
-const activeTabStyle = classnames(baseTabStyle, stylizedBackgroundColor)
+const activeTabStyle = classnames(baseTabStyle, backgroundColor)
 const inactiveTabStyle = classnames(
   baseTabStyle,
-  inactiveBackgroundColor,
-  inactiveBorderColor
+  'bg-gray-300',
+  'border-active'
 )
-const passedTabStyle = classnames(
-  baseTabStyle,
-  stylizedBackgroundColor,
-  'opacity-50'
-)
+const passedTabStyle = classnames(activeTabStyle, 'opacity-50')
 const baseTextStyle = classnames(hideMobile, 'transition')
-const activeTextStyle = classnames(baseTextStyle, stylizedTextColor)
-const inactiveTextStyle = classnames(baseTextStyle, inactiveTextColor)
-const passedTextStyle = classnames(
-  baseTextStyle,
-  stylizedPassedTextColor,
-  'opacity-50'
-)
+const activeTextStyle = classnames(baseTextStyle, 'text-main')
+const inactiveTextStyle = classnames(baseTextStyle, 'text-gray-300')
+const passedTextStyle = classnames(activeTextStyle, 'opacity-50')
 
 const baseLineStyle = classnames('border-b-2', 'w-10', 'md:w-40')
 const inactiveLineStyle = classnames(
@@ -64,11 +50,7 @@ const inactiveLineStyle = classnames(
   'border-dashed',
   'border-gray-300'
 )
-const passedLineStyle = classnames(
-  baseLineStyle,
-  stylizedPassedBorderColor,
-  'opacity-50'
-)
+const passedLineStyle = classnames(baseLineStyle, 'border-active', 'opacity-50')
 
 interface stepperTabHeaderProps {
   tabs: Array<String>
