@@ -4,9 +4,8 @@ import { hideMobile } from 'helpers/style'
 
 const stylizedTextColor = classnames('text-main')
 const stylizedBackgroundColor = classnames('bg-main')
-const stylizedPassedTextColor = classnames('text-blue-200')
-const stylizedPassedBorderColor = classnames('border-blue-200')
-const stylizedPassedBackgroundColor = classnames('bg-blue-200')
+const stylizedPassedTextColor = classnames('text-main')
+const stylizedPassedBorderColor = classnames('border-active')
 const inactiveTextColor = classnames('text-gray-300')
 const inactiveBorderColor = classnames('border-active')
 const inactiveBackgroundColor = classnames('bg-gray-300')
@@ -45,15 +44,31 @@ const inactiveTabStyle = classnames(
   inactiveBackgroundColor,
   inactiveBorderColor
 )
-const passedTabStyle = classnames(baseTabStyle, stylizedPassedBackgroundColor)
+const passedTabStyle = classnames(
+  baseTabStyle,
+  stylizedBackgroundColor,
+  'opacity-50'
+)
 const baseTextStyle = classnames(hideMobile, 'transition')
 const activeTextStyle = classnames(baseTextStyle, stylizedTextColor)
 const inactiveTextStyle = classnames(baseTextStyle, inactiveTextColor)
-const passedTextStyle = classnames(baseTextStyle, stylizedPassedTextColor)
+const passedTextStyle = classnames(
+  baseTextStyle,
+  stylizedPassedTextColor,
+  'opacity-50'
+)
 
 const baseLineStyle = classnames('border-b-2', 'w-10', 'md:w-40')
-const inactiveLineStyle = classnames(baseLineStyle, 'border-dashed')
-const passedLineStyle = classnames(baseLineStyle, stylizedPassedBorderColor)
+const inactiveLineStyle = classnames(
+  baseLineStyle,
+  'border-dashed',
+  'border-gray-300'
+)
+const passedLineStyle = classnames(
+  baseLineStyle,
+  stylizedPassedBorderColor,
+  'opacity-50'
+)
 
 interface stepperTabHeaderProps {
   tabs: Array<String>
@@ -67,8 +82,8 @@ export const StepperTabs: FC<stepperTabHeaderProps> = ({
   return (
     <div className={stepperWrapper}>
       {tabs.map((tab: String, index) => (
-        <div key={index}>
-          <div className={singleStepStyle}>
+        <>
+          <div key={index} className={singleStepStyle}>
             <div
               className={
                 index + 1 === currentTab
@@ -99,7 +114,7 @@ export const StepperTabs: FC<stepperTabHeaderProps> = ({
               }
             ></div>
           )}
-        </div>
+        </>
       ))}
     </div>
   )
