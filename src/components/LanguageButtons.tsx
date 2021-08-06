@@ -18,7 +18,6 @@ const menuButtonStyle = classnames(
   'border-blue-400',
   'inline-flex',
   'justify-center',
-  'w-full',
   'px-4',
   'py-2',
   'text-base-blue',
@@ -26,7 +25,8 @@ const menuButtonStyle = classnames(
   'bg-opacity-20',
   'hover:text-white',
   'hover:bg-base-blue',
-  'focus:outline-none'
+  'focus:outline-none',
+  'w-32'
 )
 const menuItemStyle = classnames(
   'absolute',
@@ -38,7 +38,8 @@ const menuItemStyle = classnames(
   'ring-1',
   'ring-black',
   'ring-opacity-5',
-  'focus:outline-none'
+  'focus:outline-none',
+  'w-32'
 )
 
 const selectedButtonStyle = classnames('bg-base-blue', 'text-white')
