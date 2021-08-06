@@ -14,7 +14,7 @@ const TokenTypeView: FC = () => {
           onClick={() => inputStore.setTokenType(TokenType.ERC20)}
         />
       </div>
-      <div className="text-text-gray text-lg">
+      <div className="text-text-main text-lg">
         <FormattedMessage id="or" />
       </div>
       <div>

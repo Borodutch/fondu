@@ -8,38 +8,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .dark {
-  --color-blue: #99afff;
-  --color-gray: #38383a;
-  --color-lightgray: #617db4;
-  --color-darkgray: #bbd5f8;
-  --color-black: #cccccc;
-  --color-dark: #2a0f0f;
-  --color-white: #494949;
-  --button-red: #4b1d1d;
-  --button-dark: #162031;
-  --background-light: #252429;
-  --background-root: #252429;
-  --background-card: #3d3c42f8;
-  --text-white: #000000;
-  --text-black: #ffffff;
-  --text-gray: #a3a3a3;
-  --text-lightgray: #7785a3;
+  --background: #05050f;
+  --background-section: #0f0f2a;
+  --background-card: #141433;
+  --text-main: #ffffff;
+  --card-border: #1b1b3f;
+  --input-border: #2f2f5f;
+  --logo-from: #6486ff;
+  --logo-to: #c751ff;
 }
 .light {
-  --color-blue: #6486ff;
-  --color-gray: #f9f9f9;
-  --color-lightgray: #9ca3af;
-  --color-darkgray: #4b5563;
-  --color-black: #05050f;
-  --color-dark: #0f0f2a;
-  --color-white: #ffffff;
-  --button-red: #ff6464;
-  --button-dark: #2d3748;
-  --background-light: #f9fafb;
-  --background-root: #ffffff;
+  --background: #ffffff;
+  --background-section: #f9f9f9;
   --background-card: #ffffff;
-  --text-white: #ffffff;
-  --text-black: #000000;
-  --text-gray: #4b5563;
-  --text-lightgray: #9ca3af;
+  --text-main: #05050f;
+  --card-border: #e8e7ed;
+  --input-border: #e8e7ed;
+  --logo-from: #6486ff;
+  --logo-to: #c751ff;
+}
+.real {
+  --main-color: #ff6464;
+}
+.test {
+  --main-color: #6486ff;
 }

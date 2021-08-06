@@ -9,7 +9,7 @@ export const leftBlockStyle = classnames(
   'md:border-r-2',
   'border-b-2',
   'md:border-b-0',
-  'border-gray-100',
+  'border-input',
   'space-y-1'
 )
 export const rightBlockStyle = classnames(

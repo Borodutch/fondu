@@ -7,7 +7,6 @@ import LanguageButtons from 'components/LanguageButtons'
 import { classnames } from 'classnames/tailwind'
 
 const headerStyle = classnames(
-  'mt-5',
   'mb-10',
   'flex',
   'flex-row',
