@@ -1,10 +1,11 @@
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment, FC } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Language, flagForLanguage } from 'models/Language'
 import { appStore } from 'store/AppStore'
 import { classnames } from 'classnames/tailwind'
 import { FormattedMessage } from 'react-intl'
+import { observer } from 'mobx-react-lite'
 
 const buttonStyle = classnames(
   'border-blue-400',
@@ -42,7 +43,7 @@ const menuItemStyle = classnames(
 
 const selectedButtonStyle = classnames('bg-base-blue', 'text-white')
 
-export default function Example() {
+const LanguageButton: FC = () => {
   return (
     <div>
       <Menu as="div" className="relative inline-block text-left">
@@ -91,30 +92,4 @@ export default function Example() {
   )
 }
 
-/*import { Language, flagForLanguage } from 'models/Language'
-import { appStore } from 'store/AppStore'
-import { classnames } from 'classnames/tailwind'
-import Button from 'components/Button'
-
-const container = classnames(
-  'flex',
-  'flex-row',
-  'items-center',
-  'justify-center'
-)
-
-export default function LanguageButtons() {
-  return (
-    <div className={container}>
-      {(['en', 'ru'] as Language[]).map((k) => (
-        <Button
-          title={flagForLanguage(k)}
-          key={k}
-          onClick={() => {
-            appStore.language = k
-          }}
-        />
-      ))}
-    </div>
-  )
-}*/
+export default observer(LanguageButton)
