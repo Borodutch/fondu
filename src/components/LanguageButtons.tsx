@@ -26,7 +26,7 @@ const menuButtonStyle = classnames(
   'hover:text-white',
   'hover:bg-base-blue',
   'focus:outline-none',
-  'w-32'
+  'w-20'
 )
 const menuItemStyle = classnames(
   'absolute',
@@ -39,7 +39,7 @@ const menuItemStyle = classnames(
   'ring-black',
   'ring-opacity-5',
   'focus:outline-none',
-  'w-32'
+  'w-20'
 )
 
 const selectedButtonStyle = classnames('bg-base-blue', 'text-white')

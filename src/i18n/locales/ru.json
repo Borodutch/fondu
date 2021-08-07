@@ -29,5 +29,5 @@
   "tokenSettingsSold": "Ваша максимальная стоимость проданных токенов",
   "tokenSettingsRaise": "Какое максимальное количество токенов вы намерены собрать?",
   "tokenSettingsWhitelist": "Принимайте Ethereum только из 'белого' списка адресов",
-  "language":"Язык"
+  "language":"RU"
 }
