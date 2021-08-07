@@ -11,6 +11,7 @@ const buttonStyle = classnames(
   'border-blue-400',
   'text-base-blue',
   'hover:text-white',
+  'place-content-center',
   'hover:bg-base-blue'
 )
 const menuButtonStyle = classnames(
@@ -35,14 +36,15 @@ const menuItemStyle = classnames(
   'bg-white',
   'rounded-md',
   'shadow-lg',
-  'ring-1',
-  'ring-black',
-  'ring-opacity-5',
   'focus:outline-none',
   'w-20'
 )
 
-const selectedButtonStyle = classnames('bg-base-blue', 'text-white')
+const selectedButtonStyle = classnames(
+  'bg-base-blue',
+  'text-white',
+  'place-content-center'
+)
 
 const LanguageButton: FC = () => {
   return (
