@@ -44,14 +44,6 @@ const activeTextStyle = classnames(baseTextStyle, 'text-main')
 const inactiveTextStyle = classnames(baseTextStyle, 'text-gray-300')
 const passedTextStyle = classnames(activeTextStyle, 'opacity-50')
 
-const baseLineStyle = classnames('border-b-2', 'w-10', 'md:w-40')
-const inactiveLineStyle = classnames(
-  baseLineStyle,
-  'border-dashed',
-  'border-gray-300'
-)
-const passedLineStyle = classnames(baseLineStyle, 'border-active', 'opacity-50')
-
 interface stepperTabHeaderProps {
   tabs: Array<String>
   currentTab: Number
@@ -86,13 +78,6 @@ const StepperTabs: FC<stepperTabHeaderProps> = ({ tabs, currentTab }) => {
               {tab}
             </span>
           </div>
-          {index < tabs.length - 1 && (
-            <div
-              className={
-                index + 1 < currentTab ? passedLineStyle : inactiveLineStyle
-              }
-            ></div>
-          )}
         </>
       ))}
     </div>
