@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import Navigation from 'components/Navigation'
 import { observer } from 'mobx-react-lite'
 import DarkModeToggle from 'components/DarkModeToggle'
 import { LogoText } from 'components/Text'
@@ -22,7 +21,6 @@ const Header: FC = () => {
       </LogoText>
       <DarkModeToggle />
       <LanguageButtons />
-      <Navigation />
     </header>
   )
 }
