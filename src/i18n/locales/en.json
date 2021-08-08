@@ -29,5 +29,5 @@
   "tokenSettingsSold": "You have the maximum value of tokens sold",
   "tokenSettingsRaise": "What is the maximum amount of tokens you intend to raise?",
   "tokenSettingsWhitelist": "Accept Ethereum only from the whitelisted addresses",
-  "language":"GB"
+  "language": "GB"
 }
