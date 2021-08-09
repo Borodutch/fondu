@@ -8,32 +8,32 @@ import { FormattedMessage } from 'react-intl'
 import { observer } from 'mobx-react-lite'
 
 const buttonStyle = classnames(
-  'border-blue-400',
-  'text-base-blue',
-  'hover:text-white',
-  'place-content-center',
-  'hover:bg-base-blue'
+  'font-light',
+  'text-main',
+  'hover:text-background-main',
+  'hover:bg-main',
+  'place-content-center'
 )
 const menuButtonStyle = classnames(
+  buttonStyle,
   'border',
-  'border-blue-400',
+  'border-active',
   'inline-flex',
   'justify-center',
   'px-4',
   'py-2',
-  'text-base-blue',
   'rounded-md',
   'bg-opacity-20',
-  'hover:text-white',
-  'hover:bg-base-blue',
   'focus:outline-none',
   'w-20'
 )
 const menuItemStyle = classnames(
+  'font-light',
+  'text-main',
+  'place-content-center',
   'absolute',
   'right-0',
   'origin-top-right',
-  'bg-white',
   'rounded-md',
   'shadow-lg',
   'focus:outline-none',
@@ -41,8 +41,8 @@ const menuItemStyle = classnames(
 )
 
 const selectedButtonStyle = classnames(
-  'bg-base-blue',
-  'text-white',
+  'bg-main',
+  'text-background-main',
   'place-content-center'
 )
 
