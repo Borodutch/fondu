@@ -17,21 +17,21 @@ const disabledButtonStyle = classnames(
   baseButtonStyle,
   'border-gray-300',
   'text-gray-300',
-  'cursor-default'
+  'pointer-events-none'
 )
 
 const buttonStyle = classnames(
   baseButtonStyle,
-  'border-blue-400',
-  'text-base-blue',
-  'hover:text-white',
-  'hover:bg-base-blue'
+  'border-active',
+  'text-main',
+  'hover:text-background-main',
+  'hover:bg-main'
 )
 
 const selectedButtonStyle = classnames(
   baseButtonStyle,
-  'bg-base-blue',
-  'text-white'
+  'bg-main',
+  'text-background-main'
 )
 
 interface ButtonTextProps {

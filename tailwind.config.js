@@ -3,37 +3,27 @@ module.exports = {
   purge: ['./public/index.html', './src/**/!(tailwind).{ts,tsx}'],
   darkMode: 'class',
   theme: {
+    borderColor: (theme) => ({
+      ...theme('colors'),
+      active: 'var(--main-color)',
+      card: 'var(--card-border)',
+      input: 'var(--input-border)',
+    }),
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],
     },
     extend: {
       colors: {
-        white: 'var(--color-white)',
-        base: {
-          blue: 'var(--color-blue)',
-          gray: 'var(--color-gray)',
-          lightgray: 'var(--color-lightgray)',
-          darkgray: 'var(--color-darkgray)',
-          black: 'var(--color-black)',
-          dark: 'var(--color-dark)',
-          root: 'var(--background-root)',
-          white: 'var(--color-white)',
+        main: 'var(--main-color)',
+        'logo-from': 'var(--logo-from)',
+        'logo-to': 'var(--logo-to)',
+        background: {
+          main: 'var(--background)',
+          section: 'var(--background-section)',
           card: 'var(--background-card)',
-          contract: 'var(--background-conract)',
-          light: 'var(--background-light)',
         },
         text: {
-          gray: 'var(--text-gray)',
-          lightgray: 'var(--text-lightgray)',
-          white: 'var(--text-white)',
-          black: 'var(--text-black)',
-        },
-        button: {
-          red: 'var(--button-red)',
-          dark: 'var(--buttton-dark)',
-        },
-        light: {
-          purple: '#C751FF',
+          main: 'var(--text-main)',
         },
       },
       borderRadius: {

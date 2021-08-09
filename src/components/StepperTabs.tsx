@@ -2,13 +2,7 @@ import { FC } from 'react'
 import { classnames } from 'classnames/tailwind'
 import { hideMobile } from 'helpers/style'
 
-const stylizedTextColor = classnames('text-base-blue')
-const stylizedBackgroundColor = classnames('bg-base-blue')
-const stylizedPassedTextColor = classnames('text-blue-200')
-const stylizedPassedBorderColor = classnames('border-blue-200')
-const stylizedPassedBackgroundColor = classnames('bg-blue-200')
-const inactiveTextColor = classnames('text-gray-300')
-const inactiveBackgroundColor = classnames('bg-gray-300')
+const backgroundColor = classnames('bg-main')
 
 const stepperWrapper = classnames(
   'w-auto',
@@ -30,7 +24,7 @@ const singleStepStyle = classnames(
 const baseTabStyle = classnames(
   'w-8',
   'h-8',
-  'text-white',
+  'text-background-main',
   'rounded-full',
   'transition',
   'flex',
@@ -38,32 +32,37 @@ const baseTabStyle = classnames(
   'justify-center'
 )
 
-const activeTabStyle = classnames(baseTabStyle, stylizedBackgroundColor)
-const inactiveTabStyle = classnames(baseTabStyle, inactiveBackgroundColor)
-const passedTabStyle = classnames(baseTabStyle, stylizedPassedBackgroundColor)
+const activeTabStyle = classnames(baseTabStyle, backgroundColor)
+const inactiveTabStyle = classnames(
+  baseTabStyle,
+  'bg-gray-300',
+  'border-active'
+)
+const passedTabStyle = classnames(activeTabStyle, 'opacity-50')
 const baseTextStyle = classnames(hideMobile, 'transition')
-const activeTextStyle = classnames(baseTextStyle, stylizedTextColor)
-const inactiveTextStyle = classnames(baseTextStyle, inactiveTextColor)
-const passedTextStyle = classnames(baseTextStyle, stylizedPassedTextColor)
+const activeTextStyle = classnames(baseTextStyle, 'text-main')
+const inactiveTextStyle = classnames(baseTextStyle, 'text-gray-300')
+const passedTextStyle = classnames(activeTextStyle, 'opacity-50')
 
 const baseLineStyle = classnames('border-b-2', 'w-10', 'md:w-40')
-const inactiveLineStyle = classnames(baseLineStyle, 'border-dashed')
-const passedLineStyle = classnames(baseLineStyle, stylizedPassedBorderColor)
+const inactiveLineStyle = classnames(
+  baseLineStyle,
+  'border-dashed',
+  'border-gray-300'
+)
+const passedLineStyle = classnames(baseLineStyle, 'border-active', 'opacity-50')
 
 interface stepperTabHeaderProps {
   tabs: Array<String>
   currentTab: Number
 }
 
-export const StepperTabs: FC<stepperTabHeaderProps> = ({
-  tabs,
-  currentTab,
-}) => {
+const StepperTabs: FC<stepperTabHeaderProps> = ({ tabs, currentTab }) => {
   return (
     <div className={stepperWrapper}>
       {tabs.map((tab: String, index) => (
-        <div key={index}>
-          <div className={singleStepStyle}>
+        <>
+          <div key={index} className={singleStepStyle}>
             <div
               className={
                 index + 1 === currentTab
@@ -94,8 +93,10 @@ export const StepperTabs: FC<stepperTabHeaderProps> = ({
               }
             ></div>
           )}
-        </div>
+        </>
       ))}
     </div>
   )
 }
+
+export default StepperTabs

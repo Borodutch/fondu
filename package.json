@@ -23,6 +23,7 @@
   },
   "scripts": {
     "start": "cross-env BROWSER=none craco start",
+    "start-win": "SET BROWSER=none & craco start",
     "build": "cross-env NODE_ENV=production BUILD_PATH='./docs' craco build",
     "generate-css-types": "tailwindcss-classnames -o src/classnames/tailwind.ts",
     "prestart": "yarn generate-css-types",
