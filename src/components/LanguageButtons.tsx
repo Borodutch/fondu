@@ -1,7 +1,7 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment, FC } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
-import { Language, flagForLanguage } from 'models/Language'
+import { Language } from 'models/Language'
 import { appStore } from 'store/AppStore'
 import { classnames } from 'classnames/tailwind'
 import { FormattedMessage } from 'react-intl'
@@ -82,7 +82,7 @@ const LanguageButton: FC = () => {
                         active ? selectedButtonStyle : buttonStyle
                       } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                     >
-                      {flagForLanguage(k)}
+                      {k}
                     </button>
                   )}
                 </Menu.Item>
