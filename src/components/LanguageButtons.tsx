@@ -27,7 +27,8 @@ const menuButtonStyle = classnames(
   'focus:outline-none',
   'w-20'
 )
-const menuItemStyle = classnames(
+const menuItemContainerStyle = classnames(
+  'bg-background-card',
   'font-light',
   'text-main',
   'place-content-center',
@@ -38,12 +39,6 @@ const menuItemStyle = classnames(
   'shadow-lg',
   'focus:outline-none',
   'w-20'
-)
-
-const selectedButtonStyle = classnames(
-  'bg-main',
-  'text-background-main',
-  'place-content-center'
 )
 
 const LanguageButton: FC = () => {
@@ -68,7 +63,7 @@ const LanguageButton: FC = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className={menuItemStyle}>
+          <Menu.Items className={menuItemContainerStyle}>
             <div className="px-1 py-1 ">
               {(['en', 'ru'] as Language[]).map((k) => (
                 <Menu.Item>
@@ -78,9 +73,7 @@ const LanguageButton: FC = () => {
                       onClick={() => {
                         appStore.language = k
                       }}
-                      className={`${
-                        active ? selectedButtonStyle : buttonStyle
-                      } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      className={`${buttonStyle} group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                     >
                       {k}
                     </button>
