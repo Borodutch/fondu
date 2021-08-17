@@ -5,6 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "@craco/craco": "^6.1.1",
+    "@headlessui/react": "^1.4.0",
+    "@heroicons/react": "^1.0.3",
     "axios": "^0.21.1",
     "mobx": "^6.3.0",
     "mobx-persist-store": "^1.0.3",
