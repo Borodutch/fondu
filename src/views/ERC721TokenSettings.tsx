@@ -61,11 +61,13 @@ const ERC721TokenSettingsView: FC = () => {
                 inputStore.setERC721Receiver(e.target.value)
               }
             />
-            <Button
-              icon={EditIcon}
-              selected={true}
-              onClick={() => alert(inputStore.erc721.privateKey)}
-            />
+            <div className="min-w-max">
+              <Button
+                icon={EditIcon}
+                selected={true}
+                onClick={() => alert(inputStore.erc721.privateKey)}
+              />
+            </div>
           </div>
         </div>
       </div>

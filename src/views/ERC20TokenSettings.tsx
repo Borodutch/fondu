@@ -61,11 +61,13 @@ const ERC20TokenSettingsView: FC = () => {
                 inputStore.setERC20Receiver(e.target.value)
               }
             />
-            <Button
-              icon={EditIcon}
-              selected={true}
-              onClick={() => alert(inputStore.erc20.privateKey)}
-            />
+            <div className="min-w-max">
+              <Button
+                icon={EditIcon}
+                selected={true}
+                onClick={() => alert(inputStore.erc20.privateKey)}
+              />
+            </div>
           </div>
         </div>
         <div className="space-y-2">

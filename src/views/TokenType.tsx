@@ -6,7 +6,7 @@ import Button from 'components/Button'
 
 const TokenTypeView: FC = () => {
   return (
-    <div className="flex flex-row justify-evenly text-2xl py-4 items-center">
+    <div className="flex flex-row  space-x-3 justify-evenly text-2xl py-4 items-center">
       <div>
         <Button
           title="ERC-20"

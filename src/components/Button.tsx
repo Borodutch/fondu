@@ -10,7 +10,7 @@ const baseButtonStyle = classnames(
   'focus:outline-none',
   'rounded-base',
   'transition',
-  'min-w-max',
+  // 'min-w-max',
   'font-light'
 )
 const disabledButtonStyle = classnames(

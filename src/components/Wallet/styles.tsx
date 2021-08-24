@@ -14,6 +14,7 @@ export const leftBlockStyle = classnames(
 )
 export const rightBlockStyle = classnames(
   'flex-1',
+  'flex-row',
   'md:pl-10',
   'pt-5',
   'md:pt-0'
@@ -22,9 +23,8 @@ export const leftBlockInnerStyle = classnames('flex', 'flex-row', 'space-x-3')
 export const balanceWrapperStyle = classnames(
   'flex',
   'md:flex-row',
-  'flex-col',
   'space-y-2',
-  'md:space-y-0'
+  'md:space-y-2'
 )
 export const balanceFlexStyle = classnames(
   'flex',
