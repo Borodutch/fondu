@@ -49,16 +49,16 @@ const Slider: FC = () => {
         className={
           appStore.network === 'test' ? activeButtonStyle : inactiveButtonStyle
         }
-        intlKey={'buttonTestNetwork'}
+        intlKey="buttonTestNetwork"
         onClick={() => (appStore.network = 'test')}
-      ></SliderButton>
+      />
       <SliderButton
         className={
           appStore.network === 'real' ? activeButtonStyle : inactiveButtonStyle
         }
-        intlKey={'buttonRealNetwork'}
+        intlKey="buttonRealNetwork"
         onClick={() => (appStore.network = 'real')}
-      ></SliderButton>
+      />
     </div>
   )
 }

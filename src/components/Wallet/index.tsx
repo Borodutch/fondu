@@ -13,7 +13,7 @@ import {
 import { observer } from 'mobx-react-lite'
 import { appStore } from 'store/AppStore'
 import { userStore } from 'store/UserStore'
-import Button from 'components/Button'
+import { Button, buttonSize } from 'components/Button'
 import { TitleText, BodyText } from 'components/Text'
 import { FormattedMessage } from 'react-intl'
 
@@ -41,7 +41,7 @@ const ContractWallet: FC = () => {
               }
             }}
           />
-          <div className="min-w-max">
+          <div className={buttonSize}>
             <Button
               selected={true}
               icon={EditIcon}

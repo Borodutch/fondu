@@ -10,7 +10,6 @@ const baseButtonStyle = classnames(
   'focus:outline-none',
   'rounded-base',
   'transition',
-  // 'min-w-max',
   'font-light'
 )
 const disabledButtonStyle = classnames(
@@ -33,6 +32,7 @@ const selectedButtonStyle = classnames(
   'bg-main',
   'text-background-main'
 )
+const buttonSize = classnames('min-w-max')
 
 interface ButtonTextProps {
   disabled?: boolean
@@ -69,4 +69,4 @@ const Button: FC<
   )
 }
 
-export default Button
+export { Button, buttonSize }
