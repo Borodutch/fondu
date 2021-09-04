@@ -6,7 +6,7 @@ import EditIcon from 'assets/icons/edit.svg'
 import { leftBlockInnerStyle } from 'components/Wallet/styles'
 import { inputStore } from 'store/InputStore'
 import { BodyText } from 'components/Text'
-import { Button, buttonSize } from 'components/Button'
+import Button from 'components/Button'
 import { FormattedMessage } from 'react-intl'
 import { getWeb3 } from 'helpers/web3'
 
@@ -61,13 +61,12 @@ const ERC20TokenSettingsView: FC = () => {
                 inputStore.setERC20Receiver(e.target.value)
               }
             />
-            <div className={buttonSize}>
-              <Button
-                icon={EditIcon}
-                selected={true}
-                onClick={() => alert(inputStore.erc20.privateKey)}
-              />
-            </div>
+            <Button
+              icon={EditIcon}
+              selected={true}
+              size={true}
+              onClick={() => alert(inputStore.erc20.privateKey)}
+            />
           </div>
         </div>
         <div className="space-y-2">

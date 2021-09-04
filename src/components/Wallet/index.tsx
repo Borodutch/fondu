@@ -13,7 +13,7 @@ import {
 import { observer } from 'mobx-react-lite'
 import { appStore } from 'store/AppStore'
 import { userStore } from 'store/UserStore'
-import { Button, buttonSize } from 'components/Button'
+import Button from 'components/Button'
 import { TitleText, BodyText } from 'components/Text'
 import { FormattedMessage } from 'react-intl'
 
@@ -41,13 +41,14 @@ const ContractWallet: FC = () => {
               }
             }}
           />
-          <div className={buttonSize}>
-            <Button
-              selected={true}
-              icon={EditIcon}
-              onClick={() => setAdressDisabled(!adressDisabled)}
-            />
-          </div>
+          {/* <div className={buttonSize}> */}
+          <Button
+            selected={true}
+            icon={EditIcon}
+            size={true}
+            onClick={() => setAdressDisabled(!adressDisabled)}
+          />
+          {/* </div> */}
         </div>
       </div>
       <div className={rightBlockStyle}>

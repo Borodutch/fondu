@@ -40,6 +40,7 @@ interface ButtonTextProps {
   title?: string
   intlKey?: string
   icon?: string
+  size?: boolean
 }
 
 const Button: FC<
@@ -50,17 +51,20 @@ const Button: FC<
   title,
   icon,
   intlKey,
+  size = false,
   ...props
 }) => {
   return (
     <button
       {...props}
       className={
-        disabled
+        (size ? buttonSize : buttonStyle) +
+        ' ' +
+        (disabled
           ? disabledButtonStyle
           : selected
           ? selectedButtonStyle
-          : buttonStyle
+          : buttonStyle)
       }
     >
       {!!icon && <img src={icon} alt={icon} />}
@@ -69,4 +73,4 @@ const Button: FC<
   )
 }
 
-export { Button, buttonSize }
+export default Button

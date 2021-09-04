@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { observer } from 'mobx-react-lite'
 import { inputStore, TokenType } from 'store/InputStore'
-import { Button } from 'components/Button'
+import Button from 'components/Button'
 
 const TokenTypeView: FC = () => {
   return (
