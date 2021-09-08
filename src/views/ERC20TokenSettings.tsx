@@ -64,7 +64,7 @@ const ERC20TokenSettingsView: FC = () => {
             <Button
               icon={EditIcon}
               selected={true}
-              size={true}
+              maxSize={true}
               onClick={() => alert(inputStore.erc20.privateKey)}
             />
           </div>

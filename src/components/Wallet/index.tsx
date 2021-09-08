@@ -41,14 +41,12 @@ const ContractWallet: FC = () => {
               }
             }}
           />
-          {/* <div className={buttonSize}> */}
           <Button
             selected={true}
             icon={EditIcon}
-            size={true}
+            maxSize={true}
             onClick={() => setAdressDisabled(!adressDisabled)}
           />
-          {/* </div> */}
         </div>
       </div>
       <div className={rightBlockStyle}>

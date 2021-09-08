@@ -29,20 +29,23 @@ const inactiveButtonStyle = classnames(
   inactiveLineStyle,
   'text-gray-300'
 )
+
 interface SliderTextProps {
   title?: string
   intlKey?: string
 }
+
 const SliderButton: FC<
   SliderTextProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ title, intlKey, ...props }) => {
   return (
-    <button {...props}>
+    <button>
       {!!intlKey ? <FormattedMessage id={intlKey} /> : <span>{title}</span>}
     </button>
   )
 }
-const Slider: FC = () => {
+
+const Slider = () => {
   return (
     <div className={sliderStyle}>
       <SliderButton
@@ -62,4 +65,5 @@ const Slider: FC = () => {
     </div>
   )
 }
+
 export default observer(Slider)
