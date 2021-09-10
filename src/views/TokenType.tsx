@@ -3,10 +3,22 @@ import { FormattedMessage } from 'react-intl'
 import { observer } from 'mobx-react-lite'
 import { inputStore, TokenType } from 'store/InputStore'
 import Button from 'components/Button'
+import { classnames } from 'classnames/tailwind'
+
+const tokenTypeStyle = classnames(
+  'flex',
+  'flex-row',
+  'space-x-3',
+  'place-content-evenly',
+  'text-2xl',
+  'py-4',
+  'items-center'
+)
+const tokenTypeText = classnames('text-text-main', 'text-lg')
 
 const TokenTypeView: FC = () => {
   return (
-    <div className="flex flex-row  space-x-3 justify-evenly text-2xl py-4 items-center">
+    <div className={tokenTypeStyle}>
       <div>
         <Button
           title="ERC-20"
@@ -14,7 +26,7 @@ const TokenTypeView: FC = () => {
           onClick={() => inputStore.setTokenType(TokenType.ERC20)}
         />
       </div>
-      <div className="text-text-main text-lg">
+      <div className={tokenTypeText}>
         <FormattedMessage id="or" />
       </div>
       <div>

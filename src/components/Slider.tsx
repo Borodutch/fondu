@@ -60,7 +60,9 @@ const Slider = () => {
           appStore.network === 'real' ? activeButtonStyle : inactiveButtonStyle
         }
         intlKey="buttonRealNetwork"
-        onClick={() => (appStore.network = 'real')}
+        onClick={() => {
+          appStore.network = 'real'
+        }}
       />
     </div>
   )
