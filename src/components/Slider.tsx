@@ -53,7 +53,9 @@ const Slider = () => {
           appStore.network === 'test' ? activeButtonStyle : inactiveButtonStyle
         }
         intlKey="buttonTestNetwork"
-        onClick={() => {appStore.network = 'test'}}
+        onClick={() => {
+          appStore.network = 'test'
+        }}
       />
       <SliderButton
         className={
