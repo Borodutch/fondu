@@ -4,7 +4,13 @@ import { FC } from 'react'
 import { appStore } from 'store/AppStore'
 import { FormattedMessage } from 'react-intl'
 
-const sliderStyle = classnames('flex', 'flex-row', 'justify-center')
+const sliderStyle = classnames(
+  'flex',
+  'flex-row',
+  'justify-center',
+  'px-3',
+  'md:p-0'
+)
 const baseLineStyle = classnames(
   'border-b-2',
   'w-10',
@@ -39,7 +45,7 @@ const SliderButton: FC<
   SliderTextProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ title, intlKey, ...props }) => {
   return (
-    <button>
+    <button {...props}>
       {!!intlKey ? <FormattedMessage id={intlKey} /> : <span>{title}</span>}
     </button>
   )

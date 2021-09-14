@@ -9,7 +9,9 @@ const headerStyle = classnames(
   'mb-10',
   'flex',
   'justify-between',
-  'items-center'
+  'items-center',
+  'px-3',
+  'md:p-0'
 )
 
 const Header: FC = () => {
