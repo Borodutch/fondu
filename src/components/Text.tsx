@@ -23,7 +23,7 @@ export const TitleText: FC = ({ children }) => {
   return <h2 className={titleStyle}>{children}</h2>
 }
 
-const bodyTextStyle = classnames('text-text-main')
+const bodyTextStyle = classnames('text-text-main', 'break-words')
 
 export const BodyText: FC = ({ children }) => {
   return <span className={bodyTextStyle}>{children}</span>

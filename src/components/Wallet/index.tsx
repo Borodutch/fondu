@@ -44,6 +44,7 @@ const ContractWallet: FC = () => {
           <Button
             selected={true}
             icon={EditIcon}
+            maxSize
             onClick={() => setAdressDisabled(!adressDisabled)}
           />
         </div>

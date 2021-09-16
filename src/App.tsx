@@ -6,6 +6,7 @@ import Section from 'components/Section'
 import Wallet from 'components/Wallet'
 import ContractBuilder from 'components/ContractBuilder'
 import ThemeProvider from 'components/ThemeProvider'
+import Slider from 'components/Slider'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
             <Wallet />
           </Section>
           <Section>
+            <Slider />
             <ContractBuilder />
           </Section>
         </Root>

@@ -10,7 +10,6 @@ const baseButtonStyle = classnames(
   'focus:outline-none',
   'rounded-base',
   'transition',
-  'min-w-max',
   'font-light'
 )
 const disabledButtonStyle = classnames(
@@ -33,6 +32,7 @@ const selectedButtonStyle = classnames(
   'bg-main',
   'text-background-main'
 )
+const maxButtonSize = classnames('min-w-max')
 
 interface ButtonTextProps {
   disabled?: boolean
@@ -40,6 +40,7 @@ interface ButtonTextProps {
   title?: string
   intlKey?: string
   icon?: string
+  maxSize?: boolean
 }
 
 const Button: FC<
@@ -50,18 +51,20 @@ const Button: FC<
   title,
   icon,
   intlKey,
+  maxSize = false,
   ...props
 }) => {
   return (
     <button
       {...props}
-      className={
+      className={classnames(
+        maxSize ? maxButtonSize : null,
         disabled
           ? disabledButtonStyle
           : selected
           ? selectedButtonStyle
           : buttonStyle
-      }
+      )}
     >
       {!!icon && <img src={icon} alt={icon} />}
       {!!intlKey ? <FormattedMessage id={intlKey} /> : <span>{title}</span>}

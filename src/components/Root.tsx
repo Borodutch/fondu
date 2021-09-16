@@ -5,7 +5,8 @@ import { classnames } from 'classnames/tailwind'
 const rootStyle = classnames(
   'container',
   'mx-auto',
-  'px-5',
+  'md:px-5',
+  'px-1',
   'pb-10',
   'bg-background-main'
 )
