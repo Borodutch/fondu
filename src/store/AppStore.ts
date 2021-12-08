@@ -25,7 +25,7 @@ class AppStore {
   }
 
   incrementTab() {
-    if (this.tab < 3) {
+    if (this.tab < 4) {
       this.tab++
     }
   }

@@ -5,37 +5,28 @@ import { BodyText } from 'components/Text'
 import { FormattedMessage } from 'react-intl'
 
 const ERC721DeploymentView: FC = () => {
+  const url = 'http://localhost:1337/erc721'
+  let xhr = new XMLHttpRequest()
+  xhr.open('POST', url, false)
+  xhr.setRequestHeader('Content-Type', 'application/json')
+  xhr.send(JSON.stringify(inputStore.erc721))
+  if (xhr.status !== 200) {
+    console.log(`Ошибка ${xhr.status}: ${xhr.statusText}`)
+  } else {
+    inputStore.setDeployData(JSON.parse(xhr.response))
+  }
+
   return (
     <>
+      <br />
       <BodyText>
-        <FormattedMessage id="deployCheck" />
+        <FormattedMessage id="bodyOfContract" />
       </BodyText>
-      <ol className="list-disc list-inside pt-2">
-        <li>
-          <BodyText>
-            <FormattedMessage id="deployTokenType" />
-          </BodyText>
-          <BodyText> ERC-721</BodyText>
-        </li>
-        <li>
-          <BodyText>
-            <FormattedMessage id="deployTokenName" />
-          </BodyText>
-          <BodyText> {inputStore.erc721.name}</BodyText>
-        </li>
-        <li>
-          <BodyText>
-            <FormattedMessage id="deployTokenSymbol" />
-          </BodyText>
-          <BodyText> {inputStore.erc721.symbol}</BodyText>
-        </li>
-        <li>
-          <BodyText>
-            <FormattedMessage id="deployReceiver" />
-          </BodyText>
-          <BodyText> {inputStore.erc721.receiver}</BodyText>
-        </li>
-      </ol>
+      <br />
+      <br />
+      <pre>
+        <BodyText>{inputStore.deployData.contract}</BodyText>
+      </pre>
     </>
   )
 }
