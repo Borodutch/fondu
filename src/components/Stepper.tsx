@@ -12,6 +12,7 @@ const Stepper: FC = () => {
         formatMessage({ id: 'tokenType' }),
         formatMessage({ id: 'tokenSettings' }),
         formatMessage({ id: 'deployment' }),
+        formatMessage({ id: 'deployed' }),
       ]}
       currentTab={appStore.tab}
     />

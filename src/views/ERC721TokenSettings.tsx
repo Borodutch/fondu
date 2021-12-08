@@ -69,6 +69,163 @@ const ERC721TokenSettingsView: FC = () => {
             />
           </div>
         </div>
+
+        <div className="space-y-2">
+          <BodyText>
+            <FormattedMessage id="tokenSettingsBaseUri" />
+          </BodyText>
+          <input
+            type="text"
+            className={inputTextStyle}
+            onChange={(e) => inputStore.setERC721BaseUri(e.target.value)}
+            placeholder="https://..."
+          />
+        </div>
+
+        <div>
+          <div>
+            <div>
+              <input
+                type="checkbox"
+                className="mr-2"
+                defaultChecked={inputStore.erc721.mintable}
+                onChange={(e) => inputStore.setERC721Mintable(e.target.checked)}
+              />
+              <BodyText>
+                <FormattedMessage id="tokenSettingsMintable" />
+              </BodyText>
+            </div>
+          </div>
+          {inputStore.erc721.mintable && (
+            <div>
+              <input
+                type="checkbox"
+                className="mr-2"
+                defaultChecked={inputStore.erc721.autoIncrementIds}
+                onChange={(e) =>
+                  inputStore.setERC721AutoIncrementIds(e.target.checked)
+                }
+              />
+              <BodyText>
+                <FormattedMessage id="tokenSettingsAutoIncrementIds" />
+              </BodyText>
+            </div>
+          )}
+        </div>
+
+        <div>
+          <input
+            type="checkbox"
+            className="mr-2"
+            defaultChecked={inputStore.erc721.burnable}
+            onChange={(e) => inputStore.setERC721Burnable(e.target.checked)}
+          />
+          <BodyText>
+            <FormattedMessage id="tokenSettingsBurnable" />
+          </BodyText>
+        </div>
+        <div>
+          <div>
+            <input
+              type="checkbox"
+              className="mr-2"
+              defaultChecked={inputStore.erc721.pausable}
+              onChange={(e) => inputStore.setERC721Pausable(e.target.checked)}
+            />
+            <BodyText>
+              <FormattedMessage id="tokenSettingsPausable" />
+            </BodyText>
+          </div>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            className="mr-2"
+            defaultChecked={inputStore.erc721.enumerable}
+            onChange={(e) => inputStore.setERC721Enumerable(e.target.checked)}
+          />
+          <BodyText>
+            <FormattedMessage id="tokenSettingsEnumerable" />
+          </BodyText>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            className="mr-2"
+            defaultChecked={inputStore.erc721.uriStorage}
+            onChange={(e) => inputStore.setERC721UriStorage(e.target.checked)}
+          />
+          <BodyText>
+            <FormattedMessage id="tokenSettingsUriStorage" />
+          </BodyText>
+        </div>
+        {inputStore.erc721.ownable && (
+          <div>
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  className="mr-2"
+                  defaultChecked={inputStore.erc721.ownable}
+                  onChange={(e) =>
+                    inputStore.setERC721Ownable(e.target.checked)
+                  }
+                />
+                <BodyText>
+                  <FormattedMessage id="tokenSettingsOwnable" />
+                </BodyText>
+              </label>
+            </div>
+
+            <div className="space-y-2">
+              <label>
+                <input
+                  type="radio"
+                  className="mr-2"
+                  defaultChecked={inputStore.erc721.roles}
+                  onChange={(e) => inputStore.setERC721Roles(e.target.checked)}
+                />
+                <BodyText>
+                  <FormattedMessage id="tokenSettingsRoles" />
+                </BodyText>
+              </label>
+            </div>
+          </div>
+        )}
+
+        {inputStore.erc721.roles && (
+          <div>
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  className="mr-2"
+                  defaultChecked={inputStore.erc721.ownable}
+                  onChange={(e) =>
+                    inputStore.setERC721Ownable(e.target.checked)
+                  }
+                />
+                <BodyText>
+                  <FormattedMessage id="tokenSettingsOwnable" />
+                </BodyText>
+              </label>
+            </div>
+
+            <div className="space-y-2">
+              <label>
+                <input
+                  type="radio"
+                  className="mr-2"
+                  defaultChecked={inputStore.erc721.roles}
+                  onChange={(e) => inputStore.setERC721Roles(e.target.checked)}
+                />
+                <BodyText>
+                  <FormattedMessage id="tokenSettingsRoles" />
+                </BodyText>
+              </label>
+            </div>
+          </div>
+        )}
       </div>
     </>
   )

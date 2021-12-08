@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx'
 import erc20 from 'models/ERC20'
 import erc721 from 'models/ERC721'
+import { DeployData, ServerResponse, DeployedContract } from 'models/DeployData'
 
 export enum TokenType {
   ERC20,
@@ -25,11 +26,37 @@ class InputStore {
     name: 'Fondu',
     symbol: 'FDU',
     receiver: '',
+    baseUri: '',
     privateKey: '',
-  }
+    mintable: false,
+    autoIncrementIds: false,
+    burnable: false,
+    pausable: false,
+    enumerable: false,
+    uriStorage: false,
 
+    ownable: true,
+    roles: false,
+  }
+  deployData: DeployData = {
+    abi: '',
+    bytecode: { object: '' },
+    contract: '',
+    signer: '',
+  }
+  deployedContract: DeployedContract = { contractAddress: '', from: '' }
   constructor() {
     makeAutoObservable(this)
+  }
+
+  setDeployData(serverResponse: ServerResponse) {
+    this.deployData.abi = serverResponse.abi
+    this.deployData.bytecode = serverResponse.bytecode
+    this.deployData.contract = serverResponse.contract
+    this.deployData.signer =
+      this.tokenType === TokenType.ERC721
+        ? this.erc721.receiver
+        : this.erc20.receiver
   }
 
   setTokenType(tokenType: TokenType) {
@@ -90,6 +117,44 @@ class InputStore {
 
   setERC721PrivateKey(key: string) {
     this.erc721.privateKey = key
+  }
+
+  setERC721Mintable(key: boolean) {
+    this.erc721.mintable = key
+  }
+
+  setERC721AutoIncrementIds(key: boolean) {
+    this.erc721.autoIncrementIds = key
+  }
+
+  setERC721Burnable(key: boolean) {
+    this.erc721.burnable = key
+  }
+
+  setERC721Pausable(key: boolean) {
+    this.erc721.pausable = key
+  }
+
+  setERC721Enumerable(key: boolean) {
+    this.erc721.enumerable = key
+  }
+
+  setERC721UriStorage(key: boolean) {
+    this.erc721.uriStorage = key
+  }
+
+  setERC721Ownable(key: boolean) {
+    this.erc721.ownable = key
+    this.erc721.roles = !key
+  }
+
+  setERC721Roles(key: boolean) {
+    this.erc721.roles = key
+    this.erc721.ownable = !key
+  }
+
+  setERC721BaseUri(key: string) {
+    this.erc721.baseUri = key
   }
 }
 

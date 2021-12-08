@@ -8,6 +8,7 @@ import ERC20TokenSettingsView from 'views/ERC20TokenSettings'
 import ERC721TokenSettingsView from 'views/ERC721TokenSettings'
 import ERC20DeploymentView from 'views/ERC20Deployment'
 import ERC721DeploymentView from 'views/ERC721Deployment'
+import DeployedContract from 'views/DeployedContract'
 import { appStore } from 'store/AppStore'
 import { inputStore, TokenType } from 'store/InputStore'
 import { classnames } from 'classnames/tailwind'
@@ -37,6 +38,7 @@ const ContractMain: FC = () => {
               inputStore.tokenType === TokenType.ERC721 && (
                 <ERC721DeploymentView />
               )}
+            {appStore.tab === 4 && <DeployedContract />}
           </Card>
           <StepperNavigation />
         </div>
